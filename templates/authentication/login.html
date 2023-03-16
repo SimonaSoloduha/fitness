@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Вход
+{% endblock title %}
+
+
+{% block header-video %}
+
+{% endblock header-video %}
+
+
+{% block content %}
+
+<div class="site-section bg-light contact-wrap" id="contact-section">
+    <div class="container">
+
+        <div class="row justify-content-center text-center mb-5">
+            <div class="col-md-8  section-heading">
+                <span class="subheading">Вперед к тренировкам</span>
+                <h2 class="heading mb-3">Вход</h2>
+                {% if attention %}
+                <div class="alert alert-info" role="alert">
+                    <p class="attention">{{ attention }}</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <form method="post" data-aos="fade" id="login-form">
+                    {% csrf_token %}
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input name="username" class="form-control" autocomplete="username" maxlength="150" required="" id="id_username" placeholder="username">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="password" name="password" autocomplete="current-password" required="" id="id_password" class="form-control" placeholder="Пароль">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6 mx-auto">
+                            <input type="submit" class="btn btn-primary py-3 px-5 btn-block" value="Войти">
+                        </div>
+                    </div>
+                    {% if attention %}
+
+                    <div class="form-group row">
+                        <div class="col-md-6 mx-auto">
+                            <a class="btn btn-primary py-3 px-5 btn-block" href="{% url 'reset_password_1' %}">Изменить пароль</a>
+                        </div>
+                    </div>
+
+                    {% endif %}
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

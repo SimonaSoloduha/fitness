@@ -1,0 +1,200 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %} {% endblock title %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+    <link href="{% static 'css/jquery.mb.YTPlayer.min.css' %}" media="all" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+<div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+    {% block nav-bar %}
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <div class="site-logo"><a href="index.html">Fitness home<span>.</span> </a></div>
+                <div class="ml-auto">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                            <li><a href="#home-section" class="nav-link">Главная</a></li>
+                            {% if user.is_authenticated %}
+                            <li><a href="#classes-section" class="nav-link">Классы</a></li>
+                            <li><a href="#schedule-section" class="nav-link">Рассписание</a></li>
+                            <li><a href="#trainer-section" class="nav-link">Тренировки</a></li>
+                            <li><a href="#services-section" class="nav-link">Услуги</a></li>
+                            <li><a href="{% url 'logout' %}" class="nav-link">Выход</a></li>
+                            {% else %}
+                            <li><a href="{% url 'login' %}" class="nav-link">Вход</a></li>
+                            <li><a href="{% url 'register' %}" class="nav-link">Регистрация</a></li>
+                            {% endif %}
+                            <li><a href="#contact-section" class="nav-link">Контакты</a></li>
+                        </ul>
+                    </nav>
+                    <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle float-right"><span
+                            class="icon-menu h3"></span></a>
+                </div>
+
+            </div>
+        </div>
+    {% endblock nav-bar %}
+    </header>
+
+    {% block header-video %}
+
+    <a id="bgndVideo" class="player"
+       data-property="{videoURL:'https://www.youtube.com/watch?v=cEYQrO-N3ik',showYTLogo:false,
+      showAnnotations: false, showControls: false, cc_load_policy: false,
+      containment:'#home-section',autoPlay:true, mute:true, startAt:0, stopAt: 11, opacity:1}">
+    </a>
+    <div class="intro-section" id="home-section" style="background-color: #ccc;">
+        <div class="container">
+
+            <div class="row align-items-center">
+                <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
+                    <h1 class="mb-3">Simona Soloduha</h1>
+                    <p class="lead mx-auto desc mb-5">Тренируся в любой точке мира</p>
+                    <p class="text-center">
+                        <a href="#" class="btn btn-outline-white py-3 px-5">Get Started</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="schedule-wrap">
+
+
+        <div class="d-md-flex align-items-center">
+            <div class="hours mr-md-4 mb-4 mb-lg-0">
+                <strong class="d-block">Hours</strong>
+                Opening: 7:30am &mdash;
+                Closing: 9:00pm
+            </div>
+            <div class="cta ml-auto">
+                <a href="#contact-section" class="smoothscroll d-flex d-md-flex align-items-center btn">
+                    <span class="mx-auto">  <span>Contact us</span> <span
+                            class="arrow icon-keyboard_arrow_right"></span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endblock header-video %}
+
+    {% block content %}
+
+    {% endblock content %}
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3 class="text-dark">About Stamina</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
+                        live the blind texts.</p>
+                </div>
+
+                <div class="col-md-3 ml-auto">
+                    <h3 class="text-dark">Links</h3>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#home-section">Главная</a></li>
+                        <li><a href="#classes-section">Классы</a></li>
+                        <li><a href="#schedule-section">Рассписание</a></li>
+                        <li><a href="#trainer-section">Тренировки</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <h3 class="text-dark">Subscribe</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
+                        live the blind texts.
+                    </p>
+                    <form action="#">
+                        <div class="d-flex mb-5">
+                            <input type="text" class="form-control rounded-0" placeholder="Email">
+                            <input type="submit" class="btn btn-primary rounded-0" value="Subscribe">
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="row pt-5 mt-5 text-center">
+                <div class="col-md-12">
+                    <div class=" pt-5">
+                        <p class="copyright">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                            All rights reserved | This template is made with <i class="icon-heart text-danger"
+                                                                                aria-hidden="true"></i> by <a
+                                href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+</div>
+<!-- .site-wrap -->
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+<script src="{% static 'js/jquery-ui.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+<script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'js/aos.js' %}"></script>
+<script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+<script src="{% static 'js/jquery.sticky.js' %}"></script>
+<script src="{% static 'js/jquery.mb.YTPlayer.min.js' %}"></script>
+
+
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
