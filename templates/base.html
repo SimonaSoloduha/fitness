@@ -21,7 +21,7 @@
 
     <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
 
-    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+    <script src="https://kit.fontawesome.com/e9f014af2e.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="{% static 'css/aos.css' %}">
     <link href="{% static 'css/jquery.mb.YTPlayer.min.css' %}" media="all" rel="stylesheet" type="text/css">
@@ -64,6 +64,11 @@
                             <li><a href="{% url 'register' %}" class="nav-link">Регистрация</a></li>
                             {% endif %}
                             <li><a href="#contact-section" class="nav-link">Контакты</a></li>
+                            <li><i class="fa-brands fa-instagram"></i></li>
+                            <li><i class="fa-brands fa-youtube"></i></li>
+                            <li><i class="fa-brands fa-facebook"></i></li>
+                            <li><i class="fa-solid fa-envelope"></i></li>
+
                         </ul>
                     </nav>
                     <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle float-right"><span
@@ -79,7 +84,7 @@
 
     <a id="bgndVideo" class="player"
        data-property="{videoURL:'https://www.youtube.com/watch?v=cEYQrO-N3ik',showYTLogo:false,
-      showAnnotations: false, showControls: false, cc_load_policy: false,
+      showAnnotations: false, showControls: false, cc_load_policy: false, loop:100, ratio:'4/3', addRaster:true,
       containment:'#home-section',autoPlay:true, mute:true, startAt:0, stopAt: 11, opacity:1}">
     </a>
     <div class="intro-section" id="home-section" style="background-color: #ccc;">
@@ -129,6 +134,7 @@
                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
                         live the blind texts.</p>
                 </div>
+
 
                 <div class="col-md-3 ml-auto">
                     <h3 class="text-dark">Links</h3>

@@ -287,4 +287,8 @@ jQuery(document).ready(function($) {
 		$("#bgndVideo").YTPlayer();
 	});
 
+	$(function () {
+		$("#bgndVideoFree").YTPlayer();
+	});
+
 });
