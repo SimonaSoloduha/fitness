@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     # --- my apps ---
     'shop',
     'authentication',
+    'video',
+    'embed_video',
 ]
 
 MIDDLEWARE = [

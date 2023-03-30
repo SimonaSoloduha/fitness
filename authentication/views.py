@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LogoutView
 from django.shortcuts import render, redirect
 
 from authentication.forms import RegisterForm, ResetPassword1, CodeForm, CustomSetPasswordForm
@@ -149,7 +149,7 @@ def reset_password_3(request):
                 else:
                     user.set_password(password2)
                     user.save()
-                    login(request, user)
+                    login(request, user, backend='django.contrib.auth.backends.ModelBackend')
                     return redirect('index')
 
     else:

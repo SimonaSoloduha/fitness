@@ -1,0 +1,203 @@
+{% load embed_video_tags %}
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-2">
+            <section>
+                <section id="filters" data-auto-filter="true">
+                    <h5>Фильтровать</h5>
+
+                    <section class="mb-4" data-filter="condition">
+                        <h6 class="font-weight-bold mb-3">Тип</h6>
+                        {% for type in types %}
+
+                        <div class="form-check mb-3">
+                            <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    value="{{type}}"
+                                    id="{{type}}"
+                                    name="filterType"
+                            />
+                            <label class="form-check-label text-uppercase small text-muted"
+                                   for="{{type}}">
+                                {{ type }}
+                            </label>
+                        </div>
+                        {% endfor %}
+
+                    </section>
+
+                    <!--                    <section class="mb-4">-->
+                    <!--                        <h6 class="font-weight-bold mb-3">Avg. Customer Review</h6>-->
+
+                    <!--                        <ul class="rating" data-toggle="rating" id="filter-rating">-->
+                    <!--                            <li>-->
+                    <!--                                <i class="far fa-star fa-sm text-primary" title="1"></i>-->
+                    <!--                            </li>-->
+                    <!--                            <li>-->
+                    <!--                                <i class="far fa-star fa-sm text-primary" title="2"></i>-->
+                    <!--                            </li>-->
+                    <!--                            <li>-->
+                    <!--                                <i class="far fa-star fa-sm text-primary" title="3"></i>-->
+                    <!--                            </li>-->
+                    <!--                            <li>-->
+                    <!--                                <i class="far fa-star fa-sm text-primary" title="4"></i>-->
+                    <!--                            </li>-->
+                    <!--                            <li>-->
+                    <!--                                <i class="far fa-star fa-sm text-primary" title="5"></i>-->
+                    <!--                            </li>-->
+                    <!--                        </ul>-->
+                    <!--                    </section>-->
+
+                    <section class="mb-4">
+
+                        <h6 class="font-weight-bold mb-3">Группа мышц</h6>
+                        {% for body_part in body_parts %}
+
+                        <div class="form-check mb-3">
+                            <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    value="{{body_part}}"
+                                    id="{{body_part}}"
+                                    name="filterBodyPart"
+                            />
+                            <label class="form-check-label text-uppercase small text-muted"
+                                   for="{{body_part}}">
+                                {{body_part}}
+                            </label>
+                        </div>
+                        {% endfor %}
+
+                    </section>
+                    <section class="mb-4" data-filter="size">
+
+                        <h6 class="font-weight-bold mb-3">Длительность</h6>
+
+                        {% for time in times %}
+
+                        <div class="form-check mb-3">
+                            <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    value="{{time}}"
+                                    id="{{time}}"
+                                    name="filterTime"/>
+
+                            <label class="form-check-label text-uppercase small text-muted"
+                                   for="{{time}}"> {{time}} мин </label>
+                        </div>
+
+                        {% endfor %}
+
+
+                    </section>
+                </section>
+            </section>
+        </div>
+        <div class="col-md-10">
+
+            {% if fit_videos %}
+            <div class="col-md-12  justify-content-center text-center">
+
+                {% for trainer in trainer_choices %}
+                <label class="btn btn-outline-blue1 py-1 px-3" for="{{trainer}}">
+                    <input type="checkbox"
+                           value="{{trainer}}"
+                           id="{{trainer}}"
+                           name="filterTrainer">
+                    <span>{{ trainer.first_name }} {{ trainer.last_name }}</span>
+                </label>
+                {% endfor %}
+            </div>
+
+            <div class="row">
+
+
+                {% for fit_video in fit_videos %}
+
+                <div class="col-lg-6 filterDiv {{fit_video.trainer}} {{fit_video.times}}
+                {{ fit_video.types }} {{ fit_video.body_parts }}">
+
+                    <div class="class-item d-flex align-items-center">
+                        <div class="video-mini">
+                            <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail responsive-iframe">
+                                {% video fit_video.video '90% x 90%' %}
+                            </a>
+                        </div>
+
+                        <div class="class-item-text">
+                            <h2><a href="single.html">{{ fit_video.name}}</a></h2>
+                            <span>{{ fit_video.trainer.first_name }} {{ fit_video.trainer.last_name }}</span>,
+                            <span>{{ fit_video.times }} минут</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+var allCheckboxes = document.querySelectorAll('input[type=checkbox]');
+var allPlayers = Array.from(document.querySelectorAll('.filterDiv'));
+var checked = {};
+
+
+getChecked('filterTime');
+getChecked('filterBodyPart');
+getChecked('filterType');
+getChecked('filterTrainer');
+
+
+Array.prototype.forEach.call(allCheckboxes, function (el) {
+  el.addEventListener('change', toggleCheckbox);
+});
+
+function toggleCheckbox(e) {
+  getChecked(e.target.name);
+  setVisibility();
+}
+
+function getChecked(name) {
+  checked[name] = Array.from(document.querySelectorAll('input[name=' + name + ']:checked')).map(function (el) {
+    return el.value;
+  });
+}
+
+
+function setVisibility() {
+
+  allPlayers.map(function (el) {
+
+      intersect = function(arr1, arr2) {
+          return arr1.filter(function(n) {
+                return arr2.indexOf(n) !== -1;
+          });
+      };
+
+
+    var filterTime = checked.filterTime.length ? (intersect(Array.from(el.classList), checked.filterTime)).length : true;
+    var filterBodyPart = checked.filterBodyPart.length ? (intersect(Array.from(el.classList), checked.filterBodyPart)).length : true;
+    var filterType = checked.filterType.length ? (intersect(Array.from(el.classList), checked.filterType)).length : true;
+    var filterTrainer = checked.filterTrainer.length ? (intersect(Array.from(el.classList), checked.filterTrainer)).length : true;
+    if (filterTime && filterBodyPart && filterType && filterTrainer) {
+      el.style.display = 'block';
+
+    } else {
+      el.style.display = 'none';
+    }
+  });
+}
+
+
+
+
+</script>

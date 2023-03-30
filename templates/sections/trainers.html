@@ -1,0 +1,34 @@
+{% load static %}
+
+<div class="site-section" id="trainer-section">
+    <div class="container">
+        <div class="row justify-content-center text-center mb-5" data-aos="fade-up">
+            <div class="col-md-8  section-heading">
+                <span class="subheading">Мои рекомендации</span>
+                <h2 class="heading mb-3">Тренеры</h2>
+                <p>У каждого из нас наступает момент, когда тренироваться становится скучно.</p>
+              Именно в этот момент советую попробовать новые тренировки нового тренера. Найдите того, с кем вы снова
+              начнете страстно ждать время старта занятий и ваши тренировки будут пролетать незаметно.
+              Кстати, к любимым тренерам вы со временем вернетесь с новой любовью
+              <i class="icon-heart text-danger" aria-hidden="true"></i>
+            </div>
+        </div>
+
+        <div class="row">
+
+            {% for trainer in trainers %}
+
+            <div class="col-lg-3 mb-4 mb-lg-0 col-md-6 text-center" data-aos="fade-up" data-aos-delay="">
+                <div class="person">
+                    <img src="{{ trainer.foto }}" alt="Image" class="img-fluid">
+                    <h3>{{ trainer.first_name }} {{ trainer.last_name }}</h3>
+                    <p class="position">Trainer</p>
+                    <p>{{ trainer.about }}. </p>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
