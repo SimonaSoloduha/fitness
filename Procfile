@@ -1,1 +1,1 @@
-web: gunicorn fitness_Solod.wsgi
+web: gunicorn fitness.wsgi
