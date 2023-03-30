@@ -135,6 +135,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/var/opt/fitness_Solod/media/'
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
@@ -156,3 +159,5 @@ AUTHENTICATION_BACKENDS = (
 )
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
