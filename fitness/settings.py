@@ -30,9 +30,10 @@ TEMPLATES_DIRS = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = env('DEBUG', default=False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fitness212121.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
