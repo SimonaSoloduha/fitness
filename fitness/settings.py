@@ -34,7 +34,7 @@ SECRET_KEY = env('SECRET_KEY')
 # DEBUG = True
 DEBUG = env('DEBUG', default=False)
 
-ALLOWED_HOSTS = ['fitness212121.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['*', ]
 
 
 # Application definition
@@ -161,6 +161,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 LOGIN_REDIRECT_URL = 'index'
 
@@ -178,5 +180,3 @@ AUTHENTICATION_BACKENDS = (
 )
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
