@@ -52,24 +52,27 @@
                 <div class="ml-auto">
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                            <li><a href="{% url 'index' %}" class="nav-link">Главная</a></li>
+                            <a href="{% url 'index' %}" class="nav-link">Главная</a>
                             {% if user.is_authenticated %}
-                            <li><a href="{% url 'all' %}" class="nav-link">Бесплатные тренеровки</a></li>
-                            <li><a href="#schedule-section" class="nav-link">График тренеровок</a></li>
-                            <li><a href="{% url 'logout' %}" class="nav-link">Выход</a></li>
+                            <a href="{% url 'all' %}" class="nav-link">Бесплатные тренеровки</a>
+                            <a href="#schedule-section" class="nav-link">График тренеровок</a>
+                            <a href="{% url 'logout' %}" class="nav-link">Выход</a>
                             {% else %}
-                            <li><a href="{% url 'login' %}" class="nav-link">Вход</a></li>
-                            <li><a href="{% url 'register' %}" class="nav-link">Регистрация</a></li>
+                            <a href="{% url 'login' %}" class="nav-link">Вход</a>
+                            <a href="{% url 'register' %}" class="nav-link">Регистрация</a>
                             {% endif %}
-                            <li><a href="#contact-section" class="nav-link">Контакты</a></li>
+                            <a href="#contact-section" class="nav-link">Контакты</a>
                         </ul>
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                            <li>
-                                <a href="https://www.facebook.com/simona.soloduha"><i
-                                    class="fa-brands fa-instagram"></i></a>
-                                <a href="https://www.youtube.com/@SimonaSoloduha"><i class="fa-brands fa-youtube"></i></a>
-                                <a href="https://www.facebook.com/simona.soloduha"><i class="fa-brands fa-facebook"></i></a>
-                            </li>
+                                <a href="https://instagram.com/simona_soloduha?igshid=YmMyMTA2M2Y=">
+                                    <i class="fa-brands fa-instagram fa-beat-fade" style="color: #ed719e;"></i>
+                                </a>
+                                <a href="https://www.youtube.com/@SimonaSoloduha">
+                                    <i class="fa-brands fa-youtube fa-beat-fade" style="color: #ff6251;"></i>
+                                </a>
+                                <a href="https://www.facebook.com/simona.soloduha">
+                                    <i class="fa-brands fa-facebook fa-beat-fade" style="color: #002e7a;"></i>
+                                </a>
                         </ul>
                     </nav>
                     <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle float-right"><span
