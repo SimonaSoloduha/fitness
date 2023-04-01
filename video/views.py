@@ -11,7 +11,7 @@ class AllVideos(ListView):
         times = list(zip(*TIME_CHOICES))[0]
         types = list(zip(*CHOICES_TYPES))[0]
         body_parts = list(zip(*CHOICES_BODY_PARTS))[0]
-        trainer_choices = Trainer.objects.order_by('-')
+        trainer_choices = Trainer.objects.order_by('-first_name')
 
         context = {
             'fit_videos': fit_videos,
