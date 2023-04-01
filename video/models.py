@@ -59,7 +59,7 @@ class FitVideo(models.Model):
         verbose_name_plural = _('FitVideos')
 
     def __str__(self):
-        return str(self.name) if self.name else ''
+        return f'№ {self.id}  {self.name}'
 
     def convert_to_list(self, data):
         return ast.literal_eval(data)

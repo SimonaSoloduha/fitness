@@ -1,4 +1,5 @@
 {% load embed_video_tags %}
+{% load static %}
 
 
 <div class="container mt-5">
@@ -122,14 +123,12 @@
                 {{ fit_video.types }} {{ fit_video.body_parts }}">
 
                     <div class="class-item d-flex align-items-center">
-                        <div class="video-mini">
-                            <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail responsive-iframe">
-                                {% video fit_video.video '90% x 90%' %}
-                            </a>
-                        </div>
+                        <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
+                            <img src="/{{ fit_video.image }}" alt="Image">
+                        </a>
 
                         <div class="class-item-text">
-                            <h2><a href="single.html">{{ fit_video.name}}</a></h2>
+                            <h2><a href="single.html">{{ fit_video }}</a></h2>
                             <span>{{ fit_video.trainer.first_name }} {{ fit_video.trainer.last_name }}</span>,
                             <span>{{ fit_video.times }} минут</span>
                         </div>
