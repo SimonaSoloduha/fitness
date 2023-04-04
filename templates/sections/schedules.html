@@ -57,7 +57,7 @@
                            aria-selected="false">Суббота</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="sunday-tab" data-toggle="tab" href="#nav-sunday-{{timetable.id}}" role="tab"
+                        <a class="nav-link " id="sunday-tab" data-toggle="tab" href="#nav-sunday-{{timetable.id}}" role="tab"
                            aria-controls="sunday"
                            aria-selected="true">Воскресенье</a>
                     </li>
@@ -65,18 +65,23 @@
             </div>
         </div>
 
+
+        @media (max-width: 991.98px) {
+  .img-md-fluid {
+    max-width: 100%; } }
+
         <div class="tab-content">
 
             <div class="tab-pane fade show active" id="nav-monday-{{timetable.id}}" role="tabpanel" aria-labelledby="nav-monday-tab">
                 <div class="row">
                     <div class="col-lg-6">
+                        <span>Утро</span>
                         {% for video in timetable.mo_morning.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
-                                <span>Утренняя</span>
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
                                 <span> {{ video.trainer }},</span>
                                 <span> {{ video.times }} минут</span>
@@ -85,13 +90,13 @@
                         {% endfor %}
                     </div>
                     <div class="col-lg-6">
+                        <span>Вечер</span>
                         {% for video in timetable.mo_evening.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
-                                <span>Вечерняя</span>
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
                                 <span> {{ video.trainer }},</span>
                                 <span> {{ video.times }} минут</span>
@@ -104,13 +109,13 @@
             <div class="tab-pane fade" id="nav-tuesday-{{timetable.id}}" role="tabpanel" aria-labelledby="nav-tuesday-tab">
                 <div class="row">
                     <div class="col-lg-6">
+                        <span>Утро</span>
                         {% for video in timetable.to_morning.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
-                                <span>Утренняя</span>
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
                                 <span> {{ video.trainer }},</span>
                                 <span> {{ video.times }} минут</span>
@@ -119,13 +124,13 @@
                         {% endfor %}
                     </div>
                     <div class="col-lg-6">
+                        <span>Вечер</span>
                         {% for video in timetable.to_evening.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
-                                <span>Вечерняя</span>
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
                                 <span> {{ video.trainer }},</span>
                                 <span> {{ video.times }} минут</span>
@@ -138,13 +143,13 @@
             <div class="tab-pane fade" id="nav-wednesday-{{timetable.id}}" role="tabpanel" aria-labelledby="nav-wednesday-tab">
                 <div class="row">
                     <div class="col-lg-6">
+                        <span>Утро</span>
                         {% for video in timetable.we_morning.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
-                                <span>Утренняя</span>
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
                                 <span> {{ video.trainer }},</span>
                                 <span> {{ video.times }} минут</span>
@@ -153,13 +158,13 @@
                         {% endfor %}
                     </div>
                     <div class="col-lg-6">
+                        <span>Вечер</span>
                         {% for video in timetable.we_evening.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
-                                <span>Вечерняя</span>
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
                                 <span> {{ video.trainer }},</span>
                                 <span> {{ video.times }} минут</span>
@@ -172,13 +177,13 @@
             <div class="tab-pane fade" id="nav-thursday-{{timetable.id}}" role="tabpanel" aria-labelledby="nav-thursday-tab">
                 <div class="row">
                     <div class="col-lg-6">
+                        <span>Утро</span>
                         {% for video in timetable.th_morning.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
-                                <span>Утренняя</span>
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
                                 <span> {{ video.trainer }},</span>
                                 <span> {{ video.times }} минут</span>
@@ -187,13 +192,13 @@
                         {% endfor %}
                     </div>
                     <div class="col-lg-6">
+                        <span>Вечер</span>
                         {% for video in timetable.th_evening.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
-                                <span>Вечерняя</span>
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
                                 <span> {{ video.trainer }},</span>
                                 <span> {{ video.times }} минут</span>
@@ -206,13 +211,13 @@
             <div class="tab-pane fade" id="nav-friday-{{timetable.id}}" role="tabpanel" aria-labelledby="nav-friday-tab">
                 <div class="row">
                     <div class="col-lg-6">
+                        <span>Утро</span>
                         {% for video in timetable.fr_morning.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
-                                <span>Утренняя</span>
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
                                 <span> {{ video.trainer }},</span>
                                 <span> {{ video.times }} минут</span>
@@ -222,13 +227,13 @@
 
                     </div>
                     <div class="col-lg-6">
+                        <span>Вечер</span>
                         {% for video in timetable.fr_evening.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
-                                <span>Вечерняя</span>
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
                                 <span> {{ video.trainer }},</span>
                                 <span> {{ video.times }} минут</span>
@@ -241,13 +246,13 @@
             <div class="tab-pane fade" id="nav-saturday-{{timetable.id}}" role="tabpanel" aria-labelledby="nav-saturday-tab">
                 <div class="row">
                     <div class="col-lg-6">
+                        <span>Утро</span>
                         {% for video in timetable.sa_morning.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
-                                <span>Утренняя</span>
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
                                 <span> {{ video.trainer }},</span>
                                 <span> {{ video.times }} минут</span>
@@ -257,13 +262,13 @@
 
                     </div>
                     <div class="col-lg-6">
+                        <span>Вечер</span>
                         {% for video in timetable.sa_evening.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
-                                <span>Вечерняя</span>
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
                                 <span> {{ video.trainer }},</span>
                                 <span> {{ video.times }} минут</span>
@@ -277,13 +282,13 @@
             <div class="tab-pane fade" id="nav-sunday-{{timetable.id}}" role="tabpanel" aria-labelledby="nav-sunday-tab">
                 <div class="row">
                     <div class="col-lg-6">
+                        <span>Утро</span>
                         {% for video in timetable.su_morning.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
-                                <span>Утренняя</span>
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
                                 <span> {{ video.trainer }},</span>
                                 <span> {{ video.times }} минут</span>
@@ -292,13 +297,13 @@
                         {% endfor %}
                     </div>
                     <div class="col-lg-6">
+                        <span>Вечер</span>
                         {% for video in timetable.su_evening.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
-                                <span>Вечерняя</span>
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
                                 <span> {{ video.trainer }},</span>
                                 <span> {{ video.times }} минут</span>
