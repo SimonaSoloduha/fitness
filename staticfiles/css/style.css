@@ -842,6 +842,9 @@ h1, h2, h3, h4, h5,
       border-radius: 4px;
       border-top-right-radius: 0px;
       border-bottom-right-radius: 0px; }
+
+  .class-item .class-item-text {
+  padding: 5px; }
   .class-item .class-item-text h2 {
     font-size: 18px;
     margin-bottom: 0px; }
@@ -873,7 +876,8 @@ h1, h2, h3, h4, h5,
     .days li a {
       background: #eee;
       padding: 10px;
-      display: block; }
+      display: block;
+      overflow: hidden; }
       .days li a:hover, .days li a.active {
         background: #00486d;
         color: #fff; }
@@ -1032,4 +1036,22 @@ h1, h2, h3, h4, h5,
 .btn.active {
   background-color: #666;
   color: white;
+}
+
+
+@media (max-width: 991.98px) {
+  body {
+    line-height: 1.2;
+    }
+  .class-item .class-item-thumbnail img {
+    max-width: 200px; }
+  .class-item .class-item-text h2 {
+    font-size: 16px;
+    }
+  .class-item .class-item-text span {
+    font-size: 14px;
+  }
+  .form-check {
+    display: inline-block;
+  }
 }
