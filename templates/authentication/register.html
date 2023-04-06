@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-Регистрация
+{% trans 'Регистрация' %}
 {% endblock title %}
 
 
@@ -18,8 +19,8 @@
 
         <div class="row justify-content-center text-center mb-5">
             <div class="col-md-8  section-heading">
-                <span class="subheading">К тренировкам</span>
-                <h2 class="heading mb-3">Регистрация</h2>
+                <span class="subheading">{% trans 'К тренировкам' %}</span>
+                <h2 class="heading mb-3">{% trans 'Регистрация' %}</h2>
                 {% if form.errors %}
                 {% for field in form %}
                 {% if field.errors %}
@@ -41,34 +42,39 @@
                     <div class="form-group row">
                         <div class="col-md-12">
                             <input type="text" name="username" maxlength="150" required="" id="id_username"
-                                   class="form-control" placeholder="Имя">
+                                   class="form-control"
+                                   placeholder="{% trans 'Имя' %}">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-md-12">
-                            <input type="email" name="email" maxlength="254" id="id_email" class="form-control"
-                                   placeholder="Email">
+                            <input type="email" name="email" maxlength="254" id="id_email"
+                                   class="form-control"
+                                   placeholder="{% trans 'Email' %}">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-md-12">
                             <input type="password" name="password1" autocomplete="new-password" required=""
-                                   id="id_password1" class="form-control" placeholder="Пароль">
+                                   id="id_password1" class="form-control"
+                                   placeholder="{% trans 'Пароль' %}">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-md-12">
                             <input type="password" name="password2" autocomplete="new-password" required=""
-                                   id="id_password2" class="form-control" placeholder="Подтверждение пароля">
+                                   id="id_password2" class="form-control"
+                                   placeholder="{% trans 'Подтверждение пароля' %}">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-md-6 mx-auto">
-                            <input type="submit" class="btn btn-primary py-3 px-5 btn-block" value="Регистрация">
+                            <input type="submit" class="btn btn-primary py-3 px-5 btn-block"
+                                   value="{% trans 'Регистрация' %}">
                         </div>
                     </div>
 

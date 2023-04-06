@@ -1,16 +1,15 @@
 {% load static %}
-
+{% load i18n %}
 
 <div class="site-section">
     <div class="container">
 
         <div class="row justify-content-center text-center mb-5">
             <div class="col-md-8 section-heading">
-                <span class="subheading">Помни про комплексный подход</span>
-                <h2 class="heading mb-3">Идеальное тело</h2>
-                <p>Недостаточно только ХУДЕТЬ, только БЕГАТЬ, только КАЧАТЬСЯ или только листать instagram с красивыми
-                    телами.
-                    Важен комплексный подход и системность.</p>
+                <span class="subheading">{% trans 'Помни про комплексный подход' %}</span>
+                <h2 class="heading mb-3">{% trans 'Идеальное тело' %}</h2>
+                <p>{% trans 'Недостаточно только ХУДЕТЬ, только БЕГАТЬ, только КАЧАТЬСЯ или только листать ' %}
+                    {% trans 'instagram с красивыми телами. Важен комплексный подход и системность.' %}</p>
             </div>
         </div>
 
@@ -23,8 +22,8 @@
                         <a href="single.html" class="class-item-thumbnail">
                             <img src="{% static 'images/icons/icon-workout.png' %}" alt="Image">
                         </a>
-                        <h2>Workout / кардио</h2>
-                        <p>Хочешь похудеть - влюбись в кардио тренировки! Минимум времени - максимум результата.</p>
+                        <h2>{% trans 'Workout / кардио' %}</h2>
+                        <p>{% trans 'Хочешь похудеть - влюбись в кардио тренировки! Минимум времени - максимум результата.' %}</p>
                     </div>
                 </div>
             </div>
@@ -36,8 +35,8 @@
                         <a href="single.html" class="class-item-thumbnail">
                             <img src="{% static 'images/icons/icon-weightlifting.png' %}" alt="Image">
                         </a>
-                        <h2>Тренировки с весом</h2>
-                        <p>Необходимы для создания прокачанных мышц и красивых рельефов на вашем теле.</p>
+                        <h2>{% trans 'Тренировки с весом' %}</h2>
+                        <p>{% trans 'Необходимы для создания прокачанных мышц и красивых рельефов на вашем теле.' %}</p>
                     </div>
                 </div>
             </div>
@@ -49,9 +48,8 @@
                         <a href="single.html" class="class-item-thumbnail">
                             <img src="{% static 'images/icons/free-relax.png' %}" alt="Image">
                         </a>
-                        <h2>Тренировки на коврике</h2>
-                        <p>Укрепят и подтянут твои мышцы корпуса, живота, пресса, бедер, поясницы,
-                            позвоночника и, конечно, попы.</p>
+                        <h2>{% trans 'Тренировки на коврике' %}</h2>
+                        <p>{% trans 'Укрепят и подтянут твои мышцы корпуса, живота, пресса, бедер, поясницы, позвоночника и, конечно, попы.' %}</p>
                     </div>
                 </div>
             </div>
@@ -63,9 +61,8 @@
                         <a href="single.html" class="class-item-thumbnail">
                             <img src="{% static 'images/icons/icon-boxing.png' %}" alt="Image">
                         </a>
-                        <h2>Бокс</h2>
-                        <p>Великолепное сочетание кардио и силовых тренировок с собственным весом (или с
-                            маленькими гантелями) застявят работать все группы мышц.</p>
+                        <h2>{% trans 'Бокс' %}</h2>
+                        <p>{% trans 'Великолепное сочетание кардио и силовых тренировок с собственным весом (или с маленькими гантелями) застявят работать все группы мышц.' %}</p>
                     </div>
                 </div>
             </div>
@@ -77,8 +74,8 @@
                         <a href="single.html" class="class-item-thumbnail">
                             <img src="{% static 'images/icons/icon-dance.png' %}" alt="Image">
                         </a>
-                        <h2>Barre / Танцевальные</h2>
-                        <p>Обеспечивают великолепное настроение от процесса и результата.</p>
+                        <h2>{% trans 'Barre / Танцевальные' %}</h2>
+                        <p>{% trans 'Обеспечивают великолепное настроение от процесса и результата.' %}</p>
                     </div>
                 </div>
             </div>
@@ -90,8 +87,8 @@
                         <a href="single.html" class="class-item-thumbnail">
                             <img src="{% static 'images/icons/icon-bottle-of-water.png' %}" alt="Image">
                         </a>
-                        <h2>Вода</h2>
-                        <p>Хочешь есть - пей воду. ЕДИНСТВЕННЫЙ продукт, от которого действительно не поправишся.</p>
+                        <h2>{% trans 'Вода' %}</h2>
+                        <p>{% trans 'Хочешь есть - пей воду. ЕДИНСТВЕННЫЙ продукт, от которого действительно не поправишся.' %}</p>
                     </div>
                 </div>
             </div>
@@ -103,8 +100,8 @@
                         <a href="single.html" class="class-item-thumbnail">
                             <img src="{% static 'images/icons/icon-food.png' %}" alt="Image">
                         </a>
-                        <h2>Еда</h2>
-                        <p>Следи за калориями и все будет вкусно и красиво.</p>
+                        <h2>{% trans 'Еда' %}</h2>
+                        <p>{% trans 'Следи за калориями и все будет вкусно и красиво.' %}</p>
                     </div>
                 </div>
             </div>
@@ -116,8 +113,8 @@
                         <a href="single.html" class="class-item-thumbnail">
                             <img src="{% static 'images/icons/icon-ballet.png' %}" alt="Image">
                         </a>
-                        <h2>Вдохновение</h2>
-                        <p>Не забывай смотреть на изменения своего тела и радоваться своим достижениям и результатам!</p>
+                        <h2>{% trans 'Вдохновение' %}</h2>
+                        <p>{% trans 'Не забывай смотреть на изменения своего тела и радоваться своим достижениям и результатам!' %}</p>
                     </div>
                 </div>
             </div>
