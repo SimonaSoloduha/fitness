@@ -1,5 +1,6 @@
 {% load embed_video_tags %}
 {% load static %}
+{% load i18n %}
 
 
 <div class="container mt-5">
@@ -7,10 +8,10 @@
         <div class="col-md-2">
             <section>
                 <section id="filters" data-auto-filter="true">
-                    <h5>Фильтровать</h5>
+                    <h5>{% trans 'Фильтровать' %}</h5>
 
                     <section class="mb-4" data-filter="condition">
-                        <h6 class="font-weight-bold mb-3">Тип</h6>
+                        <h6 class="font-weight-bold mb-3">{% trans 'Тип' %}</h6>
                         {% for type in types %}
 
                         <div class="form-check mb-3">
@@ -54,7 +55,7 @@
 
                     <section class="mb-4">
 
-                        <h6 class="font-weight-bold mb-3">Группа мышц</h6>
+                        <h6 class="font-weight-bold mb-3">{% trans 'Группа мышц' %}</h6>
                         {% for body_part in body_parts %}
 
                         <div class="form-check mb-3">
@@ -75,7 +76,7 @@
                     </section>
                     <section class="mb-4" data-filter="size">
 
-                        <h6 class="font-weight-bold mb-3">Длительность</h6>
+                        <h6 class="font-weight-bold mb-3">{% trans 'Длительность' %}</h6>
 
                         {% for time in times %}
 
@@ -88,7 +89,7 @@
                                     name="filterTime"/>
 
                             <label class="form-check-label text-uppercase small text-muted"
-                                   for="{{time}}"> {{time}} мин </label>
+                                   for="{{time}}"> {{time}} {% trans 'мин' %} </label>
                         </div>
 
                         {% endfor %}
@@ -130,7 +131,7 @@
                         <div class="class-item-text">
                             <h2><a href="single.html">{{ fit_video }}</a></h2>
                             <span>{{ fit_video.trainer.first_name }} {{ fit_video.trainer.last_name }}</span>,
-                            <span>{{ fit_video.times }} минут</span>
+                            <span>{{ fit_video.times }} {% trans 'мин' %}</span>
                         </div>
                     </div>
                 </div>

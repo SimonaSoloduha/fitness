@@ -1,23 +1,24 @@
 from django import forms
+from django.utils.translation import gettext_lazy as _
 
 from video.models import FitVideo
 
 CHOICES_TYPES = [
-    ('cardio', 'кардио'),
-    ('box', 'бокс'),
-    ('barre', 'танцы'),
-    ('dumbbells', 'гантели'),
-    ('floor', 'на коврике'),
-    ('gum', 'резинка'),
-    ('power', 'силовые'),
+    (_('cardio'), 'кардио'),
+    (_('box'), 'бокс'),
+    (_('barre'), 'танцы'),
+    (_('dumbbells'), 'гантели'),
+    (_('floor'), 'на коврике'),
+    (_('gum'), 'резинка'),
+    (_('power'), 'силовые'),
 ]
 
 CHOICES_BODY_PARTS = [
-    ('legs', 'ноги'),
-    ('butt', 'ягодицы'),
-    ('arms', 'руки'),
-    ('shoulders', 'плечи'),
-    ('abs', 'пресс'),
+    (_('legs'), 'ноги'),
+    (_('butt'), 'ягодицы'),
+    (_('arms'), 'руки'),
+    (_('shoulders'), 'плечи'),
+    (_('abs'), 'пресс'),
 ]
 
 
