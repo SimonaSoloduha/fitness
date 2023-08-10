@@ -1,0 +1,37 @@
+{% load i18n %}
+
+<h3 class="text-dark">{% trans 'Подписка' %}</h3>
+<p>{% trans 'Подпишись и первым лови акционные товары и новости!' %}</p>
+<form action="" method="post" id="task-form">
+    <div class="d-flex mb-5">
+        {% csrf_token %}
+        <input type="email" name="email" class="form-control rounded-0 subscription-add"
+               maxlength="254" required="" id="id_email" placeholder="Email">
+        <input type="submit" class="btn btn-primary rounded-0" value="{% trans 'Подписаться' %}">
+        {% if message %}
+        {{message}}
+        {% endif %}
+    </div>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+          integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+$(document).on('submit','#task-form',function(e){
+    e.preventDefault();
+    $.ajax({
+        type:'POST',
+        url:'{% url "subscription" %}',
+        data:
+        {
+            email:$("#id_email").val(),
+            csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+        },
+        success:function(){
+              alert('Saved');
+                }
+        })
+    });
+</script>

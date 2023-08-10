@@ -52,8 +52,10 @@ INSTALLED_APPS = [
     'shop',
     'authentication',
     'video',
-    'embed_video',
+    'subscription',
 
+    'embed_video',
+    'django_celery_beat',
     'whitenoise.runserver_nostatic',
 ]
 
@@ -201,3 +203,8 @@ AUTHENTICATION_BACKENDS = (
 )
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+# Celery settings
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'

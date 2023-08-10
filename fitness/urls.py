@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-import authentication
 from fitness import views
 
 urlpatterns = [
@@ -24,7 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('authentication.urls'), name='authentication'),
     path('video/', include('video.urls'), name='video'),
+    path('', include('subscription.urls')),
 ]
-
-
-

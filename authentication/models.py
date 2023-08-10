@@ -17,6 +17,7 @@ def generate_code():
 
 
 class Code(models.Model):
+    """ Модель кода подтверждения через email """
     number = models.CharField(max_length=5, blank=True, verbose_name=_('number'))
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name=_('user'))
 

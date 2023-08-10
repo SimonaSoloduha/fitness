@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load subscription_tags %}
 
 <footer class="footer-section" id="contact-section">
     <div class="container">
@@ -25,14 +26,15 @@
             </div>
 
             <div class="col-md-4">
-                <h3 class="text-dark">{% trans 'Подписка' %}</h3>
-                <p>{% trans 'Подпишись и первым лови акционные товары и новости!' %}</p>
-                <form action="#">
-                    <div class="d-flex mb-5">
-                        <input type="text" class="form-control rounded-0" placeholder="Email">
-                        <input type="submit" class="btn btn-primary rounded-0" value="{% trans 'Подписаться' %}">
-                    </div>
-                </form>
+                {% subscription_form %}
+<!--                <h3 class="text-dark">{% trans 'Подписка' %}</h3>-->
+<!--                <p>{% trans 'Подпишись и первым лови акционные товары и новости!' %}</p>-->
+<!--                <form action="#">-->
+<!--                    <div class="d-flex mb-5">-->
+<!--                        <input type="text" class="form-control rounded-0 subscription-add" placeholder="Email">-->
+<!--                        <input type="submit" class="btn btn-primary rounded-0" value="{% trans 'Подписаться' %}">-->
+<!--                    </div>-->
+<!--                </form>-->
             </div>
 
         </div>
