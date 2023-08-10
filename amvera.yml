@@ -1,0 +1,22 @@
+meta:
+  environment: python
+  toolchain:
+    name: pip
+    version: 3.8
+
+build:
+  requirementsPath: requirements.txt
+
+run:
+  command: python manage.py runserver
+
+version: '3'
+
+services:
+  web:
+    image: python:3.8
+    command: python manage.py runserver
+    volumes:
+      - ./your_django_project:/app
+    ports:
+      - "8000:8000"
