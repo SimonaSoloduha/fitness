@@ -1,7 +1,11 @@
-version: '3.8'
-services:
-   web:
-       build: .
-       command: python manage.py runserver localhost:8000
-       ports:
-           - 8000:8000
+meta:
+  environment: python
+  toolchain:
+    name: pip
+    version: 3.8
+build:
+  requirementsPath: requirements.txt
+run:
+  command: python manage.py runserver
+  persistenceMount: /data
+  containerPort: 80
