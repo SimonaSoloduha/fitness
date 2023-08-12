@@ -1,5 +1,9 @@
-FROM python:3.8-slim
-WORKDIR /fitness/
-COPY . .
-RUN python3 -m pip install --no-cache-dir --no-warn-script-location --upgrade pip \
-    && python3 -m pip install --no-cache-dir --no-warn-script-location --user -r requirements.txt \
+FROM python:3.8
+ENV PYTHONUNBUFFERED=1
+WORKDIR /usr/src/fitness
+COPY requirements.txt ./
+RUN pip cache purge
+RUN pip install --upgrade pip
+RUN pip install --upgrade setuptools
+RUN pip install "PyYAML>=3.4.1,<6"
+RUN pip install -r requirements.txt
