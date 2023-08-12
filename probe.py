@@ -265,3 +265,15 @@
 #                 if sum(i) >= number_m:
 #                     break
 #     return result_set
+# docker run hello-world
+# docker run -it ubuntu bash
+#
+# touch .dockerignore
+
+# touch .dockerignore
+# echo "db.sqlite" >> .dockerignore
+# echo ".venv" >> .dockerignore
+# echo "__pycache__" >> .dockerignore
+# docker-compose up
+# docker-compose build
+

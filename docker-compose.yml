@@ -15,13 +15,15 @@ services:
       - DJANGO_SUPERUSER_PASSWORD=212121
       - DJANGO_SUPERUSER_EMAIL=simonasoloduha@gmail.com
     volumes:
-      - .:/app
+      - .:/fitness
 
   gunicorn:
-    image: fitness_migrate
+    image: fitness_solod_migrate
     container_name: 'gunicorn'
     restart: always
-    command: /bin/sh -c "python3 -m gunicorn -b 0.0.0.0:80 fitness.wsgi --reload"
+    command: python3 manage.py migrate && gunicorn --bind 0.0.0.0:8080 fitness.wsgi
+#    container Port: 8080
+#    command: /bin/sh -c "python3 -m gunicorn -b 0.0.0.0:80 fitness.wsgi --reload"
     volumes:
       - .:/fitness
     ports:
