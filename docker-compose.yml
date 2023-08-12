@@ -34,9 +34,9 @@ services:
         image: postgres
         container_name: pgdb
         environment:
-            - POSTGRES_DB=fitnessdb
-            - POSTGRES_USER=djangouser
-            - POSTGRES_PASSWORD=password
+            - NAME=fitnessdb
+            - USER=djangouser
+            - PASSWORD=password
         volumes:
             - pgdata:/var/lib/postgresql/data/
     redis:

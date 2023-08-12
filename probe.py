@@ -277,4 +277,6 @@
 # docker-compose up
 # docker-compose build
 # docker-compose up -d
+# docker compose run django
 
+# psql -h localhost -U djangouser -d fitnessdb

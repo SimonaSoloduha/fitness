@@ -116,15 +116,11 @@ WSGI_APPLICATION = 'fitness.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': env('DATABASE_NAME', default=''),
-        # 'USER': env('DATABASE_USER_NAME', default=''),
-        # 'PASSWORD': env('DATABASE_USER_PASSWORD', default=''),
-        # 'HOST': env('DATABASE_HOST', default=''),
-        # 'PORT': '',
-        'HOST': os.environ.get('DATABASE_HOST'),
-        'NAME': os.environ.get('DATABASE_NAME'),
-        'USER': os.environ.get('DATABASE_USER_NAME'),
-        'PASSWORD': os.environ.get('DATABASE_USER_PASSWORD'),
+        'HOST': 'pgdb',
+        'PORT': '5432',
+        'NAME': os.environ.get('NAME'),
+        'USER': os.environ.get('USER'),
+        'PASSWORD': os.environ.get('PASSWORD'),
     }
 }
 
