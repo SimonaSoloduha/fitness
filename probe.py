@@ -276,4 +276,5 @@
 # echo "__pycache__" >> .dockerignore
 # docker-compose up
 # docker-compose build
+# docker-compose up -d
 

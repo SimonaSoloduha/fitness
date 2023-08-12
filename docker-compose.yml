@@ -1,32 +1,19 @@
 version: '3'
 
 services:
-
-  migrate:
-    build: .
-    container_name: 'migrate'
-    command: >
-      /bin/sh -c "python3 manage.py makemigrations --force-color --no-input -v 3
-      && python3 manage.py makemigrations --merge --no-input -v 3
-      && python3 manage.py migrate --force-color -v 3
-      && python3 manage.py createsuperuser --noinput; exit 0"
+  db:
+    image: postgres
     environment:
-      - DJANGO_SUPERUSER_USERNAME=admin
-      - DJANGO_SUPERUSER_PASSWORD=212121
-      - DJANGO_SUPERUSER_EMAIL=simonasoloduha@gmail.com
-    volumes:
-      - .:/fitness
+      POSTGRES_DB: fitnessdb
+      POSTGRES_USER: djangouser
+      POSTGRES_PASSWORD: password
 
-  gunicorn:
-    image: fitness_solod_migrate
-    container_name: 'gunicorn'
-    restart: always
-    command: python3 manage.py migrate && gunicorn --bind 0.0.0.0:8080 fitness.wsgi
-#    container Port: 8080
-#    command: /bin/sh -c "python3 -m gunicorn -b 0.0.0.0:80 fitness.wsgi --reload"
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8080
     volumes:
       - .:/fitness
     ports:
-      - 80:80
+      - "8080:8080"
     depends_on:
-      - migrate
+      - db

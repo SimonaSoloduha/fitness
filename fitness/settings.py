@@ -102,9 +102,20 @@ WSGI_APPLICATION = 'fitness.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': env('DATABASE_NAME', default=''),
+#         'USER': env('DATABASE_USER_NAME', default=''),
+#         'PASSWORD': env('DATABASE_USER_PASSWORD', default=''),
+#         'HOST': env('DATABASE_HOST', default=''),
+#         'PORT': '',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': env('DATABASE_NAME', default=''),
         'USER': env('DATABASE_USER_NAME', default=''),
         'PASSWORD': env('DATABASE_USER_PASSWORD', default=''),
