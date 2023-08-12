@@ -115,7 +115,7 @@ WSGI_APPLICATION = 'fitness.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'HOST': 'pgdb',
         'PORT': '5432',
         'NAME': os.environ.get('NAME'),
@@ -126,7 +126,7 @@ DATABASES = {
 
 # db_from_env = dj_database_url.config(conn_max_age=600)
 # DATABASES['default'].update(db_from_env)
-DATABASES['default'].update(dj_database_url.config())
+# DATABASES['default'].update(dj_database_url.config())
 
 # LOGGING = {
 #     'version': 1,
