@@ -20,7 +20,8 @@ services:
             - DEBUG=1
             - DJANGO_ALLOWED_HOSTS=localhost:8080
             - CELERY_BROKER=redis://redis:6379/0
-            - CELERY_BACKEND=redis://localhost:6379/0
+            - CELERY_BACKEND=redis://redis:6379/0
+#            - CELERY_BACKEND=redis://localhost:6379/0
             - DJANGO_SUPERUSER_USERNAME=admin
             - DJANGO_SUPERUSER_PASSWORD=212121
             - DJANGO_SUPERUSER_EMAIL=simonasoloduha@gmail.com
@@ -34,7 +35,7 @@ services:
             - .:/usr/src/fitness
         environment:
             - DEBUG=1
-#            - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+            - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
             - CELERY_BROKER=redis://redis:6379/0
             - CELERY_BACKEND=redis://redis:6379/0
         depends_on:
@@ -44,13 +45,15 @@ services:
         image: postgres
         container_name: pgdb
         environment:
-            - NAME=fitnessdb
-            - USER=djangouser
-            - PASSWORD=password
+            - POSTGRES_DB=fitnessdb
+            - POSTGRES_USER=djangouser
+            - POSTGRES_PASSWORD=password
         ports:
             - "5432:5432"
         volumes:
             - pgdata:/var/lib/postgresql/data/
+        depends_on:
+            - redis
     redis:
         image: "redis:alpine"
 
