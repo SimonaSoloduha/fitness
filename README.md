@@ -7,9 +7,9 @@
 2. Авторизация (по login/email и паролю)
 3. Восстановление пароля (с подтверждением кода через email)
 
-Смотреть демо:
+Смотреть демо-видео:
 
-[![Watch the video](demo/demo2.png)](https://youtu.be/fEsEjpB_fHs)
+[![Watch the video](demo/demo1.png)](https://youtu.be/fEsEjpB_fHs)
 
 ### Авторизированным пользователям доступны следующие возможности
 
@@ -20,9 +20,9 @@
 3. Группе мышц
 4. Типу тренировок
 
-Смотреть демо:
+Смотреть демо-видео:
 
-[![Watch the video](demo/demo1.png)](https://youtu.be/f2L6YgHNWk4)
+[![Watch the video](demo/demo2.png)](https://youtu.be/f2L6YgHNWk4)
 
 - Возможность смотреть графики тренировок для разных целей и нагрузки 
 - Подписка на новости и акции (в разработке)
