@@ -95,23 +95,23 @@ WSGI_APPLICATION = 'fitness.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': env('DATABASE_NAME', default=''),
-#         'USER': env('DATABASE_USER_NAME', default=''),
-#         'PASSWORD': env('DATABASE_USER_PASSWORD', default=''),
-#         'HOST': env('DATABASE_HOST', default=''),
-#         'PORT': '',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env('NAME', default=''),
+        'USER': env('USER', default=''),
+        'PASSWORD': env('PASSWORD', default=''),
+        'HOST': env('DATABASE_HOST', default=''),
+        'PORT': '',
+    }
+}
 
 # DATABASES = {
 #     'default': {
