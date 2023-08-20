@@ -112,21 +112,21 @@ DATABASES = {
         'PORT': '',
     }
 }
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'HOST': 'pgdb',
-#         'PORT': '5432',
-#         'NAME': os.environ.get('NAME'),
-#         'USER': os.environ.get('USER'),
-#         'PASSWORD': os.environ.get('PASSWORD'),
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'HOST': '/cloudsql/cedar-code-396310:europe-north1:fitnessdb',  # Имя хоста базы данных
+#         'PORT': '',
+#         'NAME': 'fitnessdb',
+#         'USER': 'djangouser',
+#         'PASSWORD': 'password',
 #     }
 # }
 
+#
 # db_from_env = dj_database_url.config(conn_max_age=600)
 # DATABASES['default'].update(db_from_env)
-# DATABASES['default'].update(dj_database_url.config())
+DATABASES['default'].update(dj_database_url.config())
 
 # LOGGING = {
 #     'version': 1,
