@@ -1,0 +1,16 @@
+# app.yaml
+
+runtime: python39
+env: standard
+entrypoint: gunicorn -b :$PORT fitness.wsgi:application
+
+handlers:
+- url: /.*
+  script: auto
+- url: /static
+  static_dir: staticfiles/
+- url: /media
+  static_dir: media/
+
+runtime_config:
+  python_version: 3
