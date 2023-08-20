@@ -101,27 +101,27 @@ WSGI_APPLICATION = 'fitness.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': env('NAME', default=''),
+#         'USER': env('USER', default=''),
+#         'PASSWORD': env('PASSWORD', default=''),
+#         'HOST': env('DATABASE_HOST', default=''),
+#         'PORT': '',
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('NAME', default=''),
-        'USER': env('USER', default=''),
-        'PASSWORD': env('PASSWORD', default=''),
-        'HOST': env('DATABASE_HOST', default=''),
+        'HOST': '/cloudsql/cedar-code-396310:europe-north1:fitnessdb',  # Имя хоста базы данных
         'PORT': '',
+        'NAME': 'fitnessdb',
+        'USER': 'djangouser',
+        'PASSWORD': 'password',
     }
 }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'HOST': '/cloudsql/cedar-code-396310:europe-north1:fitnessdb',  # Имя хоста базы данных
-#         'PORT': '',
-#         'NAME': 'fitnessdb',
-#         'USER': 'djangouser',
-#         'PASSWORD': 'password',
-#     }
-# }
 
 #
 # db_from_env = dj_database_url.config(conn_max_age=600)
