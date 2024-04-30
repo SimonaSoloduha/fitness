@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 
 import environ
+# import django_environ as environ
 from google.oauth2 import service_account
 
 import dj_database_url
@@ -97,48 +98,29 @@ WSGI_APPLICATION = 'fitness.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-#
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': env('NAME', default=''),
-#         'USER': env('USER', default=''),
-#         'PASSWORD': env('PASSWORD', default=''),
-#         'HOST': '/cloudsql/cedar-code-396310:europe-north1:fitnessdb',
-#         'PORT': '5432',
-#     }
-# }
 DATABASES = {
     'default': {
-        # If you are using Cloud SQL for MySQL rather than PostgreSQL, set
-        # 'ENGINE': 'django.db.backends.mysql' instead of the following.
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': env('NAME', default=''),
         'USER': env('USER', default=''),
         'PASSWORD': env('PASSWORD', default=''),
-        # For MySQL, set 'PORT': '3306' instead of the following. Any Cloud
-        # SQL Proxy instances running locally must also be set to tcp:3306.
-        'PORT': '5432',
+        'HOST': '127.0.0.1',
+        'PORT': 5432,
     }
 }
-
-DATABASES['default']['HOST'] = '/cloudsql/cedar-code-396310:europe-north1:fitnessdb'
-if os.getenv('GAE_INSTANCE'):
-    pass
-else:
-    DATABASES['default']['HOST'] = '127.0.0.1' # DB's IP address
-
-
-#
-# db_from_env = dj_database_url.config(conn_max_age=600)
-# DATABASES['default'].update(db_from_env)
-# DATABASES['default'].update(dj_database_url.config())
+# DATABASES = {
+#     'default': {
+#         # If you are using Cloud SQL for MySQL rather than PostgreSQL, set
+#         # 'ENGINE': 'django.db.backends.mysql' instead of the following.
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': env('NAME', default=''),
+#         'USER': env('USER', default=''),
+#         'PASSWORD': env('PASSWORD', default=''),
+#         # For MySQL, set 'PORT': '3306' instead of the following. Any Cloud
+#         # SQL Proxy instances running locally must also be set to tcp:3306.
+#         'PORT': '5432',
+#     }
+# }
 
 # LOGGING = {
 #     'version': 1,
@@ -207,8 +189,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 
 LOGIN_REDIRECT_URL = 'index'
@@ -237,6 +219,6 @@ GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
     os.path.join(BASE_DIR, 'gcpCredentials.json')
 )
 
-DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+# DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+# STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_BUCKET_NAME = env('GS_BUCKET_NAME')
