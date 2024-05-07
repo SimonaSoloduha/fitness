@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LogoutView
@@ -66,10 +66,19 @@ def login_user(request):
 
 
 class Logout(LogoutView):
+    print('tuuutt')
     """
     Представление выхода
     """
     next_page = 'index'
+
+
+def logout_user(request):
+    logout(request)
+    context = {
+        'form': AuthenticationForm(),
+    }
+    return render(request, 'authentication/login.html', context)
 
 
 def reset_password_1(request):
