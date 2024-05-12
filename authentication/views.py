@@ -65,20 +65,12 @@ def login_user(request):
     return render(request, 'authentication/login.html', context)
 
 
-class Logout(LogoutView):
-    print('tuuutt')
-    """
-    Представление выхода
-    """
-    next_page = 'index'
-
-
 def logout_user(request):
     logout(request)
     context = {
         'form': AuthenticationForm(),
     }
-    return render(request, 'authentication/login.html', context)
+    return render(request, 'index.html', context)
 
 
 def reset_password_1(request):
@@ -136,6 +128,8 @@ def reset_password_2(request):
 
 
 def reset_password_3(request):
+    print('reset_password_3reset_password_3reset_password_3')
+
     """
     Создание нового пароля
     """

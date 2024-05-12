@@ -57,9 +57,9 @@
                             {% if user.is_authenticated %}
                             <a href="{% url 'all' %}" class="nav-link">{% trans 'Бесплатные тренеровки' %}</a>
                             <a href="#schedule-section" class="nav-link">{% trans 'График тренеровок' %}</a>
-                            <a href="{% url 'logout' %}" class="nav-link">{% trans 'Выход' %}</a>
+                            <a href="{% url 'logout_fitness' %}" class="nav-link">{% trans 'Выход' %}</a>
                             {% else %}
-                            <a href="{% url 'login' %}" class="nav-link">{% trans 'Вход' %}</a>
+                            <a href="{% url 'login_fitness' %}" class="nav-link">{% trans 'Вход' %}</a>
                             <a href="{% url 'register' %}" class="nav-link">{% trans 'Регистрация' %}</a>
                             {% endif %}
                             <a href="#contact-section" class="nav-link">{% trans 'Контакты' %}</a>
@@ -111,7 +111,7 @@
                         {% trans 'Каждый день ты будешь становиться лучше и именно это тебя не остановит' %}
                     </p>
                     <p class="text-center">
-                        <a href="{% url 'login' %}" class="btn btn-outline-white py-3 px-5">
+                        <a href="{% url 'login_fitness' %}" class="btn btn-outline-white py-3 px-5">
                             {% trans 'ВОЙТИ' %}</a>
                     </p>
                     <p class="text-center">
