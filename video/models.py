@@ -27,7 +27,8 @@ class Trainer(models.Model):
     first_name = models.CharField(max_length=200, verbose_name=_('first_name'), blank=True)
     last_name = models.CharField(max_length=200, verbose_name=_('last_name'), blank=True)
     about = models.TextField(blank=True, verbose_name=_('about'))
-    foto = models.ImageField(upload_to='static/trainers', height_field=None, width_field=None, max_length=100)
+    foto = models.ImageField(upload_to='static/trainers', height_field=None, width_field=None, max_length=100,
+                             blank=True)
 
     class Meta:
         verbose_name_plural = _('Trainers')
