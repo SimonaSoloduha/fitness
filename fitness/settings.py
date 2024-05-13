@@ -97,17 +97,17 @@ WSGI_APPLICATION = 'fitness.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('NAME', default=''),
-        'USER': env('USER', default=''),
-        'PASSWORD': env('PASSWORD', default=''),
-        'HOST': '127.0.0.1',
-        'PORT': 5432,
-    }
-}
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': env('NAME', default=''),
+#         'USER': env('USER', default=''),
+#         'PASSWORD': env('PASSWORD', default=''),
+#         'HOST': '127.0.0.1',
+#         'PORT': 5432,
+#     }
+# }
 #
 # DATABASES = {
 #     'default': {
@@ -225,6 +225,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 
 GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
     os.path.join(BASE_DIR, 'gcpCredentials.json')
