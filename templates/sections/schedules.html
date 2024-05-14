@@ -84,7 +84,7 @@
                         {% for video in timetable.mo_morning.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="{{ video.image }}" alt="Image">
+                                <img src="/static/{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
@@ -99,7 +99,7 @@
                         {% for video in timetable.mo_evening.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="{{ video.image }}" alt="Image">
+                                <img src="/static/{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
@@ -119,7 +119,7 @@
                         {% for video in timetable.to_morning.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="{{ video.image }}" alt="Image">
+                                <img src="/static/{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
@@ -134,7 +134,7 @@
                         {% for video in timetable.to_evening.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="{{ video.image }}" alt="Image">
+                                <img src="/static/{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
@@ -154,7 +154,7 @@
                         {% for video in timetable.we_morning.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="{{ video.image }}" alt="Image">
+                                <img src="/static/{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
@@ -169,7 +169,7 @@
                         {% for video in timetable.we_evening.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="{{ video.image }}" alt="Image">
+                                <img src="/static/{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
@@ -189,7 +189,7 @@
                         {% for video in timetable.th_morning.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="{{ video.image }}" alt="Image">
+                                <img src="/static/{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
@@ -204,7 +204,7 @@
                         {% for video in timetable.th_evening.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="{{ video.image }}" alt="Image">
+                                <img src="/static/{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
@@ -224,7 +224,7 @@
                         {% for video in timetable.fr_morning.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="{{ video.image }}" alt="Image">
+                                <img src="/static/{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
@@ -240,7 +240,7 @@
                         {% for video in timetable.fr_evening.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="{{ video.image }}" alt="Image">
+                                <img src="/static/{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
@@ -260,7 +260,7 @@
                         {% for video in timetable.sa_morning.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="{{ video.image }}" alt="Image">
+                                <img src="/static/{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
@@ -276,7 +276,7 @@
                         {% for video in timetable.sa_evening.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="{{ video.image }}" alt="Image">
+                                <img src="/static/{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
@@ -297,7 +297,7 @@
                         {% for video in timetable.su_morning.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="{{ video.image }}" alt="Image">
+                                <img src="/static/{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
@@ -312,7 +312,7 @@
                         {% for video in timetable.su_evening.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="{{ video.image }}" alt="Image">
+                                <img src="/static/{{ video.image }}" alt="Image">
                             </a>
                             <div class="class-item-text">
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
