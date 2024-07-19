@@ -22,16 +22,18 @@
 $(document).on('submit','#task-form',function(e){
     e.preventDefault();
     $.ajax({
-        type:'POST',
-        url:'{% url "subscription" %}',
-        data:
-        {
-            email:$("#id_email").val(),
-            csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+        type: 'POST',
+        url: '{% url "subscription" %}',
+        data: {
+            email: $("#id_email").val(),
+            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
         },
-        success:function(){
-              alert('Saved');
-                }
-        })
+        success: function(response) {
+            alert(response.message);
+        },
+        error: function(xhr, status, error) {
+            alert(error);
+        }
     });
+});
 </script>

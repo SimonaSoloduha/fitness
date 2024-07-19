@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
-from django.contrib.auth.views import LogoutView
 from django.shortcuts import render, redirect
 
 from authentication.forms import RegisterForm, ResetPassword1, CodeForm, CustomSetPasswordForm
@@ -128,8 +127,6 @@ def reset_password_2(request):
 
 
 def reset_password_3(request):
-    print('reset_password_3reset_password_3reset_password_3')
-
     """
     Создание нового пароля
     """

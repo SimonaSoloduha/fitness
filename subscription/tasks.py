@@ -16,34 +16,15 @@ def send_hello_to_email(email_user):
     """
     Отправка письма с подтверждением подписки
     """
-    # mail_sent = send_mail(
-    #     _('Вперед к тренировкам! Твоя подписка оформленна'),
-    #     _(f'Это куда идет?'),
-    #     EMAIL_HOST_USER,
-    #     [email_user],
-    #     fail_silently=False,
-    #     html_message=loader.render_to_string('email_lists/subscriptions_start/subscriptions_start.html')
-    # )
 
-    body_html = loader.render_to_string('email_lists/subscriptions_start/subscriptions_start.html')
+    body_html = loader.render_to_string('email_lists/subscriptions_start/subscription.html')
 
     msg = EmailMultiAlternatives(
-        _('Вперед к тренировкам! Твоя подписка оформленна'),
+        _('Добро пожаловать в СПОРТ 🌸'),
         body_html,
         from_email=EMAIL_HOST_USER,
-        to=['ls460simona@gmail.com']
+        to=[email_user]
     )
-
-    msg.mixed_subtype = 'related'
     msg.attach_alternative(body_html, "text/html")
-    img_dir = 'templates/email_lists/subscriptions_start/images'
-    image = 'youtube2x.png'
-    file_path = os.path.join(img_dir, image)
-    with open(file_path, 'rb') as f:
-        print('file_path', file_path)
-        img = MIMEImage(f.read())
-        img.add_header('Content-ID', '<{name}>'.format(name=image))
-        img.add_header('Content-Disposition', 'inline', filename=image)
-    msg.attach(img)
-    msg.send()
-    # return msg
+    mail_sent = msg.send()
+    return mail_sent
