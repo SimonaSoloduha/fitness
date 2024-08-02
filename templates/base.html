@@ -87,13 +87,13 @@
 
     {% block header-video %}
 
-    <a id="bgndVideo" class="player"
-       data-property="{videoURL:'https://www.youtube.com/watch?v=cEYQrO-N3ik',showYTLogo:false,
-      showAnnotations: false, showControls: false, cc_load_policy: false, loop:100, ratio:'4/3', addRaster:true,
-      containment:'#home-section',autoPlay:true, mute:true, startAt:0, stopAt: 11, opacity:1}">
-    </a>
-    <div class="intro-section" id="home-section" style="background-color: #ccc;">
+    <div class="intro-section" id="home-section">
         <div class="container">
+            <div>
+                <video autoplay muted loop class="video-main">
+                    <source src="/static/video/intro_solod.mp4" type="video/mp4">
+                </video>
+            </div>
 
             <div class="row align-items-center">
                 <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
@@ -121,7 +121,6 @@
                     {% endif %}
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -145,7 +144,6 @@
 <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
 <script src="{% static 'js/jquery-ui.js' %}"></script>
-<!--<script src="{% static 'js/popper.min.js' %}"></script>-->
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/owl.carousel.min.js' %}"></script>
 <script src="{% static 'js/jquery.stellar.min.js' %}"></script>

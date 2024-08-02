@@ -93,40 +93,16 @@ WSGI_APPLICATION = 'fitness.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 #
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': env('NAME', default=''),
-#         'USER': env('USER', default=''),
-#         'PASSWORD': env('PASSWORD', default=''),
-#         'HOST': '127.0.0.1',
-#         'PORT': 5432,
-#     }
-# }
-#
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': env('NAME', default=''),
-#         'USER': env('USER', default=''),
-#         'PASSWORD': env('PASSWORD', default=''),
-#         'HOST': 'localhost',
-#     }
-# }
-
-# DATABASES = {
-#     'default': {
-#         # If you are using Cloud SQL for MySQL rather than PostgreSQL, set
-#         # 'ENGINE': 'django.db.backends.mysql' instead of the following.
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': env('NAME', default=''),
-#         'USER': env('USER', default=''),
-#         'PASSWORD': env('PASSWORD', default=''),
-#         # For MySQL, set 'PORT': '3306' instead of the following. Any Cloud
-#         # SQL Proxy instances running locally must also be set to tcp:3306.
-#         'PORT': '5432',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env('NAME', default=''),
+        'USER': env('USER', default=''),
+        'PASSWORD': env('PASSWORD', default=''),
+        'HOST': '127.0.0.1',
+        'PORT': 5432,
+    }
+}
 
 # LOGGING = {
 #     'version': 1,
