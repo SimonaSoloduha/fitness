@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView
 
 from video.forms import CHOICES_TYPES, CHOICES_BODY_PARTS
-from video.models import FitVideo, TIME_CHOICES, Trainer
+from video.models import FitVideo, TIME_CHOICES, Trainer, Timetable
 
 
 class AllVideos(ListView):
@@ -21,3 +21,15 @@ class AllVideos(ListView):
             'body_parts': body_parts,
         }
         return render(request, 'video/videos.html', context)
+
+
+class Timetables(ListView):
+    def get(self, request):
+
+        timetables = Timetable.objects.order_by('-created_at')
+
+        context = {
+            'timetables': timetables,
+        }
+
+        return render(request, 'timetable/timetable.html', context)

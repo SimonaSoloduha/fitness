@@ -49,14 +49,14 @@
         {% block nav-bar %}
         <div class="container-fluid">
             <div class="d-flex align-items-center">
-                <div class="site-logo"><a href="index.html">Fitness home<span>.</span> </a></div>
+                <div class="site-logo"><a href="index.html">HOME FITNESS<span>.</span> </a></div>
                 <div class="ml-auto">
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                             <a href="{% url 'index' %}" class="nav-link">{% trans 'Главная' %}</a>
                             {% if user.is_authenticated %}
                             <a href="{% url 'all' %}" class="nav-link">{% trans 'Бесплатные тренеровки' %}</a>
-                            <a href="#schedule-section" class="nav-link">{% trans 'График тренеровок' %}</a>
+                            <a href="{% url 'timetable' %}" class="nav-link">{% trans 'График тренеровок' %}</a>
                             <a href="{% url 'logout_fitness' %}" class="nav-link">{% trans 'Выход' %}</a>
                             {% else %}
                             <a href="{% url 'login_fitness' %}" class="nav-link">{% trans 'Вход' %}</a>
@@ -132,8 +132,10 @@
     {% block video_content %}
     {% endblock video_content %}
 
-    {% block content %}
+    {% block timetable_content %}
+    {% endblock timetable_content %}
 
+    {% block content %}
     {% endblock content %}
 
 
