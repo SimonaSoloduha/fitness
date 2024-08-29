@@ -64,7 +64,7 @@ jQuery(document).ready(function($) {
 			}
 		})
 
-		$('body').on('click', '.site-navbar-target', function(e) {
+		$('body').on('click', '.js-menu-toggle', function(e) {
 			var $this = $(this);
 			e.preventDefault();
 
