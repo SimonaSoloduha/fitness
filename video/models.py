@@ -40,9 +40,11 @@ class Trainer(models.Model):
 class FitVideo(models.Model):
     """ Модель видео """
     name = models.CharField(max_length=200, verbose_name=_('name'))
-    about = models.TextField(blank=True, verbose_name=_('about'))
-    image = models.ImageField(upload_to='video_img', blank=True, null=True, height_field=None, width_field=None, max_length=100)
-    video = EmbedVideoField(verbose_name=_('video'))
+    image = models.ImageField(upload_to='video_img', blank=True, null=True, height_field=None, width_field=None,
+                              max_length=100)
+    url_youtube = models.URLField(max_length=200, blank=True, null=True, verbose_name=_('url_youtube'))
+    url_rutube = models.URLField(max_length=200, blank=True, null=True, verbose_name=_('url_rutube'))
+    url_vk = models.URLField(max_length=200, blank=True, null=True, verbose_name=_('url_vk'))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
     types = models.CharField(max_length=200, blank=True, verbose_name=_('types'))
     body_parts = models.CharField(max_length=200, blank=True, verbose_name=_('body_parts'))

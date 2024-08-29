@@ -28,4 +28,5 @@ class FitVideoForm(forms.ModelForm):
 
     class Meta:
         model = FitVideo
-        fields = ['name', 'about', 'image', 'video', 'types', 'body_parts', 'trainer', 'times']
+        fields = ['name', 'image', 'url_youtube', 'url_rutube', 'url_vk', 'types', 'body_parts', 'trainer',
+                  'times']

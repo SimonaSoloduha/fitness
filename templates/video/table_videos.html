@@ -123,12 +123,20 @@
                 {{ fit_video.types }} {{ fit_video.body_parts }}">
 
                     <div class="class-item d-flex align-items-center">
-                        <a href="{{ fit_video.video }}" target="_blank" class="class-item-thumbnail">
+                        <a href="{{ fit_video.url_rutube }}" target="_blank" class="class-item-thumbnail">
                             <img src="/static/{{ fit_video.image }}" alt="Image">
                         </a>
                         <div class="class-item-text">
                             <h2>{{ fit_video }}</h2>
-                            <span>{{ fit_video.trainer.first_name }} {{ fit_video.trainer.last_name }}</span>,
+                            <span><a href="{{ fit_video.url_rutube }}" target="_blank">
+                                <i class="fa-brands fa-resolving" style="color: #100943;"></i>
+                            </a></span>
+                            <span><a href="{{ fit_video.url_youtube }}" target="_blank">
+                                <i class="fa-brands fa-youtube" style="color: #ed719e;"></i>
+                            </a></span>
+                            <span><a href="{{ fit_video.url_vk }}" target="_blank">
+                                <i class="fa-brands fa-vk" style="color: #0077FF;"></i>
+                            </a></span>
                             <span>{{ fit_video.times }} {% trans 'мин' %}</span>
                         </div>
                     </div>
