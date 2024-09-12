@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'embed_video',
     'django_celery_beat',
     'whitenoise.runserver_nostatic',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
