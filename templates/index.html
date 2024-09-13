@@ -7,15 +7,13 @@ Simona Soloduha &mdash; Website
 
 {% block content %}
 
-{% if user.is_authenticated %}
-
-
 {% include "sections/compleks.html" %}
 
 {% include "sections/payment.html" %}
 
 {% include "sections/about_subscriptio.html" %}
 
+{% if user.is_authenticated %}
 
 <div class="intro-section" id="free-video" style="background-image: url('static/images/Solod.png');">
 
