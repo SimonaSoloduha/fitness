@@ -1,0 +1,62 @@
+{% load static %}
+{% load i18n %}
+
+<div class="site-section">
+    <div class="container">
+
+        <div class="row justify-content-center text-center mb-5 mt-5">
+            <div class="col-md-8 section-heading">
+                <span class="subheading">{% trans 'ХОЧУ ТРЕНИРОВАТЬСЯ И БЫТЬ САМОЙ КРАСИВОЙ!' %}</span>
+                <h2 class="heading mb-3">{% trans 'ПОДПИСКА НА МЕСЯЦ' %}</h2>
+                <p>{% trans 'Получи доступ к графику тренировок и сделай спортчастью своей жизни!' %}
+                    {% trans 'Все проще и приятнее, чем кажется' %}</p>
+            </div>
+        </div>
+
+        <!-- Slider -->
+        <div class="owl-carousel nonloop-block-14 block-14" data-aos="fade">
+            <div class="slide">
+                <div class="ftco-feature-1">
+                    <span class="icon flaticon-fit"></span>
+                    <div class="ftco-feature-1-text">
+                        <a href="single.html" class="class-item-thumbnail">
+                            <img src="{% static 'images/icons/icon-workout.png' %}" alt="Image">
+                        </a>
+                        <h2>{% trans 'Тренируйся по 30 минут' %}</h2>
+                        <p>{% trans 'Рекомендовано заниматься 5-7 раз в неделю' %}</p>
+                        <h2>{% trans '990 руб' %}</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="ftco-feature-1">
+                    <span class="icon flaticon-fit"></span>
+                    <div class="ftco-feature-1-text">
+                        <a href="single.html" class="class-item-thumbnail">
+                            <img src="{% static 'images/icons/icon-weightlifting.png' %}" alt="Image">
+                        </a>
+                        <h2>{% trans 'Тренируйся по 60 минут' %}</h2>
+                        <p>{% trans 'Рекомендовано заниматься 3 раза в неделю' %}</p>
+                        <h2>{% trans '1 190 руб' %}</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="ftco-feature-1">
+                    <span class="icon flaticon-gym-1"></span>
+                    <div class="ftco-feature-1-text">
+                        <a href="single.html" class="class-item-thumbnail">
+                            <img src="{% static 'images/icons/free-relax.png' %}" alt="Image">
+                        </a>
+                        <h2>{% trans 'СУПЕР-доступ УТРО И ВЕЧЕР по 30 и 60 минут' %}</h2>
+                        <p>{% trans 'Рекомендовано заниматься 8 раз в неделю' %}</p>
+                        <h2>{% trans '1 790 руб' %}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -59,6 +59,7 @@
                             <a href="{% url 'timetable' %}" class="nav-link">{% trans 'График тренеровок' %}</a>
                             <a href="{% url 'logout_fitness' %}" class="nav-link">{% trans 'Выход' %}</a>
                             {% else %}
+                            <a href="{% url 'all' %}" class="nav-link">{% trans 'Бесплатные тренеровки' %}</a>
                             <a href="{% url 'login_fitness' %}" class="nav-link">{% trans 'Вход' %}</a>
                             <a href="{% url 'register' %}" class="nav-link">{% trans 'Регистрация' %}</a>
                             {% endif %}
