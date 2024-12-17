@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     'authentication',
     'video',
     'subscription',
-
     'embed_video',
     'django_celery_beat',
     'whitenoise.runserver_nostatic',
