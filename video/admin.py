@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from video.forms import FitVideoForm
+from video.forms import FitVideoForm, TimetableForm
 from video.models import FitVideo, Trainer, Timetable
 
 
@@ -14,7 +14,8 @@ class TrainerAdmin(admin.ModelAdmin):
 
 
 class TimetableAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name')
+    list_display = ('id', 'name', 'sub_bay_type')
+    form = TimetableForm
 
 
 admin.site.register(FitVideo, FitVideoAdmin)

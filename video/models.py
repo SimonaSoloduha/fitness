@@ -5,6 +5,7 @@ from django.db import models
 from embed_video.fields import EmbedVideoField
 from django.utils.translation import gettext_lazy as _
 
+from subscription.models import TYPE_CHOICES
 
 TIME_CHOICES = [
     ('5', 5),
@@ -79,7 +80,7 @@ class Timetable(models.Model):
     about = models.TextField(blank=True, verbose_name=_('about'))
     free = models.BooleanField(default=True, verbose_name=_('free'))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
-
+    sub_bay_type = models.CharField(max_length=200, blank=True, verbose_name=_('sub_bay_type'))
     mo_morning = models.ManyToManyField(FitVideo, blank=True, verbose_name=_('mo_morning'), related_name='mo_morning')
     mo_evening = models.ManyToManyField(FitVideo, blank=True, verbose_name=_('mo_evening'), related_name='mo_evening')
     to_morning = models.ManyToManyField(FitVideo, blank=True, verbose_name=_('to_morning'), related_name='to_morning')
@@ -100,3 +101,10 @@ class Timetable(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+    def convert_to_list(self, data):
+        return ast.literal_eval(data)
+
+    def save(self, *args, **kwargs):
+        self.sub_bay_type = ' '.join(self.convert_to_list(self.sub_bay_type))
+        super(Timetable, self).save(*args, **kwargs)
