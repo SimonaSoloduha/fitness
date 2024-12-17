@@ -34,7 +34,7 @@ class Subscription(models.Model):
 
 class SubscriptionFitnessVideo(models.Model):
     """ Модель подписки на видео """
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_('user'))
+    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name=_('user'))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
     data_start = models.DateTimeField(verbose_name=_('data_start'))
     data_finish = models.DateTimeField(verbose_name=_('data_finish'))
