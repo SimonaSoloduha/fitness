@@ -4,7 +4,6 @@ from django.utils.translation import gettext_lazy as _
 
 User._meta.get_field('email')._unique = True
 User._meta.get_field('username')._unique = True
-User._meta.get_field('user')._unique = True
 
 TYPE_CHOICES = [
     ('type_00', 'type_00'),
@@ -52,9 +51,9 @@ class SubscriptionFitnessVideo(models.Model):
         verbose_name_plural = _('subscription_fit_video')
         verbose_name = _('subscription_fit_videos')
 
-    def save(self, *args, **kwargs):
-        self.validate_unique()
-        super(SubscriptionFitnessVideo, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     self.validate_unique()
+    #     super(SubscriptionFitnessVideo, self).save(*args, **kwargs)
 
     def __str__(self):
         return f'{self.user} - {self.sub_type} - {self.active}'
