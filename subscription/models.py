@@ -1,10 +1,10 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from phonenumber_field.modelfields import PhoneNumberField
 
 User._meta.get_field('email')._unique = True
 User._meta.get_field('username')._unique = True
+User._meta.get_field('user')._unique = True
 
 TYPE_CHOICES = [
     ('type_00', 'type_00'),
