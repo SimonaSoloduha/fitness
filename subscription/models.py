@@ -46,7 +46,7 @@ class SubscriptionFitnessVideo(models.Model):
         verbose_name=_('sub_type'),
         blank=True,
     )
-    phone_number = models.CharField(blank=True, null=True, verbose_name=_('phone_number'))
+    phone_number = models.CharField(blank=True, null=True, max_length=12, verbose_name=_('phone_number'))
 
     class Meta:
         verbose_name_plural = _('subscription_fit_video')
