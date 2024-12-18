@@ -2,10 +2,8 @@ import ast
 
 from django.db import models
 
-from embed_video.fields import EmbedVideoField
 from django.utils.translation import gettext_lazy as _
 
-from subscription.models import TYPE_CHOICES
 
 TIME_CHOICES = [
     ('5', 5),

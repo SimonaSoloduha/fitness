@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 
+from subscription.models import SubscriptionFitnessVideo
 from video.forms import CHOICES_TYPES, CHOICES_BODY_PARTS
 from video.models import FitVideo, TIME_CHOICES, Trainer, Timetable
 
@@ -26,7 +27,13 @@ class AllVideos(ListView):
 class Timetables(ListView):
     def get(self, request):
 
-        timetables = Timetable.objects.order_by('-created_at')
+        user = request.user
+
+        try:
+            subscription = SubscriptionFitnessVideo.objects.get(user=user)
+            timetables = Timetable.objects.filter(sub_bay_type__contains=subscription.sub_type)
+        except SubscriptionFitnessVideo.DoesNotExist:
+            timetables = Timetable.objects.none()
 
         context = {
             'timetables': timetables,

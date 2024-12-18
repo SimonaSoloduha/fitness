@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 {% load embed_video_tags %}
 {% load i18n %}
+{% load static %}
+
 
 {% block timetable_content %}
 
 <div class="site-section" id="classes-section">
     <div class="container">
+
+        {% if timetables %}
+
         <div class="row justify-content-center text-center mt-5">
             <div class="col-md-8 section-heading">
                 <span class="subheading">{% trans 'HOME FITNESS' %}</span>
@@ -14,6 +19,19 @@
             </div>
         </div>
         {% include "timetable/table_timetables.html" %}
+
+
+        {% else %}
+            <div class="row justify-content-center text-center mb-1 mt-1">
+                <div class="col-md-10 section-heading">
+                    <h2 class="heading mb-3">{% trans 'У вас еще нет подписки на график?👀 Как так?👀' %}</h2>
+                    <img src="{% static 'images/icons/start_button.png' %}" alt="Image">
+                    <span class="subheading">{% trans 'Купите в один клик (по цене чашки кофе) и скорее начинайте тренировки!' %}</span>
+                </div>
+            </div>
+        {% include "sections/payment.html" %}
+
+        {% endif %}
     </div>
 </div>
 
