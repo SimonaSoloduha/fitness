@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'subscription',
     'embed_video',
     'django_celery_beat',
-    'django_mysql',
     'whitenoise.runserver_nostatic',
     'phonenumber_field',
 ]
