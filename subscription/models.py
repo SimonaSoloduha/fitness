@@ -33,7 +33,7 @@ class Subscription(models.Model):
 
 class SubscriptionFitnessVideo(models.Model):
     """ Модель подписки на видео """
-    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name=_('user'), blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_('user'), blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
     data_start = models.DateTimeField(verbose_name=_('data_start'))
     data_finish = models.DateTimeField(verbose_name=_('data_finish'))
@@ -57,3 +57,25 @@ class SubscriptionFitnessVideo(models.Model):
 
     def __str__(self):
         return f'{self.user} - {self.sub_type} - {self.active}'
+
+
+class PromoCodeFitnessVideo(models.Model):
+    """ Модель подписки на видео """
+    code = models.CharField(blank=True, null=True, max_length=12, verbose_name=_('code'))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
+    data_start = models.DateTimeField(verbose_name=_('data_start'))
+    data_finish = models.DateTimeField(verbose_name=_('data_finish'))
+    active = models.BooleanField(default=False, verbose_name=_('active'))
+    sub_type = models.CharField(
+        max_length=10,
+        choices=TYPE_CHOICES,
+        verbose_name=_('sub_type'),
+        blank=True,
+    )
+
+    class Meta:
+        verbose_name_plural = _('promo_code_fit_video')
+        verbose_name = _('promo_code_fit_videos')
+
+    def __str__(self):
+        return f'{self.code}'

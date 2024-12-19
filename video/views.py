@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.shortcuts import render
 from django.views.generic import ListView
 
@@ -28,10 +30,16 @@ class Timetables(ListView):
     def get(self, request):
 
         user = request.user
+        date = datetime.now()
         if user.is_authenticated:
             try:
-                subscription = SubscriptionFitnessVideo.objects.get(user=user)
-                timetables = Timetable.objects.filter(sub_bay_type__contains=subscription.sub_type)
+                subscription = SubscriptionFitnessVideo.objects.filter(
+                    user=user,
+                    active=True
+                )
+                sub_types = subscription.values_list('sub_type', flat=True)
+
+                timetables = Timetable.objects.filter(sub_bay_type__in=sub_types)
             except SubscriptionFitnessVideo.DoesNotExist:
                 timetables = Timetable.objects.none()
         else:

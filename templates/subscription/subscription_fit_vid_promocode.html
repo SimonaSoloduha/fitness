@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% trans 'Ввести промокод и получить доступ к графику тренировок' %}
+{% endblock title %}
+
+
+{% block header-video %}
+
+{% endblock header-video %}
+
+
+{% block content %}
+
+<div class="site-section bg-light contact-wrap">
+    <div class="container">
+
+        <div class="row justify-content-center text-center mb-5 mt-5">
+            <div class="col-md-8  section-heading">
+                <span class="subheading">{% trans 'Здесь секретный доступ к графику тренировок' %}</span>
+                <h2 class="heading mb-3">{% trans 'ВВЕСТИ ПРОМОКОД' %}</h2>
+                {% if attention %}
+                <div class="alert alert-info" role="alert">
+                    <p class="attention">{{ attention }}</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <form method="post" data-aos="fade" id="login-form">
+                    {% csrf_token %}
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input name="promo_code" class="form-control" autocomplete="promo_code"
+                                   maxlength="150" required="" id="promo_code" placeholder="{% trans 'ПРОМОКОД' %}">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6 mx-auto">
+                            <input type="submit" class="btn btn-primary py-3 px-5 btn-block" value="{% trans 'ОТПРАВИТЬ КОД' %}">
+                        </div>
+                    </div>
+                    {% if attention %}
+
+                    {% endif %}
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
