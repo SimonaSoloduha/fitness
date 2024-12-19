@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.views.generic import ListView
 
 from subscription.models import SubscriptionFitnessVideo
@@ -28,11 +28,13 @@ class Timetables(ListView):
     def get(self, request):
 
         user = request.user
-
-        try:
-            subscription = SubscriptionFitnessVideo.objects.get(user=user)
-            timetables = Timetable.objects.filter(sub_bay_type__contains=subscription.sub_type)
-        except SubscriptionFitnessVideo.DoesNotExist:
+        if user.is_authenticated:
+            try:
+                subscription = SubscriptionFitnessVideo.objects.get(user=user)
+                timetables = Timetable.objects.filter(sub_bay_type__contains=subscription.sub_type)
+            except SubscriptionFitnessVideo.DoesNotExist:
+                timetables = Timetable.objects.none()
+        else:
             timetables = Timetable.objects.none()
 
         context = {
