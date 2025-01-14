@@ -7,7 +7,7 @@
         <div class="row justify-content-center text-center mb-5 mt-5">
             <div class="col-md-8 section-heading">
                 <span class="subheading">{% trans 'ХОЧУ ТРЕНИРОВАТЬСЯ И БЫТЬ САМОЙ КРАСИВОЙ!' %}</span>
-                <h2 class="heading mb-3">{% trans 'ПОДПИСКА НА МЕСЯЦ' %}</h2>
+                <h2 class="heading mb-3">{% trans 'ОФОРМИТЬ ПОДПИСКУ' %}</h2>
                 <p>{% trans 'Получи доступ к графику тренировок и сделай спорт частью своей жизни!' %}
                     {% trans 'Все проще и приятнее, чем кажется' %}</p>
             </div>
@@ -23,13 +23,26 @@
                         <a href="https://t.me/c/1929601112/17" target="_blank" class="class-item-thumbnail">
                             <img src="{% static 'images/icons/like_bllue.png' %}" alt="Image">
                         </a>
-                        <h2>{% trans '⭐️ СУПЕР-СТАР ⭐️' %}</h2>
-                        <p>{% trans 'Рекомендовано заниматься 30-60 минут 7 дней в неделю' %}</p>
-                        <h2>{% trans '490 руб' %}</h2>
-                        <a href="https://t.me/c/1929601112/17" target="_blank"
-                           class="btn btn-outline-black py-3 px-5">
-                            {% trans 'КУПИТЬ' %}</a>
-                        </p>
+                        <h2 class="heading mb-3 bg-rouse">{% trans '⭐️ СУПЕР-СТАР ⭐️' %}</h2>
+                        <h2>{% trans 'Супер-интенсив' %}</h2>
+                        <h2>{% trans 'Похудение и рельефы' %}</h2>
+                        <p>{% trans 'Тренировки по 60 и 30 минут 7 дней в неделю' %}</p>
+
+                        <div class="row align-items-center">
+                            <p class="col-md-8"><s>{% trans '1550 руб в месяц' %}</s></p>
+                            <p class="col-md-4 sale-rouse">
+                                {% trans '-55%' %}
+                            </p>
+                        </div>
+
+                        <div class="row align-items-center">
+                        <p class="col-md-8">{% trans '690 руб в месяц' %}</p>
+                            <p class="col-md-4">
+                            <a href="https://t.me/c/1929601112/17" target="_blank"
+                               class="btn btn-outline-rouse">
+                                {% trans 'КУПИТЬ' %}</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -41,13 +54,28 @@
                         <a href="https://t.me/c/1929601112/17" target="_blank" class="class-item-thumbnail">
                             <img src="{% static 'images/icons/gym.png' %}" alt="Image">
                         </a>
-                        <h2>{% trans '⭐️ СУПЕР-СТАР лайт 🥥' %}</h2>
-                        <p>{% trans 'Рекомендовано заниматься 30-60 минут 3 дня в неделю' %}</p>
-                        <h2>{% trans '290 руб' %}</h2>
-                        <a href="https://t.me/c/1929601112/17" target="_blank"
-                           class="btn btn-outline-black py-3 px-5">
-                            {% trans 'КУПИТЬ' %}</a>
-                        </p>
+
+                        <h2 class="heading mb-3 bg-rouse">{% trans '⭐️ СТАР 🥥' %}</h2>
+                        <h2>{% trans 'Стандарт' %}</h2>
+                        <h2>{% trans 'Похудение и рельефы' %}</h2>
+                        <p>{% trans 'Тренировки по 60 минут 3-4 дня в неделю' %}</p>
+
+                        <div class="row align-items-center">
+                            <p class="col-md-8"><s>{% trans '1990 руб в месяц' %}</s></p>
+                            <p class="col-md-4 sale-rouse">
+                                {% trans '-55%' %}
+                            </p>
+                        </div>
+
+                        <div class="row align-items-center">
+                        <p class="col-md-8">{% trans '890 руб в месяц' %}</p>
+                            <p class="col-md-4">
+                            <a href="https://t.me/c/1929601112/17" target="_blank"
+                               class="btn btn-outline-rouse">
+                                {% trans 'КУПИТЬ' %}</a>
+                            </p>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -59,13 +87,25 @@
                         <a href="https://t.me/c/1929601112/17" target="_blank" class="class-item-thumbnail">
                             <img src="{% static 'images/icons/like.png' %}" alt="Image">
                         </a>
-                        <h2>{% trans '🥥 Секси рельефы 🥥' %}</h2>
-                        <p>{% trans 'Рекомендовано заниматься 30-45 минут 3 дня в неделю' %}</p>
-                        <h2>{% trans '290 руб' %}</h2>
-                        <a href="https://t.me/c/1929601112/17" target="_blank"
-                           class="btn btn-outline-black py-3 px-5">
-                            {% trans 'КУПИТЬ' %}</a>
-                        </p>
+                        <h2 class="heading mb-3 bg-rouse">{% trans '🥥 Секси рельефы 🥥' %}</h2>
+                        <h2>{% trans 'Стандарт' %}</h2>
+                        <h2>{% trans 'Создаем рельефы' %}</h2>
+                        <p>{% trans 'Тренировки по 60 минут 3-4 дня в неделю' %}</p>
+                        <div class="row align-items-center">
+                            <p class="col-md-8"><s>{% trans '1550 руб в месяц' %}</s></p>
+                            <p class="col-md-4 sale-rouse">
+                                {% trans '-55%' %}
+                            </p>
+                        </div>
+
+                        <div class="row align-items-center">
+                        <p class="col-md-8">{% trans '690 руб в месяц' %}</p>
+                            <p class="col-md-4">
+                            <a href="https://t.me/c/1929601112/17" target="_blank"
+                               class="btn btn-outline-rouse">
+                                {% trans 'КУПИТЬ' %}</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -77,14 +117,25 @@
                         <a href="https://t.me/c/1929601112/17" target="_blank" class="class-item-thumbnail">
                             <img src="{% static 'images/icons/super.png' %}" alt="Image">
                         </a>
-                        <h2>{% trans '💥 ХОЧУ ВСЕ И СРАЗУ! 💥' %}</h2>
-                        <p>{% trans 'Доступ ко всем графикам!' %}</p>
-                        <h2>{% trans '490 руб' %}</h2>
-                        <p class="text-center">
-                        <a href="https://t.me/c/1929601112/17" target="_blank"
-                           class="btn btn-outline-black py-3 px-5">
-                            {% trans 'КУПИТЬ' %}</a>
-                        </p>
+                        <h2 class="heading mb-3 bg-rouse">{% trans '💥 ХОЧУ ВСЕ И СРАЗУ! 💥' %}</h2>
+                        <h2>{% trans 'Все включено' %}</h2>
+                        <h2>{% trans 'Полный доступ' %}</h2>
+                        <p>{% trans 'Премиум доступ ко всем программам' %}</p>
+                        <div class="row align-items-center">
+                            <p class="col-md-8"><s>{% trans '2100 руб в месяц' %}</s></p>
+                            <p class="col-md-4 sale-rouse">
+                                {% trans '-55%' %}
+                            </p>
+                        </div>
+
+                        <div class="row align-items-center">
+                        <p class="col-md-8">{% trans '940 руб в месяц' %}</p>
+                            <p class="col-md-4">
+                            <a href="https://t.me/c/1929601112/17" target="_blank"
+                               class="btn btn-outline-rouse">
+                                {% trans 'КУПИТЬ' %}</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

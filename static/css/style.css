@@ -152,6 +152,9 @@ h1, h2, h3, h4, h5,
 .bg-black {
   background: #000; }
 
+.bg-rouse {
+  background: #dc0c89; }
+
 .form-control {
   height: 50px;
   border-radius: 0px;
@@ -1050,7 +1053,38 @@ h1, h2, h3, h4, h5,
 	height: 0;
 }
 
+.btn.btn-outline-rouse {
+    background: transparent;
+    border-color: #ff87ce;
+    color: #dc0c89;
+    padding: 0.95rem 0.95rem;
+    }
+    .btn.btn-outline-rouse:hover {
+      background: #dc0c89;
+      border-color: #dc0c89;
+      color: #fff;
+    }
 
+
+.btn-outline-rouse input {
+	z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 0;
+	height: 0;
+}
+
+.sale-rouse {
+    background-color: #ff87ce;
+    border-color: #ff87ce;
+    color: #fff !important;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    border: .125rem solid transparent;
+    border-radius: .25rem;
+}
 
 .show {
   display: block;
