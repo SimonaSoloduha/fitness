@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% trans 'Оформить подписку' %}
+{% endblock title %}
+
+
+{% block header-video %}
+
+{% endblock header-video %}
+
+
+{% block content %}
+
+<div class="site-section bg-light contact-wrap">
+    <div class="container">
+
+        <div class="row justify-content-center text-center mb-5 mt-5">
+            <div class="col-md-8  section-heading">
+                <span class="subheading">{% trans 'К тренировкам' %}</span>
+                <h2 class="heading mb-3">{% trans 'Оформить подписку' %}</h2>
+                {% if form_register.errors %}
+                {% for field in form_register %}
+                {% if field.errors %}
+                <div class="alert alert-info" role="alert">
+                    {% for error in field.errors %}
+                    <p class="attention">! {{field.label}}: {{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <form method="post" data-aos="fade">
+                    {% csrf_token %}
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="text" name="username" maxlength="150" required="" id="id_username"
+                                   class="form-control"
+                                   placeholder="{% trans 'Имя' %}">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="email" name="email" maxlength="254" id="id_email"
+                                   class="form-control"
+                                   placeholder="{% trans 'Email' %}">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="password" name="password1" autocomplete="new-password" required=""
+                                   id="id_password1" class="form-control"
+                                   placeholder="{% trans 'Пароль' %}">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="password" name="password2" autocomplete="new-password" required=""
+                                   id="id_password2" class="form-control"
+                                   placeholder="{% trans 'Подтверждение пароля' %}">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6 mx-auto">
+                            <input type="submit" class="btn btn-primary py-3 px-5 btn-block"
+                                   value="{% trans 'Регистрация' %}">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

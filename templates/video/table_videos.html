@@ -22,7 +22,7 @@
                                     id="{{type}}"
                                     name="filterType"
                             />
-                            <label class="form-check-label text-uppercase small text-muted"
+                            <label class="form-check-label text-uppercase small"
                                    for="{{type}}">
                                 {{ type }}
                             </label>
@@ -30,28 +30,6 @@
                         {% endfor %}
 
                     </section>
-
-                    <!--                    <section class="mb-4">-->
-                    <!--                        <h6 class="font-weight-bold mb-3">Avg. Customer Review</h6>-->
-
-                    <!--                        <ul class="rating" data-toggle="rating" id="filter-rating">-->
-                    <!--                            <li>-->
-                    <!--                                <i class="far fa-star fa-sm text-primary" title="1"></i>-->
-                    <!--                            </li>-->
-                    <!--                            <li>-->
-                    <!--                                <i class="far fa-star fa-sm text-primary" title="2"></i>-->
-                    <!--                            </li>-->
-                    <!--                            <li>-->
-                    <!--                                <i class="far fa-star fa-sm text-primary" title="3"></i>-->
-                    <!--                            </li>-->
-                    <!--                            <li>-->
-                    <!--                                <i class="far fa-star fa-sm text-primary" title="4"></i>-->
-                    <!--                            </li>-->
-                    <!--                            <li>-->
-                    <!--                                <i class="far fa-star fa-sm text-primary" title="5"></i>-->
-                    <!--                            </li>-->
-                    <!--                        </ul>-->
-                    <!--                    </section>-->
 
                     <section class="mb-4">
 
@@ -66,7 +44,7 @@
                                     id="{{body_part}}"
                                     name="filterBodyPart"
                             />
-                            <label class="form-check-label text-uppercase small text-muted"
+                            <label class="form-check-label text-uppercase small"
                                    for="{{body_part}}">
                                 {{body_part}}
                             </label>
@@ -88,7 +66,7 @@
                                     id="{{time}}"
                                     name="filterTime"/>
 
-                            <label class="form-check-label text-uppercase small text-muted"
+                            <label class="form-check-label text-uppercase small"
                                    for="{{time}}"> {{time}} {% trans 'мин' %} </label>
                         </div>
 
@@ -122,22 +100,22 @@
                 <div class="col-lg-6 filterDiv {{fit_video.trainer}} {{fit_video.times}}
                 {{ fit_video.types }} {{ fit_video.body_parts }}">
 
-                    <div class="class-item d-flex align-items-center">
+                    <div class="class-item align-items-center">
                         <a href="{{ fit_video.url_rutube }}" target="_blank" class="class-item-thumbnail">
                             <img src="/static/{{ fit_video.image }}" alt="Image">
                         </a>
                         <div class="class-item-text">
-                            <h2>{{ fit_video }}</h2>
+                            <h3 class="small">{{ fit_video }}</h3>
+                             <p class="small">{{ fit_video.times }} {% trans 'мин' %}</p>
                             <span><a href="{{ fit_video.url_rutube }}" target="_blank">
-                                <i class="fa-brands fa-resolving" style="color: #100943;"></i>
+                                <i class="fa-brands fa-resolving"></i>
                             </a></span>
                             <span><a href="{{ fit_video.url_youtube }}" target="_blank">
-                                <i class="fa-brands fa-youtube" style="color: #ed719e;"></i>
+                                <i class="fa-brands fa-youtube"></i>
                             </a></span>
                             <span><a href="{{ fit_video.url_vk }}" target="_blank">
-                                <i class="fa-brands fa-vk" style="color: #0077FF;"></i>
+                                <i class="fa-brands fa-vk"></i>
                             </a></span>
-                            <span>{{ fit_video.times }} {% trans 'мин' %}</span>
                         </div>
                     </div>
 
