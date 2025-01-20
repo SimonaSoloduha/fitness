@@ -22,10 +22,9 @@
                 <div class="ftco-feature-1 pay class-item">
 
                     <a href="{% url 'payment_subscription_fit_vid' %}" target="_blank" class="class-item-thumbnail">
-                        <img src="/static/{{ payment_subscription_fit_vid.image }}" alt="Image">
+                        <img src="/static/{{ payment_subscription.image }}" alt="Image">
                     </a>
                     <h2 class="heading mb-3 mt-3">{{ payment_subscription.name }}</h2>
-                    <p>{% trans 'Супер-интенсив' %}</p>
                     <p>{{ payment_subscription.target }}</p>
                     <p class="small">{{ payment_subscription.description }}</p>
 
