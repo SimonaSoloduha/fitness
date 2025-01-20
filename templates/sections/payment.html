@@ -13,132 +13,61 @@
             </div>
         </div>
 
-        <!-- Slider -->
-        <div class="owl-carousel nonloop-block-14 block-14" data-aos="fade">
+        <!-- row -->
+        <div class="row" data-aos="fade">
 
-            <div class="slide">
-                <div class="ftco-feature-1">
-                    <span class="icon flaticon-fit"></span>
-                    <div class="ftco-feature-1-text">
-                        <a href="{% url 'payment_subscription_fit_vid' %}" target="_blank" class="class-item-thumbnail">
-                            <img src="{% static 'images/icons/like_bllue.png' %}" alt="Image">
-                        </a>
-                        <h2 class="heading mb-3 bg-rouse">{% trans '⭐️⭐️SUPER-STAR⭐️⭐️' %}</h2>
-                        <h2>{% trans 'Супер-интенсив' %}</h2>
-                        <h2>{% trans 'Похудение и рельефы' %}</h2>
-                        <p>{% trans 'Тренировки по 60 и 30 минут 7 дней в неделю' %}</p>
+            {% for payment_subscription in payment_subscriptions %}
 
-                        <div class="row align-items-center">
-                            <p class="col-md-8"><s>{% trans '1550 руб в месяц' %}</s></p>
-                            <p class="col-md-4 sale-rouse">
-                                {% trans '-55%' %}
-                            </p>
-                        </div>
+            <div class="col-md-6">
+                <div class="ftco-feature-1 pay class-item">
 
-                        <div class="row align-items-center">
-                        <p class="col-md-8">{% trans '690 руб в месяц' %}</p>
-                            <p class="col-md-4">
-                            <a href="{% url 'payment_subscription_fit_vid' %}" target="_blank"
-                               class="btn btn-outline-rouse">
-                                {% trans 'КУПИТЬ' %}</a>
-                            </p>
-                        </div>
+                    <a href="{% url 'payment_subscription_fit_vid' %}" target="_blank" class="class-item-thumbnail">
+                        <img src="{% static 'images/img_1_1.png' %}" alt="Image">
+                    </a>
+                    <h2 class="heading mb-3 mt-3">{{ payment_subscription.name }}</h2>
+                    <p>{% trans 'Супер-интенсив' %}</p>
+                    <p>{{ payment_subscription.target }}</p>
+                    <p class="small">{{ payment_subscription.description }}</p>
+
+                    <div class="row align-items-center">
+                        <p class="col-md-6"><s>{{ payment_subscription.price_month }} {% trans ' руб в месяц' %}</s></p>
+                        <p class="col-md-6 sale-elem">
+                            {% trans '-55%' %}
+                        </p>
                     </div>
+
+                    <div class="row align-items-center">
+                    <p class="col-md-6">{{ payment_subscription.price_month_sale }} {% trans ' руб в месяц' %}</p>
+                        <p class="col-md-6">
+                        <a href="{% url 'payment_subscription_fit_vid' %}" target="_blank"
+                           class="btn btn-outline-blue1 py-3 px-5">
+                            {% trans 'КУПИТЬ' %}</a>
+                        </p>
+                    </div>
+
+                    <hr>
+
+                    <div class="row align-items-center">
+                        <p class="col-md-6"><s>{{ payment_subscription.price_year }} {% trans ' руб в год' %}</s></p>
+                        <p class="col-md-6 sale-elem">
+                            {% trans '-55%' %}
+                        </p>
+                    </div>
+
+                    <div class="row align-items-center">
+                    <p class="col-md-6">{{ payment_subscription.price_year_sale }} {% trans ' руб в год' %}</p>
+                        <p class="col-md-6">
+                        <a href="{% url 'payment_subscription_fit_vid' %}" target="_blank"
+                           class="btn btn-outline-blue1 py-3 px-5">
+                            {% trans 'КУПИТЬ' %}</a>
+                        </p>
+                    </div>
+
                 </div>
             </div>
 
-            <div class="slide">
-                <div class="ftco-feature-1">
-                    <span class="icon flaticon-fit"></span>
-                    <div class="ftco-feature-1-text">
-                        <a href="{% url 'payment_subscription_fit_vid' %}" target="_blank" class="class-item-thumbnail">
-                            <img src="{% static 'images/icons/gym.png' %}" alt="Image">
-                        </a>
+            {% endfor %}
 
-                        <h2 class="heading mb-3 bg-rouse">{% trans '⭐️ STAR ⭐️' %}</h2>
-                        <h2>{% trans 'Стандарт' %}</h2>
-                        <h2>{% trans 'Похудение и рельефы' %}</h2>
-                        <p>{% trans 'Тренировки по 60 минут 3-4 дня в неделю' %}</p>
-
-                        <div class="row align-items-center">
-                            <p class="col-md-8"><s>{% trans '1990 руб в месяц' %}</s></p>
-                            <p class="col-md-4 sale-rouse">
-                                {% trans '-55%' %}
-                            </p>
-                        </div>
-
-                        <div class="row align-items-center">
-                        <p class="col-md-8">{% trans '890 руб в месяц' %}</p>
-                            <p class="col-md-4">
-                            <a href="{% url 'payment_subscription_fit_vid' %}" target="_blank"
-                               class="btn btn-outline-rouse">
-                                {% trans 'КУПИТЬ' %}</a>
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="slide">
-                <div class="ftco-feature-1">
-                    <span class="icon flaticon-fit"></span>
-                    <div class="ftco-feature-1-text">
-                        <a href="{% url 'payment_subscription_fit_vid' %}" target="_blank" class="class-item-thumbnail">
-                            <img src="{% static 'images/icons/like.png' %}" alt="Image">
-                        </a>
-                        <h2 class="heading mb-3 bg-rouse">{% trans '🥥 Секси рельефы 🥥' %}</h2>
-                        <h2>{% trans 'Стандарт' %}</h2>
-                        <h2>{% trans 'Создаем рельефы' %}</h2>
-                        <p>{% trans 'Тренировки по 60 минут 3-4 дня в неделю' %}</p>
-                        <div class="row align-items-center">
-                            <p class="col-md-8"><s>{% trans '1550 руб в месяц' %}</s></p>
-                            <p class="col-md-4 sale-rouse">
-                                {% trans '-55%' %}
-                            </p>
-                        </div>
-
-                        <div class="row align-items-center">
-                        <p class="col-md-8">{% trans '690 руб в месяц' %}</p>
-                            <p class="col-md-4">
-                            <a href="{% url 'payment_subscription_fit_vid' %}" target="_blank"
-                               class="btn btn-outline-rouse">
-                                {% trans 'КУПИТЬ' %}</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="slide">
-                <div class="ftco-feature-1">
-                    <span class="icon flaticon-gym-1"></span>
-                    <div class="ftco-feature-1-text">
-                        <a href="{% url 'payment_subscription_fit_vid' %}" target="_blank" class="class-item-thumbnail">
-                            <img src="{% static 'images/icons/super.png' %}" alt="Image">
-                        </a>
-                        <h2 class="heading mb-3 bg-rouse">{% trans '💥 ХОЧУ ВСЕ И СРАЗУ! 💥' %}</h2>
-                        <h2>{% trans 'Все включено' %}</h2>
-                        <h2>{% trans 'Полный доступ' %}</h2>
-                        <p>{% trans 'Премиум доступ ко всем программам' %}</p>
-                        <div class="row align-items-center">
-                            <p class="col-md-8"><s>{% trans '2100 руб в месяц' %}</s></p>
-                            <p class="col-md-4 sale-rouse">
-                                {% trans '-55%' %}
-                            </p>
-                        </div>
-
-                        <div class="row align-items-center">
-                        <p class="col-md-8">{% trans '940 руб в месяц' %}</p>
-                            <p class="col-md-4">
-                            <a href="https://t.me/c/1929601112/17" target="_blank"
-                               class="btn btn-outline-rouse">
-                                {% trans 'КУПИТЬ' %}</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
     </div>

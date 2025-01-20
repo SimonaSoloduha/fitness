@@ -3,7 +3,7 @@ from datetime import datetime
 from django.shortcuts import render
 from django.views.generic import ListView
 
-from subscription.models import SubscriptionFitnessVideo
+from subscription.models import SubscriptionFitnessVideo, PaymentSubscription
 from video.forms import CHOICES_TYPES, CHOICES_BODY_PARTS
 from video.models import FitVideo, TIME_CHOICES, Trainer, Timetable
 
@@ -29,6 +29,7 @@ class AllVideos(ListView):
 class Timetables(ListView):
     def get(self, request):
 
+        payment_subscriptions = PaymentSubscription.objects.all()
         user = request.user
         date = datetime.now()
         if user.is_authenticated:
@@ -47,6 +48,7 @@ class Timetables(ListView):
 
         context = {
             'timetables': timetables,
+            'payment_subscriptions': payment_subscriptions,
         }
 
         return render(request, 'timetable/timetable.html', context)

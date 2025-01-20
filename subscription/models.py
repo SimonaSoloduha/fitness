@@ -14,7 +14,7 @@ TYPE_CHOICES = [
 
 
 class Subscription(models.Model):
-    """ Модель подписки """
+    """ Модель подписки email"""
     email = models.EmailField(unique=True, verbose_name=_('email'))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
     active = models.BooleanField(default=True, verbose_name=_('active'))
@@ -60,7 +60,7 @@ class SubscriptionFitnessVideo(models.Model):
 
 
 class PromoCodeFitnessVideo(models.Model):
-    """ Модель подписки на видео """
+    """ Модель промокода подписки на видео """
     code = models.CharField(blank=True, null=True, max_length=12, verbose_name=_('code'))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
     data_start = models.DateTimeField(verbose_name=_('data_start'))
@@ -79,3 +79,31 @@ class PromoCodeFitnessVideo(models.Model):
 
     def __str__(self):
         return f'{self.code}'
+
+
+class PaymentSubscription(models.Model):
+    """ Модель абониимента """
+    name = models.CharField(blank=True, null=True, max_length=12, verbose_name=_('name'))
+    target = models.CharField(blank=True, null=True, max_length=100, verbose_name=_('target'))
+    description = models.TextField(blank=True, verbose_name=_('description'))
+    image = models.ImageField(upload_to='payment_subscription_img', blank=True, null=True, height_field=None,
+                              width_field=None, max_length=100)
+    price_month = models.DecimalField(max_digits=6, decimal_places=0, verbose_name=_('price_month'))
+    price_year = models.DecimalField(max_digits=6, decimal_places=0, verbose_name=_('price_year'))
+    sale = models.DecimalField(max_digits=6, decimal_places=0, null=True, verbose_name=_('sale'))
+    price_month_sale = models.DecimalField(max_digits=6, decimal_places=0, verbose_name=_('price_month_sale'))
+    price_year_sale = models.DecimalField(max_digits=6, decimal_places=0, verbose_name=_('price_year_sale'))
+    active = models.BooleanField(default=False, verbose_name=_('active'))
+    sub_type = models.CharField(
+        max_length=10,
+        choices=TYPE_CHOICES,
+        verbose_name=_('sub_type'),
+        blank=True,
+    )
+
+    class Meta:
+        verbose_name_plural = _('payment_subscription')
+        verbose_name = _('payment_subscriptions')
+
+    def __str__(self):
+        return f'{self.name}'

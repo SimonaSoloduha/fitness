@@ -13,7 +13,7 @@
 
         <div class="row justify-content-center text-center mt-5">
             <div class="col-md-8 section-heading">
-                <span class="subheading">{% trans 'HOME FITNESS' %}</span>
+                <span class="subheading">{% trans 'HOME FITNESS. Simona Soloduha.' %}</span>
                 <h2 class="heading mb-3">{% trans 'Графики тренировок' %}</h2>
                 <p>{% trans 'Выбирай комфортный' %}</p>
             </div>
@@ -24,11 +24,12 @@
         {% else %}
             <div class="row justify-content-center text-center mb-1 mt-1">
                 <div class="col-md-10 section-heading">
-                    <h2 class="heading mb-3 bg-rouse">{% trans 'У вас еще нет подписки на график' %}</h2>
+                    <h2 class="heading mb-3">{% trans 'У вас еще нет подписки на график' %}</h2>
                     <img src="{% static 'images/icons/start_button.png' %}" alt="Image">
                     <span class="subheading">{% trans 'Купите в один клик (по цене чашки кофе) и скорее начинайте тренировки!' %}</span>
                 </div>
             </div>
+
         {% include "sections/payment.html" %}
 
         {% endif %}
