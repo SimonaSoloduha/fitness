@@ -970,7 +970,6 @@ h1, h2, h3, h4, h5,
     color: #6dc0ef;
 }
 
-
 .responsive-iframe {
   position: absolute;
   top: 0;
@@ -1026,8 +1025,6 @@ h1, h2, h3, h4, h5,
       border-color: #00486d;
       color: #fff;
       }
-
-
 
 .btn-outline-blue1 input {
 	z-index: -1;
