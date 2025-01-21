@@ -24,5 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('authentication.urls'), name='authentication'),
     path('video/', include('video.urls'), name='video'),
+    path('dogovor/', include('dogovor.urls'), name='dogovor'),
     path('', include('subscription.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
