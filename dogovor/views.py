@@ -4,6 +4,8 @@ import os
 
 
 def dogovor(request):
-    filepath = 'static/files/dogovor.pdf'
+    dogovor_path = 'static/files/dogovor.pdf'
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(current_dir, dogovor_path)
 
-    return FileResponse(open(filepath, 'rb'), content_type='application/pdf')
+    return FileResponse(open(file_path, 'rb'), content_type='application/pdf')
