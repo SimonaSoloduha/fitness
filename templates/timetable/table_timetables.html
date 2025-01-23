@@ -77,251 +77,212 @@
 
                 <div class="tab-pane fade show active" id="nav-monday-{{timetable.id}}" role="tabpanel"
                      aria-labelledby="nav-monday-tab">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <span>{% trans 'Утро' %}</span>
-                            {% for video in timetable.mo_morning.all %}
-                            <div class="class-item d-flex align-items-center">
-                                <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
+
+                    <div class="row justify-content-center">
+                        {% for video in timetable.mo.all %}
+                        <div class="col-8">
+                            <div class="class-item align-items-center">
+                                <a href="{{ video.url_rutube }}" target="_blank" class="class-item-thumbnail">
                                     <img src="/static/{{ video.image }}" alt="Image">
                                 </a>
                                 <div class="class-item-text">
-                                    <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                    <span> {{ video.trainer }},</span>
-                                    <span> {{ video.times }} {% trans 'минут' %}</span>
+                                    <h3 class="small">{{ video }}</h3>
+                                     <p class="small">{{ video.times }} {% trans 'мин' %}</p>
+                                    <span><a href="{{ video.url_rutube }}" target="_blank">
+                                        <i class="fa-brands fa-resolving"></i>
+                                    </a></span>
+                                    <span><a href="{{ video.url_youtube }}" target="_blank">
+                                        <i class="fa-brands fa-youtube"></i>
+                                    </a></span>
+                                    <span><a href="{{ video.url_vk }}" target="_blank">
+                                        <i class="fa-brands fa-vk"></i>
+                                    </a></span>
                                 </div>
                             </div>
-                            {% endfor %}
                         </div>
-                        <div class="col-lg-6">
-                            <span>{% trans 'Вечер' %}</span>
-                            {% for video in timetable.mo_evening.all %}
-                            <div class="class-item d-flex align-items-center">
-                                <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                    <img src="/static/{{ video.image }}" alt="Image">
-                                </a>
-                                <div class="class-item-text">
-                                    <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                    <span> {{ video.trainer }},</span>
-                                    <span> {{ video.times }} {% trans 'минут' %}</span>
-                                </div>
-                            </div>
-                            {% endfor %}
-                        </div>
+                        {% endfor %}
                     </div>
+
                 </div>
+
                 <div class="tab-pane fade" id="nav-tuesday-{{timetable.id}}" role="tabpanel"
                      aria-labelledby="nav-tuesday-tab">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <span>{% trans 'Утро' %}</span>
-                            {% for video in timetable.to_morning.all %}
-                            <div class="class-item d-flex align-items-center">
-                                <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
+
+                    <div class="row justify-content-center">
+                        {% for video in timetable.to.all %}
+                        <div class="col-8">
+                            <div class="class-item align-items-center">
+                                <a href="{{ video.url_rutube }}" target="_blank" class="class-item-thumbnail">
                                     <img src="/static/{{ video.image }}" alt="Image">
                                 </a>
                                 <div class="class-item-text">
-                                    <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                    <span> {{ video.trainer }},</span>
-                                    <span> {{ video.times }} {% trans 'минут' %}</span>
+                                    <h3 class="small">{{ video }}</h3>
+                                     <p class="small">{{ video.times }} {% trans 'мин' %}</p>
+                                    <span><a href="{{ video.url_rutube }}" target="_blank">
+                                        <i class="fa-brands fa-resolving"></i>
+                                    </a></span>
+                                    <span><a href="{{ video.url_youtube }}" target="_blank">
+                                        <i class="fa-brands fa-youtube"></i>
+                                    </a></span>
+                                    <span><a href="{{ video.url_vk }}" target="_blank">
+                                        <i class="fa-brands fa-vk"></i>
+                                    </a></span>
                                 </div>
                             </div>
-                            {% endfor %}
                         </div>
-                        <div class="col-lg-6">
-                            <span>{% trans 'Вечер' %}</span>
-                            {% for video in timetable.to_evening.all %}
-                            <div class="class-item d-flex align-items-center">
-                                <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                    <img src="/static/{{ video.image }}" alt="Image">
-                                </a>
-                                <div class="class-item-text">
-                                    <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                    <span> {{ video.trainer }},</span>
-                                    <span> {{ video.times }} {% trans 'минут' %}</span>
-                                </div>
-                            </div>
-                            {% endfor %}
-                        </div>
+                        {% endfor %}
                     </div>
+
                 </div>
+
                 <div class="tab-pane fade" id="nav-wednesday-{{timetable.id}}" role="tabpanel"
                      aria-labelledby="nav-wednesday-tab">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <span>{% trans 'Утро' %}</span>
-                            {% for video in timetable.we_morning.all %}
-                            <div class="class-item d-flex align-items-center">
-                                <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
+
+                    <div class="row justify-content-center">
+                        {% for video in timetable.we.all %}
+                        <div class="col-8">
+                            <div class="class-item align-items-center">
+                                <a href="{{ video.url_rutube }}" target="_blank" class="class-item-thumbnail">
                                     <img src="/static/{{ video.image }}" alt="Image">
                                 </a>
                                 <div class="class-item-text">
-                                    <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                    <span> {{ video.trainer }},</span>
-                                    <span> {{ video.times }} {% trans 'минут' %}</span>
+                                    <h3 class="small">{{ video }}</h3>
+                                     <p class="small">{{ video.times }} {% trans 'мин' %}</p>
+                                    <span><a href="{{ video.url_rutube }}" target="_blank">
+                                        <i class="fa-brands fa-resolving"></i>
+                                    </a></span>
+                                    <span><a href="{{ video.url_youtube }}" target="_blank">
+                                        <i class="fa-brands fa-youtube"></i>
+                                    </a></span>
+                                    <span><a href="{{ video.url_vk }}" target="_blank">
+                                        <i class="fa-brands fa-vk"></i>
+                                    </a></span>
                                 </div>
                             </div>
-                            {% endfor %}
                         </div>
-                        <div class="col-lg-6">
-                            <span>{% trans 'Вечер' %}</span>
-                            {% for video in timetable.we_evening.all %}
-                            <div class="class-item d-flex align-items-center">
-                                <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                    <img src="/static/{{ video.image }}" alt="Image">
-                                </a>
-                                <div class="class-item-text">
-                                    <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                    <span> {{ video.trainer }},</span>
-                                    <span> {{ video.times }} {% trans 'минут' %} </span>
-                                </div>
-                            </div>
-                            {% endfor %}
-                        </div>
+                        {% endfor %}
                     </div>
+
                 </div>
+
                 <div class="tab-pane fade" id="nav-thursday-{{timetable.id}}" role="tabpanel"
                      aria-labelledby="nav-thursday-tab">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <span>{% trans 'Утро' %}</span>
-                            {% for video in timetable.th_morning.all %}
-                            <div class="class-item d-flex align-items-center">
-                                <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
+
+                    <div class="row justify-content-center">
+                        {% for video in timetable.th.all %}
+                        <div class="col-8">
+                            <div class="class-item align-items-center">
+                                <a href="{{ video.url_rutube }}" target="_blank" class="class-item-thumbnail">
                                     <img src="/static/{{ video.image }}" alt="Image">
                                 </a>
                                 <div class="class-item-text">
-                                    <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                    <span> {{ video.trainer }},</span>
-                                    <span> {{ video.times }} {% trans 'минут' %}</span>
+                                    <h3 class="small">{{ video }}</h3>
+                                     <p class="small">{{ video.times }} {% trans 'мин' %}</p>
+                                    <span><a href="{{ video.url_rutube }}" target="_blank">
+                                        <i class="fa-brands fa-resolving"></i>
+                                    </a></span>
+                                    <span><a href="{{ video.url_youtube }}" target="_blank">
+                                        <i class="fa-brands fa-youtube"></i>
+                                    </a></span>
+                                    <span><a href="{{ video.url_vk }}" target="_blank">
+                                        <i class="fa-brands fa-vk"></i>
+                                    </a></span>
                                 </div>
                             </div>
-                            {% endfor %}
                         </div>
-                        <div class="col-lg-6">
-                            <span>{% trans 'Вечер' %}</span>
-                            {% for video in timetable.th_evening.all %}
-                            <div class="class-item d-flex align-items-center">
-                                <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                    <img src="/static/{{ video.image }}" alt="Image">
-                                </a>
-                                <div class="class-item-text">
-                                    <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                    <span> {{ video.trainer }},</span>
-                                    <span> {{ video.times }} {% trans 'минут' %}</span>
-                                </div>
-                            </div>
-                            {% endfor %}
-                        </div>
+                        {% endfor %}
                     </div>
+
                 </div>
+
                 <div class="tab-pane fade" id="nav-friday-{{timetable.id}}" role="tabpanel"
                      aria-labelledby="nav-friday-tab">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <span>{% trans 'Утро' %}</span>
-                            {% for video in timetable.fr_morning.all %}
-                            <div class="class-item d-flex align-items-center">
-                                <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                    <img src="/static/{{ video.image }}" alt="Image">
-                                </a>
-                                <div class="class-item-text">
-                                    <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                    <span> {{ video.trainer }},</span>
-                                    <span> {{ video.times }} {% trans 'минут' %}</span>
-                                </div>
-                            </div>
-                            {% endfor %}
 
-                        </div>
-                        <div class="col-lg-6">
-                            <span>{% trans 'Вечер' %}</span>
-                            {% for video in timetable.fr_evening.all %}
-                            <div class="class-item d-flex align-items-center">
-                                <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
+                    <div class="row justify-content-center">
+                        {% for video in timetable.fr.all %}
+                        <div class="col-8">
+                            <div class="class-item align-items-center">
+                                <a href="{{ video.url_rutube }}" target="_blank" class="class-item-thumbnail">
                                     <img src="/static/{{ video.image }}" alt="Image">
                                 </a>
                                 <div class="class-item-text">
-                                    <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                    <span> {{ video.trainer }},</span>
-                                    <span> {{ video.times }} {% trans 'минут' %}</span>
+                                    <h3 class="small">{{ video }}</h3>
+                                     <p class="small">{{ video.times }} {% trans 'мин' %}</p>
+                                    <span><a href="{{ video.url_rutube }}" target="_blank">
+                                        <i class="fa-brands fa-resolving"></i>
+                                    </a></span>
+                                    <span><a href="{{ video.url_youtube }}" target="_blank">
+                                        <i class="fa-brands fa-youtube"></i>
+                                    </a></span>
+                                    <span><a href="{{ video.url_vk }}" target="_blank">
+                                        <i class="fa-brands fa-vk"></i>
+                                    </a></span>
                                 </div>
                             </div>
-                            {% endfor %}
                         </div>
+                        {% endfor %}
                     </div>
+
                 </div>
+
                 <div class="tab-pane fade" id="nav-saturday-{{timetable.id}}" role="tabpanel"
                      aria-labelledby="nav-saturday-tab">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <span>{% trans 'Утро' %}</span>
-                            {% for video in timetable.sa_morning.all %}
-                            <div class="class-item d-flex align-items-center">
-                                <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
+
+                    <div class="row justify-content-center">
+                        {% for video in timetable.sa.all %}
+                        <div class="col-8">
+                            <div class="class-item align-items-center">
+                                <a href="{{ video.url_rutube }}" target="_blank" class="class-item-thumbnail">
                                     <img src="/static/{{ video.image }}" alt="Image">
                                 </a>
                                 <div class="class-item-text">
-                                    <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                    <span> {{ video.trainer }},</span>
-                                    <span> {{ video.times }} {% trans 'минут' %}</span>
+                                    <h3 class="small">{{ video }}</h3>
+                                     <p class="small">{{ video.times }} {% trans 'мин' %}</p>
+                                    <span><a href="{{ video.url_rutube }}" target="_blank">
+                                        <i class="fa-brands fa-resolving"></i>
+                                    </a></span>
+                                    <span><a href="{{ video.url_youtube }}" target="_blank">
+                                        <i class="fa-brands fa-youtube"></i>
+                                    </a></span>
+                                    <span><a href="{{ video.url_vk }}" target="_blank">
+                                        <i class="fa-brands fa-vk"></i>
+                                    </a></span>
                                 </div>
                             </div>
-                            {% endfor %}
-
                         </div>
-                        <div class="col-lg-6">
-                            <span>{% trans 'Вечер' %}</span>
-                            {% for video in timetable.sa_evening.all %}
-                            <div class="class-item d-flex align-items-center">
-                                <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                    <img src="/static/{{ video.image }}" alt="Image">
-                                </a>
-                                <div class="class-item-text">
-                                    <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                    <span> {{ video.trainer }},</span>
-                                    <span> {{ video.times }} {% trans 'минут' %}</span>
-                                </div>
-                            </div>
-                            {% endfor %}
-
-                        </div>
+                        {% endfor %}
                     </div>
+
                 </div>
+
                 <div class="tab-pane fade" id="nav-sunday-{{timetable.id}}" role="tabpanel"
                      aria-labelledby="nav-sunday-tab">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <span>{% trans 'Утро' %}</span>
-                            {% for video in timetable.su_morning.all %}
-                            <div class="class-item d-flex align-items-center">
-                                <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
+
+                    <div class="row justify-content-center">
+                        {% for video in timetable.su.all %}
+                        <div class="col-8">
+                            <div class="class-item align-items-center">
+                                <a href="{{ video.url_rutube }}" target="_blank" class="class-item-thumbnail">
                                     <img src="/static/{{ video.image }}" alt="Image">
                                 </a>
                                 <div class="class-item-text">
-                                    <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                    <span> {{ video.trainer }},</span>
-                                    <span> {{ video.times }} {% trans 'минут' %}</span>
+                                    <h3 class="small">{{ video }}</h3>
+                                     <p class="small">{{ video.times }} {% trans 'мин' %}</p>
+                                    <span><a href="{{ video.url_rutube }}" target="_blank">
+                                        <i class="fa-brands fa-resolving"></i>
+                                    </a></span>
+                                    <span><a href="{{ video.url_youtube }}" target="_blank">
+                                        <i class="fa-brands fa-youtube"></i>
+                                    </a></span>
+                                    <span><a href="{{ video.url_vk }}" target="_blank">
+                                        <i class="fa-brands fa-vk"></i>
+                                    </a></span>
                                 </div>
                             </div>
-                            {% endfor %}
                         </div>
-                        <div class="col-lg-6">
-                            <span>{% trans 'Вечер' %}</span>
-                            {% for video in timetable.su_evening.all %}
-                            <div class="class-item d-flex align-items-center">
-                                <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                    <img src="/static/{{ video.image }}" alt="Image">
-                                </a>
-                                <div class="class-item-text">
-                                    <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                    <span> {{ video.trainer }},</span>
-                                    <span> {{ video.times }} {% trans 'минут' %}</span>
-                                </div>
-                            </div>
-                            {% endfor %}
-                        </div>
+                        {% endfor %}
                     </div>
+
                 </div>
                 {% endfor %}
         </div>

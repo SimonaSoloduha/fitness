@@ -46,6 +46,4 @@ class TimetableForm(forms.ModelForm):
 
     class Meta:
         model = Timetable
-        fields = ['name', 'about', 'free', 'sub_bay_type', 'mo_morning', 'mo_evening', 'to_morning', 'to_evening', 'we_morning',
-                    'we_evening', 'th_morning', 'th_evening', 'fr_morning', 'fr_evening', 'sa_morning', 'sa_evening',
-                    'su_morning', 'su_evening']
+        fields = ['name', 'about', 'free', 'sub_bay_type', 'mo', 'to', 'we', 'th', 'fr', 'sa', 'su']

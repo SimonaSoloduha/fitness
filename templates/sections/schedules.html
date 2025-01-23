@@ -80,23 +80,8 @@
                  aria-labelledby="nav-monday-tab">
                 <div class="row">
                     <div class="col-lg-6">
-                        <span>{% trans 'Утро' %}</span>
-                        {% for video in timetable.mo_morning.all %}
-                        <div class="class-item d-flex align-items-center">
-                            <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="/static/{{ video.image }}" alt="Image">
-                            </a>
-                            <div class="class-item-text">
-                                <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                <span> {{ video.trainer }},</span>
-                                <span> {{ video.times }} {% trans 'минут' %}</span>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                    <div class="col-lg-6">
-                        <span>{% trans 'Вечер' %}</span>
-                        {% for video in timetable.mo_evening.all %}
+                        <span>{% trans 'Тренировки:' %}</span>
+                        {% for video in timetable.mo.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="/static/{{ video.image }}" alt="Image">
@@ -115,23 +100,8 @@
                  aria-labelledby="nav-tuesday-tab">
                 <div class="row">
                     <div class="col-lg-6">
-                        <span>{% trans 'Утро' %}</span>
-                        {% for video in timetable.to_morning.all %}
-                        <div class="class-item d-flex align-items-center">
-                            <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="/static/{{ video.image }}" alt="Image">
-                            </a>
-                            <div class="class-item-text">
-                                <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                <span> {{ video.trainer }},</span>
-                                <span> {{ video.times }} {% trans 'минут' %}</span>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                    <div class="col-lg-6">
-                        <span>{% trans 'Вечер' %}</span>
-                        {% for video in timetable.to_evening.all %}
+                        <span>{% trans 'Тренировки::' %}</span>
+                        {% for video in timetable.to.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="/static/{{ video.image }}" alt="Image">
@@ -150,8 +120,8 @@
                  aria-labelledby="nav-wednesday-tab">
                 <div class="row">
                     <div class="col-lg-6">
-                        <span>{% trans 'Утро' %}</span>
-                        {% for video in timetable.we_morning.all %}
+                        <span>{% trans 'Тренировки::' %}</span>
+                        {% for video in timetable.we.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="/static/{{ video.image }}" alt="Image">
@@ -160,21 +130,6 @@
                                 <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
                                 <span> {{ video.trainer }},</span>
                                 <span> {{ video.times }} {% trans 'минут' %}</span>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                    <div class="col-lg-6">
-                        <span>{% trans 'Вечер' %}</span>
-                        {% for video in timetable.we_evening.all %}
-                        <div class="class-item d-flex align-items-center">
-                            <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="/static/{{ video.image }}" alt="Image">
-                            </a>
-                            <div class="class-item-text">
-                                <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                <span> {{ video.trainer }},</span>
-                                <span> {{ video.times }} {% trans 'минут' %} </span>
                             </div>
                         </div>
                         {% endfor %}
@@ -185,23 +140,8 @@
                  aria-labelledby="nav-thursday-tab">
                 <div class="row">
                     <div class="col-lg-6">
-                        <span>{% trans 'Утро' %}</span>
-                        {% for video in timetable.th_morning.all %}
-                        <div class="class-item d-flex align-items-center">
-                            <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="/static/{{ video.image }}" alt="Image">
-                            </a>
-                            <div class="class-item-text">
-                                <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                <span> {{ video.trainer }},</span>
-                                <span> {{ video.times }} {% trans 'минут' %}</span>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                    <div class="col-lg-6">
-                        <span>{% trans 'Вечер' %}</span>
-                        {% for video in timetable.th_evening.all %}
+                        <span>{% trans 'Тренировки::' %}</span>
+                        {% for video in timetable.th.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="/static/{{ video.image }}" alt="Image">
@@ -220,24 +160,8 @@
                  aria-labelledby="nav-friday-tab">
                 <div class="row">
                     <div class="col-lg-6">
-                        <span>{% trans 'Утро' %}</span>
-                        {% for video in timetable.fr_morning.all %}
-                        <div class="class-item d-flex align-items-center">
-                            <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="/static/{{ video.image }}" alt="Image">
-                            </a>
-                            <div class="class-item-text">
-                                <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                <span> {{ video.trainer }},</span>
-                                <span> {{ video.times }} {% trans 'минут' %}</span>
-                            </div>
-                        </div>
-                        {% endfor %}
-
-                    </div>
-                    <div class="col-lg-6">
-                        <span>{% trans 'Вечер' %}</span>
-                        {% for video in timetable.fr_evening.all %}
+                        <span>{% trans 'Тренировки::' %}</span>
+                        {% for video in timetable.fr.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="/static/{{ video.image }}" alt="Image">
@@ -256,8 +180,8 @@
                  aria-labelledby="nav-saturday-tab">
                 <div class="row">
                     <div class="col-lg-6">
-                        <span>{% trans 'Утро' %}</span>
-                        {% for video in timetable.sa_morning.all %}
+                        <span>{% trans 'Тренировки::' %}</span>
+                        {% for video in timetable.sa.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="/static/{{ video.image }}" alt="Image">
@@ -269,23 +193,6 @@
                             </div>
                         </div>
                         {% endfor %}
-
-                    </div>
-                    <div class="col-lg-6">
-                        <span>{% trans 'Вечер' %}</span>
-                        {% for video in timetable.sa_evening.all %}
-                        <div class="class-item d-flex align-items-center">
-                            <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="/static/{{ video.image }}" alt="Image">
-                            </a>
-                            <div class="class-item-text">
-                                <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                <span> {{ video.trainer }},</span>
-                                <span> {{ video.times }} {% trans 'минут' %}</span>
-                            </div>
-                        </div>
-                        {% endfor %}
-
                     </div>
                 </div>
             </div>
@@ -293,23 +200,8 @@
                  aria-labelledby="nav-sunday-tab">
                 <div class="row">
                     <div class="col-lg-6">
-                        <span>{% trans 'Утро' %}</span>
-                        {% for video in timetable.su_morning.all %}
-                        <div class="class-item d-flex align-items-center">
-                            <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
-                                <img src="/static/{{ video.image }}" alt="Image">
-                            </a>
-                            <div class="class-item-text">
-                                <h2><a href="{{ video.video }}" target="_blank">{{ video.name }}</a></h2>
-                                <span> {{ video.trainer }},</span>
-                                <span> {{ video.times }} {% trans 'минут' %}</span>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                    <div class="col-lg-6">
-                        <span>{% trans 'Вечер' %}</span>
-                        {% for video in timetable.su_evening.all %}
+                        <span>{% trans 'Тренировки::' %}</span>
+                        {% for video in timetable.su.all %}
                         <div class="class-item d-flex align-items-center">
                             <a href="{{ video.video }}" target="_blank" class="class-item-thumbnail">
                                 <img src="/static/{{ video.image }}" alt="Image">
