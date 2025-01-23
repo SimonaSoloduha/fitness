@@ -8,4 +8,6 @@ def dogovor(request):
     basedir = os.path.abspath(os.getcwd())
     filepath = os.path.abspath(os.path.join(basedir, dogovor_path))
 
-    return FileResponse(open(filepath, 'rb'), content_type='application/pdf')
+    return render(request, 'dogovor/dogovor.html', {'filepath': filepath})
+
+    # return FileResponse(open(filepath, 'rb'), content_type='application/pdf')
