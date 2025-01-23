@@ -55,7 +55,6 @@ INSTALLED_APPS = [
     'django_celery_beat',
     'whitenoise.runserver_nostatic',
     'phonenumber_field',
-    'dogovor',
 ]
 
 MIDDLEWARE = [
