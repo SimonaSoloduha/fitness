@@ -93,6 +93,8 @@ class PaymentSubscription(models.Model):
     sale = models.DecimalField(max_digits=6, decimal_places=0, null=True, verbose_name=_('sale'))
     price_month_sale = models.DecimalField(max_digits=6, decimal_places=0, verbose_name=_('price_month_sale'))
     price_year_sale = models.DecimalField(max_digits=6, decimal_places=0, verbose_name=_('price_year_sale'))
+    url_pay_month = models.CharField(blank=True, null=True, max_length=100, verbose_name=_('url_pay_month'))
+    url_pay_year = models.CharField(blank=True, null=True, max_length=100, verbose_name=_('url_pay_year'))
     active = models.BooleanField(default=False, verbose_name=_('active'))
     sub_type = models.CharField(
         max_length=10,

@@ -12,7 +12,7 @@ def send_code_to_email(code_user, email_user):
     """
     mail_sent = send_mail(
         _('Код подтверждения'),
-        _(f'Забыл пароль, дорогой? :) Лови код для входа: {code_user}'),
+        _(f'Забыла пароль, дороая? :) Лови код для изменения: {code_user}'),
         EMAIL_HOST_USER,
         [email_user],
         fail_silently=False,

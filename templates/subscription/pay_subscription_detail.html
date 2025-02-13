@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load embed_video_tags %}
+{% load i18n %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="site-section" id="classes-section">
+    <div class="container">
+
+
+        <div class="row justify-content-center text-center mt-5">
+            <div class="col-md-10 section-heading">
+                <span class="subheading">{% trans 'HOME FITNESS. Simona Soloduha.' %}</span>
+                <h2 class="heading mb-3 mt-3">{% trans 'Оформление подписки' %}</h2>
+                <p>{% trans 'Удобный график для твоих целей' %}</p>
+
+                <p class="heading mb-3 mt-3">{% trans 'Для оформления подписки нужно: ' %}</p>
+                <p>1  - Оплатить подписку по QR-коду </p>
+                <p>2  - Отправить квитанцию (на почту, в WhatsApp или Telegram) </p>
+            </div>
+        </div>
+
+        <!-- row -->
+        <div class="row justify-content-center">
+            <div class="col-md-10 bg payment-subscription" style="background-image: url(/static/{{ payment_subscription.image }}); width: 100%; height: 100vh; background-repeat: no-repeat; background-size: cover;">
+                <div class="ftco-feature-1 pay class-item">
+                    <h2 class="heading mb-3 mt-3">{{ payment_subscriptionpayment_subscription.name }}</h2>
+                    <p>{{ payment_subscription.target }}</p>
+                    <p class="small">{{ payment_subscription.description }}</p>
+
+                    <div class="row align-items-center">
+                        <p class="col-md-6"><s>{{ payment_subscription.price_month }} {% trans ' руб в месяц' %}</s></p>
+                        <p class="col-md-6 sale-elem">
+                            {% trans '-55%' %}
+                        </p>
+                    </div>
+
+                    <div class="row align-items-center">
+                    <p class="col-md-6">{{ payment_subscription.price_month_sale }} {% trans ' руб в месяц' %}</p>
+                        <p class="col-md-6">
+                        <a href="{{ payment_subscription.url_pay_month }}" target="_blank"
+                           class="btn btn-outline-blue1 py-3 px-5">
+                            {% trans 'ОПЛАТИТЬ' %}</a>
+                        </p>
+                    </div>
+
+                    <hr>
+
+                    <div class="row align-items-center">
+                        <p class="col-md-6"><s>{{ payment_subscription.price_year }} {% trans ' руб в год' %}</s></p>
+                        <p class="col-md-6 sale-elem">
+                            {% trans '-55%' %}
+                        </p>
+                    </div>
+
+                    <div class="row align-items-center">
+                    <p class="col-md-6">{{ payment_subscription.price_year_sale }} {% trans ' руб в год' %}</p>
+                        <p class="col-md-6">
+                        <a href="{{ payment_subscription.url_pay_year }}" target="_blank"
+                           class="btn btn-outline-blue1 py-3 px-5">
+                            {% trans 'ОПЛАТИТЬ' %}</a>
+                        </p>
+                    </div>
+
+                    <hr>
+
+                    <div class="row align-items-center">
+                    <p class="col-md-12">{% trans 'Отправить квитанцию: ' %}
+                        <a href="https://t.me/simonasoloduha" target="_blank">{% trans 'Telegram, ' %}</a>
+                        <a href="https://wa.me/+79881803121" target="_blank">{% trans 'WhatsApp, ' %}</a>
+                        <a href="simonasoloduha@gmaail.com" target="_blank">{% trans 'Gmail' %}</a></p>
+                    <p class="col-md-12">simonasoloduha@gmail.com, +79881803121</p>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

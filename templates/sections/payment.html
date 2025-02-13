@@ -38,7 +38,7 @@
                     <div class="row align-items-center">
                     <p class="col-md-6">{{ payment_subscription.price_month_sale }} {% trans ' руб в месяц' %}</p>
                         <p class="col-md-6">
-                        <a href="https://t.me/simonasoloduharu/17" target="_blank"
+                        <a href="{% url 'payment_subscription_fit_vid_detail' payment_subscription.pk %}" target="_blank"
                            class="btn btn-outline-blue1 py-3 px-5">
                             {% trans 'КУПИТЬ' %}</a>
                         </p>
@@ -56,7 +56,7 @@
                     <div class="row align-items-center">
                     <p class="col-md-6">{{ payment_subscription.price_year_sale }} {% trans ' руб в год' %}</p>
                         <p class="col-md-6">
-                        <a href="https://t.me/simonasoloduharu/17" target="_blank"
+                        <a href="{% url 'payment_subscription_fit_vid_detail' payment_subscription.pk %}" target="_blank"
                            class="btn btn-outline-blue1 py-3 px-5">
                             {% trans 'КУПИТЬ' %}</a>
                         </p>

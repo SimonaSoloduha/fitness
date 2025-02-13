@@ -1,11 +1,12 @@
 from django.http import JsonResponse
 from django.utils.translation import gettext_lazy as _
+from django.views.generic.detail import DetailView
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 
 from authentication.forms import RegisterForm
 from subscription.forms import SubscriptionFitnessVideoForm
-from subscription.models import Subscription, SubscriptionFitnessVideo, PromoCodeFitnessVideo
+from subscription.models import Subscription, SubscriptionFitnessVideo, PromoCodeFitnessVideo, PaymentSubscription
 from subscription.tasks import send_hello_to_email
 
 
@@ -91,3 +92,9 @@ def payment_subscription_fit_vid(request):
     else:
         form_register = RegisterForm()
     return render(request, 'subscription/pay_subscription.html', {'form': form_register})
+
+
+class PaymentSubscriptionDetailView(DetailView):
+    model = PaymentSubscription
+    context_object_name = 'payment_subscription'
+    template_name = "subscription/pay_subscription_detail.html"
