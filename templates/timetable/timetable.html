@@ -5,6 +5,7 @@
 
 
 {% block timetable_content %}
+{% include "sections/about_subscriptio.html" %}
 
 <div class="site-section" id="classes-section">
     <div class="container">
@@ -24,9 +25,9 @@
         {% else %}
             <div class="row justify-content-center text-center mb-1 mt-1">
                 <div class="col-md-10 section-heading">
-                    <h2 class="heading mb-3">{% trans 'У вас еще нет подписки на график' %}</h2>
-                    <img src="{% static 'images/icons/start_button.png' %}" alt="Image">
-                    <span class="subheading">{% trans 'Купите в один клик (по цене чашки кофе) и скорее начинайте тренировки!' %}</span>
+                    <span class="subheading">{% trans 'У вас еще нет подписки на график' %}</span>
+<!--                    <img src="{% static 'images/icons/start_button.png' %}" alt="Image">-->
+                    <h2>{% trans 'Купите в один клик и скорее к мечтке!' %}</h2>
                 </div>
             </div>
 
