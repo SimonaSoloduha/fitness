@@ -4,14 +4,61 @@
 <div class="site-section">
     <div class="container">
 
-        <div class="row justify-content-center text-center mb-5">
+        <div class="row justify-content-center text-center mb-5 mt-5">
             <div class="col-md-8 section-heading">
                 <h2 class="heading mb-3">{% trans 'ОФОРМИТЬ ПОДПИСКУ' %}</h2>
-<!--                <h2 class="heading mb-3">{% trans 'ФИГУРА МЕЧТЫ ПО ЦЕНЕ ЧАШКИ КОФЕ 😍' %}</h2>-->
-                <p>{% trans 'Получи доступ к графику тренировок и сделай спорт частью своей жизни!' %}</p>
-                <p>{% trans 'Все проще и приятнее, чем кажется!' %}</p>
-            <span class="subheading">{% trans 'ХОЧУ ТРЕНИРОВАТЬСЯ И БЫТЬ САМОЙ КРАСИВОЙ! 😍' %}</span>
+                <span class="subheading">{% trans 'Все проще и приятнее, чем кажется!' %}</span>
+                <h3 class="subheading">{% trans 'ХОЧУ ТРЕНИРОВАТЬСЯ И БЫТЬ САМОЙ КРАСИВОЙ! 😍' %}</h3>
+            </div>
+        </div>
 
+        <div class="row justify-content-center text-center mb-5 mt-5">
+            <h2 class="heading mb-3">{% trans 'ПРЕИМУЩЕСТВА ПОДПИСКИ:' %}</h2>
+                <div class="col-md-12 list-payment-subscription">
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                        - Гарантированный первый результат через неделю</p>
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                        - Любовь к тренировкам навсегда</p>
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                        - Четкий план действий</p>
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                        - Всего 3-4 часа занятий в неделю</p>
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                        - Экономия времени на дорогу в спортзал</p>
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                        - Программа под ваши конкретные цели</p>
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                        - Тренировки в любое удобное время</p>
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                        - Тренировки в любом удобном месте</p>
+                </div>
+        </div>
+
+        <div class="row justify-content-center text-center mb-5">
+            <h2 class="heading mb-3">{% trans 'ВЫ ПРИОБРЕТАЕТЕ: ' %}</h2>
+                <div class="col-md-12 list-payment-subscription">
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                        - Фигуру мечты</p>
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                        - Уверенность в себе</p>
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                        - Счастье при взгляде в зеркало</p>
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                        - Возможность носить любые наряды</p>
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                        - Прекрасное настроение</p>
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                        - Влюбленность в себя и свое тело</p>
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                        - Свободу от неуверенности и скованности</p>
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                        - Вдохновляющую женственность</p>
+                </div>
+        </div>
+
+        <div class="row justify-content-center text-center mb-5 mt-5">
+            <div class="col-md-8 section-heading">
+                <h2 class="heading mb-3">{% trans 'ДО КОНЦА ФЕВРАЛЯ ПО ЦЕНЕ ЧАШКИ КОФЕ 😍 ' %}</h2>
             </div>
         </div>
 
@@ -23,7 +70,8 @@
             <div class="col-md-6">
                 <div class="ftco-feature-1 pay class-item">
 
-                    <a href="{% url 'payment_subscription_fit_vid' %}" target="_blank" class="class-item-thumbnail">
+                    <a href="{% url 'payment_subscription_fit_vid_detail' payment_subscription.pk %}"
+                       target="_blank" class="class-item-thumbnail">
                         <img src="/static/{{ payment_subscription.image }}" alt="Image">
                     </a>
                     <h2 class="heading mb-3 mt-3">{{ payment_subscription.name }}</h2>
