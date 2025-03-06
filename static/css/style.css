@@ -711,7 +711,7 @@ h1, h2, h3, h4, h5,
   background: #6dc0ef;
   max-width: 700px;
   position: relative;
-  z-index: 9;
+  z-index: 10;
   color: white;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -1003,11 +1003,15 @@ h1, h2, h3, h4, h5,
     color: #fff;
 }
 .fa-brands, .fa-solid {
-    padding-right: 6px;
+    padding: 5px;
     color: #fff;
 }
     .fa-brands:hover {
       color: #6dc0ef;
+    }
+
+    .fa-brands-hover-black:hover {
+      color: #041d2d;
     }
 
 .btn.btn-outline-blue1 {
