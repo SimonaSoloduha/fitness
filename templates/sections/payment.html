@@ -6,51 +6,51 @@
 
         <div class="row justify-content-center text-center mb-5 mt-5">
             <h2 class="heading mb-3">{% trans 'ПРЕИМУЩЕСТВА ПОДПИСКИ:' %}</h2>
-                <div class="col-md-12 list-payment-subscription">
-                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
-                        - Гарантированный первый результат через неделю</p>
-                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
-                        - Любовь к тренировкам навсегда</p>
-                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
-                        - Четкий план действий</p>
-                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
-                        - Всего 3-4 часа занятий в неделю</p>
-                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
-                        - Экономия времени на дорогу в спортзал</p>
-                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
-                        - Программа под ваши конкретные цели</p>
-                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
-                        - Тренировки в любое удобное время</p>
-                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
-                        - Тренировки в любом удобном месте</p>
-                </div>
+            <div class="col-md-12 list-payment-subscription">
+                <p class="list-group-item list-group-item-action p-2 border-0 rounded-1 animated-item">
+                    - Гарантированный первый результат через неделю</p>
+                <p class="list-group-item list-group-item-action p-2 border-0 rounded-1 animated-item">
+                    - Любовь к тренировкам навсегда</p>
+                <p class="list-group-item list-group-item-action p-2 border-0 rounded-1 animated-item">
+                    - Четкий план действий</p>
+                <p class="list-group-item list-group-item-action p-2 border-0 rounded-1 animated-item">
+                    - Всего 3-4 часа занятий в неделю</p>
+                <p class="list-group-item list-group-item-action p-2 border-0 rounded-1 animated-item">
+                    - Экономия времени на дорогу в спортзал</p>
+                <p class="list-group-item list-group-item-action p-2 border-0 rounded-1 animated-item">
+                    - Программа под ваши конкретные цели</p>
+                <p class="list-group-item list-group-item-action p-2 border-0 rounded-1 animated-item">
+                    - Тренировки в любое удобное время</p>
+                <p class="list-group-item list-group-item-action p-2 border-0 rounded-1 animated-item">
+                    - Тренировки в любом удобном месте</p>
+            </div>
         </div>
 
         <div class="row justify-content-center text-center mb-5">
             <h2 class="heading mb-3">{% trans 'ВЫ ПРИОБРЕТАЕТЕ: ' %}</h2>
                 <div class="col-md-12 list-payment-subscription">
-                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1 animated-item">
                         - Фигуру мечты</p>
-                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1 animated-item">
                         - Уверенность в себе</p>
-                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1 animated-item">
                         - Счастье при взгляде в зеркало</p>
-                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1 animated-item">
                         - Возможность носить любые наряды</p>
-                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1 animated-item">
                         - Прекрасное настроение</p>
-                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1 animated-item">
                         - Влюбленность в себя и свое тело</p>
-                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1 animated-item">
                         - Свободу от неуверенности и скованности</p>
-                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1">
+                    <p class="list-group-item list-group-item-action p-2 border-0 rounded-1 animated-item">
                         - Вдохновляющую женственность</p>
                 </div>
         </div>
 
         <div class="row justify-content-center text-center mb-5 mt-5">
             <div class="col-md-8 section-heading">
-                <h2 class="heading mb-3">{% trans 'ПОДАРИ СЕБЕ УВЕРЕННОСТЬ 😍' %}</h2>
+                <h2 class="heading mb-3">{% trans 'ГАРАНТИРОВАННЫЙ РЕЗУЛЬТАТ' %}</h2>
             </div>
         </div>
 
@@ -59,7 +59,7 @@
 
             {% for payment_subscription in payment_subscriptions %}
 
-            <div class="col-md-6">
+            <div class="col-md-6 animated-item">
                 <div class="ftco-feature-1 pay class-item">
 
                     <a href="{% url 'payment_subscription_fit_vid_detail' payment_subscription.pk %}"

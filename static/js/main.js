@@ -291,4 +291,11 @@ jQuery(document).ready(function($) {
 		$("#bgndVideoFree").YTPlayer();
 	});
 
+    const items = $('.animated-item');
+    items.each(function(index) {
+        $(this).css('opacity', 0);
+        $(this).delay(index * 300).animate({opacity: 1}, 500);
+    });
+
+
 });
