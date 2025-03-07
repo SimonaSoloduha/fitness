@@ -10,83 +10,105 @@
             </div>
         </div>
 
-        <div class="row">
 
-            <div class="col-lg-3 mb-4 mb-lg-0 col-md-6 text-center" data-aos="fade-up" data-aos-delay="">
-                <div class="person">
-                    <img src="{% static 'video/icons/diamond.mp4' %}" alt="Image" class="img-fluid">
-                    <h3>ЭКОНОМИЯ ДЕНЕГ 💰</h3>
-                    <p class="position">Средняя цена занятий в зале - 12 000 руб</p>
-                    <p>Цена занятий ОНЛАЙН - от 990 руб. А ещее новые кроссовки, топики и шортики за
-                        45 000 руб 😁</p>
+        <!-- Slider -->
+        <div class="owl-carousel nonloop-block-14 block-14" data-aos="fade">
+            <div class="slide">
+                <div class="ftco-feature-1">
+                    <span class="icon flaticon-fit"></span>
+                    <div class="ftco-feature-1-text">
+                        <img src="{% static 'video/icons/diamond.mp4' %}" alt="Image">
+                        <h2>{% trans 'ЭКОНОМИЯ ДЕНЕГ 💰' %}</h2>
+                        <p>{% trans 'Средняя цена занятий в зале - 12 000 руб.' %}</p>
+                        <p>{% trans 'Цена занятий ОНЛАЙН - от 990 руб. А ещее новые кроссовки, топики и шортики за 45 000 руб 😁' %}</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-lg-3 mb-4 mb-lg-0 col-md-6 text-center" data-aos="fade-up" data-aos-delay="">
-                <div class="person">
-                    <img src="{% static 'video/icons/balance.mp4' %}" alt="Image" class="img-fluid">
-                    <h3>ЭКОНОМИЯ ВРЕМЕНИ ⌛</h3>
-                    <p class="position">Дорога до спортзала и обратно – 90 мин </p>
-                    <p>Дорога до коврика дома – 0 мин. Просто открой ссылку и начни тренировку 👌</p>
+            <div class="slide">
+                <div class="ftco-feature-1">
+                    <span class="icon flaticon-fit"></span>
+                    <div class="ftco-feature-1-text">
+                        <img src="{% static 'video/icons/balance.mp4' %}" alt="Image">
+                        <h2>{% trans 'ЭКОНОМИЯ ВРЕМЕНИ ⌛' %}</h2>
+                        <p>{% trans 'Дорога до спортзала и обратно – 90 мин.' %}</p>
+                        <p>{% trans 'Дорога до коврика дома – 0 мин. Просто открой ссылку и начни тренировку 👌' %}</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-lg-3 mb-4 mb-lg-0 col-md-6 text-center" data-aos="fade-up" data-aos-delay="">
-                <div class="person">
-                    <img src="{% static 'video/icons/squats.mp4' %}" alt="Image" class="img-fluid">
-                    <h3>КРУТОЕ КОМЬЮНИТИ 🫶</h3>
-                    <p class="position">Хватит скучать и грустить в одиночестве! </p>
-                    <p>Собираем команду девушек,
-                        которые не согласны на меньшее и готовы идти К МЕЧТЕ 💃</p>
+            <div class="slide">
+                <div class="ftco-feature-1">
+                    <span class="icon flaticon-fit"></span>
+                    <div class="ftco-feature-1-text">
+                        <img src="{% static 'video/icons/squats.mp4' %}" alt="Image">
+                        <h2>{% trans 'КРУТОЕ КОМЬЮНИТИ 🫶' %}</h2>
+                        <p>{% trans 'Хватит скучать и грустить в одиночестве!' %}</p>
+                        <p>{% trans 'Собираем команду девушек, которые не согласны на меньшее и готовы идти К МЕЧТЕ 💃' %}</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-lg-3 mb-4 mb-lg-0 col-md-6 text-center" data-aos="fade-up" data-aos-delay="">
-                <div class="person">
-                    <img src="{% static 'video/icons/body-combat.mp4' %}" alt="Image" class="img-fluid">
-                    <h3>ГРАФИК (ПРОГРАММА) ТРЕНИРОВОК 📆</h3>
-                    <p class="position">Хватит тратить время на бесконечный поиск</p>
-                    <p>Под каждую программу составлен график тренировок. Просто жми НАЧАТЬ 💃</p>
+            <div class="slide">
+                <div class="ftco-feature-1">
+                    <span class="icon flaticon-fit"></span>
+                    <div class="ftco-feature-1-text">
+                        <img src="{% static 'video/icons/body-combat.mp4' %}" alt="Image">
+                        <h2>{% trans 'ГРАФИК (ПРОГРАММА) ТРЕНИРОВОК 📆' %}</h2>
+                        <p>{% trans 'Хватит тратить время на бесконечный поиск.' %}</p>
+                        <p>{% trans 'Под каждую программу составлен график тренировок. Просто жми НАЧАТЬ 💃' %}</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-lg-3 mb-4 mb-lg-0 col-md-6 text-center" data-aos="fade-up" data-aos-delay="">
-                <div class="person">
-                    <img src="{% static 'video/icons/waist.mp4' %}" alt="Image" class="img-fluid">
-                    <h3>ТРЕНИРОВКИ БЕЗ БОЛТОВНИ 🙊</h3>
-                    <p class="position">Хватит болтать, пора действовать 💃</p>
-                    <p>Если тренировка длится час – то мы тренируемся час и не тратим
-                        твое драгоценное время 🩷</p>
+            <div class="slide">
+                <div class="ftco-feature-1">
+                    <span class="icon flaticon-fit"></span>
+                    <div class="ftco-feature-1-text">
+                        <img src="{% static 'video/icons/waist.mp4' %}" alt="Image">
+                        <h2>{% trans 'ТРЕНИРОВКИ БЕЗ БОЛТОВНИ 🙊' %}</h2>
+                        <p>{% trans 'Хватит болтать, пора действовать 💃' %}</p>
+                        <p>{% trans 'Если тренировка длится час – то мы тренируемся час и не тратим твое драгоценное время 🩷' %}</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-lg-3 mb-4 mb-lg-0 col-md-6 text-center" data-aos="fade-up" data-aos-delay="">
-                <div class="person">
-                    <img src="{% static 'video/icons/busy.mp4' %}" alt="Image" class="img-fluid">
-                    <h3>ТРЕНИРУЙСЯ В ЛЮБОМ МЕСТЕ 🏖</h3>
-                    <p  class="position">Путешествия сбивают с графиика?</p>
-                    <p>Тренируйся в любой точке мира! Дом, отель, парк, пляж -
-                        подойдет все! ✈️</p>
+            <div class="slide">
+                <div class="ftco-feature-1">
+                    <span class="icon flaticon-fit"></span>
+                    <div class="ftco-feature-1-text">
+                        <img src="{% static 'video/icons/busy.mp4' %}" alt="Image">
+                        <h2>{% trans 'ТРЕНИРУЙСЯ В ЛЮБОМ МЕСТЕ 🏖' %}</h2>
+                        <p>{% trans 'Путешествия сбивают с графиика?' %}</p>
+                        <p>{% trans 'Тренируйся в любой точке мира! Дом, отель, парк, пляж - подойдет все! ✈️' %}</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-lg-3 mb-4 mb-lg-0 col-md-6 text-center" data-aos="fade-up" data-aos-delay="">
-                <div class="person">
-                    <img src="{% static 'video/icons/dumbbell.mp4' %}" alt="Image" class="img-fluid">
-                    <h3>ТРЕНИРУЙСЯ В ЛЮБОЕ ВРЕМЯ ⏰</h3>
-                    <p class="position">Не отказывайся от планов из-за тренировок </p>
-                    <p>Тренируйся хоть в 05:00, хоть в 23:00! Главное – ТРЕНИРУЙСЯ и СИЯЙ 💃</p>
+            <div class="slide">
+                <div class="ftco-feature-1">
+                    <span class="icon flaticon-fit"></span>
+                    <div class="ftco-feature-1-text">
+                        <img src="{% static 'video/icons/dumbbell.mp4' %}" alt="Image">
+                        <h2>{% trans 'ТРЕНИРУЙСЯ В ЛЮБОЕ ВРЕМЯ ⏰' %}</h2>
+                        <p>{% trans 'Из-за тренировок отказываешся от встречь?' %}</p>
+                        <p>{% trans 'Тренируйся хоть в 05:00, хоть в 23:00! Главное – ТРЕНИРУЙСЯ и СИЯЙ 💃' %}</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-lg-3 mb-4 mb-lg-0 col-md-6 text-center" data-aos="fade-up" data-aos-delay="">
-                <div class="person">
-                    <img src="{% static 'video/icons/deadlift.mp4' %}" alt="Image" class="img-fluid">
-                    <h3>РЕГУЛЯРНЫЕ ОБНОВЛЕНИЯ 🎁</h3>
-                    <p class="position">Одинаковые тренировки перестают работать</p>
-                    <p>Каждую неделю тебя будет ждать новая тренировка и новые результаты 🫶</p>
+            <div class="slide">
+                <div class="ftco-feature-1">
+                    <span class="icon flaticon-fit"></span>
+                    <div class="ftco-feature-1-text">
+                        <img src="{% static 'video/icons/deadlift.mp4' %}" alt="Image">
+                        <h2>{% trans 'РЕГУЛЯРНЫЕ ОБНОВЛЕНИЯ 🎁' %}</h2>
+                        <p>{% trans 'Одинаковые тренировки перестают работать!' %}</p>
+                        <p>{% trans 'Каждую неделю тебя будет ждать новая тренировка и новые результаты 🫶' %}</p>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
