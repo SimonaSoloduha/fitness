@@ -4,9 +4,10 @@ html {
 
 .video-main {
   position: absolute;
+  controls: false;
   z-index: 0;
   bottom: 0px;
-  margin-left: -370px;
+  margin-left: -470px;
   margin-bottom: -300px;
   max-width: initial; }
   @media (max-width: 991.98px) {
@@ -663,7 +664,7 @@ h1, h2, h3, h4, h5,
     z-index: 10;
     position: relative; }
   .intro-section, .intro-section .container .row {
-    height: 600px;
+    height: 500px;
     min-height: 300px; }
   .intro-section:before {
     content: "";
