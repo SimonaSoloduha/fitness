@@ -294,7 +294,7 @@ jQuery(document).ready(function($) {
     const items = $('.animated-item');
     items.each(function(index) {
         $(this).css('opacity', 0);
-        $(this).delay(index * 1000).animate({opacity: 1}, 500);
+        $(this).delay(index * 200).animate({opacity: 1}, 500);
     });
 
 
