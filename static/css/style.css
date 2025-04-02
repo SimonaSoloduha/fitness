@@ -22,7 +22,7 @@ html {
 
 body {
   line-height: 1.7;
-  font-weight: 300;
+  font-weight: 100;
   font-size: 1.1rem;
   color: #041d2d; }
 
@@ -342,13 +342,10 @@ h1, h2, h3, h4, h5,
 /* Navbar */
 .site-logo {
   position: relative;
+  color: #fff;
   font-weight: 900;
-  font-size: 1.3rem;
+  font-size: 1rem;
   text-transform: uppercase; }
-  .site-logo a {
-    color: #fff; }
-    .site-logo a span {
-      color: #6dc0ef; }
 
 .site-navbar {
   margin-bottom: 0px;
@@ -377,7 +374,7 @@ h1, h2, h3, h4, h5,
     .site-navbar .site-navigation .site-menu > li {
       display: inline-block; }
       .site-navbar .site-navigation .site-menu > a {
-        padding: 5px 20px;
+        padding: 5px 10px 0;
         color: #fff;
         display: inline-block;
         text-decoration: none !important; }
@@ -387,7 +384,7 @@ h1, h2, h3, h4, h5,
       position: relative; }
       .site-navbar .site-navigation .site-menu .has-children > a {
         position: relative;
-        padding-right: 20px; }
+        padding-right: 10px; }
         .site-navbar .site-navigation .site-menu .has-children > a:before {
           position: absolute;
           content: "\e313";
@@ -657,56 +654,6 @@ h1, h2, h3, h4, h5,
     padding-bottom: 10px !important; }
 
 /* Blocks */
-.intro-section {
-  position: relative;
-  overflow: hidden; }
-  .intro-section > .container {
-    z-index: 10;
-    position: relative; }
-  .intro-section, .intro-section .container .row {
-    height: 500px;
-    min-height: 300px; }
-  .intro-section:before {
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: #ccc;
-    border-bottom-right-radius: 0px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; }
-    @media (max-width: 991.98px) {
-      .intro-section:before {
-        width: 100%; } }
-  .intro-section:after {
-    content: "";
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.5);
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1; }
-  .intro-section h1 {
-    font-size: 4rem;
-    font-weight: 900;
-    color: #fff; }
-    @media (max-width: 991.98px) {
-      .intro-section h1 {
-        font-size: 2rem; } }
-  .intro-section .desc {
-    color: white;
-    font-size: 1.4rem;
-    max-width: 700px; }
-  .intro-section a {
-    color: #fff;
-    text-decoration: underline; }
-    .intro-section a:hover {
-      text-decoration: none; }
-  .intro-section .btn {
-    text-decoration: none; }
-
 .schedule-wrap {
   padding: 30px;
   background: #6dc0ef;

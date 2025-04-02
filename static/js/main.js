@@ -281,15 +281,6 @@ jQuery(document).ready(function($) {
 
   };
 	siteScroll();
-	
-
-	$(function () {
-		$("#bgndVideo").YTPlayer();
-	});
-
-	$(function () {
-		$("#bgndVideoFree").YTPlayer();
-	});
 
     const items = $('.animated-item');
     items.each(function(index) {
