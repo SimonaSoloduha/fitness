@@ -167,15 +167,15 @@ h1, h2, h3, h4, h5,
     box-shadow: none !important; }
 
 .site-section {
-  padding: 1.5em 0; }
+  padding: 10px 0; }
   @media (min-width: 768px) {
     .site-section {
-      padding: 3em 0; } }
+      padding: 5px 0; } }
   .site-section.site-section-sm {
-    padding: 2em 0; }
+    padding: 5px 0; }
 
 .site-section-heading {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   margin-bottom: 0px;
   position: relative;
   font-size: 2.5rem; }
@@ -768,7 +768,79 @@ h1, h2, h3, h4, h5,
     padding: 50px;
 }
 
+.sale {
+    position: fixed;
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+    z-index: 5;
+    bottom: 0;
+    background: #6dc0ef;
+    font-weight: 500;
+    height: 50px;
+    width: 100%;
+}
 
+.sale-text {
+    display: inline-block;
+    padding: 10px;
+}
+
+.price-subscription {
+    font-size: 30px;
+    display: flex !important;
+    flex-wrap: wrap;
+    line-height: 1;
+    unicode-bidi: isolate;
+    flex-direction: column;
+    position: relative;
+    word-break: break-word;
+}
+
+.price-subscription-sale {
+    line-height: 1;
+    font-size: 30px;
+    line-height: 1;
+    position: relative;
+    word-break: break-word;
+}
+
+.price-subscription-sale-price {
+    font-weight: 500;
+    letter-spacing: -.4px;
+    line-height: 1.2;
+    display: inline-block;
+    white-space: nowrap;
+}
+.price-subscription-sale-text {
+    color: #ac8c75;
+    font-size: 14px;
+    line-height: 1.1;
+    text-transform: lowercase;
+}
+
+.price-subscription-not-sale {
+    display: block;
+    unicode-bidi: isolate;
+    font-size: 30px;
+    line-height: 1;
+}
+
+.price-subscription-not-sale-price {
+    letter-spacing: -.4px;
+    line-height: 1.2;
+    display: inline-block;
+    white-space: nowrap;
+    unicode-bidi: isolate;
+    word-break: break-word;
+    text-decoration: line-through;
+}
+
+.price-subscription-not-sale-text {
+    font-size: 14px;
+    line-height: 1.1;
+    text-transform: lowercase;
+}
 
 .block-14 .owl-nav {
   display: none; }
@@ -800,7 +872,7 @@ h1, h2, h3, h4, h5,
   font-size: 2.5rem;}
 
 .class-item {
-   opacity: .5;
+   opacity: .8;
   -webkit-box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -850,7 +922,7 @@ h1, h2, h3, h4, h5,
   background-repeat: no-repeat;
   position: relative; }
   .bgimg, .bgimg .container .row {
-    height: 500px; }
+    height: 400px; }
   .bgimg:before {
     content: "";
     background-color: rgba(0, 0, 0, 0.4);

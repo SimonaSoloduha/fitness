@@ -25,44 +25,75 @@
 
         <!-- row -->
         <div class="row justify-content-center">
-            <div class="col-md-10 bg payment-subscription" style="background-image: url(/static/{{ payment_subscription.image }}); width: 100%; height: 100vh; background-repeat: no-repeat; background-size: cover;">
+            <div class="col-md-6 bg payment-subscription" style="background-image: url(/static/{{ payment_subscription.image }}); width: 100%; height: 100vh; background-repeat: no-repeat; background-size: cover;">
                 <div class="ftco-feature-1 pay class-item">
                     <h2 class="heading mb-3 mt-3">{{ payment_subscriptionpayment_subscription.name }}</h2>
                     <p>{{ payment_subscription.target }}</p>
                     <p class="small">{{ payment_subscription.description }}</p>
 
-                    <div class="row align-items-center">
-                        <p class="col-md-6"><s>{{ payment_subscription.price_month }} {% trans ' руб в месяц' %}</s></p>
-                        <p class="col-md-6 sale-elem">
-                            {% trans '-55%' %}
-                        </p>
-                    </div>
+                    <div class="price-subscription container">
 
-                    <div class="row align-items-center">
-                    <p class="col-md-6">{{ payment_subscription.price_month_sale }} {% trans ' руб в месяц' %}</p>
-                        <p class="col-md-6">
-                        <a href="{{ payment_subscription.url_pay_month }}" target="_blank"
-                           class="btn btn-outline-blue1 py-3 px-5">
-                            {% trans 'ОПЛАТИТЬ' %}</a>
-                        </p>
+                        <div class="row">
+
+                            <div class="price-subscription-sale col">
+                                <div class="price-subscription-sale-price">
+                                      {{ payment_subscription.price_month_sale }}
+                                      <span>₽</span>
+                                </div>
+                                <div class="price-subscription-sale-text">
+                                  со скидкой 50%
+                                </div>
+                            </div>
+
+                            <div class="price-subscription-not-sale col">
+                                <div class="price-subscription-not-sale-price">
+                                  {{ payment_subscription.price_month }}
+                                  <span>₽</span>
+
+                                </div>
+
+                                <div class="price-subscription-not-sale-text">
+                                без скидки
+                                </div>
+                            </div>
+                        </div>
+                            <a href="{% url 'payment_subscription_fit_vid_detail' payment_subscription.pk %}" target="_blank"
+                               class="btn btn-outline-blue1 py-3 px-5">
+                                {% trans 'КУПИТЬ месяц' %}</a>
                     </div>
 
                     <hr>
 
-                    <div class="row align-items-center">
-                        <p class="col-md-6"><s>{{ payment_subscription.price_year }} {% trans ' руб в год' %}</s></p>
-                        <p class="col-md-6 sale-elem">
-                            {% trans '-55%' %}
-                        </p>
-                    </div>
+                    <div class="price-subscription container">
 
-                    <div class="row align-items-center">
-                    <p class="col-md-6">{{ payment_subscription.price_year_sale }} {% trans ' руб в год' %}</p>
-                        <p class="col-md-6">
-                        <a href="{{ payment_subscription.url_pay_year }}" target="_blank"
-                           class="btn btn-outline-blue1 py-3 px-5">
-                            {% trans 'ОПЛАТИТЬ' %}</a>
-                        </p>
+                        <div class="row">
+
+                            <div class="price-subscription-sale col">
+                                <div class="price-subscription-sale-price">
+                                      {{ payment_subscription.price_year_sale }}
+                                      <span>₽</span>
+                                </div>
+                                <div class="price-subscription-sale-text">
+                                  со скидкой 50%
+                                </div>
+                            </div>
+
+                            <div class="price-subscription-not-sale col">
+                                <div class="price-subscription-not-sale-price">
+                                  {{ payment_subscription.price_year }}
+                                  <span>₽</span>
+
+                                </div>
+
+                                <div class="price-subscription-not-sale-text">
+                                без скидки
+                                </div>
+                            </div>
+
+                        </div>
+                            <a href="{% url 'payment_subscription_fit_vid_detail' payment_subscription.pk %}" target="_blank"
+                               class="btn btn-outline-blue1 py-3 px-5">
+                                {% trans 'КУПИТЬ год' %}</a>
                     </div>
 
                     <hr>
