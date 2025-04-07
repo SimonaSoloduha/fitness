@@ -74,7 +74,7 @@
                                       <span>₽</span>
                                 </div>
                                 <div class="price-subscription-sale-text">
-                                  со скидкой 50%
+                                  месяц со скидкой 50%
                                 </div>
                             </div>
 
@@ -90,9 +90,9 @@
                                 </div>
                             </div>
                         </div>
-                            <a href="{% url 'payment_subscription_fit_vid_detail' payment_subscription.pk %}" target="_blank"
+                            <a href="{{ payment_subscription.url_pay_month }}" target="_blank"
                                class="btn btn-outline-blue1 py-3 px-5">
-                                {% trans 'КУПИТЬ месяц' %}</a>
+                                {% trans 'КУПИТЬ' %}</a>
                     </div>
 
                     <hr>
@@ -107,7 +107,7 @@
                                       <span>₽</span>
                                 </div>
                                 <div class="price-subscription-sale-text">
-                                  со скидкой 50%
+                                  год со скидкой 50%
                                 </div>
                             </div>
 
@@ -124,15 +124,29 @@
                             </div>
 
                         </div>
-                            <a href="{% url 'payment_subscription_fit_vid_detail' payment_subscription.pk %}" target="_blank"
-                               class="btn btn-outline-blue1 py-3 px-5">
-                                {% trans 'КУПИТЬ год' %}</a>
+                            <a href="{{ payment_subscription.url_pay_year }}" target="_blank"
+                               class="btn btn-outline-blue1 mx-40 py-3 px-5">
+                                {% trans 'КУПИТЬ' %}</a>
                     </div>
 
                 </div>
             </div>
 
             {% endfor %}
+
+            <div class="row align-items-center">
+                <h3 class="col-md-12">{% trans 'После оплаты подписки по QR-коду: ' %}</h3>
+                <p class="col-md-12">1  - Отправьте нам квитанцию удобным для вас способом:
+                        <a href="https://t.me/simonasoloduha" target="_blank">{% trans ' Telegram,' %}</a>
+                        <a href="https://wa.me/+79881803121" target="_blank">{% trans ' WhatsApp ' %}</a> (+79881803121),
+                        <a href="simonasoloduha@gmaail.com" target="_blank">{% trans ' Gmail ' %}</a> (simonasoloduha@gmail.com)</p>
+                <p class="col-md-12">2  - Получите доступ от менеджера и начинайте преображение</p>
+                <p class="col-md-12">{% trans 'Контакты для связи: ' %}
+                    <a href="https://t.me/simonasoloduha" target="_blank">{% trans 'Telegram, ' %}</a>
+                    <a href="https://wa.me/+79881803121" target="_blank">{% trans 'WhatsApp, ' %}</a>
+                    <a href="simonasoloduha@gmaail.com" target="_blank">{% trans 'Gmail' %}</a></p>
+                <p class="col-md-12">( simonasoloduha@gmail.com, +79881803121 )</p>
+            </div>
 
         </div>
 
