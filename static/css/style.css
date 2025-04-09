@@ -795,7 +795,6 @@ h1, h2, h3, h4, h5,
     flex-direction: column;
     position: relative;
     word-break: break-word;
-    width: 80%;
 }
 
 .price-subscription-sale {
@@ -923,7 +922,7 @@ h1, h2, h3, h4, h5,
   background-repeat: no-repeat;
   position: relative; }
   .bgimg, .bgimg .container .row {
-    height: 400px; }
+    height: 500px; }
   .bgimg:before {
     content: "";
     background-color: rgba(0, 0, 0, 0.4);

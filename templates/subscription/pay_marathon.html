@@ -1,0 +1,255 @@
+{% extends 'base.html' %}
+{% load embed_video_tags %}
+{% load i18n %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="site-section" id="classes-section">
+    <div class="container">
+
+        <div class=" justify-content-center text-center mt-2">
+
+            <span class="subheading text-uppercase">{% trans 'МАРАФОН' %}</span>
+            <h2 class="heading text-uppercase">{% trans 'Фигура мечты за 7 дней' %}</h2>
+            <span class="subheading text-uppercase">{% trans 'Похудение и рельефы ' %}</span>
+
+            <div class="col-md-12 list-payment-subscription">
+
+                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 mt-5 mb-5">
+                    За 7 дней интенсивных  тренировок ты гарантированно увидишь результат и наконец-то поверишь в себя!
+                </p>
+
+                <span class="subheading text-uppercase mt-5">
+                    Если давно мечтаешь найти тренировки, которые реально работают - поздравляю!<br>
+                    Ящик пандоры в твоих руках!
+                </span>
+
+            </div>
+
+            <h4 class="heading text-uppercase mt-5 mb-5">{% trans 'длительность' %}</h4>
+
+
+            <div class="col-md-12 list-payment-subscription">
+
+                <span class="subheading text-uppercase mt-5">
+                    Всего 7 дней и 7 тренировок по 30-60 минут подарят тебя долгожданное счастье при виде себя в зеркале!
+                </span>
+
+                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 mt-5 mb-5">
+                    Ты однозначно улыбнешься новой себе и захочешь продолжать уже в умеренном режиме нагрузок.<br>
+                    Ты можешь бесплатно тренироваться по тренировкам на YouTube, RuTube или в Vk  или преобрести
+                    подписку на графики тренировок.
+                </p>
+
+            </div>
+
+
+            <h4 class="heading text-uppercase mt-5 mb-5">{% trans 'Питание' %}</h4>
+
+
+            <div class="col-md-12 list-payment-subscription">
+
+                <span class="subheading text-uppercase mt-5">
+                    Даже если ты не изменишь свое питание результат будет.
+                </span>
+
+                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 mt-5 mb-5">
+                    Даже если ты не изменишь свое питание результат будет.
+                    Если сможешь уменьшить количество потребляемых калорий - ожидаем WOW-эффект!
+                </p>
+
+            </div>
+
+
+            <h4 class="heading text-uppercase mt-5 mb-5">{% trans 'ОБОРУДОВАНИЕ' %}</h4>
+
+
+            <div class="col-md-12 list-payment-subscription">
+
+                <span class="subheading text-uppercase mt-5">
+                    Для старта понадобится:
+                </span>
+
+                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 mt-5">
+                    1 - Коврик</p>
+                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1">
+                    ЕСЛИ НЕТ: берем покрывало или коврик с ванной</p>
+                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1">
+                    2 - Гантели</p>
+                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1">
+                    ЕСЛИ НЕТ: берем бутылки с водой по 0.3 - 0.5 литра</p>
+                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1">
+                    3 - Спортивная обувь</p>
+                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1">
+                    ЛЮБАЯ</p>
+                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1">
+                    4 - Хорошее настроение и улыбка</p>
+                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1">
+                    ЕСЛИ НЕТ: обеспечим</p>
+
+            </div>
+
+            <h4 class="heading text-uppercase mt-5 mb-5">{% trans 'ПОДАРОК' %}</h4>
+
+
+            <div class="col-md-12 list-payment-subscription">
+
+                <span class="subheading text-uppercase mt-5">
+                    5 рецептов вкусных низкокалорийных блюд!
+                </span>
+
+                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 mt-5">
+                    Для приготовления которых понадобятся простые продукты в пределах 150 руб на каждое блюдо.  </p>
+
+            </div>
+
+
+            <div class="col-md-12 list-payment-subscription mt-2">
+                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
+                    - Гарантированный первый результат через неделю</p>
+                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
+                    - Любовь к тренировкам навсегда</p>
+                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
+                    - Четкий план действий</p>
+                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
+                    - Всего 3-4 часа занятий в неделю</p>
+                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
+                    - Экономия времени на дорогу в спортзал</p>
+                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
+                    - Программа под ваши конкретные цели</p>
+                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
+                    - Тренировки в любое удобное время</p>
+                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
+                    - Тренировки в любом удобном месте</p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center text-center mb-5">
+            <h2 class="heading mb-3">{% trans 'ВЫ ПРИОБРЕТАЕТЕ: ' %}</h2>
+                <div class="col-md-12 list-payment-subscription">
+                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
+                        - Фигуру мечты</p>
+                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
+                        - Уверенность в себе</p>
+                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
+                        - Счастье при взгляде в зеркало</p>
+                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
+                        - Возможность носить любые наряды</p>
+                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
+                        - Прекрасное настроение</p>
+                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
+                        - Влюбленность в себя и свое тело</p>
+                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
+                        - Свободу от неуверенности и скованности</p>
+                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
+                        - Вдохновляющую женственность</p>
+                </div>
+        </div>
+
+
+        <div class="row justify-content-center text-center">
+            <div class="col-md-10 section-heading">
+                <span class="subheading">{% trans 'HOME FITNESS. Simona Soloduha.' %}</span>
+                <h2 class="heading mb-3">{% trans 'Оформление подписки' %}</h2>
+                <p>1  - Оплатите вашу программу по QR-коду </p>
+                <p>2  - Отправить квитанцию в
+                        <a href="https://t.me/simonasoloduha" target="_blank">{% trans ' Telegram,' %}</a>
+                        <a href="https://wa.me/+79881803121" target="_blank">{% trans ' WhatsApp ' %}</a>или на
+                        <a href="simonasoloduha@gmaail.com" target="_blank">{% trans ' почту Gmail' %}</a></p>
+                <p>3  - Получите доступ от менеджера и начните тренироваться</p>
+            </div>
+        </div>
+
+        <!-- row -->
+        <div class="row justify-content-center">
+            <div class="col-md-6 bg payment-subscription" style="background-image: url(/static/{{ payment_subscription.image }}); width: 100%; height: 100vh; background-repeat: no-repeat; background-size: cover;">
+                <div class="ftco-feature-1 pay class-item">
+                    <h2 class="heading mb-3 mt-3">{{ payment_subscriptionpayment_subscription.name }}</h2>
+                    <p>{{ payment_subscription.target }}</p>
+                    <p class="small">{{ payment_subscription.description }}</p>
+
+                    <div class="price-subscription container">
+
+                        <div class="row">
+
+                            <div class="price-subscription-sale col">
+                                <div class="price-subscription-sale-price">
+                                      {{ payment_subscription.price_month_sale }}
+                                      <span>₽</span>
+                                </div>
+                                <div class="price-subscription-sale-text">
+                                  со скидкой 50%
+                                </div>
+                            </div>
+
+                            <div class="price-subscription-not-sale col">
+                                <div class="price-subscription-not-sale-price">
+                                  {{ payment_subscription.price_month }}
+                                  <span>₽</span>
+
+                                </div>
+
+                                <div class="price-subscription-not-sale-text">
+                                без скидки
+                                </div>
+                            </div>
+                        </div>
+                            <a href="#" target="_blank"
+                               class="btn btn-outline-blue1 py-3 px-5">
+                                {% trans 'КУПИТЬ месяц' %}</a>
+                    </div>
+
+                    <hr>
+
+                    <div class="price-subscription container">
+
+                        <div class="row">
+
+                            <div class="price-subscription-sale col">
+                                <div class="price-subscription-sale-price">
+                                      {{ payment_subscription.price_year_sale }}
+                                      <span>₽</span>
+                                </div>
+                                <div class="price-subscription-sale-text">
+                                  со скидкой 50%
+                                </div>
+                            </div>
+
+                            <div class="price-subscription-not-sale col">
+                                <div class="price-subscription-not-sale-price">
+                                  {{ payment_subscription.price_year }}
+                                  <span>₽</span>
+
+                                </div>
+
+                                <div class="price-subscription-not-sale-text">
+                                без скидки
+                                </div>
+                            </div>
+
+                        </div>
+                            <a href="#" target="_blank"
+                               class="btn btn-outline-blue1 py-3 px-5">
+                                {% trans 'КУПИТЬ год' %}</a>
+                    </div>
+
+                    <hr>
+
+                    <div class="row align-items-center">
+                    <p class="col-md-12">{% trans 'Отправить квитанцию: ' %}
+                        <a href="https://t.me/simonasoloduha" target="_blank">{% trans 'Telegram, ' %}</a>
+                        <a href="https://wa.me/+79881803121" target="_blank">{% trans 'WhatsApp, ' %}</a>
+                        <a href="simonasoloduha@gmaail.com" target="_blank">{% trans 'Gmail' %}</a></p>
+                    <p class="col-md-12">simonasoloduha@gmail.com, +79881803121</p>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

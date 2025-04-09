@@ -94,7 +94,11 @@ def payment_subscription_fit_vid(request):
     return render(request, 'subscription/pay_subscription.html', {'form': form_register})
 
 
+def pay_marathon(request):
+    return render(request, 'subscription/pay_marathon.html')
+
+
 class PaymentSubscriptionDetailView(DetailView):
     model = PaymentSubscription
     context_object_name = 'payment_subscription'
-    template_name = "subscription/pay_subscription_detail.html"
+    template_name = "subscription/pay_marathon.html"
