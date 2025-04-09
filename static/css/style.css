@@ -795,6 +795,7 @@ h1, h2, h3, h4, h5,
     flex-direction: column;
     position: relative;
     word-break: break-word;
+    width: 80%;
 }
 
 .price-subscription-sale {
@@ -1040,6 +1041,7 @@ h1, h2, h3, h4, h5,
     background: transparent;
     border-color: #041d2d;
     color: #041d2d;
+    width: 200px;
     }
     .btn.btn-outline-blue1:hover {
       background: #041d2d;
