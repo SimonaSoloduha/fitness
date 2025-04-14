@@ -9,27 +9,65 @@
 <div class="site-section" id="classes-section">
     <div class="container">
 
-        <div class=" justify-content-center text-center mt-2">
+        <div class=" justify-content-center text-center m-5">
 
             <span class="subheading text-uppercase">{% trans 'МАРАФОН' %}</span>
             <h2 class="heading text-uppercase">{% trans 'Фигура мечты за 7 дней' %}</h2>
-            <span class="subheading text-uppercase">{% trans 'Похудение и рельефы ' %}</span>
+            <span class="subheading text-uppercase m-5">{% trans 'Похудение и рельефы ' %}</span>
+        </div>
 
-            <div class="col-md-12 list-payment-subscription">
 
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 mt-5 mb-5">
-                    За 7 дней интенсивных  тренировок ты гарантированно увидишь результат и наконец-то поверишь в себя!
-                </p>
+        <div class="bgimg" style="background-image: url(&quot;/static/images/0016.jpeg&quot;); background-position: 50% -58.9297px;" data-stellar-background-ratio="0.5">
 
-                <span class="subheading text-uppercase mt-5">
-                    Если давно мечтаешь найти тренировки, которые реально работают - поздравляю!<br>
-                    Ящик пандоры в твоих руках!
-                </span>
+            <div class="container">
+                <div class="row align-items-center justify-content-center text-center p-5">
+                    <div class="col-md-12">
+                        <h2 class="mb-2">За 7 дней интенсивных  тренировок ты гарантированно увидишь результат и наконец-то поверишь в себя!</h2>
+                        <p class="lead mx-auto desc mb-2"> Если давно мечтаешь найти тренировки, <br>которые реально работают - поздравляю!<br>
+                        Ящик пандоры в твоих руках!</p>
+                        <div class="price-subscription container" style="height: 80px;">
 
+                            <div class="row">
+
+                                <div class="price-subscription-sale col">
+                                    <div class="price-subscription-sale-price">
+                                          900
+                                          <span>₽</span>
+                                    </div>
+                                    <div class="price-subscription-sale-text">
+                                      со скидкой 50%
+                                    </div>
+                                </div>
+
+                                <div class="price-subscription-not-sale col">
+                                    <div class="price-subscription-not-sale-price">
+                                      1800
+                                      <span>₽</span>
+                                    </div>
+
+                                    <div class="price-subscription-not-sale-text">
+                                    без скидки
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <a href="https://pay.alfabank.ru/sc/bEuAjKnZTrGWQtUV" target="_blank"
+                               class="btn btn-outline-white py-3 px-5">
+                                {% trans 'КУПИТЬ' %}</a>
+                        </div>
+
+                    </div>
+                </div>
             </div>
+        </div>
 
-            <h4 class="heading text-uppercase mt-5 mb-5">{% trans 'длительность' %}</h4>
+        <div class=" justify-content-center text-center mt-5">
 
+            <h4 class="heading text-uppercase mt-5 mb-5">
+                <img class="payment-img-right" src="{% static 'images/icons/free-icon-slim.png' %}" alt="Image">
+            {% trans 'длительность' %}</h4>
 
             <div class="col-md-12 list-payment-subscription">
 
@@ -37,7 +75,7 @@
                     Всего 7 дней и 7 тренировок по 30-60 минут подарят тебя долгожданное счастье при виде себя в зеркале!
                 </span>
 
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 mt-5 mb-5">
+                <p>
                     Ты однозначно улыбнешься новой себе и захочешь продолжать уже в умеренном режиме нагрузок.<br>
                     Ты можешь бесплатно тренироваться по тренировкам на YouTube, RuTube или в Vk  или преобрести
                     подписку на графики тренировок.
@@ -45,210 +83,373 @@
 
             </div>
 
+            <h4 class="heading text-uppercase mt-5 mb-5">
+            <img class="payment-img-left" src="{% static 'images/icons/salad.png' %}" alt="Image">
+            {% trans 'Питание' %}</h4>
 
-            <h4 class="heading text-uppercase mt-5 mb-5">{% trans 'Питание' %}</h4>
+            <div class="col-md-12">
 
-
-            <div class="col-md-12 list-payment-subscription">
-
-                <span class="subheading text-uppercase mt-5">
+                <span class="subheading text-uppercase">
                     Даже если ты не изменишь свое питание результат будет.
                 </span>
 
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 mt-5 mb-5">
-                    Даже если ты не изменишь свое питание результат будет.
+                <p class="p-0 border-0 rounded-1">
+                    Даже если ты не изменишь свое питание результат будет.<br>
                     Если сможешь уменьшить количество потребляемых калорий - ожидаем WOW-эффект!
                 </p>
 
             </div>
 
 
-            <h4 class="heading text-uppercase mt-5 mb-5">{% trans 'ОБОРУДОВАНИЕ' %}</h4>
+            <h4 class="heading text-uppercase mt-5 mb-5">{% trans '' %}</h4>
 
+
+            <div class="row justify-content-center text-center mb-5 mt-5" data-aos="fade-up">
+                <div class="col-md-6 section-heading">
+                    <span class="subheading">{% trans 'Для старта понадобится' %}</span>
+                    <h2 class="heading mb-3">{% trans 'ОБОРУДОВАНИЕ' %}</h2>
+                </div>
+            </div>
+
+
+            <div class="owl-carousel nonloop-block-14 block-14" data-aos="fade">
+                <div class="slide">
+                    <div class="ftco-feature-1">
+                        <span class="icon flaticon-fit"></span>
+                        <div class="ftco-feature-1-text">
+                            <img src="{% static 'images/icons/free-relax.png' %}" alt="Image">
+                            <h2>{% trans '1 - Коврик' %}</h2>
+                            <p>{% trans 'ЕСЛИ НЕТ: берем покрывало или коврик с ванной' %}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="ftco-feature-1">
+                        <span class="icon flaticon-fit"></span>
+                        <div class="ftco-feature-1-text">
+                            <img src="{% static 'images/icons/icon-workout.png' %}" alt="Image">
+                            <h2>{% trans '2 - Гантели' %}</h2>
+                            <p>{% trans 'ЕСЛИ НЕТ: берем бутылки с водой по 0.3 - 0.5 л' %}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="ftco-feature-1">
+                        <span class="icon flaticon-fit"></span>
+                        <div class="ftco-feature-1-text">
+                            <img src="{% static 'images/icons/sneakers.png' %}" alt="Image">
+                            <h2>{% trans '3 - Спортивная обувь' %}</h2>
+                            <p>{% trans 'ЛЮБАЯ!' %}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="ftco-feature-1">
+                        <span class="icon flaticon-fit"></span>
+                        <div class="ftco-feature-1-text">
+                            <img src="{% static 'images/icons/smile.png' %}" alt="Image">
+                            <h2>{% trans '4 - Хорошее настроение и улыбка' %}</h2>
+                            <p>{% trans 'ЕСЛИ НЕТ: обеспечим' %}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bgimg" style="background-image: url(&quot;/static/images/0030_chocolate.jpg&quot;); background-position: 50% -58.9297px;" data-stellar-background-ratio="0.5">
+
+                  <div class="container">
+                      <div class="row align-items-center justify-content-center text-center">
+                          <div class="col-md-12">
+                              <h2 class="mb-2">ПОДАРОК 🎁<br>5 рецептов вкусных низкокалорийных блюд!</h2>
+                              <p class="lead mx-auto desc mb-2"> Для приготовления которых понадобятся простые продукты
+                                  и минимум времени.</p>
+                          </div>
+                      </div>
+                  </div>
+            </div>
+
+
+
+            <div class="row justify-content-center text-center mb-5 mt-5">
+                <div class="col-md-8 section-heading">
+                    <span class="subheading">ЧТО ВАС ЖДЕТ</span>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-12">
+                    <ul class="nav days d-flex" role="tablist">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" id="monday-tab" data-toggle="tab"
+                               href="#nav-monday-{{timetable.id}}" role="tab"
+                               aria-controls="monday"
+                               aria-selected="false">{% trans 'Понедельник' %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tuesday-tab" data-toggle="tab"
+                               href="#nav-tuesday-{{timetable.id}}" role="tab"
+                               aria-controls="tuesday"
+                               aria-selected="false">{% trans 'Вторник' %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="wednesday-tab" data-toggle="tab"
+                               href="#nav-wednesday-{{timetable.id}}" role="tab"
+                               aria-controls="wednesday"
+                               aria-selected="false">{% trans 'Среда' %}</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" id="thursday-tab" data-toggle="tab"
+                               href="#nav-thursday-{{timetable.id}}" role="tab"
+                               aria-controls="thursday"
+                               aria-selected="false">{% trans 'Четверг' %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="friday-tab" data-toggle="tab"
+                               href="#nav-friday-{{timetable.id}}" role="tab"
+                               aria-controls="friday"
+                               aria-selected="false">{% trans 'Пятница' %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="saturday-tab" data-toggle="tab"
+                               href="#nav-saturday-{{timetable.id}}" role="tab"
+                               aria-controls="saturday"
+                               aria-selected="false">{% trans 'Суббота' %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " id="sunday-tab" data-toggle="tab"
+                               href="#nav-sunday-{{timetable.id}}" role="tab"
+                               aria-controls="sunday"
+                               aria-selected="true">{% trans 'Воскресенье' %}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="tab-content">
+
+                <div class="tab-pane fade show active" id="nav-monday-{{timetable.id}}" role="tabpanel"
+                     aria-labelledby="nav-monday-tab">
+
+                    <div class="row justify-content-center">
+                        <div class="col-8">
+                            <div class="class-item align-items-center p-5">
+                                <div class="class-item-text">
+                                    <h2>{% trans 'Интенсивная тренировка' %}</h2>
+                                    <p>{% trans '60 мин (кардио, танцы, силовые)' %}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade" id="nav-tuesday-{{timetable.id}}" role="tabpanel"
+                     aria-labelledby="nav-tuesday-tab">
+
+                    <div class="row justify-content-center">
+                        <div class="col-8">
+                            <div class="class-item align-items-center p-5">
+                                <div class="class-item-text">
+                                    <h2>{% trans 'Тренировка средней интенсивности' %}</h2>
+                                    <p>{% trans '30 мин (танцы, силовые)' %}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade" id="nav-wednesday-{{timetable.id}}" role="tabpanel"
+                     aria-labelledby="nav-wednesday-tab">
+
+                    <div class="row justify-content-center">
+                        <div class="col-8">
+                            <div class="class-item align-items-center p-5">
+                                <div class="class-item-text">
+                                    <h2>{% trans 'Интенсивная тренировка' %}</h2>
+                                    <p>{% trans '60 мин (кардио, танцы, силовые)' %}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade" id="nav-thursday-{{timetable.id}}" role="tabpanel"
+                     aria-labelledby="nav-thursday-tab">
+
+                    <div class="row justify-content-center">
+                        <div class="col-8">
+                            <div class="class-item align-items-center p-5">
+                                <div class="class-item-text">
+                                    <h2>{% trans 'Тренировка средней интенсивности' %}</h2>
+                                    <p>{% trans '30 мин (BARRE, силовые)' %}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade" id="nav-friday-{{timetable.id}}" role="tabpanel"
+                     aria-labelledby="nav-friday-tab">
+
+                    <div class="row justify-content-center">
+                        <div class="col-8">
+                            <div class="class-item align-items-center p-5">
+                                <div class="class-item-text">
+                                    <h2>{% trans 'Интенсивная тренировка' %}</h2>
+                                    <p>{% trans '60 мин (кардио, танцы, силовые)' %}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade" id="nav-saturday-{{timetable.id}}" role="tabpanel"
+                     aria-labelledby="nav-saturday-tab">
+
+                    <div class="row justify-content-center">
+                        <div class="col-8">
+                            <div class="class-item align-items-center p-5">
+                                <div class="class-item-text">
+                                    <h2>{% trans 'Танцевальная тренировка' %}</h2>
+                                    <p>{% trans '30 мин (танцы, BARRE)' %}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade" id="nav-sunday-{{timetable.id}}" role="tabpanel"
+                     aria-labelledby="nav-sunday-tab">
+
+                    <div class="row justify-content-center">
+                        <div class="col-8">
+                            <div class="class-item align-items-center p-5">
+                                <div class="class-item-text">
+                                    <h2>{% trans 'Тренировка средней интенсивности' %}</h2>
+                                    <p>{% trans '30 мин (BARRE, силовые)' %}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <h4 class="heading text-uppercase mt-5 mb-5">
+                <img class="payment-img-left" src="{% static 'images/icons/girl-2.png' %}" alt="Image">
+            {% trans 'результат' %}</h4>
 
             <div class="col-md-12 list-payment-subscription">
 
                 <span class="subheading text-uppercase mt-5">
-                    Для старта понадобится:
+                    Уже через 3 дня первые результаты, а через неделю:
                 </span>
 
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 mt-5">
-                    1 - Коврик</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1">
-                    ЕСЛИ НЕТ: берем покрывало или коврик с ванной</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1">
-                    2 - Гантели</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1">
-                    ЕСЛИ НЕТ: берем бутылки с водой по 0.3 - 0.5 литра</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1">
-                    3 - Спортивная обувь</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1">
-                    ЛЮБАЯ</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1">
-                    4 - Хорошее настроение и улыбка</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1">
-                    ЕСЛИ НЕТ: обеспечим</p>
-
+                <p class="list-group-item list-group-item-action p-5 border-0 rounded-1 animated-item">
+                    ✅ Заметное уменьшение в объемах живота, талии, бедер (1-3 см)</p>
+                <p class="list-group-item list-group-item-action p-5 border-0 rounded-1 animated-item">
+                    ✅ Заметное похудение в ногах (самые проблемные зоны в области внутренней поверхности бедра)</p>
+                <p class="list-group-item list-group-item-action p-5 border-0 rounded-1 animated-item">
+                    ✅ Появление первых рельефов на прессе (в случае, если ваш лишний вес не критический)</p>
             </div>
 
-            <h4 class="heading text-uppercase mt-5 mb-5">{% trans 'ПОДАРОК' %}</h4>
-
-
+            <h4 class="heading text-uppercase mt-5 mb-5">
+                <img class="payment-img-right" src="{% static 'images/icons/girl.png' %}" alt="Image">
+            {% trans 'А еще сможешь' %}</h4>
             <div class="col-md-12 list-payment-subscription">
 
-                <span class="subheading text-uppercase mt-5">
-                    5 рецептов вкусных низкокалорийных блюд!
-                </span>
-
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 mt-5">
-                    Для приготовления которых понадобятся простые продукты в пределах 150 руб на каждое блюдо.  </p>
+                <p class="list-group-item list-group-item-action border-0 rounded-1 animated-item">
+                    ✅ Влезть в любимое платье </p>
+                <p class="list-group-item list-group-item-action border-0 rounded-1 animated-item">
+                    ✅ Застегнуть ремень на 1-2 дырочки меньше</p>
+                <p class="list-group-item list-group-item-action border-0 rounded-1 animated-item">
+                    ✅ С удовольствие достать все летние наряды и застегнуть их с легкостью,
+                    посмотрев на оставшееся пространство между вами и вещью</p>
+                <p class="list-group-item list-group-item-action border-0 rounded-1 animated-item">
+                    ✅ Купить новое платье на размер меньше</p>
+                <p class="list-group-item list-group-item-action border-0 rounded-1 animated-item">
+                    ✅ Порадовать своим прекрасным настроением своих близких</p>
+                <p class="list-group-item list-group-item-action border-0 rounded-1 animated-item">
+                    ✅ Уверенной походкой зайти на пляж в купальнике</p>
 
             </div>
 
+            <div class="bgimg" style="background-image: url(&quot;/static/images/0016.jpeg&quot;); background-position: 50% -58.9297px;" data-stellar-background-ratio="0.5">
 
-            <div class="col-md-12 list-payment-subscription mt-2">
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                    - Гарантированный первый результат через неделю</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                    - Любовь к тренировкам навсегда</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                    - Четкий план действий</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                    - Всего 3-4 часа занятий в неделю</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                    - Экономия времени на дорогу в спортзал</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                    - Программа под ваши конкретные цели</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                    - Тренировки в любое удобное время</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                    - Тренировки в любом удобном месте</p>
+                  <div class="container">
+                      <div class="row align-items-center justify-content-center text-center">
+                          <div class="col-md-12">
+                              <h2 class="mb-2"> 7 дней </h2>
+                              <p class="lead mx-auto desc mb-2"> Если давно мечтаешь найти тренировки, <br>которые реально работают - поздравляю!<br>
+                                Ящик пандоры в твоих руках!</p>
+
+
+                              <div class="price-subscription container" style="height: 80px;">
+
+                                    <div class="row">
+
+                                        <div class="price-subscription-sale col">
+                                            <div class="price-subscription-sale-price">
+                                                  900
+                                                  <span>₽</span>
+                                            </div>
+                                            <div class="price-subscription-sale-text">
+                                              со скидкой 50%
+                                            </div>
+                                        </div>
+
+                                        <div class="price-subscription-not-sale col">
+                                            <div class="price-subscription-not-sale-price">
+                                              1800
+                                              <span>₽</span>
+
+                                            </div>
+
+                                            <div class="price-subscription-not-sale-text">
+                                            без скидки
+                                            </div>
+                                        </div>
+                                    </div>
+                              </div>
+                              <div>
+                                  <a href="https://pay.alfabank.ru/sc/bEuAjKnZTrGWQtUV" target="_blank"
+                                       class="btn btn-outline-white py-3 px-5">
+                                        {% trans 'КУПИТЬ' %}</a>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
             </div>
+
         </div>
 
-        <div class="row justify-content-center text-center mb-5">
-            <h2 class="heading mb-3">{% trans 'ВЫ ПРИОБРЕТАЕТЕ: ' %}</h2>
-                <div class="col-md-12 list-payment-subscription">
-                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                        - Фигуру мечты</p>
-                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                        - Уверенность в себе</p>
-                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                        - Счастье при взгляде в зеркало</p>
-                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                        - Возможность носить любые наряды</p>
-                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                        - Прекрасное настроение</p>
-                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                        - Влюбленность в себя и свое тело</p>
-                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                        - Свободу от неуверенности и скованности</p>
-                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                        - Вдохновляющую женственность</p>
-                </div>
+        <div class="col-md-10 section-heading mt-5">
+            <span class="subheading">{% trans 'HOME FITNESS. Simona Soloduha.' %}</span>
+            <h2 class="heading mb-3">{% trans 'Как оплатить марафон?' %}</h2>
+            <p>1  - Оплатите марафон по
+                <a href="https://pay.alfabank.ru/sc/bEuAjKnZTrGWQtUV">
+                                    QR-коду</a></p>
+            <p>2  - Отправить квитанцию в
+                    <a href="https://t.me/simonasoloduha" target="_blank">{% trans ' Telegram,' %}</a>
+                    <a href="https://wa.me/+79881803121" target="_blank">{% trans ' WhatsApp ' %}</a>или на
+                    <a href="simonasoloduha@gmaail.com" target="_blank">{% trans ' почту Gmail' %}</a></p>
+            <p>3  - Получите доступ от менеджера и начните тренироваться</p>
         </div>
 
-
-        <div class="row justify-content-center text-center">
-            <div class="col-md-10 section-heading">
-                <span class="subheading">{% trans 'HOME FITNESS. Simona Soloduha.' %}</span>
-                <h2 class="heading mb-3">{% trans 'Оформление подписки' %}</h2>
-                <p>1  - Оплатите вашу программу по QR-коду </p>
-                <p>2  - Отправить квитанцию в
-                        <a href="https://t.me/simonasoloduha" target="_blank">{% trans ' Telegram,' %}</a>
-                        <a href="https://wa.me/+79881803121" target="_blank">{% trans ' WhatsApp ' %}</a>или на
-                        <a href="simonasoloduha@gmaail.com" target="_blank">{% trans ' почту Gmail' %}</a></p>
-                <p>3  - Получите доступ от менеджера и начните тренироваться</p>
-            </div>
-        </div>
-
-        <!-- row -->
-        <div class="row justify-content-center">
-            <div class="col-md-6 bg payment-subscription" style="background-image: url(/static/{{ payment_subscription.image }}); width: 100%; height: 100vh; background-repeat: no-repeat; background-size: cover;">
-                <div class="ftco-feature-1 pay class-item">
-                    <h2 class="heading mb-3 mt-3">{{ payment_subscriptionpayment_subscription.name }}</h2>
-                    <p>{{ payment_subscription.target }}</p>
-                    <p class="small">{{ payment_subscription.description }}</p>
-
-                    <div class="price-subscription container">
-
-                        <div class="row">
-
-                            <div class="price-subscription-sale col">
-                                <div class="price-subscription-sale-price">
-                                      {{ payment_subscription.price_month_sale }}
-                                      <span>₽</span>
-                                </div>
-                                <div class="price-subscription-sale-text">
-                                  со скидкой 50%
-                                </div>
-                            </div>
-
-                            <div class="price-subscription-not-sale col">
-                                <div class="price-subscription-not-sale-price">
-                                  {{ payment_subscription.price_month }}
-                                  <span>₽</span>
-
-                                </div>
-
-                                <div class="price-subscription-not-sale-text">
-                                без скидки
-                                </div>
-                            </div>
-                        </div>
-                            <a href="#" target="_blank"
-                               class="btn btn-outline-blue1 py-3 px-5">
-                                {% trans 'КУПИТЬ месяц' %}</a>
-                    </div>
-
-                    <hr>
-
-                    <div class="price-subscription container">
-
-                        <div class="row">
-
-                            <div class="price-subscription-sale col">
-                                <div class="price-subscription-sale-price">
-                                      {{ payment_subscription.price_year_sale }}
-                                      <span>₽</span>
-                                </div>
-                                <div class="price-subscription-sale-text">
-                                  со скидкой 50%
-                                </div>
-                            </div>
-
-                            <div class="price-subscription-not-sale col">
-                                <div class="price-subscription-not-sale-price">
-                                  {{ payment_subscription.price_year }}
-                                  <span>₽</span>
-
-                                </div>
-
-                                <div class="price-subscription-not-sale-text">
-                                без скидки
-                                </div>
-                            </div>
-
-                        </div>
-                            <a href="#" target="_blank"
-                               class="btn btn-outline-blue1 py-3 px-5">
-                                {% trans 'КУПИТЬ год' %}</a>
-                    </div>
-
-                    <hr>
-
-                    <div class="row align-items-center">
-                    <p class="col-md-12">{% trans 'Отправить квитанцию: ' %}
-                        <a href="https://t.me/simonasoloduha" target="_blank">{% trans 'Telegram, ' %}</a>
-                        <a href="https://wa.me/+79881803121" target="_blank">{% trans 'WhatsApp, ' %}</a>
-                        <a href="simonasoloduha@gmaail.com" target="_blank">{% trans 'Gmail' %}</a></p>
-                    <p class="col-md-12">simonasoloduha@gmail.com, +79881803121</p>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 

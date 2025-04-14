@@ -788,6 +788,7 @@ h1, h2, h3, h4, h5,
 
 .price-subscription {
     font-size: 30px;
+    height: 200px;
     display: flex !important;
     flex-wrap: wrap;
     line-height: 1;
@@ -840,6 +841,18 @@ h1, h2, h3, h4, h5,
     font-size: 14px;
     line-height: 1.1;
     text-transform: lowercase;
+}
+
+.payment-img-left {
+  left: 0;
+  position: absolute;
+  width: 150px;
+}
+
+.payment-img-right {
+  right: 0;
+  position: absolute;
+  width: 150px;
 }
 
 .block-14 .owl-nav {
