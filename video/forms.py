@@ -28,6 +28,9 @@ SUBSCRIPTIONS_BAY_TYPES = [
     ('type_01', 'type_01'),
     ('type_02', 'type_02'),
     ('type_03', 'type_03'),
+    ('type_04', 'type_04'),
+    ('type_05', 'type_05'),
+    ('type_06', 'type_06'),
 ]
 
 
