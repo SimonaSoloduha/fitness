@@ -787,6 +787,7 @@ h1, h2, h3, h4, h5,
 }
 
 .price-subscription {
+    background: radial-gradient(ellipse 100px 50px, white, transparent);
     font-size: 30px;
     height: 200px;
     display: flex !important;
@@ -847,12 +848,18 @@ h1, h2, h3, h4, h5,
   left: 0;
   position: absolute;
   width: 150px;
+  @media (max-width: 991.98px) {
+      width: 90px;
+      margin-top: -30px;}
 }
 
 .payment-img-right {
   right: 0;
   position: absolute;
   width: 150px;
+  @media (max-width: 991.98px) {
+      width: 90px;
+      margin-top: -30px;}
 }
 
 .block-14 .owl-nav {
@@ -934,7 +941,7 @@ h1, h2, h3, h4, h5,
   background-size: cover;
   background-repeat: no-repeat;
   position: relative; }
-  .bgimg, .bgimg .container .row {
+  .bgimg .container .row {
     height: 500px; }
   .bgimg:before {
     content: "";
@@ -947,6 +954,8 @@ h1, h2, h3, h4, h5,
     z-index: 1; }
   .bgimg .lead {
     color: #fff; }
+    @media (max-width: 991.98px) {
+      font-size: 1rem; }
   .bgimg > .container {
     z-index: 2;
     position: relative; }
@@ -957,7 +966,7 @@ h1, h2, h3, h4, h5,
     font-weight: bold; }
     @media (max-width: 991.98px) {
       .bgimg h2 {
-        font-size: 2rem; } }
+        font-size: 1rem; } }
   .bgimg a {
     color: #fff;
     text-decoration: underline; }
