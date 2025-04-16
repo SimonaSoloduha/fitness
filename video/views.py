@@ -58,3 +58,31 @@ class Timetables(ListView):
         }
 
         return render(request, 'timetable/timetable.html', context)
+
+
+class TimetablesMarathon(ListView):
+    def get(self, request):
+        user = request.user
+        if user.is_authenticated:
+            try:
+                subscription = SubscriptionFitnessVideo.objects.filter(
+                    user=user,
+                    active=True
+                )
+                sub_types = subscription.values_list('sub_type', flat=True)
+
+                if 'type_04' in sub_types:
+                    timetables = Timetable.objects.filter(sub_bay_type='type_04')
+                else:
+                    timetables = None
+
+            except SubscriptionFitnessVideo.DoesNotExist:
+                timetables = Timetable.objects.none()
+        else:
+            timetables = Timetable.objects.none()
+
+        context = {
+            'timetables': timetables,
+        }
+
+        return render(request, 'timetable/timetable_marathon.html', context)

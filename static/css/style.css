@@ -787,7 +787,8 @@ h1, h2, h3, h4, h5,
 }
 
 .price-subscription {
-    background: radial-gradient(ellipse 100px 50px, white, transparent);
+    max-width: 300px;
+    background: radial-gradient(ellipse 300px 50px, white, transparent);
     font-size: 30px;
     height: 200px;
     display: flex !important;
