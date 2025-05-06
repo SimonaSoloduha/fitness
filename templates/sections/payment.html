@@ -62,7 +62,7 @@
                     </a>
                     <h2 class="heading mb-3 mt-3">{{ payment_subscription.name }}</h2>
                     <p>{{ payment_subscription.target }}</p>
-                    <p class="small">{{ payment_subscription.description }}</p>
+                    <p class="small">{{ payment_subscription.description|linebreaks }}</p>
 
                     <div class="price-subscription container">
 
@@ -74,7 +74,7 @@
                                       <span>₽</span>
                                 </div>
                                 <div class="price-subscription-sale-text">
-                                  месяц со скидкой 50%
+                                    со скидкой 50%
                                 </div>
                             </div>
 
@@ -107,7 +107,7 @@
                                       <span>₽</span>
                                 </div>
                                 <div class="price-subscription-sale-text">
-                                  год со скидкой 50%
+                                    со скидкой 50%
                                 </div>
                             </div>
 
