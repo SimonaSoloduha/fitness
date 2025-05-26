@@ -86,7 +86,8 @@
                             <a href="{% url 'index' %}" class="nav-link">{% trans 'Главная' %}</a>
                             <a href="{% url 'timetable_marathon' %}" class="nav-link">{% trans 'Марафон ⭐️' %}</a>
                             <a href="{% url 'timetable' %}" class="nav-link">{% trans 'Программы' %}</a>
-                            <a href="{% url 'all' %}" class="nav-link">{% trans 'Бесплатные' %}</a>
+                            <a href="{% url 'sochi_info' %}" class="nav-link">{% trans 'Сочи 🌊' %}</a>
+                            <a href="{% url 'all' %}" class="nav-link">{% trans 'Бесплатно' %}</a>
                             {% if user.is_authenticated %}
                             <a href="{% url 'logout_fitness' %}" class="nav-link">{% trans 'Выход' %}</a>
                             {% else %}
@@ -148,6 +149,8 @@
                   <div class="col-md-7">
                       <h2 class="mb-2">Simona Soloduha</h2>
                       <p class="lead mx-auto desc mb-2">Каждый день ты будешь становиться лучше и именно это тебя не остановит!</p>
+                          {% block title_page %}
+                          {% endblock title_page %}
                   </div>
               </div>
           </div>
