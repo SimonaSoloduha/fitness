@@ -26,4 +26,5 @@ urlpatterns = [
     path('video/', include('video.urls'), name='video'),
     path('sochi/', include('sochi.urls'), name='sochi'),
     path('', include('subscription.urls')),
+    path('zen_8oRVPGRA4zgBaqFz0nUn4AoUUrQEOHxjnEoq3wd5gm2SGlha55ANlTxhZGXApyoL.html', views.dzen, name='dzen'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

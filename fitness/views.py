@@ -36,3 +36,7 @@ def index(request):
 
     # print('user_marathon_true', user_marathon_true)
     return render(request, 'index.html', context)
+
+
+def dzen(request):
+    return render(request, 'dzen.html')
