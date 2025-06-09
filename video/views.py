@@ -40,12 +40,16 @@ class Timetables(ListView):
                 )
                 sub_types = subscription.values_list('sub_type', flat=True)
 
-                if sub_types[0] == 'type_00':
+                if sub_types:
 
-                    sub_types_all = ['type_01', 'type_02', 'type_03']
-                    timetables = Timetable.objects.filter(sub_bay_type__in=sub_types_all)
+                    if sub_types[0] == 'type_00':
+
+                        sub_types_all = ['type_01', 'type_02', 'type_03']
+                        timetables = Timetable.objects.filter(sub_bay_type__in=sub_types_all)
+                    else:
+                        timetables = Timetable.objects.filter(sub_bay_type__in=sub_types)
                 else:
-                    timetables = Timetable.objects.filter(sub_bay_type__in=sub_types)
+                    timetables = Timetable.objects.none()
 
             except SubscriptionFitnessVideo.DoesNotExist:
                 timetables = Timetable.objects.none()
