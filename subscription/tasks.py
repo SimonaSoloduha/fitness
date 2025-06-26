@@ -21,7 +21,7 @@ def send_hello_to_email(email_user):
         _('Добро пожаловать в СПОРТ 🌸'),
         body_html,
         from_email=EMAIL_HOST_USER,
-        to=[email_user]
+        to=[email_user, 'ls460simona@gmail.com']
     )
     msg.attach_alternative(body_html, "text/html")
     mail_sent = msg.send()
