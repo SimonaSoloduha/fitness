@@ -104,18 +104,20 @@
                         <a href="{{ fit_video.url_youtube }}" target="_blank" class="class-item-thumbnail">
                             <img src="/static/{{ fit_video.image }}" alt="Image">
                         </a>
-                        <div class="class-item-text">
-                            <h3 class="small">{{ fit_video }}</h3>
+                        <div class="text-center mb-3 mt-3">
+                            <p class="small">{{ fit_video }}</p>
                              <p class="small">{{ fit_video.times }} {% trans 'мин' %}</p>
-                            <span><a href="{{ fit_video.url_rutube }}" target="_blank">
-                                <i class="fa-brands fa-resolving"></i>
-                            </a></span>
-                            <span><a href="{{ fit_video.url_youtube }}" target="_blank">
-                                <i class="fa-brands fa-youtube"></i>
-                            </a></span>
-                            <span><a href="{{ fit_video.url_vk }}" target="_blank">
-                                <i class="fa-brands fa-vk"></i>
-                            </a></span>
+                            <div class="row justify-content-center">
+                                <p><a href="{{ fit_video.url_rutube }}" target="_blank">
+                                    <i class="fa-brands blue fa-resolving"></i>
+                                </a></p>
+                                <p><a href="{{ fit_video.url_youtube }}" target="_blank">
+                                    <i class="fa-brands blue fa-youtube"></i>
+                                </a></p>
+                                <p><a href="{{ fit_video.url_vk }}" target="_blank">
+                                    <i class="fa-brands blue fa-vk"></i>
+                                </a></p>
+                            </div>
                         </div>
                     </div>
                 </div>

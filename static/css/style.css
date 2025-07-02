@@ -908,7 +908,11 @@ h1, h2, h3, h4, h5,
     -ms-flex: 0 0 50%;
     flex: 0 0 60%; }
     .class-item .class-item-thumbnail img {
-      max-width: 100%;}
+    max-width: 80%;
+    padding: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;}
   .class-item:hover {
     opacity: .8;}
 .class-item-text .fa-brands {
@@ -1058,6 +1062,11 @@ h1, h2, h3, h4, h5,
     .fa-brands-hover-black:hover {
       color: #041d2d;
     }
+
+.fa-brands, .fa-solid .blue {
+    padding: 5px;
+    color: #041d2d;
+}
 
 .btn.btn-outline-blue1 {
     background: transparent;
