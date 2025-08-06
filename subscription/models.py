@@ -88,6 +88,10 @@ class PromoCodeFitnessVideo(models.Model):
 class PaymentSubscription(models.Model):
     """ Модель абониимента """
     name = models.CharField(blank=True, null=True, max_length=25, verbose_name=_('name'))
+    level = models.CharField(blank=True, max_length=200, verbose_name=_('level'))
+    schedule = models.CharField(blank=True, max_length=200, verbose_name=_('schedule'))
+    for_whom = models.CharField(blank=True, max_length=300, verbose_name=_('for_whom'))
+    result = models.CharField(blank=True, max_length=300, verbose_name=_('result'))
     target = models.CharField(blank=True, null=True, max_length=100, verbose_name=_('target'))
     description = models.TextField(blank=True, verbose_name=_('description'))
     image = models.ImageField(upload_to='payment_subscription_img', blank=True, null=True, height_field=None,

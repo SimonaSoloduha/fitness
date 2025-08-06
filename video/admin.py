@@ -14,7 +14,7 @@ class TrainerAdmin(admin.ModelAdmin):
 
 
 class TimetableAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'sub_bay_type',)
+    list_display = ('id', 'name', 'level', 'schedule', 'for_whom', 'result', 'sub_bay_type', 'sub_bay_type',)
 
     form = TimetableForm
 

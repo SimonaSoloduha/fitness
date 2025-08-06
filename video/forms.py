@@ -49,4 +49,5 @@ class TimetableForm(forms.ModelForm):
 
     class Meta:
         model = Timetable
-        fields = ['name', 'about', 'free', 'sub_bay_type', 'mo', 'to', 'we', 'th', 'fr', 'sa', 'su']
+        fields = ['id', 'name', 'level', 'schedule', 'for_whom', 'result', 'sub_bay_type',
+                  'sub_bay_type', 'mo', 'to', 'we', 'th', 'fr', 'sa', 'su']

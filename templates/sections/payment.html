@@ -60,8 +60,13 @@
                        target="_blank" class="class-item-thumbnail">
                         <img src="/static/{{ payment_subscription.image }}" alt="Image">
                     </a>
+                    target
                     <h2 class="heading mb-3 mt-3">{{ payment_subscription.name }}</h2>
-                    <p>{{ payment_subscription.target }}</p>
+                    <h2 class="heading mb-3 mt-3">ЦЕЛЬ: {{ payment_subscription.target }}</h2>
+                    <p class="small">ИНТЕНСИВНОСТЬ: {{ payment_subscription.level }}</p>
+                    <p class="small">ГРАФИК: {{ payment_subscription.schedule }}</p>
+                    <p class="small">ДЛЯ ТЕХ, КТО: {{ payment_subscription.for_whom }}</p>
+                    <p class="small">РЕЗУЛЬТАТ: {{ payment_subscription.result }}</p>
                     <p class="small">{{ payment_subscription.description|linebreaks }}</p>
 
                     <div class="price-subscription container">

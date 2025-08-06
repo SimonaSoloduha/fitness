@@ -16,7 +16,8 @@ class PromoCodeFitnessVideoAdmin(admin.ModelAdmin):
 
 
 class PaymentSubscriptionAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'target', 'description', 'image', 'price_month', 'price_year', 'sale',
+    list_display = ('id', 'name', 'target', 'description', 'level', 'schedule', 'for_whom', 'result',
+                    'image', 'price_month', 'price_year', 'sale',
                     'price_month_sale', 'price_year_sale', 'active', 'sub_type',)
 
 
