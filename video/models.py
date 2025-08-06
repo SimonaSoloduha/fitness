@@ -76,6 +76,10 @@ class Timetable(models.Model):
     """ Модель недели расписания """
     name = models.CharField(max_length=200, verbose_name=_('name'))
     about = models.TextField(blank=True, verbose_name=_('about'))
+    level = models.CharField(blank=True, max_length=200, verbose_name=_('level'))
+    schedule = models.CharField(blank=True, max_length=200, verbose_name=_('schedule'))
+    for_whom = models.CharField(blank=True, max_length=300, verbose_name=_('for_whom'))
+    result = models.CharField(blank=True, max_length=300, verbose_name=_('result'))
     free = models.BooleanField(default=True, verbose_name=_('free'))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
     sub_bay_type = models.CharField(max_length=200, blank=True, verbose_name=_('sub_bay_type'))
