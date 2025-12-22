@@ -27,4 +27,6 @@ urlpatterns = [
     path('sochi/', include('sochi.urls'), name='sochi'),
     path('', include('subscription.urls')),
     path('zen_8oRVPGRA4zgBaqFz0nUn4AoUUrQEOHxjnEoq3wd5gm2SGlha55ANlTxhZGXApyoL.html', views.dzen, name='dzen'),
+    path('https://simonasoloduha.ru/yandex_cd02769b2d0a6efd.html ', views.yandex,
+                       name='yandex'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -40,3 +40,7 @@ def index(request):
 
 def dzen(request):
     return render(request, 'dzen.html')
+
+
+def yandex(request):
+    return render(request, 'yandex_cd02769b2d0a6efd.html')
