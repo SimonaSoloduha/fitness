@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from pathlib import Path
+
 from django.shortcuts import render
 from django.http import HttpResponse
 
@@ -47,12 +49,19 @@ import os
 
 
 def advertising(request):
-    path_to_pdf_file = 'templates/advertising/SimonaSoloduhaMediaKit.pdf'
-    return FileResponse(
-        open(path_to_pdf_file, 'rb'),
-        content_type='application/pdf'
-        # as_attachment=False по умолчанию ⇒ показать, а не скачать
-    )
+    # path_to_pdf_file = 'templates/advertising/SimonaSoloduhaMediaKit.pdf'
+    # return FileResponse(
+    #     open(path_to_pdf_file, 'rb'),
+    #     content_type='application/pdf'
+    #     # as_attachment=False по умолчанию ⇒ показать, а не скачать
+    # )
+
+    path_to_pdf_file = Path(settings.BASE_DIR) / 'templates' / 'advertising' / 'SimonaSoloduhaMediaKit.pdf'
+
+    if not path_to_pdf_file.exists():
+        raise Http404('PDF not found' + path_to_pdf_file)
+
+    return FileResponse(open(path_to_pdf_file, 'rb'), content_type='application/pdf')
 
 
 def dzen(request):
