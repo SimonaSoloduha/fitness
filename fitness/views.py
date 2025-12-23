@@ -47,7 +47,7 @@ import os
 
 
 def advertising(request):
-    path_to_pdf_file = 'templates/advertising/SimonaSolodduhsMediaKit.pdf'
+    path_to_pdf_file = 'templates/advertising/SimonaSoloduhaMediaKit.pdf'
     return FileResponse(
         open(path_to_pdf_file, 'rb'),
         content_type='application/pdf'
