@@ -88,7 +88,8 @@
                             <a href="{% url 'index' %}" class="nav-link">{% trans 'Главная' %}</a>
                             <a href="{% url 'timetable_marathon' %}" class="nav-link">{% trans 'Марафон ⭐️' %}</a>
                             <a href="{% url 'timetable' %}" class="nav-link">{% trans 'Программы' %}</a>
-                            <a href="{% url 'sochi_info' %}" class="nav-link">{% trans 'Сочи 🌊' %}</a>
+<!--                            <a href="{% url 'sochi_info' %}" class="nav-link">{% trans 'Сочи 🌊' %}</a>-->
+                            <a href="{% url 'advertising' %}" class="nav-link">{% trans 'Реклама' %}</a>
                             <a href="{% url 'all' %}" class="nav-link">{% trans 'Бесплатно' %}</a>
                             {% if user.is_authenticated %}
                             <a href="{% url 'logout_fitness' %}" class="nav-link">{% trans 'Выход' %}</a>

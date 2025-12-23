@@ -25,6 +25,7 @@ urlpatterns = [
     path('auth/', include('authentication.urls'), name='authentication'),
     path('video/', include('video.urls'), name='video'),
     path('sochi/', include('sochi.urls'), name='sochi'),
+    path('advertising/', views.advertising, name='advertising'),
     path('', include('subscription.urls')),
     path('zen_8oRVPGRA4zgBaqFz0nUn4AoUUrQEOHxjnEoq3wd5gm2SGlha55ANlTxhZGXApyoL.html', views.dzen, name='dzen'),
     path('yandex_cd02769b2d0a6efd.html', views.yandex,

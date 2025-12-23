@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
+from django.http import HttpResponse
 
 from subscription.models import PaymentSubscription, SubscriptionFitnessVideo
 from video.models import Trainer, Timetable
@@ -36,6 +37,22 @@ def index(request):
 
     # print('user_marathon_true', user_marathon_true)
     return render(request, 'index.html', context)
+
+
+# def advertising(request):
+import io
+from django.http import FileResponse, Http404
+from django.conf import settings
+import os
+
+
+def advertising(request):
+    path_to_pdf_file = 'templates/advertising/SimonaSolodduhsMediaKit.pdf'
+    return FileResponse(
+        open(path_to_pdf_file, 'rb'),
+        content_type='application/pdf'
+        # as_attachment=False по умолчанию ⇒ показать, а не скачать
+    )
 
 
 def dzen(request):
