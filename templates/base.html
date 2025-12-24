@@ -86,12 +86,12 @@
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                             <a href="{% url 'index' %}" class="nav-link">{% trans 'Главная' %}</a>
-                            <a href="{% url 'timetable_marathon' %}" class="nav-link">{% trans 'Марафон ⭐️' %}</a>
+                            <a href="{% url 'timetable_marathon' %}" class="nav-link">{% trans 'Марафон' %}</a>
                             <a href="{% url 'timetable' %}" class="nav-link">{% trans 'Программы' %}</a>
 <!--                            <a href="{% url 'sochi_info' %}" class="nav-link">{% trans 'Сочи 🌊' %}</a>-->
                             <a href="{% url 'advertising' %}" class="nav-link">{% trans 'Реклама' %}</a>
-                            <a href="{% url 'all' %}" class="nav-link">{% trans 'Бесплатно' %}</a>
                             {% if user.is_authenticated %}
+                            <a href="{% url 'all' %}" class="nav-link">{% trans 'Бесплатно' %}</a>
                             <a href="{% url 'logout_fitness' %}" class="nav-link">{% trans 'Выход' %}</a>
                             {% else %}
                             <a href="{% url 'login_fitness' %}" class="nav-link">{% trans 'Вход' %}</a>
@@ -99,11 +99,11 @@
                             {% endif %}
                         </ul>
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                            <li><a href="https://rutube.ru/channel/36765938/">
-                                <i class="fa-brands fa-resolving fa-beat-fade"></i>
-                            </a></li>
                             <li><a href="https://www.youtube.com/@SimonaSoloduha">
                                 <i class="fa-brands fa-youtube fa-beat-fade"></i>
+                            </a></li>
+                            <li><a href="https://rutube.ru/channel/36765938/">
+                                <i class="fa-brands fa-resolving fa-beat-fade"></i>
                             </a></li>
                             <li><a href="https://vk.com/video/@simonasoloduhasport">
                                 <i class="fa-brands fa-vk fa-beat-fade"></i>
@@ -133,7 +133,7 @@
               <div class="row align-items-center justify-content-center text-center">
                   <div class="col-md-7">
                       <h2 class="mb-2">Simona Soloduha</h2>
-                      <p class="lead mx-auto desc mb-2">Каждый день ты будешь становиться лучше и именно это тебя не остановит!</p>
+                      <p class="lead mx-auto desc mb-2">Каждый день Вы будете становиться лучше и именно это Вас не остановит!</p>
                           {% block title_page %}
                           {% endblock title_page %}
                   </div>

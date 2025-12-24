@@ -247,6 +247,38 @@ h1, h2, h3, h4, h5,
 .icon-image:hover {
     transform: scale(1.3); }
 
+/* ====== Крупные иконки соц-сетей ====== */
+.site-menu.main-menu:last-of-type            /* нижний ul – именно тот, что с иконками */
+{
+    display: flex;
+    gap: .8rem;               /* расстояние между иконками */
+    align-items: center;
+}
+
+.site-menu.main-menu:last-of-type .fa-brands,
+.site-menu.main-menu:last-of-type .icon-image
+{
+    font-size: 1.8rem;
+    padding: 6px;
+    transition: transform .9s ease;
+    color: #fff;
+}
+
+.site-menu.main-menu:last-of-type .fa-brands:hover,
+.site-menu.main-menu:last-of-type .icon-image:hover
+{
+    transform: scale(1.15);
+    color: #6dc0ef;
+}
+
+@media (max-width: 991px) {
+    .site-menu.main-menu:last-of-type .fa-brands,
+    .site-menu.main-menu:last-of-type .icon-image
+    {
+        font-size: 1.45rem;
+    }
+}
+
 .bg-image {
   background-size: cover;
   background-position: center center;
