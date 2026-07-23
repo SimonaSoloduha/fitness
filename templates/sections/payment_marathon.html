@@ -8,7 +8,7 @@
 
             <span class="subheading text-uppercase">{% trans 'МАРАФОН' %}</span>
             <h2 class="heading text-uppercase">{% trans 'Фигура мечты за 7 дней' %}</h2>
-            <span class="subheading text-uppercase mt-5 mb-5">{% trans 'Похудение и рельефы ' %}</span>
+            <span class="subheading text-uppercase mt-5 mb-5">{% trans 'На 2-й день тренировок все видят минус на весах' %}</span>
         </div>
 
 
@@ -17,41 +17,35 @@
             <div class="container">
                 <div class="row align-items-center justify-content-center text-center mt-5">
                     <div class="col-md-12">
-                        <h2 class="mb-2">За 7 дней интенсивных  тренировок все видят результат и наконец-то верят в себя!</h2>
-                        <p class="lead mx-auto desc mb-2"> Если давно мечтаете найти тренировки, <br>которые реально работают - поздравляю!<br>
-                        Ящик пандоры в ваших руках!</p>
-                        <div class="price-subscription container" style="height: 80px;">
+                        <h2 class="mb-2">Первый шаг самый сложный,<br>начните сейчас!</h2>
+                        <div class="price-card">
 
-                            <div class="row">
-
-                                <div class="price-subscription-sale col align-self-center">
-                                    <div class="price-subscription-sale-price">
-                                          900
-                                          <span>₽</span>
-                                    </div>
-                                    <div class="price-subscription-sale-text">
-                                      со скидкой 50%
-                                    </div>
-                                </div>
-
-                                <div class="price-subscription-not-sale col align-self-center">
-                                    <div class="price-subscription-not-sale-price">
-                                      1800
-                                      <span>₽</span>
-                                    </div>
-
-                                    <div class="price-subscription-not-sale-text">
-                                    цена без скидки
-                                    </div>
-                                </div>
+                            <div class="price-current">
+                                900 <span>₽</span>
                             </div>
+
+                            <div class="price-sale">
+                                со скидкой 50%
+                            </div>
+
+                            <div class="price-old">
+                                1800 <span>₽</span>
+                            </div>
+
+                            <div class="price-old-text">
+                                цена без скидки
+                            </div>
+
                         </div>
 
-                        <div>
-                            <a href="https://pay.alfabank.ru/sc/bEuAjKnZTrGWQtUV" target="_blank"
-                               class="btn btn-outline-white py-3 px-5">
-                                {% trans 'КУПИТЬ' %}</a>
+                        <div class="mt-4">
+                            <a href="https://pay.alfabank.ru/sc/bEuAjKnZTrGWQtUV"
+                               target="_blank"
+                               class="buy-btn">
+                                {% trans 'НАЧАТЬ' %}
+                            </a>
                         </div>
+
 
                     </div>
                 </div>
@@ -387,45 +381,70 @@
                   <div class="container">
                       <div class="row align-items-center justify-content-center text-center">
                           <div class="col-md-12">
-                              <h2 class="mb-2"> 7 дней </h2>
                               <p class="lead mx-auto desc mb-2"> Если давно мечтаете найти тренировки, <br>которые реально работают - поздравляю!<br>
                                 Ящик пандоры в ваших руках!</p>
 
+                              <div class="price-card">
 
-                              <div class="price-subscription container" style="height: 80px;">
-
-                                    <div class="row">
-
-                                        <div class="price-subscription-sale col align-self-center">
-                                            <div class="price-subscription-sale-price">
-                                                  900
-                                                  <span>₽</span>
-                                            </div>
-                                            <div class="price-subscription-sale-text">
-                                              со скидкой 50%
-                                            </div>
-                                        </div>
-
-                                        <div class="price-subscription-not-sale col align-self-center">
-                                            <div class="price-subscription-not-sale-price">
-                                              1800
-                                              <span>₽</span>
-
-                                            </div>
-
-                                            <div class="price-subscription-not-sale-text">
-                                            цена без скидки
-                                            </div>
-                                        </div>
+                                    <div class="price-current">
+                                        900 <span>₽</span>
                                     </div>
-                              </div>
-                              <div>
-                                  <a href="https://pay.alfabank.ru/sc/bEuAjKnZTrGWQtUV" target="_blank"
-                                       class="btn btn-outline-white py-3 px-5">
-                                        {% trans 'КУПИТЬ' %}</a>
+
+                                    <div class="price-sale">
+                                        со скидкой 50%
+                                    </div>
+
+                                    <div class="price-old">
+                                        1800 <span>₽</span>
+                                    </div>
+
+                                    <div class="price-old-text">
+                                        цена без скидки
+                                    </div>
+
                               </div>
 
-                          </div>
+                              <div class="mt-4">
+                                    <a href="https://pay.alfabank.ru/sc/bEuAjKnZTrGWQtUV"
+                                       target="_blank"
+                                       class="buy-btn">
+                                        {% trans 'НАЧАТЬ' %}
+                                    </a>
+                              </div>
+<!--                              <div class="price-subscription container">-->
+
+<!--                                    <div class="row">-->
+
+<!--                                        <div class="price-subscription-sale col align-self-center">-->
+<!--                                            <div class="price-subscription-sale-price">-->
+<!--                                                  900-->
+<!--                                                  <span>₽</span>-->
+<!--                                            </div>-->
+<!--                                            <div class="price-subscription-sale-text">-->
+<!--                                              со скидкой 50%-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="price-subscription-not-sale col align-self-center">-->
+<!--                                            <div class="price-subscription-not-sale-price">-->
+<!--                                              1800-->
+<!--                                              <span>₽</span>-->
+
+<!--                                            </div>-->
+
+<!--                                            <div class="price-subscription-not-sale-text">-->
+<!--                                            цена без скидки-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                              </div>-->
+<!--                              <div>-->
+<!--                                  <a href="https://pay.alfabank.ru/sc/bEuAjKnZTrGWQtUV" target="_blank"-->
+<!--                                       class="btn btn-outline-white py-3 px-5">-->
+<!--                                        {% trans 'КУПИТЬ' %}</a>-->
+<!--                              </div>-->
+
+<!--                          </div>-->
                       </div>
                   </div>
             </div>

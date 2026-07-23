@@ -789,6 +789,77 @@ h1, h2, h3, h4, h5,
     -webkit-box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.1); }
 
+
+.price-card{
+    width:240px;
+    margin:0 auto;
+    padding:25px 23px;
+    border-radius:22px;
+    background:rgba(22,22,22,.39);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.14);
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.35);
+    text-align:center;
+}
+
+.price-current{
+    font-size:54px;
+    font-weight:500;
+    color:#fff;
+    line-height:1;
+}
+
+.price-current span{
+    font-size:34px;
+}
+
+.price-sale{
+    margin-top:8px;
+    color:#ff6b81;
+    font-size:22px;
+    font-weight:600;
+}
+.price-old{
+    margin-top:20px;
+    color:rgba(255,255,255,.65);
+    font-size:40px;
+    text-decoration:line-through;
+    line-height:0.5;
+}
+
+.price-old span{
+    font-size:26px;
+}
+.price-old-text{
+    margin-top:8px;
+    color:rgba(255,255,255,.55);
+    font-size:17px;
+
+}
+.buy-btn{
+    display:inline-block;
+    width:240px;
+    padding:16px 0;
+    border-radius:16px;
+    background:#ff6b81;
+    color:#fff;
+    font-size:22px;
+    font-weight:700;
+    text-decoration:none;
+    transition:.25s;
+    box-shadow:
+        0 12px 35px rgba(255,107,129,.45);
+}
+
+.buy-btn:hover{
+    transform:translateY(-2px);
+    background:#ff5470;
+    color:#fff;
+    text-decoration:none;
+}
+
 .pay {
     border: solid;
     border-width: 1px;
@@ -831,6 +902,12 @@ h1, h2, h3, h4, h5,
     position: relative;
     word-break: break-word;
 }
+
+.price-subscription container {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
 
 .price-subscription-sale {
     line-height: 1;
