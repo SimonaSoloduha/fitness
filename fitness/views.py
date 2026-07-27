@@ -14,7 +14,8 @@ from video.models import Trainer
 
 def index(request):
     trainers = Trainer.objects.order_by('-first_name')
-    payment_subscriptions = PaymentSubscription.objects.all()
+    payment_subscriptions = PaymentSubscription.objects.all().order_by('-id')
+
     # user = request.user
     # user_marathon_true = False
     # # date = datetime.now()

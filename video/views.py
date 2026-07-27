@@ -29,7 +29,8 @@ class AllVideos(ListView):
 class Timetables(ListView):
     def get(self, request):
 
-        payment_subscriptions = PaymentSubscription.objects.all()
+        payment_subscriptions = PaymentSubscription.objects.all().order_by('-id')
+
         user = request.user
         date = datetime.now()
         if user.is_authenticated:
