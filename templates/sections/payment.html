@@ -9,20 +9,28 @@
             {% for payment_subscription in payment_subscriptions %}
 
 
-            <div class="col-md-6 col-lg-3 mb-4">
-                <div class="class-item shadow-sm border rounded overflow-hidden text-center bg-white">
+            <div class="col-md-6 col-lg-3 mb-4 d-flex align-items-stretch">
+                <div class="class-item shadow-sm border rounded overflow-hidden text-center bg-white w-100 d-flex flex-column justify-content-between">
 
-                    <a href="{% url 'payment_subscription_fit_vid_detail' payment_subscription.pk %}" target="_blank" class="class-item-thumbnail d-block position-relative">
-                        <img src="/static/{{ payment_subscription.image }}" alt="Для начинающих" class="img-fluid w-100 d-block" style="object-fit: cover; max-height: 280px;">
-                    </a>
+                    <div class="card-top-content">
+                        <a href="{% url 'payment_subscription_fit_vid_detail' payment_subscription.pk %}" target="_blank" class="class-item-thumbnail d-block position-relative">
+                            <img src="/static/{{ payment_subscription.image }}" alt="{{ payment_subscription.name }}" class="img-fluid w-100 d-block" style="object-fit: cover; max-height: 280px;">
+                        </a>
 
-                    <div class="p-3">
-                        <h4 class="fw-bold mb-2 text-uppercase" style="letter-spacing: 0.5px;">{{ payment_subscription.name }}</h4>
-                        <ul class="program-features list-unstyled text-start small mb-3">
-                            <li class="mb-2"><strong>График: </strong>{{ payment_subscription.schedule }}</li>
-                            <li class="mb-2"><strong>Результат: </strong>{{ payment_subscription.result }}</li>
-                        </ul>
+                        <div class="p-3 pb-0">
+                            <!-- Фиксированная минимальная высота для заголовка, чтобы текст ниже не съезжал -->
+                            <h4 class="fw-bold mb-2 text-uppercase d-flex align-items-center justify-content-center" style="letter-spacing: 0.5px; min-height: 50px;">
+                                {{ payment_subscription.name }}
+                            </h4>
 
+                            <ul class="program-features list-unstyled text-start small mb-3">
+                                <li class="mb-2"><strong>График: </strong>{{ payment_subscription.schedule }}</li>
+                                <li class="mb-2"><strong>Результат: </strong>{{ payment_subscription.result }}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card-bottom-content p-3 pt-0 mt-auto">
                         <div class="price-subscription text-center w-100 px-2 mt-3">
                             <div class="price-subscription-sale mb-1">
                                 <div class="price-subscription-sale-price h3 fw-bold mb-0">
@@ -52,6 +60,7 @@
 
                 </div>
             </div>
+
 
 
 <!--            <div class="col-md-6">-->
