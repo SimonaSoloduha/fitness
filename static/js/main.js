@@ -42,6 +42,13 @@ jQuery(document).ready(function($) {
 
     }, 1000);
 
+    $('body').on('click', '.js-menu-toggle, .site-mobile-menu-close', function(e) {
+        e.preventDefault();
+        if ($('body').hasClass('offcanvas-menu')) {
+            $('body').removeClass('offcanvas-menu');
+        }
+    });
+
 		$('body').on('click', '.arrow-collapse', function(e) {
       var $this = $(this);
       if ( $this.closest('li').find('.collapse').hasClass('show') ) {
@@ -246,22 +253,41 @@ jQuery(document).ready(function($) {
 	siteSticky();
 
 	// navigation
-  var OnePageNavigation = function() {
-    var navToggler = $('.site-menu-toggle');
-   	$("body").on("click", ".main-menu li a[href^='#'], .smoothscroll[href^='#'], .site-mobile-menu .site-nav-wrap li a", function(e) {
-      e.preventDefault();
+    var OnePageNavigation = function() {
+        var navToggler = $('.site-menu-toggle');
 
-      var hash = this.hash;
+        $("body").on("click", ".main-menu li a, .smoothscroll, .site-mobile-menu .site-nav-wrap li a", function(e) {
+            var href = $(this).attr('href');
 
-      $('html, body').animate({
-        'scrollTop': $(hash).offset().top
-      }, 600, 'easeInOutCirc', function(){
-        window.location.hash = hash;
-      });
+            // Если это якорная ссылка (начинается с # и не состоит из одного #)
+            if (href && href.startsWith('#') && href !== '#') {
+                e.preventDefault();
 
-    });
-  };
-  OnePageNavigation();
+                var target = $(href);
+                if (target.length) {
+                    $('html, body').animate({
+                        'scrollTop': target.offset().top
+                    }, 600, 'easeInOutCirc', function(){
+                        window.location.hash = href;
+                    });
+                }
+
+                // Закрываем мобильное меню после клика по якорю
+                if ($('body').hasClass('offcanvas-menu')) {
+                    $('body').removeClass('offcanvas-menu');
+                }
+            }
+            // Если это обычная ссылка (переход на другую страницу),
+            // e.preventDefault() НЕ вызываем — браузер спокойно перейдет по URL!
+            else if (href && href !== '#') {
+                // Закрываем меню для плавности перед переходом
+                if ($('body').hasClass('offcanvas-menu')) {
+                    $('body').removeClass('offcanvas-menu');
+                }
+            }
+        });
+    };
+    OnePageNavigation();
 
   var siteScroll = function() {
 
