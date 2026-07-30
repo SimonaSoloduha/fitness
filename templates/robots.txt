@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /auth/
+Disallow: /*?*
+
+Allow: /static/
+Allow: /media/
+
+Sitemap: https://simonasoloduha.ru/sitemap.xml

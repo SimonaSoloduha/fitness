@@ -2,434 +2,416 @@
 {% load static %}
 {% load i18n %}
 
-
-<div class="site-section" id="schedule-section">
+<div class="site-section py-4" id="schedule-section">
     <div class="container">
-        <div class="owl-carousel nonloop-block-14 block-14" data-aos="fade">
-            <div class="slide">
-            </div>
-        </div>
 
-            {% for timetable in timetables %}
+        {% for timetable in timetables %}
 
-            <div class="row justify-content-center text-center mb-5 mt-5">
+        <!-- Оболочка одной программы с нижним разделителем -->
+        <div class="timetable-block {% if not forloop.last %}mb-5 pb-5 border-bottom{% endif %}">
+
+            <!-- Название программы -->
+            <div class="row justify-content-center text-center mb-4">
                 <div class="col-md-8 section-heading">
-                    <span class="subheading">{{timetable.name }}</span>
-                    <p> {{timetable.about }}</p>
-
+                    <span class="subheading text-uppercase fw-semibold" style="letter-spacing: 2px; color: #6dc0ef; font-size: 0.85rem;">
+                        {{ timetable.name }}
+                    </span>
+                    {% if timetable.about %}
+                        <p class="text-muted small mt-1 mb-0">{{ timetable.about }}</p>
+                    {% endif %}
                 </div>
             </div>
 
-
-            <div class="row">
+            <!-- Табы дней недели (Стиль Apple: минималистичный сегмент-контрол) -->
+            <div class="row mb-4">
                 <div class="col-12">
-                    <ul class="nav days d-flex" role="tablist">
-
-                        <li class="nav-item">
-                            <a class="nav-link active" id="monday-tab" data-toggle="tab"
-                               href="#nav-monday-{{timetable.id}}" role="tab"
-                               aria-controls="monday"
-                               aria-selected="false">{% trans 'DAY 1' %}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="tuesday-tab" data-toggle="tab"
-                               href="#nav-tuesday-{{timetable.id}}" role="tab"
-                               aria-controls="tuesday"
-                               aria-selected="false">{% trans 'DAY 2' %}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="wednesday-tab" data-toggle="tab"
-                               href="#nav-wednesday-{{timetable.id}}" role="tab"
-                               aria-controls="wednesday"
-                               aria-selected="false">{% trans 'DAY 3' %}</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" id="thursday-tab" data-toggle="tab"
-                               href="#nav-thursday-{{timetable.id}}" role="tab"
-                               aria-controls="thursday"
-                               aria-selected="false">{% trans 'DAY 4' %}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="friday-tab" data-toggle="tab"
-                               href="#nav-friday-{{timetable.id}}" role="tab"
-                               aria-controls="friday"
-                               aria-selected="false">{% trans 'DAY 5' %}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="saturday-tab" data-toggle="tab"
-                               href="#nav-saturday-{{timetable.id}}" role="tab"
-                               aria-controls="saturday"
-                               aria-selected="false">{% trans 'DAY 6' %}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " id="sunday-tab" data-toggle="tab"
-                               href="#nav-sunday-{{timetable.id}}" role="tab"
-                               aria-controls="sunday"
-                               aria-selected="true">{% trans 'DAY 7' %}</a>
-                        </li>
-                    </ul>
+                    <div class="apple-tabs-wrapper d-flex justify-content-center">
+                        <ul class="nav apple-nav-pills gap-1" id="pills-tab-{{ timetable.id }}" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="monday-tab-{{ timetable.id }}" data-bs-toggle="pill" data-toggle="pill" data-bs-target="#nav-monday-{{ timetable.id }}" href="#nav-monday-{{ timetable.id }}" role="tab">{% trans 'День 1' %}</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="tuesday-tab-{{ timetable.id }}" data-bs-toggle="pill" data-toggle="pill" data-bs-target="#nav-tuesday-{{ timetable.id }}" href="#nav-tuesday-{{ timetable.id }}" role="tab">{% trans 'День 2' %}</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="wednesday-tab-{{ timetable.id }}" data-bs-toggle="pill" data-toggle="pill" data-bs-target="#nav-wednesday-{{ timetable.id }}" href="#nav-wednesday-{{ timetable.id }}" role="tab">{% trans 'День 3' %}</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="thursday-tab-{{ timetable.id }}" data-bs-toggle="pill" data-toggle="pill" data-bs-target="#nav-thursday-{{ timetable.id }}" href="#nav-thursday-{{ timetable.id }}" role="tab">{% trans 'День 4' %}</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="friday-tab-{{ timetable.id }}" data-bs-toggle="pill" data-toggle="pill" data-bs-target="#nav-friday-{{ timetable.id }}" href="#nav-friday-{{ timetable.id }}" role="tab">{% trans 'День 5' %}</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="saturday-tab-{{ timetable.id }}" data-bs-toggle="pill" data-toggle="pill" data-bs-target="#nav-saturday-{{ timetable.id }}" href="#nav-saturday-{{ timetable.id }}" role="tab">{% trans 'День 6' %}</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="sunday-tab-{{ timetable.id }}" data-bs-toggle="pill" data-toggle="pill" data-bs-target="#nav-sunday-{{ timetable.id }}" href="#nav-sunday-{{ timetable.id }}" role="tab">{% trans 'День 7' %}</button>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
+            <!-- Контент дней -->
+            <div class="tab-content" id="pills-tabContent-{{ timetable.id }}">
 
-            <div class="tab-content">
-
-                <div class="tab-pane fade show active" id="nav-monday-{{timetable.id}}" role="tabpanel" aria-labelledby="nav-monday-tab">
+                <!-- ДЕНЬ 1 -->
+                <div class="tab-pane fade show active" id="nav-monday-{{ timetable.id }}" role="tabpanel">
                     <div class="row justify-content-center">
                         {% for video in timetable.mo.all %}
-
-                        <div class="col-12 col-md-8 col-lg-6 p-4">
-
+                        <div class="col-12 col-md-8 col-lg-6 p-3">
                             <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
-
-                                <a href="{{ video.url_youtube }}" target="_blank" class="d-block position-relative">
-                                    <img src="/static/{{ video.image }}" alt="№ 3 качаем ноги и ягодицы" class="img-fluid w-100 d-block" style="object-fit: cover;">
+                                {% if video.image %}
+                                <a href="{{ video.url_youtube }}" target="_blank" class="d-block">
+                                    <img src="/static/{{ video.image }}" alt="{{ video }}" class="img-fluid w-100" style="object-fit: cover; max-height: 260px;">
                                 </a>
-
+                                {% endif %}
                                 <div class="p-4">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <h5 class="fw-normal mb-0 text-dark fs-5" style="letter-spacing: 0.3px;">{{ video }}</h5>
-                                        <span class="badge bg-light text-secondary border px-2 py-1 fw-light rounded-pill text-nowrap" style="font-size: 13px;">
+                                        <h5 class="fw-medium mb-0 text-dark fs-6">{{ video }}</h5>
+                                        {% if video.times %}
+                                        <span class="apple-time-badge">
                                             <i class="fa-regular fa-clock me-1"></i> {{ video.times }} {% trans 'мин' %}
                                         </span>
+                                        {% endif %}
                                     </div>
 
-                                    <div class="border-top mb-4"></div>
+                                    <div class="small text-muted mb-2 font-serif" style="font-size: 0.8rem;">Смотреть на:</div>
 
-                                    <div class="small text-muted fw-light mb-2">Смотреть на:</div>
-
-                                    <div class="d-flex align-items-center flex-wrap" style="margin: -4px;">
-
-                                        <a href="{{ video.url_rutube }}" target="_blank" class="btn btn-outline-secondary rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="Rutube">
-                                            <i class="fa-brands fa-resolving me-1"></i> Rutube
+                                    <!-- Кнопки в стиле Apple -->
+                                    <div class="d-flex align-items-center flex-wrap gap-2">
+                                        {% if video.url_rutube %}
+                                        <a href="{{ video.url_rutube }}" target="_blank" class="btn-apple-platform">
+                                            <i class="fa-solid fa-play"></i> Rutube
                                         </a>
-
-                                        <a href="{{ video.url_youtube }}" target="_blank" class="btn btn-outline-danger rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="YouTube">
-                                            <i class="fa-brands fa-youtube me-1"></i> YouTube
+                                        {% endif %}
+                                        {% if video.url_youtube %}
+                                        <a href="{{ video.url_youtube }}" target="_blank" class="btn-apple-platform youtube">
+                                            <i class="fa-brands fa-youtube"></i> YouTube
                                         </a>
-
-                                        <a href="{{ video.url_vk }}" target="_blank" class="btn btn-outline-primary rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="VK Video">
-                                            <i class="fa-brands fa-vk me-1"></i> VK
+                                        {% endif %}
+                                        {% if video.url_vk %}
+                                        <a href="{{ video.url_vk }}" target="_blank" class="btn-apple-platform vk">
+                                            <i class="fa-brands fa-vk"></i> VK
                                         </a>
-
+                                        {% endif %}
                                     </div>
 
                                 </div>
-
                             </div>
-
                         </div>
-                         {% endfor %}
+                        {% empty %}
+                        <div class="text-center py-4 text-muted small">{% trans 'Отдых или нет запланированных видео' %}</div>
+                        {% endfor %}
                     </div>
                 </div>
 
-
-                <div class="tab-pane fade " id="nav-tuesday-{{timetable.id}}" role="tabpanel" aria-labelledby="nav-tuesday-tab">
+                <!-- ДЕНЬ 2 -->
+                <div class="tab-pane fade" id="nav-tuesday-{{ timetable.id }}" role="tabpanel">
                     <div class="row justify-content-center">
                         {% for video in timetable.to.all %}
-
-                        <div class="col-12 col-md-8 col-lg-6 p-4">
-
+                        <div class="col-12 col-md-8 col-lg-6 p-3">
                             <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
-
-                                <a href="{{ video.url_youtube }}" target="_blank" class="d-block position-relative">
-                                    <img src="/static/{{ video.image }}" alt="№ 3 качаем ноги и ягодицы" class="img-fluid w-100 d-block" style="object-fit: cover;">
+                                {% if video.image %}
+                                <a href="{{ video.url_youtube }}" target="_blank" class="d-block">
+                                    <img src="/static/{{ video.image }}" alt="{{ video }}" class="img-fluid w-100" style="object-fit: cover; max-height: 260px;">
                                 </a>
-
+                                {% endif %}
                                 <div class="p-4">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <h5 class="fw-normal mb-0 text-dark fs-5" style="letter-spacing: 0.3px;">{{ video }}</h5>
-                                        <span class="badge bg-light text-secondary border px-2 py-1 fw-light rounded-pill text-nowrap" style="font-size: 13px;">
+                                        <h5 class="fw-medium mb-0 text-dark fs-6">{{ video }}</h5>
+                                        {% if video.times %}
+                                        <span class="apple-time-badge">
                                             <i class="fa-regular fa-clock me-1"></i> {{ video.times }} {% trans 'мин' %}
                                         </span>
+                                        {% endif %}
                                     </div>
 
-                                    <div class="border-top mb-4"></div>
+                                    <div class="small text-muted mb-2 font-serif" style="font-size: 0.8rem;">Смотреть на:</div>
 
-                                    <div class="small text-muted fw-light mb-2">Смотреть на:</div>
-
-                                    <div class="d-flex align-items-center flex-wrap" style="margin: -4px;">
-
-                                        <a href="{{ video.url_rutube }}" target="_blank" class="btn btn-outline-secondary rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="Rutube">
-                                            <i class="fa-brands fa-resolving me-1"></i> Rutube
+                                    <div class="d-flex align-items-center flex-wrap gap-2">
+                                        {% if video.url_rutube %}
+                                        <a href="{{ video.url_rutube }}" target="_blank" class="btn-apple-platform">
+                                            <i class="fa-solid fa-play"></i> Rutube
                                         </a>
-
-                                        <a href="{{ video.url_youtube }}" target="_blank" class="btn btn-outline-danger rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="YouTube">
-                                            <i class="fa-brands fa-youtube me-1"></i> YouTube
+                                        {% endif %}
+                                        {% if video.url_youtube %}
+                                        <a href="{{ video.url_youtube }}" target="_blank" class="btn-apple-platform youtube">
+                                            <i class="fa-brands fa-youtube"></i> YouTube
                                         </a>
-
-                                        <a href="{{ video.url_vk }}" target="_blank" class="btn btn-outline-primary rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="VK Video">
-                                            <i class="fa-brands fa-vk me-1"></i> VK
+                                        {% endif %}
+                                        {% if video.url_vk %}
+                                        <a href="{{ video.url_vk }}" target="_blank" class="btn-apple-platform vk">
+                                            <i class="fa-brands fa-vk"></i> VK
                                         </a>
-
+                                        {% endif %}
                                     </div>
 
                                 </div>
-
                             </div>
-
                         </div>
-                         {% endfor %}
+                        {% empty %}
+                        <div class="text-center py-4 text-muted small">{% trans 'Отдых или нет запланированных видео' %}</div>
+                        {% endfor %}
                     </div>
                 </div>
 
-
-                <div class="tab-pane fade " id="nav-wednesday-{{timetable.id}}" role="tabpanel" aria-labelledby="nav-wednesday-tab">
-
+                <!-- ДЕНЬ 3 -->
+                <div class="tab-pane fade" id="nav-wednesday-{{ timetable.id }}" role="tabpanel">
                     <div class="row justify-content-center">
                         {% for video in timetable.we.all %}
-
-                        <div class="col-12 col-md-8 col-lg-6 p-4">
-
+                        <div class="col-12 col-md-8 col-lg-6 p-3">
                             <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
-
-                                <a href="{{ video.url_youtube }}" target="_blank" class="d-block position-relative">
-                                    <img src="/static/{{ video.image }}" alt="№ 3 качаем ноги и ягодицы" class="img-fluid w-100 d-block" style="object-fit: cover;">
+                                {% if video.image %}
+                                <a href="{{ video.url_youtube }}" target="_blank" class="d-block">
+                                    <img src="/static/{{ video.image }}" alt="{{ video }}" class="img-fluid w-100" style="object-fit: cover; max-height: 260px;">
                                 </a>
-
+                                {% endif %}
                                 <div class="p-4">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <h5 class="fw-normal mb-0 text-dark fs-5" style="letter-spacing: 0.3px;">{{ video }}</h5>
-                                        <span class="badge bg-light text-secondary border px-2 py-1 fw-light rounded-pill text-nowrap" style="font-size: 13px;">
+                                        <h5 class="fw-medium mb-0 text-dark fs-6">{{ video }}</h5>
+                                        {% if video.times %}
+                                        <span class="apple-time-badge">
                                             <i class="fa-regular fa-clock me-1"></i> {{ video.times }} {% trans 'мин' %}
                                         </span>
+                                        {% endif %}
                                     </div>
 
-                                    <div class="border-top mb-4"></div>
+                                    <div class="small text-muted mb-2 font-serif" style="font-size: 0.8rem;">Смотреть на:</div>
 
-                                    <div class="small text-muted fw-light mb-2">Смотреть на:</div>
-
-                                    <div class="d-flex align-items-center flex-wrap" style="margin: -4px;">
-
-                                        <a href="{{ video.url_rutube }}" target="_blank" class="btn btn-outline-secondary rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="Rutube">
-                                            <i class="fa-brands fa-resolving me-1"></i> Rutube
+                                    <div class="d-flex align-items-center flex-wrap gap-2">
+                                        {% if video.url_rutube %}
+                                        <a href="{{ video.url_rutube }}" target="_blank" class="btn-apple-platform">
+                                            <i class="fa-solid fa-play"></i> Rutube
                                         </a>
-
-                                        <a href="{{ video.url_youtube }}" target="_blank" class="btn btn-outline-danger rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="YouTube">
-                                            <i class="fa-brands fa-youtube me-1"></i> YouTube
+                                        {% endif %}
+                                        {% if video.url_youtube %}
+                                        <a href="{{ video.url_youtube }}" target="_blank" class="btn-apple-platform youtube">
+                                            <i class="fa-brands fa-youtube"></i> YouTube
                                         </a>
-
-                                        <a href="{{ video.url_vk }}" target="_blank" class="btn btn-outline-primary rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="VK Video">
-                                            <i class="fa-brands fa-vk me-1"></i> VK
+                                        {% endif %}
+                                        {% if video.url_vk %}
+                                        <a href="{{ video.url_vk }}" target="_blank" class="btn-apple-platform vk">
+                                            <i class="fa-brands fa-vk"></i> VK
                                         </a>
-
+                                        {% endif %}
                                     </div>
 
                                 </div>
-
                             </div>
-
                         </div>
-                         {% endfor %}
+                        {% empty %}
+                        <div class="text-center py-4 text-muted small">{% trans 'Отдых или нет запланированных видео' %}</div>
+                        {% endfor %}
                     </div>
                 </div>
 
-
-                <div class="tab-pane fade " id="nav-thursday-{{timetable.id}}" role="tabpanel" aria-labelledby="nav-thursday-tab">
-
+                <!-- ДЕНЬ 4 -->
+                <div class="tab-pane fade" id="nav-thursday-{{ timetable.id }}" role="tabpanel">
                     <div class="row justify-content-center">
                         {% for video in timetable.th.all %}
-
-                        <div class="col-12 col-md-8 col-lg-6 p-4">
-
+                        <div class="col-12 col-md-8 col-lg-6 p-3">
                             <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
-
-                                <a href="{{ video.url_youtube }}" target="_blank" class="d-block position-relative">
-                                    <img src="/static/{{ video.image }}" alt="№ 3 качаем ноги и ягодицы" class="img-fluid w-100 d-block" style="object-fit: cover;">
+                                {% if video.image %}
+                                <a href="{{ video.url_youtube }}" target="_blank" class="d-block">
+                                    <img src="/static/{{ video.image }}" alt="{{ video }}" class="img-fluid w-100" style="object-fit: cover; max-height: 260px;">
                                 </a>
-
+                                {% endif %}
                                 <div class="p-4">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <h5 class="fw-normal mb-0 text-dark fs-5" style="letter-spacing: 0.3px;">{{ video }}</h5>
-                                        <span class="badge bg-light text-secondary border px-2 py-1 fw-light rounded-pill text-nowrap" style="font-size: 13px;">
+                                        <h5 class="fw-medium mb-0 text-dark fs-6">{{ video }}</h5>
+                                        {% if video.times %}
+                                        <span class="apple-time-badge">
                                             <i class="fa-regular fa-clock me-1"></i> {{ video.times }} {% trans 'мин' %}
                                         </span>
+                                        {% endif %}
                                     </div>
 
-                                    <div class="border-top mb-4"></div>
+                                    <div class="small text-muted mb-2 font-serif" style="font-size: 0.8rem;">Смотреть на:</div>
 
-                                    <div class="small text-muted fw-light mb-2">Смотреть на:</div>
-
-                                    <div class="d-flex align-items-center flex-wrap" style="margin: -4px;">
-
-                                        <a href="{{ video.url_rutube }}" target="_blank" class="btn btn-outline-secondary rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="Rutube">
-                                            <i class="fa-brands fa-resolving me-1"></i> Rutube
+                                    <div class="d-flex align-items-center flex-wrap gap-2">
+                                        {% if video.url_rutube %}
+                                        <a href="{{ video.url_rutube }}" target="_blank" class="btn-apple-platform">
+                                            <i class="fa-solid fa-play"></i> Rutube
                                         </a>
-
-                                        <a href="{{ video.url_youtube }}" target="_blank" class="btn btn-outline-danger rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="YouTube">
-                                            <i class="fa-brands fa-youtube me-1"></i> YouTube
+                                        {% endif %}
+                                        {% if video.url_youtube %}
+                                        <a href="{{ video.url_youtube }}" target="_blank" class="btn-apple-platform youtube">
+                                            <i class="fa-brands fa-youtube"></i> YouTube
                                         </a>
-
-                                        <a href="{{ video.url_vk }}" target="_blank" class="btn btn-outline-primary rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="VK Video">
-                                            <i class="fa-brands fa-vk me-1"></i> VK
+                                        {% endif %}
+                                        {% if video.url_vk %}
+                                        <a href="{{ video.url_vk }}" target="_blank" class="btn-apple-platform vk">
+                                            <i class="fa-brands fa-vk"></i> VK
                                         </a>
-
+                                        {% endif %}
                                     </div>
 
                                 </div>
-
                             </div>
-
                         </div>
-                         {% endfor %}
+                        {% empty %}
+                        <div class="text-center py-4 text-muted small">{% trans 'Отдых или нет запланированных видео' %}</div>
+                        {% endfor %}
                     </div>
                 </div>
 
-                <div class="tab-pane fade " id="nav-friday-{{timetable.id}}" role="tabpanel" aria-labelledby="nav-friday-tab">
-
+                <!-- ДЕНЬ 5 -->
+                <div class="tab-pane fade" id="nav-friday-{{ timetable.id }}" role="tabpanel">
                     <div class="row justify-content-center">
                         {% for video in timetable.fr.all %}
-
-                        <div class="col-12 col-md-8 col-lg-6 p-4">
-
+                        <div class="col-12 col-md-8 col-lg-6 p-3">
                             <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
-
-                                <a href="{{ video.url_youtube }}" target="_blank" class="d-block position-relative">
-                                    <img src="/static/{{ video.image }}" alt="№ 3 качаем ноги и ягодицы" class="img-fluid w-100 d-block" style="object-fit: cover;">
+                                {% if video.image %}
+                                <a href="{{ video.url_youtube }}" target="_blank" class="d-block">
+                                    <img src="/static/{{ video.image }}" alt="{{ video }}" class="img-fluid w-100" style="object-fit: cover; max-height: 260px;">
                                 </a>
-
+                                {% endif %}
                                 <div class="p-4">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <h5 class="fw-normal mb-0 text-dark fs-5" style="letter-spacing: 0.3px;">{{ video }}</h5>
-                                        <span class="badge bg-light text-secondary border px-2 py-1 fw-light rounded-pill text-nowrap" style="font-size: 13px;">
+                                        <h5 class="fw-medium mb-0 text-dark fs-6">{{ video }}</h5>
+                                        {% if video.times %}
+                                        <span class="apple-time-badge">
                                             <i class="fa-regular fa-clock me-1"></i> {{ video.times }} {% trans 'мин' %}
                                         </span>
+                                        {% endif %}
                                     </div>
 
-                                    <div class="border-top mb-4"></div>
+                                    <div class="small text-muted mb-2 font-serif" style="font-size: 0.8rem;">Смотреть на:</div>
 
-                                    <div class="small text-muted fw-light mb-2">Смотреть на:</div>
-
-                                    <div class="d-flex align-items-center flex-wrap" style="margin: -4px;">
-
-                                        <a href="{{ video.url_rutube }}" target="_blank" class="btn btn-outline-secondary rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="Rutube">
-                                            <i class="fa-brands fa-resolving me-1"></i> Rutube
+                                    <div class="d-flex align-items-center flex-wrap gap-2">
+                                        {% if video.url_rutube %}
+                                        <a href="{{ video.url_rutube }}" target="_blank" class="btn-apple-platform">
+                                            <i class="fa-solid fa-play"></i> Rutube
                                         </a>
-
-                                        <a href="{{ video.url_youtube }}" target="_blank" class="btn btn-outline-danger rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="YouTube">
-                                            <i class="fa-brands fa-youtube me-1"></i> YouTube
+                                        {% endif %}
+                                        {% if video.url_youtube %}
+                                        <a href="{{ video.url_youtube }}" target="_blank" class="btn-apple-platform youtube">
+                                            <i class="fa-brands fa-youtube"></i> YouTube
                                         </a>
-
-                                        <a href="{{ video.url_vk }}" target="_blank" class="btn btn-outline-primary rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="VK Video">
-                                            <i class="fa-brands fa-vk me-1"></i> VK
+                                        {% endif %}
+                                        {% if video.url_vk %}
+                                        <a href="{{ video.url_vk }}" target="_blank" class="btn-apple-platform vk">
+                                            <i class="fa-brands fa-vk"></i> VK
                                         </a>
-
+                                        {% endif %}
                                     </div>
 
                                 </div>
-
                             </div>
-
                         </div>
-                         {% endfor %}
+                        {% empty %}
+                        <div class="text-center py-4 text-muted small">{% trans 'Отдых или нет запланированных видео' %}</div>
+                        {% endfor %}
                     </div>
                 </div>
 
-
-                <div class="tab-pane fade " id="nav-saturday-{{timetable.id}}" role="tabpanel" aria-labelledby="nav-saturday-tab">
-
+                <!-- ДЕНЬ 6 -->
+                <div class="tab-pane fade" id="nav-saturday-{{ timetable.id }}" role="tabpanel">
                     <div class="row justify-content-center">
                         {% for video in timetable.sa.all %}
-
-                        <div class="col-12 col-md-8 col-lg-6 p-4">
-
+                        <div class="col-12 col-md-8 col-lg-6 p-3">
                             <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
-
-                                <a href="{{ video.url_youtube }}" target="_blank" class="d-block position-relative">
-                                    <img src="/static/{{ video.image }}" alt="№ 3 качаем ноги и ягодицы" class="img-fluid w-100 d-block" style="object-fit: cover;">
+                                {% if video.image %}
+                                <a href="{{ video.url_youtube }}" target="_blank" class="d-block">
+                                    <img src="/static/{{ video.image }}" alt="{{ video }}" class="img-fluid w-100" style="object-fit: cover; max-height: 260px;">
                                 </a>
-
+                                {% endif %}
                                 <div class="p-4">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <h5 class="fw-normal mb-0 text-dark fs-5" style="letter-spacing: 0.3px;">{{ video }}</h5>
-                                        <span class="badge bg-light text-secondary border px-2 py-1 fw-light rounded-pill text-nowrap" style="font-size: 13px;">
+                                        <h5 class="fw-medium mb-0 text-dark fs-6">{{ video }}</h5>
+                                        {% if video.times %}
+                                        <span class="apple-time-badge">
                                             <i class="fa-regular fa-clock me-1"></i> {{ video.times }} {% trans 'мин' %}
                                         </span>
+                                        {% endif %}
                                     </div>
 
-                                    <div class="border-top mb-4"></div>
+                                    <div class="small text-muted mb-2 font-serif" style="font-size: 0.8rem;">Смотреть на:</div>
 
-                                    <div class="small text-muted fw-light mb-2">Смотреть на:</div>
-
-                                    <div class="d-flex align-items-center flex-wrap" style="margin: -4px;">
-
-                                        <a href="{{ video.url_rutube }}" target="_blank" class="btn btn-outline-secondary rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="Rutube">
-                                            <i class="fa-brands fa-resolving me-1"></i> Rutube
+                                    <div class="d-flex align-items-center flex-wrap gap-2">
+                                        {% if video.url_rutube %}
+                                        <a href="{{ video.url_rutube }}" target="_blank" class="btn-apple-platform">
+                                            <i class="fa-solid fa-play"></i> Rutube
                                         </a>
-
-                                        <a href="{{ video.url_youtube }}" target="_blank" class="btn btn-outline-danger rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="YouTube">
-                                            <i class="fa-brands fa-youtube me-1"></i> YouTube
+                                        {% endif %}
+                                        {% if video.url_youtube %}
+                                        <a href="{{ video.url_youtube }}" target="_blank" class="btn-apple-platform youtube">
+                                            <i class="fa-brands fa-youtube"></i> YouTube
                                         </a>
-
-                                        <a href="{{ video.url_vk }}" target="_blank" class="btn btn-outline-primary rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="VK Video">
-                                            <i class="fa-brands fa-vk me-1"></i> VK
+                                        {% endif %}
+                                        {% if video.url_vk %}
+                                        <a href="{{ video.url_vk }}" target="_blank" class="btn-apple-platform vk">
+                                            <i class="fa-brands fa-vk"></i> VK
                                         </a>
-
+                                        {% endif %}
                                     </div>
 
                                 </div>
-
                             </div>
-
                         </div>
-                         {% endfor %}
+                        {% empty %}
+                        <div class="text-center py-4 text-muted small">{% trans 'Отдых или нет запланированных видео' %}</div>
+                        {% endfor %}
                     </div>
                 </div>
 
-
-                <div class="tab-pane fade " id="nav-sundaysunday-{{timetable.id}}" role="tabpanel" aria-labelledby="nav-sunday-tab">
-
+                <!-- ДЕНЬ 7 -->
+                <div class="tab-pane fade" id="nav-sunday-{{ timetable.id }}" role="tabpanel">
                     <div class="row justify-content-center">
                         {% for video in timetable.su.all %}
-
-                        <div class="col-12 col-md-8 col-lg-6 p-4">
-
+                        <div class="col-12 col-md-8 col-lg-6 p-3">
                             <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
-
-                                <a href="{{ video.url_youtube }}" target="_blank" class="d-block position-relative">
-                                    <img src="/static/{{ video.image }}" alt="№ 3 качаем ноги и ягодицы" class="img-fluid w-100 d-block" style="object-fit: cover;">
+                                {% if video.image %}
+                                <a href="{{ video.url_youtube }}" target="_blank" class="d-block">
+                                    <img src="/static/{{ video.image }}" alt="{{ video }}" class="img-fluid w-100" style="object-fit: cover; max-height: 260px;">
                                 </a>
-
+                                {% endif %}
                                 <div class="p-4">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <h5 class="fw-normal mb-0 text-dark fs-5" style="letter-spacing: 0.3px;">{{ video }}</h5>
-                                        <span class="badge bg-light text-secondary border px-2 py-1 fw-light rounded-pill text-nowrap" style="font-size: 13px;">
+                                        <h5 class="fw-medium mb-0 text-dark fs-6">{{ video }}</h5>
+                                        {% if video.times %}
+                                        <span class="apple-time-badge">
                                             <i class="fa-regular fa-clock me-1"></i> {{ video.times }} {% trans 'мин' %}
                                         </span>
+                                        {% endif %}
                                     </div>
 
-                                    <div class="border-top mb-4"></div>
+                                    <div class="small text-muted mb-2 font-serif" style="font-size: 0.8rem;">Смотреть на:</div>
 
-                                    <div class="small text-muted fw-light mb-2">Смотреть на:</div>
-
-                                    <div class="d-flex align-items-center flex-wrap" style="margin: -4px;">
-
-                                        <a href="{{ video.url_rutube }}" target="_blank" class="btn btn-outline-secondary rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="Rutube">
-                                            <i class="fa-brands fa-resolving me-1"></i> Rutube
+                                    <div class="d-flex align-items-center flex-wrap gap-2">
+                                        {% if video.url_rutube %}
+                                        <a href="{{ video.url_rutube }}" target="_blank" class="btn-apple-platform">
+                                            <i class="fa-solid fa-play"></i> Rutube
                                         </a>
-
-                                        <a href="{{ video.url_youtube }}" target="_blank" class="btn btn-outline-danger rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="YouTube">
-                                            <i class="fa-brands fa-youtube me-1"></i> YouTube
+                                        {% endif %}
+                                        {% if video.url_youtube %}
+                                        <a href="{{ video.url_youtube }}" target="_blank" class="btn-apple-platform youtube">
+                                            <i class="fa-brands fa-youtube"></i> YouTube
                                         </a>
-
-                                        <a href="{{ video.url_vk }}" target="_blank" class="btn btn-outline-primary rounded-3" style="font-size: 12px; padding: 6px 14px; margin: 4px; font-weight: 400; text-transform: uppercase;" title="VK Video">
-                                            <i class="fa-brands fa-vk me-1"></i> VK
+                                        {% endif %}
+                                        {% if video.url_vk %}
+                                        <a href="{{ video.url_vk }}" target="_blank" class="btn-apple-platform vk">
+                                            <i class="fa-brands fa-vk"></i> VK
                                         </a>
-
+                                        {% endif %}
                                     </div>
 
                                 </div>
-
                             </div>
-
                         </div>
-                         {% endfor %}
+                        {% empty %}
+                        <div class="text-center py-4 text-muted small">{% trans 'Отдых или нет запланированных видео' %}</div>
+                        {% endfor %}
                     </div>
                 </div>
 
-                {% endfor %}
+            </div>
+
         </div>
+
+        {% endfor %}
+
     </div>
 </div>
-

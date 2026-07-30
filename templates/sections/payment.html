@@ -1,176 +1,128 @@
 {% load static %}
 {% load i18n %}
 
-<div class="site-section">
+<section class="site-section bg-white py-5">
     <div class="container">
 
+        <!-- Header: Minimalist Editorial Style -->
+        <div class="row justify-content-center text-center mb-5 mt-3" data-aos="fade-up">
+            <div class="col-lg-8">
+                <span class="text-uppercase text-muted small d-block mb-2" style="letter-spacing: 3px; font-size: 0.75rem;">
+                    {% trans 'Digital Fitness Program' %}
+                </span>
+                <h2 class="text-uppercase mb-3" style="font-family: 'Playfair Display', Georgia, serif; font-weight: 400; letter-spacing: 2px; font-size: 2.2rem;">
+                    {% trans 'ПРОГРАММЫ И ПОДПИСКА' %}
+                </h2>
+                <div class="mx-auto bg-dark mb-4" style="width: 40px; height: 1px;"></div>
+                <p class="text-secondary font-weight-light" style="font-size: 0.95rem; line-height: 1.8;">
+                    {% trans 'Авторский подход к домашним тренировкам: точечная проработка рельефа, гибкость, осанка и сжигание калорий без изнурительных нагрузок. Полноценная программа преображения тела дома.' %}
+                </p>
+            </div>
+        </div>
+
+        <!-- Cards Subscriptions Grid -->
         <div class="row" data-aos="fade">
-
             {% for payment_subscription in payment_subscriptions %}
-
-
             <div class="col-md-6 col-lg-3 mb-4 d-flex align-items-stretch">
-                <div class="class-item shadow-sm border rounded overflow-hidden text-center bg-white w-100 d-flex flex-column justify-content-between">
+                <div class="vogue-card bg-white w-100 border d-flex flex-column justify-content-between p-3">
 
                     <div class="card-top-content">
-                        <a href="{% url 'payment_subscription_fit_vid_detail' payment_subscription.pk %}" target="_blank" class="class-item-thumbnail d-block position-relative">
-                            <img src="/static/{{ payment_subscription.image }}" alt="{{ payment_subscription.name }}" class="img-fluid w-100 d-block" style="object-fit: cover; max-height: 280px;">
+                        <a href="{% url 'payment_subscription_fit_vid_detail' payment_subscription.pk %}" target="_blank" class="d-block mb-3 overflow-hidden">
+                            <img src="/static/{{ payment_subscription.image }}" alt="Программа тренировок для похудения: {{ payment_subscription.name }}" class="img-fluid w-100 d-block" style="object-fit: cover; height: 260px; filter: grayscale(10%); transition: transform 0.4s ease;">
                         </a>
 
-                        <div class="p-3 pb-0">
-                            <!-- Фиксированная минимальная высота для заголовка, чтобы текст ниже не съезжал -->
-                            <h4 class="fw-bold mb-2 text-uppercase d-flex align-items-center justify-content-center" style="letter-spacing: 0.5px; min-height: 50px;">
+                        <div class="text-center px-1">
+                            <h3 class="text-uppercase mb-3" style="font-size: 0.95rem; letter-spacing: 1.5px; font-weight: 600; min-height: 44px; line-height: 1.4;">
                                 {{ payment_subscription.name }}
-                            </h4>
+                            </h3>
 
-                            <ul class="program-features list-unstyled text-start small mb-3">
-                                <li class="mb-2"><strong>График: </strong>{{ payment_subscription.schedule }}</li>
-                                <li class="mb-2"><strong>Результат: </strong>{{ payment_subscription.result }}</li>
-                            </ul>
+                            <div class="text-start small text-muted border-top border-bottom py-2 mb-3" style="font-size: 0.8rem; line-height: 1.6;">
+                                <div class="mb-1"><span class="text-dark font-weight-bold">График:</span> {{ payment_subscription.schedule }}</div>
+                                <div><span class="text-dark font-weight-bold">Результат:</span> {{ payment_subscription.result }}</div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="card-bottom-content p-3 pt-0 mt-auto">
-                        <div class="price-subscription text-center w-100 px-2 mt-3">
-                            <div class="price-subscription-sale mb-1">
-                                <div class="price-subscription-sale-price h3 fw-bold mb-0">
-                                    {{ payment_subscription.price_month_sale }} <span>₽</span>
-                                </div>
-                                <div class="price-subscription-sale-text text-muted small">
-                                    со скидкой 50%
-                                </div>
+                    <div class="card-bottom-content text-center pt-2 mt-auto">
+                        <div class="price-box mb-3">
+                            <div class="h4 font-weight-bold mb-0 text-dark" style="letter-spacing: 0.5px;">
+                                {{ payment_subscription.price_month_sale }} <span style="font-size: 0.85rem; font-weight: normal;">₽ / мес</span>
                             </div>
-
-                            <div class="price-subscription-not-sale mb-3">
-                                <div class="price-subscription-not-sale-price h6 text-muted text-decoration-line-through mb-0">
-                                    {{ payment_subscription.price_month }} <span>₽</span>
-                                </div>
-                                <div class="price-subscription-not-sale-text text-muted small">
-                                    цена без скидки
-                                </div>
-                            </div>
-
-                            <div class="d-flex justify-content-center">
-                                <a href="{{ payment_subscription.url_pay_month }}" target="_blank" class="btn btn-outline-blue1 py-2 px-4 w-100" style="max-width: 220px;">
-                                    НАЧАТЬ
-                                </a>
+                            <div class="text-muted text-decoration-line-through small" style="font-size: 0.75rem;">
+                                {{ payment_subscription.price_month }} ₽
                             </div>
                         </div>
+
+                        <a href="{{ payment_subscription.url_pay_month }}" target="_blank" class="btn btn-outline-dark text-uppercase w-100 py-2 rounded-0" style="font-size: 0.75rem; letter-spacing: 2px; font-weight: 600;">
+                            {% trans 'ВЫБРАТЬ' %}
+                        </a>
                     </div>
 
                 </div>
             </div>
-
-
-
-<!--            <div class="col-md-6">-->
-<!--                <div class="ftco-feature-1 pay class-item">-->
-
-<!--                    <a href="{% url 'payment_subscription_fit_vid_detail' payment_subscription.pk %}"-->
-<!--                       target="_blank" class="class-item-thumbnail">-->
-<!--                        <img src="/static/{{ payment_subscription.image }}" alt="Image">-->
-<!--                    </a>-->
-<!--                    <h2 class="heading mb-3 mt-3">{{ payment_subscription.name }}</h2>-->
-<!--                    <h2 class="heading mb-3 mt-3">ЦЕЛЬ: {{ payment_subscription.target }}</h2>-->
-<!--                    <p class="small">ИНТЕНСИВНОСТЬ: {{ payment_subscription.level }}</p>-->
-<!--                    <p class="small">ГРАФИК: {{ payment_subscription.schedule }}</p>-->
-<!--                    <p class="small">РЕЗУЛЬТАТ: {{ payment_subscription.result }}</p>-->
-<!--                    <p class="small">{{ payment_subscription.description|linebreaks }}</p>-->
-
-<!--                    <div class="price-subscription container">-->
-
-<!--                        <div class="row">-->
-
-<!--                            <div class="price-subscription-sale col align-self-center">-->
-<!--                                <div class="price-subscription-sale-price">-->
-<!--                                      {{ payment_subscription.price_month_sale }}-->
-<!--                                      <span>₽</span>-->
-<!--                                </div>-->
-<!--                                <div class="price-subscription-sale-text">-->
-<!--                                    со скидкой 50%-->
-<!--                                </div>-->
-<!--                            </div>-->
-
-<!--                            <div class="price-subscription-not-sale col align-self-center">-->
-<!--                                <div class="price-subscription-not-sale-price">-->
-<!--                                  {{ payment_subscription.price_month }}-->
-<!--                                  <span>₽</span>-->
-
-<!--                                </div>-->
-
-<!--                                <div class="price-subscription-not-sale-text">-->
-<!--                                цена без скидки-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                            <a href="{{ payment_subscription.url_pay_month }}" target="_blank"-->
-<!--                               class="btn btn-outline-blue1 py-3 px-5">-->
-<!--                                {% trans 'НАЧАТЬ' %}</a>-->
-<!--                    </div>-->
-
-<!--                </div>-->
-<!--            </div>-->
-
             {% endfor %}
-
-            <div class="row align-items-center">
-                <h3 class="col-md-12">{% trans 'После оплаты подписки по QR-коду: ' %}</h3>
-                <p class="col-md-12">1  - Отправьте нам квитанцию удобным для вас способом:
-                        <a href="https://t.me/Simona_Soloduha_Fitness" target="_blank">{% trans ' Telegram,' %}</a>
-                        <a href="simonasoloduha@gmail.com" target="_blank">{% trans ' Gmail ' %}</a> (simonasoloduha@gmail.com)</p>
-                <p class="col-md-12">2  - Получите доступ от менеджера и начинайте преображение</p>
-                <p class="col-md-12">{% trans 'Контакты для связи: ' %}
-                    <a href="https://t.me/Simona_Soloduha_Fitness" target="_blank">{% trans 'Telegram, ' %}</a>
-                    <a href="simonasoloduha@gmail.com" target="_blank">{% trans 'Gmail' %}</a></p>
-                <p class="col-md-12">( simonasoloduha@gmail.com )</p>
-            </div>
-
         </div>
 
-
-        <div class="row justify-content-center text-center mb-5 mt-5">
-            <h2 class="heading mb-1">{% trans 'ПРЕИМУЩЕСТВА ПОДПИСКИ:' %}</h2>
-            <div class="col-md-12 list-payment-subscription">
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                    - Гарантированный первый результат в первые дни</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                    - Любовь к тренировкам навсегда</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                    - Четкий план действий</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                    - Всего 3-4 часа занятий в неделю</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                    - Экономия времени на дорогу в спортзал</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                    - Программа под ваши конкретные цели</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                    - Тренировки в любое удобное время, без лишних взглядов</p>
-                <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                    - Тренировки в любом удобном месте</p>
+        <!-- Post-payment Instructions -->
+        <div class="row justify-content-center text-center my-5 py-4 border-top border-bottom">
+            <div class="col-md-9">
+                <span class="text-uppercase text-muted d-block mb-2" style="letter-spacing: 2px; font-size: 0.7rem;">Активация доступа</span>
+                <p class="small text-secondary mb-1">
+                    После оплаты по QR-коду отправьте чек в
+                    <a href="https://t.me/Simona_Soloduha_Fitness" target="_blank" class="text-dark font-weight-bold text-underline">Telegram</a> или на
+                    <a href="mailto:simonasoloduha@gmail.com" class="text-dark font-weight-bold text-underline">Gmail</a> (simonasoloduha@gmail.com).
+                </p>
+                <p class="small text-muted mb-0">Менеджер откроет личный кабинет и предоставит материалы программы.</p>
             </div>
         </div>
 
-        <div class="row justify-content-center text-center mb-5">
-            <h2 class="heading mb-3">{% trans 'ВЫ ПРИОБРЕТАЕТЕ: ' %}</h2>
-                <div class="col-md-12 list-payment-subscription">
-                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                        - Фигуру мечты</p>
-                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                        - Уверенность в себе</p>
-                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                        - Счастье при взгляде в зеркало</p>
-                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                        - Возможность носить любые наряды</p>
-                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                        - Прекрасное настроение</p>
-                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                        - Влюбленность в себя и свое тело</p>
-                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                        - Свободу от неуверенности и скованности</p>
-                    <p class="list-group-item list-group-item-action p-0 border-0 rounded-1 animated-item">
-                        - Вдохновляющую женственность</p>
+        <!-- Advantages Section (Vogue Editorial List) -->
+        <div class="row justify-content-center my-5">
+            <div class="col-lg-10">
+                <div class="text-center mb-4">
+                    <h3 class="text-uppercase" style="font-family: 'Playfair Display', Georgia, serif; font-weight: 400; letter-spacing: 2px; font-size: 1.5rem;">
+                        {% trans 'ПРЕИМУЩЕСТВА ФОРМАТА' %}
+                    </h3>
                 </div>
+
+                <div class="row text-uppercase small text-secondary" style="letter-spacing: 1px; font-size: 0.8rem; line-height: 2;">
+                    <div class="col-md-6 border-right">
+                        <ul class="list-unstyled mb-0">
+                            <li class="py-2 border-bottom">— Четкая структура и готовый график занятий</li>
+                            <li class="py-2 border-bottom">— Первые изменения тонуса и рельефа с первой недели</li>
+                            <li class="py-2 border-bottom">— 3–4 часовых занятия в неделю для стабильного прогресса</li>
+                            <li class="py-2 border-bottom">— Полноценная замена залу без потери эффективности</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled mb-0">
+                            <li class="py-2 border-bottom">— Доступ к урокам 24/7 из любой точки мира</li>
+                            <li class="py-2 border-bottom">— Комплексы под разные задачи: пресс, ягодицы, осанка</li>
+                            <li class="py-2 border-bottom">— Занятия в комфортной домашней обстановке</li>
+                            <li class="py-2 border-bottom">— Экономия времени на дорогу и подготовку</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Outcome Section -->
+        <div class="row justify-content-center mt-5 pt-3">
+            <div class="col-lg-10 text-center">
+                <h3 class="text-uppercase mb-4" style="font-family: 'Playfair Display', Georgia, serif; font-weight: 400; letter-spacing: 2px; font-size: 1.5rem;">
+                    {% trans 'РЕЗУЛЬТАТ' %}
+                </h3>
+
+                <div class="d-flex flex-wrap justify-content-center text-uppercase text-dark" style="gap: 15px 30px; font-size: 0.8rem; letter-spacing: 1.5px;">
+                    <span class="py-1 border-bottom border-dark">Подтянутый силуэт</span>
+                    <span class="py-1 border-bottom border-dark">Ровная осанка</span>
+                    <span class="py-1 border-bottom border-dark">Тонус мышц</span>
+                    <span class="py-1 border-bottom border-dark">Уменьшение объемов</span>
+                    <span class="py-1 border-bottom border-dark">Легкость движения</span>
+                    <span class="py-1 border-bottom border-dark">Энергия и тонус</span>
+                </div>
+            </div>
         </div>
 
     </div>
-</div>
+</section>

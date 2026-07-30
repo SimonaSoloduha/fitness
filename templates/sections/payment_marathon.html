@@ -1,466 +1,488 @@
 {% load static %}
 {% load i18n %}
 
-<div class="site-section">
+<!-- Микроразметка Schema.org для SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Онлайн-марафон похудения «Фигура мечты за 7 дней»",
+  "image": "{% static 'images/marafon.webp' %}",
+  "description": "Быстрое похудение дома за 7 дней. Авторская программа тренировок: минус 1-5 см в талии и бедрах.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Simona Soloduha Fitness"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "RUB",
+    "price": "899",
+    "priceValidUntil": "2026-12-31",
+    "availability": "https://schema.org/InStock",
+    "url": "https://pay.alfabank.ru/sc/bEuAjKnZTrGWQtUV"
+  }
+}
+</script>
+
+<div class="site-section py-5">
     <div class="container">
 
-        <div class=" justify-content-center text-center">
-
-            <span class="subheading text-uppercase">{% trans 'МАРАФОН' %}</span>
-            <h2 class="heading text-uppercase">{% trans 'Фигура мечты за 7 дней' %}</h2>
-            <span class="subheading text-uppercase mt-5 mb-5">{% trans 'На 2-й день тренировок все видят минус на весах' %}</span>
+        <!-- 1. SEO СЕКЦИЯ: ГЛАВНЫЙ ЗАГОЛОВОК H1 -->
+        <div class="text-center mb-4">
+            <span class="badge apple-badge text-uppercase mb-2">{% trans 'ОНЛАЙН-МАРАФОН ПОХУДЕНИЯ' %}</span>
+            <h1 class="display-5 fw-bold text-dark mb-2">{% trans 'Быстрое похудение дома: Фигура мечты за 7 дней' %}</h1>
+            <p class="text-muted fs-6 max-w-700 mx-auto">
+                {% trans 'Экспресс-программа тренировок для сжигания жира. На 2-й день тренировок 98% участников видят минус на весах!' %}
+            </p>
         </div>
 
+        <!-- 2. ГЛАВНЫЙ ПРОМО-БАННЕР (Конверсионный блок) -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-12 col-lg-10">
+                <div class="card border-0 rounded-4 overflow-hidden shadow-lg bg-dark text-white position-relative"
+                     style="background-image: url('{% static "images/0016.jpeg" %}'); background-size: cover !important; background-position: center !important; min-height: 400px;">
 
-        <div class="bgimg" style="background-image: url(&quot;/static/images/0016.jpeg&quot;); background-position: 50% -58.9297px;" data-stellar-background-ratio="0.5">
+                    <!-- Темная подложка, чтобы белый текст читался ВСЕГДА (даже если картинка грузится) -->
+                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.55); z-index: 1;"></div>
 
-            <div class="container">
-                <div class="row align-items-center justify-content-center text-center mt-5">
-                    <div class="col-md-12">
-                        <h2 class="mb-2">Первый шаг самый сложный,<br>начните сейчас!</h2>
-                        <div class="price-card">
-
-                            <div class="price-current">
-                                900 <span>₽</span>
-                            </div>
-
-                            <div class="price-sale">
-                                со скидкой 50%
-                            </div>
-
-                            <div class="price-old">
-                                1800 <span>₽</span>
-                            </div>
-
-                            <div class="price-old-text">
-                                цена без скидки
-                            </div>
-
+                    <div class="card-body p-4 p-md-5 position-relative d-flex flex-column justify-content-between" style="z-index: 2;">
+                        <!-- Акцентный триггер -->
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <span class="badge bg-warning text-dark fw-bold px-3 py-2 rounded-pill">🔥 Старт прямо сейчас</span>
+                            <span class="small text-white-50">Доступ сразу после оплаты</span>
                         </div>
 
-                        <div class="mt-4">
-                            <a href="https://pay.alfabank.ru/sc/bEuAjKnZTrGWQtUV"
-                               target="_blank"
-                               class="buy-btn">
-                                {% trans 'НАЧАТЬ' %}
+                        <div class="text-center text-md-start mb-4">
+                            <h2 class="fw-bold mb-2 text-white">Первый шаг самый сложный,<br>начните меняться сегодня!</h2>
+                            <p class="text-white-75 mb-0">Полный график тренировок + доступ к материалам навсегда.</p>
+                        </div>
+
+                        <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 pt-3 border-top border-white-25">
+                            <!-- Цена -->
+                            <div class="d-flex align-items-baseline gap-2 text-center text-md-start">
+                                <span class="fs-1 fw-bold text-white">899 ₽</span>
+                                <span class="text-decoration-line-through text-white-50 fs-6">1 800 ₽</span>
+                                <span class="badge bg-danger rounded-pill px-2 py-1 ms-1">−50% СКИДКА</span>
+                            </div>
+
+                            <!-- Кнопка Action -->
+                            <a href="https://pay.alfabank.ru/sc/bEuAjKnZTrGWQtUV" target="_blank" class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold text-uppercase fs-6">
+                                {% trans 'ПОЛУЧИТЬ ДОСТУП ЗА 899 ₽' %} <i class="fa-solid fa-arrow-right ms-2"></i>
                             </a>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 3. ПРЕИМУЩЕСТВА С SEO-КЛЮЧАМИ -->
+        <div class="row g-4 justify-content-center mb-5">
+            <div class="col-md-6 col-lg-5">
+                <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="me-3" src="{% static 'images/icons/free-icon-slim.png' %}" alt="Похудеть за неделю" style="width: 32px; height: 32px;">
+                        <h2 class="h5 fw-bold m-0 text-uppercase">{% trans 'Эффективные тренировки' %}</h2>
+                    </div>
+                    <p class="fw-medium text-dark mb-2">7 жиросжигающих тренировок по 30–60 минут для видимого результата за неделю.</p>
+                    <p class="text-muted small mb-0">Вам не нужно тратить часы в зале. Формат разработан так, чтобы запустить интенсивный метаболизм и похудение даже в домашнем режиме.</p>
+                </div>
+            </div>
 
+            <div class="col-md-6 col-lg-5">
+                <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="me-3" src="{% static 'images/icons/salad.png' %}" alt="Питание для похудения" style="width: 32px; height: 32px;">
+                        <h2 class="h5 fw-bold m-0 text-uppercase">{% trans 'Похудение без жестких диет' %}</h2>
+                    </div>
+                    <p class="fw-medium text-dark mb-2">Результат гарантирован даже без кардинальной смены рациона.</p>
+                    <p class="text-muted small mb-0">Высокий расход калорий на тренировках сжигает лишние жировые отложения. А небольшое дефицитное питание даст быстрый WOW-эффект!</p>
+                </div>
+            </div>
+        </div>
 
+        <!-- БЛОК ПРОГРЕССА ПОХУДЕНИЯ И SEO-ТЕКСТ -->
+        <div class="row justify-content-center my-5">
+            <div class="col-12 col-lg-10">
+
+                <!-- Заголовок и блок с частыми поисковыми запросами -->
+                <div class="text-center mb-5">
+                    <span class="text-uppercase small text-muted font-monospace" style="letter-spacing: 2px;">РЕАЛЬНАЯ ДИНАМИКА</span>
+                    <h2 class="fw-bold text-uppercase mt-1">График изменения веса</h2>
+
+                    <div class="row justify-content-center mt-3">
+                        <div class="col-12 col-md-10">
+                            <p class="text-secondary fs-6 leading-relaxed mb-3">
+                                Все ищут ответ на вопрос: <strong>«Как похудеть на 10 кг за неделю?»</strong> или <strong>«Как сбросить вес за 3 дня перед событием?»</strong>. Экспресс-диеты и жесткие ограничения дают лишь временный эффект за счет ухода воды и приводят к срывам.
+                            </p>
+                            <p class="text-secondary fs-6 leading-relaxed">
+                                Ниже представлен реальный расчет снижения веса без вреда для здоровья, голодания и обвисшей кожи. Вы увидите, как быстро уходят первые килограммы и за какой срок вы гарантированно придете к своим желанным 50 кг.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Таблица прогресса -->
+                <div class="progress-table-card table-responsive">
+                    <table class="progress-table">
+                        <thead>
+                            <tr>
+                                <th>Исходный вес</th>
+                                <th>3 дня</th>
+                                <th>7 дней</th>
+                                <th>1 месяц</th>
+                                <th>3 месяца</th>
+                                <th>6 месяцев</th>
+                                <th>1 год</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- До 65 кг (Цель 50 кг достигается за 3 месяца) -->
+                            <tr>
+                                <td class="start-weight">55 кг</td>
+                                <td>53 кг</td>
+                                <td>51 кг</td>
+                                <td>50 кг</td>
+                                <td class="final-goal">50 кг</td>
+                                <td class="final-goal">50 кг</td>
+                                <td class="final-goal">50 кг</td>
+                            </tr>
+                            <tr>
+                                <td class="start-weight">60 кг</td>
+                                <td>58 кг</td>
+                                <td>56 кг</td>
+                                <td>52 кг</td>
+                                <td class="final-goal">50 кг</td>
+                                <td class="final-goal">50 кг</td>
+                                <td class="final-goal">50 кг</td>
+                            </tr>
+
+                            <!-- От 65 кг (Цель 50 кг достигается за 1 год) -->
+                            <tr>
+                                <td class="start-weight">65 кг</td>
+                                <td>62 кг</td>
+                                <td>60 кг</td>
+                                <td>55 кг</td>
+                                <td>52 кг</td>
+                                <td>51 кг</td>
+                                <td class="final-goal">50 кг</td>
+                            </tr>
+                            <tr>
+                                <td class="start-weight">70 кг</td>
+                                <td>67 кг</td>
+                                <td>65 кг</td>
+                                <td>60 кг</td>
+                                <td>56 кг</td>
+                                <td>53 кг</td>
+                                <td class="final-goal">50 кг</td>
+                            </tr>
+                            <tr>
+                                <td class="start-weight">75 кг</td>
+                                <td>72 кг</td>
+                                <td>70 кг</td>
+                                <td>65 кг</td>
+                                <td>60 кг</td>
+                                <td>55 кг</td>
+                                <td class="final-goal">50 кг</td>
+                            </tr>
+                            <tr>
+                                <td class="start-weight">80 кг</td>
+                                <td>77 кг</td>
+                                <td>75 кг</td>
+                                <td>70 кг</td>
+                                <td>64 кг</td>
+                                <td>58 кг</td>
+                                <td class="final-goal">50 кг</td>
+                            </tr>
+                            <tr>
+                                <td class="start-weight">85 кг</td>
+                                <td>82 кг</td>
+                                <td>80 кг</td>
+                                <td>75 кг</td>
+                                <td>68 кг</td>
+                                <td>60 кг</td>
+                                <td class="final-goal">50 кг</td>
+                            </tr>
+                            <tr>
+                                <td class="start-weight">90 кг</td>
+                                <td>87 кг</td>
+                                <td>85 кг</td>
+                                <td>80 кг</td>
+                                <td>72 кг</td>
+                                <td>63 кг</td>
+                                <td class="final-goal">50 кг</td>
+                            </tr>
+                            <tr>
+                                <td class="start-weight">95 кг</td>
+                                <td>92 кг</td>
+                                <td>90 кг</td>
+                                <td>85 кг</td>
+                                <td>76 кг</td>
+                                <td>65 кг</td>
+                                <td class="final-goal">50 кг</td>
+                            </tr>
+                            <tr>
+                                <td class="start-weight">100 кг</td>
+                                <td>97 кг</td>
+                                <td>95 кг</td>
+                                <td>90 кг</td>
+                                <td>80 кг</td>
+                                <td>68 кг</td>
+                                <td class="final-goal">50 кг</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 4. ОБОРУДОВАНИЕ -->
+        <div class="text-center my-5">
+            <span class="text-uppercase small text-muted font-monospace" style="letter-spacing: 2px;">МИНИМУМ ТРЕБОВАНИЙ</span>
+            <h2 class="fw-bold text-uppercase mt-1">{% trans 'Что нужно для тренировок дома?' %}</h2>
+        </div>
+
+        <div class="owl-carousel nonloop-block-14 block-14 mb-5" data-aos="fade">
+            <div class="slide">
+                <div class="card border-0 shadow-sm rounded-4 p-4 text-center h-100 bg-white">
+                    <img src="{% static 'images/icons/free-relax.png' %}" alt="Коврик для фитнеса" class="mx-auto mb-3" style="width: 48px; height: 48px;">
+                    <h3 class="h6 fw-bold">{% trans '1 — Коврик' %}</h3>
+                    <p class="text-muted small mb-0">{% trans 'Или обычный домашний плед/покрывало' %}</p>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="card border-0 shadow-sm rounded-4 p-4 text-center h-100 bg-white">
+                    <img src="{% static 'images/icons/icon-workout.png' %}" alt="Гантели для дома" class="mx-auto mb-3" style="width: 48px; height: 48px;">
+                    <h3 class="h6 fw-bold">{% trans '2 — Гантели' %}</h3>
+                    <p class="text-muted small mb-0">{% trans 'Или 2 бутылочки с водой по 0.5 л' %}</p>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="card border-0 shadow-sm rounded-4 p-4 text-center h-100 bg-white">
+                    <img src="{% static 'images/icons/sneakers.png' %}" alt="Кроссовки для фитнеса" class="mx-auto mb-3" style="width: 48px; height: 48px;">
+                    <h3 class="h6 fw-bold">{% trans '3 — Обувь' %}</h3>
+                    <p class="text-muted small mb-0">{% trans 'Любые удобные кроссовки' %}</p>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="card border-0 shadow-sm rounded-4 p-4 text-center h-100 bg-white">
+                    <img src="{% static 'images/icons/smile.png' %}" alt="Настроение" class="mx-auto mb-3" style="width: 48px; height: 48px;">
+                    <h3 class="h6 fw-bold">{% trans '4 — Настрой' %}</h3>
+                    <p class="text-muted small mb-0">{% trans 'Желание увидеть минус на весах' %}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. БОНУС / ПОДАРОК -->
+        <div class="row justify-content-center my-5">
+            <div class="col-12 col-lg-10">
+                <div class="p-4 p-md-5 rounded-4 text-center text-white position-relative overflow-hidden shadow-sm"
+                     style="background-image: url('{% static "images/0030_chocolate.webp" %}'); background-size: cover !important; background-position: center !important;">
+
+                    <div class="position-absolute top-0 start-0 end-0 bottom-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.65); z-index: 1;"></div>
+
+                    <div class="position-relative" style="z-index: 2;">
+                        <span class="badge bg-danger text-white mb-3 px-3 py-2 rounded-pill fw-bold text-uppercase" style="letter-spacing: 0.5px;">БЕСПЛАТНЫЙ БОНУС</span>
+                        <h3 class="fw-bold text-white mb-2" style="font-family: inherit;">🎁 5 рецептов вкусных PP-блюд для похудения</h3>
+                        <p class="fs-6 mb-0 text-white-75">Из простых продуктов, доступных в любом магазине. Готовятся за 10–15 минут!</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class=" justify-content-center text-center mt-5">
+        <!-- 6. ПРОГРАММА ПО ДНЯМ -->
+        <div class="text-center my-4">
+            <span class="text-uppercase small text-muted font-monospace" style="letter-spacing: 2px;">ПРОГРАММА ИСПОЛНЕНИЯ МЕЧТЫ</span>
+            <h2 class="fw-bold text-uppercase mt-1">План похудения на 7 дней</h2>
+        </div>
 
-            <h4 class="heading text-uppercase mt-5 mb-5">
-                <img class="payment-img-right" src="{% static 'images/icons/free-icon-slim.png' %}" alt="Image">
-            {% trans 'длительность' %}</h4>
-
-            <div class="col-md-12 list-payment-subscription">
-
-                <span class="subheading text-uppercase mt-5 mb-5">
-                    Всего 7 дней и 7 тренировок по 30-60 минут подарят Вам долгожданное счастье при виде себя в зеркале!
-                </span>
-
-                <p>
-                    Вы однозначно улыбнетесь новой себе и влюбитесь в спорт уже в умеренном режиме нагрузок.<br>
-                    Вы можете бесплатно тренироваться по видео на YouTube, RuTube или в Vk  или преобрести
-                    подписку на графики тренировок.
-                </p>
-
-            </div>
-
-            <h4 class="heading text-uppercase mt-5 mb-5">
-            <img class="payment-img-left" src="{% static 'images/icons/salad.png' %}" alt="Image">
-            {% trans 'Питание' %}</h4>
-
-            <div class="col-md-12">
-
-                <span class="subheading text-uppercase">
-                    Даже если Вы не измените свой режим питания - результат будет.
-                </span>
-
-                <p class="p-0 border-0 rounded-1">
-                    Благодаря тренировкам у вас сильно возрастет расход калорий.<br>
-                    Если сможете уменьшить количество потребляемых калорий - ожидаем WOW-эффект!
-                </p>
-
-            </div>
-
-
-            <h4 class="heading text-uppercase mt-5 mb-5">{% trans '' %}</h4>
-
-
-            <div class="row justify-content-center text-center mb-5 mt-5" data-aos="fade-up">
-                <div class="col-md-6 section-heading">
-                    <span class="subheading">{% trans 'Для старта понадобится' %}</span>
-                    <h2 class="heading mb-3">{% trans 'ОБОРУДОВАНИЕ' %}</h2>
-                </div>
-            </div>
-
-
-            <div class="owl-carousel nonloop-block-14 block-14" data-aos="fade">
-                <div class="slide">
-                    <div class="ftco-feature-1">
-                        <span class="icon flaticon-fit"></span>
-                        <div class="ftco-feature-1-text">
-                            <img src="{% static 'images/icons/free-relax.png' %}" alt="Image">
-                            <h2>{% trans '1 - Коврик' %}</h2>
-                            <p>{% trans 'ЕСЛИ НЕТ: берем плотное покрывало или плед' %}</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="slide">
-                    <div class="ftco-feature-1">
-                        <span class="icon flaticon-fit"></span>
-                        <div class="ftco-feature-1-text">
-                            <img src="{% static 'images/icons/icon-workout.png' %}" alt="Image">
-                            <h2>{% trans '2 - Гантели' %}</h2>
-                            <p>{% trans 'ЕСЛИ НЕТ: берем бутылки с водой по 0.3 - 0.5 л' %}</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="slide">
-                    <div class="ftco-feature-1">
-                        <span class="icon flaticon-fit"></span>
-                        <div class="ftco-feature-1-text">
-                            <img src="{% static 'images/icons/sneakers.png' %}" alt="Image">
-                            <h2>{% trans '3 - Спортивная обувь' %}</h2>
-                            <p>{% trans 'Подойдет любая спортивная обувь' %}</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="slide">
-                    <div class="ftco-feature-1">
-                        <span class="icon flaticon-fit"></span>
-                        <div class="ftco-feature-1-text">
-                            <img src="{% static 'images/icons/smile.png' %}" alt="Image">
-                            <h2>{% trans '4 - Хорошее настроение и улыбка' %}</h2>
-                            <p>{% trans 'ЕСЛИ НЕТ: обеспечим' %}</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="bgimg" style="background-image: url(&quot;/static/images/0030_chocolate.jpg&quot;); background-position: 50% -58.9297px;" data-stellar-background-ratio="0.5">
-
-                  <div class="container">
-                      <div class="row align-items-center justify-content-center text-center">
-                          <div class="col-md-12">
-                              <h2 class="mb-2">ПОДАРОК 🎁<br>5 рецептов вкусных низкокалорийных блюд!</h2>
-                              <p class="lead mx-auto desc mb-2"> Для приготовления которых понадобятся простые продукты
-                                  и минимум времени.</p>
-                          </div>
-                      </div>
-                  </div>
-            </div>
-
-
-
-            <div class="row justify-content-center text-center mb-5 mt-5">
-                <div class="col-md-8 section-heading">
-                    <span class="subheading">ЧТО ВАС ЖДЕТ</span>
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class="col-12">
-                    <ul class="nav days d-flex" role="tablist">
-
-                        <li class="nav-item">
-                            <a class="nav-link active" id="monday-tab" data-toggle="tab"
-                               href="#nav-monday-{{timetable.id}}" role="tab"
-                               aria-controls="monday"
-                               aria-selected="false">{% trans 'Понедельник' %}</a>
+        <div class="row justify-content-center mb-4">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="apple-tabs-wrapper">
+                    <ul class="nav apple-nav-pills gap-1" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="monday-tab" data-bs-toggle="pill" data-toggle="pill" data-bs-target="#nav-monday-{{timetable.id}}" href="#nav-monday-{{timetable.id}}" role="tab">{% trans 'Пн' %}</button>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="tuesday-tab" data-toggle="tab"
-                               href="#nav-tuesday-{{timetable.id}}" role="tab"
-                               aria-controls="tuesday"
-                               aria-selected="false">{% trans 'Вторник' %}</a>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="tuesday-tab" data-bs-toggle="pill" data-toggle="pill" data-bs-target="#nav-tuesday-{{timetable.id}}" href="#nav-tuesday-{{timetable.id}}" role="tab">{% trans 'Вт' %}</button>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="wednesday-tab" data-toggle="tab"
-                               href="#nav-wednesday-{{timetable.id}}" role="tab"
-                               aria-controls="wednesday"
-                               aria-selected="false">{% trans 'Среда' %}</a>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="wednesday-tab" data-bs-toggle="pill" data-toggle="pill" data-bs-target="#nav-wednesday-{{timetable.id}}" href="#nav-wednesday-{{timetable.id}}" role="tab">{% trans 'Ср' %}</button>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" id="thursday-tab" data-toggle="tab"
-                               href="#nav-thursday-{{timetable.id}}" role="tab"
-                               aria-controls="thursday"
-                               aria-selected="false">{% trans 'Четверг' %}</a>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="thursday-tab" data-bs-toggle="pill" data-toggle="pill" data-bs-target="#nav-thursday-{{timetable.id}}" href="#nav-thursday-{{timetable.id}}" role="tab">{% trans 'Чт' %}</button>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="friday-tab" data-toggle="tab"
-                               href="#nav-friday-{{timetable.id}}" role="tab"
-                               aria-controls="friday"
-                               aria-selected="false">{% trans 'Пятница' %}</a>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="friday-tab" data-bs-toggle="pill" data-toggle="pill" data-bs-target="#nav-friday-{{timetable.id}}" href="#nav-friday-{{timetable.id}}" role="tab">{% trans 'Пт' %}</button>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="saturday-tab" data-toggle="tab"
-                               href="#nav-saturday-{{timetable.id}}" role="tab"
-                               aria-controls="saturday"
-                               aria-selected="false">{% trans 'Суббота' %}</a>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="saturday-tab" data-bs-toggle="pill" data-toggle="pill" data-bs-target="#nav-saturday-{{timetable.id}}" href="#nav-saturday-{{timetable.id}}" role="tab">{% trans 'Сб' %}</button>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link " id="sunday-tab" data-toggle="tab"
-                               href="#nav-sunday-{{timetable.id}}" role="tab"
-                               aria-controls="sunday"
-                               aria-selected="true">{% trans 'Воскресенье' %}</a>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="sunday-tab" data-bs-toggle="pill" data-toggle="pill" data-bs-target="#nav-sunday-{{timetable.id}}" href="#nav-sunday-{{timetable.id}}" role="tab">{% trans 'Вс' %}</button>
                         </li>
                     </ul>
                 </div>
             </div>
-
-
-            <div class="tab-content">
-
-                <div class="tab-pane fade show active" id="nav-monday-{{timetable.id}}" role="tabpanel"
-                     aria-labelledby="nav-monday-tab">
-
-                    <div class="row justify-content-center">
-                        <div class="col-8">
-                            <div class="class-item align-items-center p-5">
-                                <div class="class-item-text">
-                                    <h2>{% trans 'Интенсивная тренировка' %}</h2>
-                                    <p>{% trans '60 мин (кардио, танцы, силовые)' %}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="tab-pane fade" id="nav-tuesday-{{timetable.id}}" role="tabpanel"
-                     aria-labelledby="nav-tuesday-tab">
-
-                    <div class="row justify-content-center">
-                        <div class="col-8">
-                            <div class="class-item align-items-center p-5">
-                                <div class="class-item-text">
-                                    <h2>{% trans 'Тренировка средней интенсивности' %}</h2>
-                                    <p>{% trans '30 мин (танцы, силовые)' %}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="tab-pane fade" id="nav-wednesday-{{timetable.id}}" role="tabpanel"
-                     aria-labelledby="nav-wednesday-tab">
-
-                    <div class="row justify-content-center">
-                        <div class="col-8">
-                            <div class="class-item align-items-center p-5">
-                                <div class="class-item-text">
-                                    <h2>{% trans 'Интенсивная тренировка' %}</h2>
-                                    <p>{% trans '60 мин (кардио, танцы, силовые)' %}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="tab-pane fade" id="nav-thursday-{{timetable.id}}" role="tabpanel"
-                     aria-labelledby="nav-thursday-tab">
-
-                    <div class="row justify-content-center">
-                        <div class="col-8">
-                            <div class="class-item align-items-center p-5">
-                                <div class="class-item-text">
-                                    <h2>{% trans 'Тренировка средней интенсивности' %}</h2>
-                                    <p>{% trans '30 мин (BARRE, силовые)' %}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="tab-pane fade" id="nav-friday-{{timetable.id}}" role="tabpanel"
-                     aria-labelledby="nav-friday-tab">
-
-                    <div class="row justify-content-center">
-                        <div class="col-8">
-                            <div class="class-item align-items-center p-5">
-                                <div class="class-item-text">
-                                    <h2>{% trans 'Интенсивная тренировка' %}</h2>
-                                    <p>{% trans '60 мин (кардио, танцы, силовые)' %}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="tab-pane fade" id="nav-saturday-{{timetable.id}}" role="tabpanel"
-                     aria-labelledby="nav-saturday-tab">
-
-                    <div class="row justify-content-center">
-                        <div class="col-8">
-                            <div class="class-item align-items-center p-5">
-                                <div class="class-item-text">
-                                    <h2>{% trans 'Танцевальная тренировка' %}</h2>
-                                    <p>{% trans '30 мин (танцы, BARRE)' %}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="tab-pane fade" id="nav-sunday-{{timetable.id}}" role="tabpanel"
-                     aria-labelledby="nav-sunday-tab">
-
-                    <div class="row justify-content-center">
-                        <div class="col-8">
-                            <div class="class-item align-items-center p-5">
-                                <div class="class-item-text">
-                                    <h2>{% trans 'Тренировка средней интенсивности' %}</h2>
-                                    <p>{% trans '30 мин (BARRE, силовые)' %}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <h4 class="heading text-uppercase mt-5 mb-5">
-                <img class="payment-img-left" src="{% static 'images/icons/girl-2.png' %}" alt="Image">
-            {% trans 'результат' %}</h4>
-
-            <div class="col-md-12 list-payment-subscription">
-
-                <span class="subheading text-uppercase mt-5">
-                    Уже через 3 дня первые результаты, а через неделю:
-                </span>
-
-                <p class="list-group-item list-group-item-action p-5 border-0 rounded-1 animated-item">
-                    ✅ Заметное уменьшение в объемах живота, талии, бедер (1-3 см)</p>
-                <p class="list-group-item list-group-item-action p-5 border-0 rounded-1 animated-item">
-                    ✅ Заметное похудение в ногах (особенно самые проблемные зоны в области внутренней поверхности бедра)</p>
-                <p class="list-group-item list-group-item-action p-5 border-0 rounded-1 animated-item">
-                    ✅ Появление первых рельефов на прессе (в случае, если ваш лишний вес не критичный)</p>
-            </div>
-
-            <h4 class="heading text-uppercase mt-5 mb-5">
-                <img class="payment-img-right" src="{% static 'images/icons/girl.png' %}" alt="Image">
-            {% trans 'А еще сможете' %}</h4>
-            <div class="col-md-12 list-payment-subscription">
-
-                <p class="list-group-item list-group-item-action border-0 rounded-1 animated-item">
-                    ✅ Влезть в любимое платье </p>
-                <p class="list-group-item list-group-item-action border-0 rounded-1 animated-item">
-                    ✅ Застегнуть ремень на 1-2 дырочки меньше</p>
-                <p class="list-group-item list-group-item-action border-0 rounded-1 animated-item">
-                    ✅ С удовольствие достать все любимые наряды и застегнуть их с легкостью,
-                    посмотрев на оставшееся пространство между вами и вещью</p>
-                <p class="list-group-item list-group-item-action border-0 rounded-1 animated-item">
-                    ✅ Купить новое платье на размер меньше</p>
-                <p class="list-group-item list-group-item-action border-0 rounded-1 animated-item">
-                    ✅ Порадовать своим прекрасным настроением своих близких</p>
-                <p class="list-group-item list-group-item-action border-0 rounded-1 animated-item">
-                    ✅ Раздеваться и оставаться уверенной в себе</p>
-
-            </div>
-
-            <div class="bgimg" style="background-image: url(&quot;/static/images/0016.jpeg&quot;); background-position: 50% -58.9297px;" data-stellar-background-ratio="0.5">
-
-                  <div class="container">
-                      <div class="row align-items-center justify-content-center text-center">
-                          <div class="col-md-12">
-                              <p class="lead mx-auto desc mb-2"> Если давно мечтаете найти тренировки, <br>которые реально работают - поздравляю!<br>
-                                Ящик пандоры в ваших руках!</p>
-
-                              <div class="price-card">
-
-                                    <div class="price-current">
-                                        900 <span>₽</span>
-                                    </div>
-
-                                    <div class="price-sale">
-                                        со скидкой 50%
-                                    </div>
-
-                                    <div class="price-old">
-                                        1800 <span>₽</span>
-                                    </div>
-
-                                    <div class="price-old-text">
-                                        цена без скидки
-                                    </div>
-
-                              </div>
-
-                              <div class="mt-4">
-                                    <a href="https://pay.alfabank.ru/sc/bEuAjKnZTrGWQtUV"
-                                       target="_blank"
-                                       class="buy-btn">
-                                        {% trans 'НАЧАТЬ' %}
-                                    </a>
-                              </div>
-<!--                              <div class="price-subscription container">-->
-
-<!--                                    <div class="row">-->
-
-<!--                                        <div class="price-subscription-sale col align-self-center">-->
-<!--                                            <div class="price-subscription-sale-price">-->
-<!--                                                  900-->
-<!--                                                  <span>₽</span>-->
-<!--                                            </div>-->
-<!--                                            <div class="price-subscription-sale-text">-->
-<!--                                              со скидкой 50%-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-
-<!--                                        <div class="price-subscription-not-sale col align-self-center">-->
-<!--                                            <div class="price-subscription-not-sale-price">-->
-<!--                                              1800-->
-<!--                                              <span>₽</span>-->
-
-<!--                                            </div>-->
-
-<!--                                            <div class="price-subscription-not-sale-text">-->
-<!--                                            цена без скидки-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                              </div>-->
-<!--                              <div>-->
-<!--                                  <a href="https://pay.alfabank.ru/sc/bEuAjKnZTrGWQtUV" target="_blank"-->
-<!--                                       class="btn btn-outline-white py-3 px-5">-->
-<!--                                        {% trans 'КУПИТЬ' %}</a>-->
-<!--                              </div>-->
-
-<!--                          </div>-->
-                      </div>
-                  </div>
-            </div>
-
         </div>
 
-        <div class="col-md-10 section-heading mt-5">
-            <span class="subheading">{% trans 'HOME FITNESS. Simona Soloduha.' %}</span>
-            <h2 class="heading mb-3">{% trans 'Как оплатить марафон?' %}</h2>
-            <p>1  - Оплатите марафон по
-                <a href="https://pay.alfabank.ru/sc/bEuAjKnZTrGWQtUV">
-                                    QR-коду</a></p>
-            <p>2  - Отправить квитанцию в
-                    <a href="https://t.me/Simona_Soloduha_Fitness" target="_blank">{% trans ' Telegram,' %}</a>
-                    <a href="simonasoloduha@gmail.com" target="_blank">{% trans ' почту Gmail' %}</a></p>
-            <p>3  - Получите доступ от менеджера и начните тренироваться</p>
+        <div class="tab-content mb-5">
+            <div class="tab-pane fade show active" id="nav-monday-{{timetable.id}}" role="tabpanel">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 col-lg-6">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 text-center bg-white">
+                            <h3 class="h5 fw-bold mb-1">{% trans 'Интенсивный жиросжигающий блок' %}</h3>
+                            <p class="text-muted small mb-0">{% trans '60 мин (кардио, танцы, силовые)' %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="nav-tuesday-{{timetable.id}}" role="tabpanel">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 col-lg-6">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 text-center bg-white">
+                            <h3 class="h5 fw-bold mb-1">{% trans 'Тонизирующая тренировка' %}</h3>
+                            <p class="text-muted small mb-0">{% trans '30 мин (танцы, проработка проблемных зон)' %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="nav-wednesday-{{timetable.id}}" role="tabpanel">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 col-lg-6">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 text-center bg-white">
+                            <h3 class="h5 fw-bold mb-1">{% trans 'Интенсивная тренировка' %}</h3>
+                            <p class="text-muted small mb-0">{% trans '60 мин (кардио, танцы, силовые)' %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="nav-thursday-{{timetable.id}}" role="tabpanel">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 col-lg-6">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 text-center bg-white">
+                            <h3 class="h5 fw-bold mb-1">{% trans 'Скульптурирование тела' %}</h3>
+                            <p class="text-muted small mb-0">{% trans '30 мин (BARRE, проработка рельефа)' %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="nav-friday-{{timetable.id}}" role="tabpanel">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 col-lg-6">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 text-center bg-white">
+                            <h3 class="h5 fw-bold mb-1">{% trans 'Максимальный жиросжигающий сет' %}</h3>
+                            <p class="text-muted small mb-0">{% trans '60 мин (кардио, танцы, силовые)' %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="nav-saturday-{{timetable.id}}" role="tabpanel">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 col-lg-6">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 text-center bg-white">
+                            <h3 class="h5 fw-bold mb-1">{% trans 'Танцевальный кардио-микс' %}</h3>
+                            <p class="text-muted small mb-0">{% trans '30 мин (танцы, BARRE)' %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="nav-sunday-{{timetable.id}}" role="tabpanel">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 col-lg-6">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 text-center bg-white">
+                            <h3 class="h5 fw-bold mb-1">{% trans 'Финишный комплекс на рельеф' %}</h3>
+                            <p class="text-muted small mb-0">{% trans '30 мин (BARRE, подтяжка ягодиц и пресса)' %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. РЕЗУЛЬТАТЫ -->
+        <div class="row g-4 justify-content-center mb-5">
+            <div class="col-md-6 col-lg-5">
+                <div class="card border-0 shadow-sm rounded-4 p-4 h-100 bg-white">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="me-3" src="{% static 'images/icons/girl-2.png' %}" alt="Результаты похудения" style="width: 32px; height: 32px;">
+                        <h2 class="h5 fw-bold m-0 text-uppercase">{% trans 'Результат за 7 дней' %}</h2>
+                    </div>
+                    <p class="small text-muted mb-3">Первые изменения вы увидите уже завтра:</p>
+                    <ul class="list-unstyled d-flex flex-column gap-2 mb-0 small">
+                        <li class="d-flex gap-2"><span>✅</span> <span><strong>Минус </strong> объем в талии и животе</span></li>
+                        <li class="d-flex gap-2"><span>✅</span> <span>Уменьшение отечности и похудение в ногах</span></li>
+                        <li class="d-flex gap-2"><span>✅</span> <span>Первый видимый рельеф на прессе</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-5">
+                <div class="card border-0 shadow-sm rounded-4 p-4 h-100 bg-white">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="me-3" src="{% static 'images/icons/girl.png' %}" alt="Быстро сбросить вес" style="width: 32px; height: 32px;">
+                        <h2 class="h5 fw-bold m-0 text-uppercase">{% trans 'Ваши эмоции' %}</h2>
+                    </div>
+                    <ul class="list-unstyled d-flex flex-column gap-2 mb-0 small mt-3">
+                        <li class="d-flex gap-2"><span>✅</span> <span>Похудеете на 3-6 кг</span></li>
+                        <li class="d-flex gap-2"><span>✅</span> <span>Сможете легко влезть в любимое платье</span></li>
+                        <li class="d-flex gap-2"><span>✅</span> <span>Застегнете ремень на 1–2 дырочки туже</span></li>
+                        <li class="d-flex gap-2"><span>✅</span> <span>Почувствуете легкость и прилив энергии</span></li>
+                        <li class="d-flex gap-2"><span>✅</span> <span>Вернете уверенность в своей привлекательности</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. ВТОРОЙ ЗАКРЫВАЮЩИЙ БАННЕР -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-12 col-lg-10">
+                <div class="card border-0 rounded-4 overflow-hidden shadow-lg bg-dark text-white position-relative"
+                     style="background-image: url('{% static "images/0016.jpeg" %}'); background-size: cover !important; background-position: center !important; min-height: 350px;">
+
+                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.55); z-index: 1;"></div>
+
+                    <div class="card-body p-4 p-md-5 position-relative d-flex flex-column justify-content-between" style="z-index: 2;">
+                        <div class="text-center text-md-start mb-4">
+                            <h2 class="fw-bold text-white mb-2">Начните похудение прямо сейчас!</h2>
+                            <p class="text-white-75 mb-0">Получите готовый график тренировок и рецепты всего за 899 ₽ вместо <del class="text-white-50">1 800 ₽</del></p>
+                        </div>
+
+                        <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 pt-3 border-top border-white-25">
+                            <div class="d-flex align-items-baseline gap-2 text-center text-md-start">
+                                <span class="fs-1 fw-bold text-white">899 ₽</span>
+                                <span class="badge bg-danger rounded-pill px-2 py-1 ms-1">−50% СКИДКА</span>
+                            </div>
+
+                            <a href="https://pay.alfabank.ru/sc/bEuAjKnZTrGWQtUV" target="_blank" class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold text-uppercase fs-6">
+                                {% trans 'ОПЛАТИТЬ 899 ₽' %} <i class="fa-solid fa-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 9. ИНСТРУКЦИЯ ПО ОПЛАТЕ -->
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="card border-0 bg-light rounded-4 p-4 text-center">
+                    <span class="text-uppercase small text-muted font-monospace mb-1">HOME FITNESS. Simona Soloduha.</span>
+                    <h3 class="h5 fw-bold mb-3">{% trans 'Как оплатить марафон и получить доступ?' %}</h3>
+
+                    <div class="d-flex flex-column gap-2 text-start small mx-auto style-instructions">
+                        <p class="mb-1"><strong>1.</strong> Оплатите 899 ₽ по официальному <a href="https://pay.alfabank.ru/sc/bEuAjKnZTrGWQtUV" target="_blank" class="text-primary fw-medium">QR-коду Альфа-Банка</a>.</p>
+                        <p class="mb-1"><strong>2.</strong> Отправьте квитанцию в <a href="https://t.me/Simona_Soloduha_Fitness" target="_blank" class="text-primary fw-medium">Telegram</a> или на <a href="mailto:simonasoloduha@gmail.com" target="_blank" class="text-primary fw-medium">Gmail почту</a>.</p>
+                        <p class="mb-0"><strong>3.</strong> Менеджер моментально вышлет вам доступ к материалам марафона!</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
