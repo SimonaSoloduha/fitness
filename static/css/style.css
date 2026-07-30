@@ -383,6 +383,8 @@ h1, h2, h3, h4, h5,
   margin-bottom: 0px;
   z-index: 1999;
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   background-color: #01000d;}
   .site-navbar .container-fluid {
@@ -890,15 +892,14 @@ h1, h2, h3, h4, h5,
 }
 
 .price-subscription {
-    max-width: 200px;
+    width: 100%;
+    max-width: 100% !important; /* Растягиваем на всю ширину родителя */
+    height: auto !important;     /* Убираем жесткие 200px */
     background: radial-gradient(ellipse 300px 50px, white, transparent);
-    font-size: 30px;
-    height: 200px;
     display: flex !important;
-    flex-wrap: wrap;
-    line-height: 1;
-    unicode-bidi: isolate;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: relative;
     word-break: break-word;
 }
@@ -912,7 +913,6 @@ h1, h2, h3, h4, h5,
 .price-subscription-sale {
     line-height: 1;
     font-size: 30px;
-    line-height: 1;
     position: relative;
     word-break: break-word;
 }
@@ -1050,42 +1050,108 @@ h1, h2, h3, h4, h5,
         background: #041d2d;
         color: #fff; }
 
+/* ====== Основной блок с фоном (Исправленный) ====== */
 .bgimg {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative; }
-  .bgimg .container .row {
-    height: 500px; }
-  .bgimg:before {
-    content: "";
-    background-color: rgba(0, 0, 0, 0.4);
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    z-index: 1; }
-  .bgimg .lead {
-    color: #fff; }
-    @media (max-width: 991.98px) {
-      font-size: 1rem; }
-  .bgimg > .container {
-    z-index: 2;
-    position: relative; }
+  background-position: center 18% !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
+  position: relative;
+
+  /* Верхний padding отодвигает контент от нависающей шапки site-navbar,
+     нижний дает блоку большую высоту и необходимый "воздух" */
+  padding-top: 170px !important;
+  padding-bottom: 130px !important;
+  min-height: 70vh;
+
+  display: flex;
+  align-items: center;
+}
+
+.bgimg .container .row {
+  height: auto !important;
+  width: 100%;
+}
+
+/* Тёмный оверлей */
+.bgimg:before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.35);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 1;
+}
+
+/* Контент поверх оверлея */
+.bgimg > .container {
+  z-index: 2;
+  position: relative;
+}
+
+.bgimg h1, h2, h3{
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.bgimg h1 {
+  font-size: 3.9rem;
+}
+
+.bgimg h2 {
+  font-size: 3.2rem;
+}
+
+.bgimg h3 {
+  font-size: 2.8rem;
+}
+
+.bgimg .lead {
+  color: #fff;
+  font-weight: 300;
+  font-size: 1.25rem;
+}
+
+.bgimg a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.bgimg a:hover {
+  text-decoration: none;
+}
+
+@media (max-width: 991.98px) {
+  .bgimg {
+    padding-top: 120px !important;
+    padding-bottom: 70px !important;
+    min-height: 50vh;
+    background-position: center 10% !important;
+  }
+
+  .bgimg h1 {
+    font-size: 2.4rem;
+  }
+
   .bgimg h2 {
-    color: #fff;
-    font-size: 3rem;
-    margin-top: 0;
-    font-weight: bold; }
-    @media (max-width: 991.98px) {
-      .bgimg h2 {
-        font-size: 1rem; } }
-  .bgimg a {
-    color: #fff;
-    text-decoration: underline; }
-    .bgimg a:hover {
-      text-decoration: none; }
+    font-size: 2rem;
+  }
+
+  .bgimg h3 {
+    font-size: 1.2rem;
+  }
+
+  .bgimg .lead {
+    font-size: 1.05rem;
+  }
+}
+
+/* ====== Конец блока с фоном ====== */
 
 .footer-section {
   padding: 7em 0; }
