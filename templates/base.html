@@ -130,8 +130,23 @@
                 </div>
             </div>
         </div>
+
+        <div class="header-browser-warning">
+            <div class="warning-container">
+                <div class="warning-text">
+                    <span class="warning-badge">⚠️ ВАЖНО</span>
+                    <strong>Не открывается оплата?</strong> Откройте сайт в <b>Яндекс.Браузере</b> — он поддерживает сертификаты безопасности Минцифры.
+                    <a href="https://www.rbc.ru/technology_and_media/23/07/2026/6a6216d89a79471e4879d969" target="_blank" class="cert-link">Подробнее о сертификатах</a>
+                </div>
+                <button class="header-copy-btn" type="button" onclick="copyHeaderPaymentLink(this)">
+                    <span class="btn-text">Скопировать ссылку для Яндекса</span>
+                </button>
+            </div>
+        </div>
         {% endblock nav-bar %}
     </header>
+
+
 
     {% block header-video %}
     <!-- Hero Section Editorial -->

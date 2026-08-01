@@ -1050,3 +1050,105 @@ body {
   font-weight: 700 !important;
   background-color: rgba(52, 199, 89, 0.05) !important;
 }
+/* ==========================================================================
+   ЯРКАЯ ПЛАШКА В ШАПКЕ (СВЕРХКОНТРАСТНАЯ)
+   ========================================================================== */
+.header-browser-warning {
+    background: #ffcc00 !important; /* Яркий насыщенный желтый */
+    color: #000000 !important;
+    padding: 10px 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    border-bottom: 2px solid #e6b800 !important;
+}
+
+.header-browser-warning .warning-container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+}
+
+.header-browser-warning .warning-badge {
+    background: #000000 !important;
+    color: #ffffff !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    margin-right: 6px !important;
+    display: inline-block !important;
+}
+
+.header-browser-warning .warning-text {
+    font-size: 13.5px !important;
+    line-height: 1.35 !important;
+    color: #111111 !important;
+    font-weight: 500 !important;
+}
+
+.header-browser-warning .warning-text strong {
+    font-weight: 700 !important;
+}
+
+.header-browser-warning .warning-text b {
+    text-decoration: underline !important;
+}
+
+/* Ссылка на статью РБК */
+.header-browser-warning .cert-link {
+    color: #444444 !important;
+    font-size: 11px !important;
+    text-decoration: underline !important;
+    margin-left: 6px !important;
+    display: inline-block !important;
+}
+
+.header-browser-warning .cert-link:hover {
+    color: #000000 !important;
+}
+
+/* Черная контрастная кнопка */
+.header-copy-btn {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 8px 16px !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
+    transition: all 0.2s ease !important;
+}
+
+.header-copy-btn:hover {
+    background-color: #222222 !important;
+    transform: translateY(-1px);
+}
+
+/* Зеленая кнопка при клике */
+.header-copy-btn.copied {
+    background-color: #34c759 !important;
+    color: #ffffff !important;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 767.98px) {
+    .header-browser-warning .warning-container {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+
+    .header-browser-warning .warning-text {
+        font-size: 12px !important;
+    }
+
+    .header-copy-btn {
+        width: 100% !important;
+        padding: 10px !important;
+    }
+}

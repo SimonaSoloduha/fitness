@@ -316,3 +316,22 @@ jQuery(document).ready(function($) {
 
 
 });
+
+function copyHeaderPaymentLink(btnElement) {
+    const linkToCopy = "https://simonasoloduha.ru/video/timetable_beginner/";
+
+    navigator.clipboard.writeText(linkToCopy).then(function() {
+        const btnText = btnElement.querySelector('.btn-text');
+        const originalText = btnText.innerText;
+
+        btnText.innerText = "✅ Ссылка скопирована!";
+        btnElement.classList.add('copied');
+
+        setTimeout(function() {
+            btnText.innerText = originalText;
+            btnElement.classList.remove('copied');
+        }, 3000);
+    }).catch(function(err) {
+        prompt("Скопируйте ссылку:", linkToCopy);
+    });
+}
