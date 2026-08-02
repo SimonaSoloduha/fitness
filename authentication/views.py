@@ -18,12 +18,29 @@ def register_user(request):
     if request.method == "POST":
         form = RegisterForm(request.POST)
         if form.is_valid():
-            user = form.save()
+            user = form.save(commit=False)
+
+            # 2. Берем email из формы
+            email = form.cleaned_data.get("email")
+
+            # 3. Заполняем username и email ДО первого вызова user.save()
+            user.username = email
+            user.email = email
+
+            # 4. Теперь сохраняем в базу данных
             user.save()
-            raw_password = form.cleaned_data.get('password1')
-            email = form.cleaned_data.get('email')
-            user = authenticate(username=user.username, email=email, password=raw_password)
-            login(request, user)
+
+            # 5. Аутентифицируем и логиним
+            raw_password = form.cleaned_data.get("password1")
+            user_auth = authenticate(
+                request, username=user.username, password=raw_password
+            )
+            # user = form.save()
+            # user.save()
+            # raw_password = form.cleaned_data.get('password1')
+            # email = form.cleaned_data.get('email')
+            # user = authenticate(username=user.username, email=email, password=raw_password)
+            # login(request, user)
             return redirect('index')
     else:
         form = RegisterForm()
