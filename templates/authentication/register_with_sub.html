@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {# Укажите ваш базовый шаблон #}
+
+{% block content %}
+<div class="container mt-5" style="max-width: 600px;">
+    <h2>Регистрация пользователя с подпиской</h2>
+
+    <!-- Вывод сообщений об успехе / ошибках -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} mt-3">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="post" class="mt-4">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="{{ form.email.id_for_label }}" class="form-label">{{ form.email.label }}</label>
+            {{ form.email }}
+            {% if form.email.errors %}
+                <div class="text-danger small">{{ form.email.errors.0 }}</div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="{{ form.sub_type.id_for_label }}" class="form-label">{{ form.sub_type.label }}</label>
+            {{ form.sub_type }}
+            {% if form.sub_type.errors %}
+                <div class="text-danger small">{{ form.sub_type.errors.0 }}</div>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Зарегистрировать и выдать подписку</button>
+    </form>
+</div>
+{% endblock %}

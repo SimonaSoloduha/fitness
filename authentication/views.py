@@ -40,7 +40,7 @@ def register_user(request):
             # raw_password = form.cleaned_data.get('password1')
             # email = form.cleaned_data.get('email')
             # user = authenticate(username=user.username, email=email, password=raw_password)
-            # login(request, user)
+            login(request, user_auth)
             return redirect('index')
     else:
         form = RegisterForm()

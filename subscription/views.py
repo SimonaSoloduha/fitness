@@ -1,13 +1,19 @@
 from django.http import JsonResponse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic.detail import DetailView
-from django.shortcuts import render, redirect
+from datetime import timedelta
+from django.contrib import messages
+from django.contrib.auth import get_user_model
+from django.shortcuts import redirect, render
+from django.utils import timezone
 from django.contrib.auth import authenticate, login
 
 from authentication.forms import RegisterForm
-from subscription.forms import SubscriptionFitnessVideoForm
+from subscription.forms import SubscriptionFitnessVideoForm, AdminRegisterWithSubscriptionForm
 from subscription.models import Subscription, SubscriptionFitnessVideo, PromoCodeFitnessVideo, PaymentSubscription
-from subscription.tasks import send_hello_to_email
+from subscription.tasks import send_hello_to_email, send_welcome_email_task
+
+User = get_user_model()
 
 
 def subscription(request):
@@ -98,3 +104,63 @@ class PaymentSubscriptionDetailView(DetailView):
     model = PaymentSubscription
     context_object_name = 'payment_subscription'
     template_name = "subscription/payment_marathon.html"
+
+
+def register_user_with_subscription(request):
+    """Представление для ручной регистрации пользователя, выдачи подписки и отправки email"""
+    if request.method == "POST":
+        form = AdminRegisterWithSubscriptionForm(request.POST)
+        if form.is_valid():
+            try:
+                email = form.cleaned_data['email']
+                sub_type = form.cleaned_data['sub_type']
+
+                # 1. Генерируем случайный пароль
+                generated_password = form.generate_random_password()
+
+                # 2. Создаем пользователя
+                user = User.objects.create_user(
+                    username=email,
+                    email=email,
+                    password=generated_password
+                )
+
+                # 3. Определяем даты подписки
+                now = timezone.now()
+                one_year_later = now + timedelta(days=365)
+
+                # Форматируем дату финиша для письма (например, "03.08.2027")
+                expire_date_formatted = one_year_later.strftime("%d.%m.%Y")
+
+                # 4. Создаем подписку
+                SubscriptionFitnessVideo.objects.create(
+                    user=user,
+                    data_start=now,
+                    data_finish=one_year_later,
+                    active=True,
+                    sub_type=sub_type
+                )
+
+                # 5. Запускаем Celery таск на отправку письма в фоне
+                send_welcome_email_task.delay(
+                    email=email,
+                    password=generated_password,
+                    sub_type=sub_type,
+                    expire_date_str=expire_date_formatted
+                )
+
+                messages.success(
+                    request,
+                    f'Пользователь {email} успешно зарегистрирован! '
+                    f'Подписка ({sub_type}) активна до {expire_date_formatted}. '
+                    f'Письмо с паролем отправлено на почту.'
+                )
+
+                return redirect('register_with_subscription')
+
+            except Exception as e:
+                messages.error(request, f"Произошла ошибка: {str(e)}")
+    else:
+        form = AdminRegisterWithSubscriptionForm()
+
+    return render(request, 'authentication/register_with_sub.html', {'form': form})
