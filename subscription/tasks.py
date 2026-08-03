@@ -21,7 +21,7 @@ def send_hello_to_email(email_user):
     body_html = loader.render_to_string('email_lists/subscriptions_start/subscription.html')
 
     msg = EmailMultiAlternatives(
-        _('Добро пожаловать в СПОРТ 🌸'),
+        _('Добро пожаловать 🌸'),
         body_html,
         from_email=EMAIL_HOST_USER,
         to=[email_user, 'ls460simona@gmail.com']
