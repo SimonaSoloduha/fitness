@@ -49,7 +49,7 @@ def advertising(request):
     """
     Показываем PDF во встроенном viewer + кнопка «На главную».
     """
-    path_to_pdf_file = Path(settings.BASE_DIR) / 'templates' / 'advertising' / 'SimonaSoloduhaMediaKit.pdf'
+    path_to_pdf_file = Path(settings.BASE_DIR) / 'templates' / 'advertising' / 'SimonaSoloduha_MediaKit.pdf'
     if not path_to_pdf_file.exists():
         raise Http404('PDF not found')
 
