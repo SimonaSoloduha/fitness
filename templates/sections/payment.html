@@ -43,19 +43,39 @@
                         </div>
                     </div>
 
+
                     <div class="card-bottom-content text-center pt-2 mt-auto">
+                        <!-- Основная оплата в РФ -->
                         <div class="price-box mb-3">
                             <div class="h4 font-weight-bold mb-0 text-dark" style="letter-spacing: 0.5px;">
                                 {{ payment_subscription.price_month_sale }} <span style="font-size: 0.85rem; font-weight: normal;">₽ / мес</span>
                             </div>
-                            <div class="text-muted text-decoration-line-through small" style="font-size: 0.75rem;">
+                            <div class="text-muted small" style="font-size: 0.75rem; text-decoration: line-through; opacity: 0.7;">
                                 {{ payment_subscription.price_month }} ₽
                             </div>
                         </div>
 
-                        <a href="{{ payment_subscription.url_pay_month }}" target="_blank" class="btn btn-outline-dark text-uppercase w-100 py-2 rounded-0" style="font-size: 0.75rem; letter-spacing: 2px; font-weight: 600;">
-                            {% trans 'ВЫБРАТЬ' %}
+
+                        <a href="{{ payment_subscription.url_pay_month }}" target="_blank" class="btn text-dark w-100 mb-4 py-2 text-decoration-none d-flex align-items-center justify-content-center" style="background-color: #f4f4f6; border-radius: 50px; font-size: 0.75rem; letter-spacing: 1.5px; font-weight: 600;">
+                                {% trans 'ВЫБРАТЬ' %}
                         </a>
+
+                        <!-- Блок оплаты из других стран -->
+                        <div class="border-top pt-3">
+                            <div class="text-uppercase text-muted mb-2" style="font-size: 0.65rem; letter-spacing: 1.5px; font-weight: 600;">
+                                {% trans 'Оплата из других стран' %}
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-center gap-2 mb-2" style="opacity: 0.85;">
+                                <img src="{% static 'images/icons/visa.png' %}" alt="Visa" style="height: 12px; width: auto; object-fit: contain;">
+                                <img src="{% static 'images/icons/master.png' %}" alt="Mastercard" style="height: 14px; width: auto; object-fit: contain;">
+                                <img src="{% static 'images/icons/usdt.png' %}" alt="USDT" style="height: 14px; width: auto; object-fit: contain;">
+                            </div>
+
+                            <a href="{{ payment_subscription.url_pay_year }}" target="_blank" class="btn text-dark w-100 py-2 mb-2 text-decoration-none d-flex align-items-center justify-content-center" style="background-color: #f4f4f6; border-radius: 50px; font-size: 0.75rem; letter-spacing: 1.5px; font-weight: 600;">
+                                {% trans 'ВЫБРАТЬ' %}
+                            </a>
+                        </div>
                     </div>
 
                 </div>
