@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.shortcuts import redirect, render
 from django.utils import timezone
+from django.utils.safestring import mark_safe
 from django.contrib.auth import authenticate, login
 
 from authentication.forms import RegisterForm
@@ -105,6 +106,66 @@ class PaymentSubscriptionDetailView(DetailView):
     context_object_name = 'payment_subscription'
     template_name = "subscription/payment_marathon.html"
 
+#
+# def register_user_with_subscription(request):
+#     """Представление для ручной регистрации пользователя, выдачи подписки и отправки email"""
+#     if request.method == "POST":
+#         form = AdminRegisterWithSubscriptionForm(request.POST)
+#         if form.is_valid():
+#             try:
+#                 email = form.cleaned_data['email']
+#                 sub_type = form.cleaned_data['sub_type']
+#
+#                 # 1. Генерируем случайный пароль
+#                 generated_password = form.generate_random_password()
+#
+#                 # 2. Создаем пользователя
+#                 user = User.objects.create_user(
+#                     username=email,
+#                     email=email,
+#                     password=generated_password
+#                 )
+#
+#                 # 3. Определяем даты подписки
+#                 now = timezone.now()
+#                 one_year_later = now + timedelta(days=365)
+#
+#                 # Форматируем дату финиша для письма (например, "03.08.2027")
+#                 expire_date_formatted = one_year_later.strftime("%d.%m.%Y")
+#
+#                 # 4. Создаем подписку
+#                 SubscriptionFitnessVideo.objects.create(
+#                     user=user,
+#                     data_start=now,
+#                     data_finish=one_year_later,
+#                     active=True,
+#                     sub_type=sub_type
+#                 )
+#
+#                 # 5. Запускаем Celery таск на отправку письма в фоне
+#                 send_welcome_email_task.delay(
+#                     email=email,
+#                     password=generated_password,
+#                     sub_type=sub_type,
+#                     expire_date_str=expire_date_formatted
+#                 )
+#
+#                 messages.success(
+#                     request,
+#                     f'Пользователь {email} успешно зарегистрирован! '
+#                     f'Подписка ({sub_type}) активна до {expire_date_formatted}. '
+#                     f'Письмо с паролем отправлено на почту.'
+#                 )
+#
+#                 return redirect('register_with_subscription')
+#
+#             except Exception as e:
+#                 messages.error(request, f"Произошла ошибка: {str(e)}")
+#     else:
+#         form = AdminRegisterWithSubscriptionForm()
+#
+#     return render(request, 'authentication/register_with_sub.html', {'form': form})
+
 
 def register_user_with_subscription(request):
     """Представление для ручной регистрации пользователя, выдачи подписки и отправки email"""
@@ -128,8 +189,6 @@ def register_user_with_subscription(request):
                 # 3. Определяем даты подписки
                 now = timezone.now()
                 one_year_later = now + timedelta(days=365)
-
-                # Форматируем дату финиша для письма (например, "03.08.2027")
                 expire_date_formatted = one_year_later.strftime("%d.%m.%Y")
 
                 # 4. Создаем подписку
@@ -141,7 +200,7 @@ def register_user_with_subscription(request):
                     sub_type=sub_type
                 )
 
-                # 5. Запускаем Celery таск на отправку письма в фоне
+                # 5. Запускаем Celery таск
                 send_welcome_email_task.delay(
                     email=email,
                     password=generated_password,
@@ -149,12 +208,36 @@ def register_user_with_subscription(request):
                     expire_date_str=expire_date_formatted
                 )
 
-                messages.success(
-                    request,
-                    f'Пользователь {email} успешно зарегистрирован! '
-                    f'Подписка ({sub_type}) активна до {expire_date_formatted}. '
-                    f'Письмо с паролем отправлено на почту.'
+                # Текст ссылки для экрана админа
+                if sub_type == 'type_04':
+                    link_text = "Марафон по ссылке: https://simonasoloduha.ru/video/timetable_marathon/"
+                elif sub_type == 'type_05':
+                    link_text = "Программа по ссылке и на вкладках: ПРОГРАММЫ и ДЛЯ НАЧИНАЮЩИХ: https://simonasoloduha.ru/video/timetable/"
+                else:
+                    link_text = "Программа по ссылке и на вкладке ПРОГРАММЫ: https://simonasoloduha.ru/video/timetable/"
+
+                # Собираем точную копию текста сообщения
+                copy_text = (
+                    f"Ваши данные для входа на сайт SIMONA SOLODUHA\n\n\n"
+                    f"почта: {email}\n"
+                    f"пароль: {generated_password}\n\n\n"
+                    f"Страница входа: https://simonasoloduha.ru/auth/login_fitness\n\n"
+                    f"{link_text}\n\n"
+                    f"Доступ до {expire_date_formatted}\n\n"
+                    f"Хороших тренировок и результатов 😘\n\n"
+                    f"Если будут вопросы — пишите 🌸"
                 )
+
+                # Формируем HTML-уведомление для страницы
+                success_html = mark_safe(
+                    f"Пользователь <b>{email}</b> успешно зарегистрирован! "
+                    f"Подписка (<b>{sub_type}</b>) активна до <b>{expire_date_formatted}</b>.<br>"
+                    f"Письмо отправлено на почту.<br><br>"
+                    f"<b>Текст письма для копирования:</b>"
+                    f"<pre style='background: #f4f4f6; padding: 12px; border-radius: 6px; border: 1px solid #ccc; font-family: monospace; font-size: 13px; margin-top: 8px; user-select: all; white-space: pre-wrap;'>{copy_text}</pre>"
+                )
+
+                messages.success(request, success_html)
 
                 return redirect('register_with_subscription')
 
