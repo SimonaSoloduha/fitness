@@ -206,18 +206,15 @@ AUTHENTICATION_BACKENDS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # Celery settings
-# CELERY_BROKER_URL = 'redis://localhost:6379/0'
-# CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
-# Было:
-# CELERY_BROKER_URL = 'redis://localhost:6379/0'
-# CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
-
-# Стало (подключение через Unix-сокет Sprinthost):
 CELERY_BROKER_URL = 'redis+socket:///home/a0951410/tmp/redis.sock'
 CELERY_RESULT_BACKEND = 'redis+socket:///home/a0951410/tmp/redis.sock'
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 CELERY_WORKER_CONCURRENCY = 2
+
+# Обязательные защиты от падения веб-сайта:
+CELERY_BROKER_CONNECTION_TIMEOUT = 3.0  # Ждать Redis не дольше 3 секунд
+
 
 GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
     os.path.join(BASE_DIR, 'gcpCredentials.json')

@@ -1056,7 +1056,7 @@ body {
 .header-browser-warning {
     background: #ffcc00 !important; /* Яркий насыщенный желтый */
     color: #000000 !important;
-    padding: 10px 16px !important;
+    padding: 5px 16px !important;
     width: 100% !important;
     box-sizing: border-box !important;
     border-bottom: 2px solid #e6b800 !important;
