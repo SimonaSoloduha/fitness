@@ -80,18 +80,6 @@
         <div class="col-md-10">
 
             {% if fit_videos %}
-            <div class="col-md-12  justify-content-center text-center">
-
-                {% for trainer in trainer_choices %}
-                <label class="btn btn-outline-blue1 py-1 px-3" for="{{trainer}}">
-                    <input type="checkbox"
-                           value="{{trainer}}"
-                           id="{{trainer}}"
-                           name="filterTrainer">
-                    <span>{{ trainer.first_name }} {{ trainer.last_name }}</span>
-                </label>
-                {% endfor %}
-            </div>
 
             <div class="row">
 

@@ -10,7 +10,7 @@ from video.models import FitVideo, TIME_CHOICES, Trainer, Timetable
 
 class AllVideos(ListView):
     def get(self, request):
-        fit_videos = FitVideo.objects.order_by('-created_at')
+        fit_videos = FitVideo.objects.filter(trainer__first_name='Simona').order_by('-created_at')
         times = list(zip(*TIME_CHOICES))[0]
         types = list(zip(*CHOICES_TYPES))[0]
         body_parts = list(zip(*CHOICES_BODY_PARTS))[0]
