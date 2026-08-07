@@ -172,22 +172,75 @@ def register_user_with_subscription(request):
                 email = form.cleaned_data['email']
                 sub_type = form.cleaned_data['sub_type']
 
-                # 1. Генерируем случайный пароль
-                generated_password = form.generate_random_password()
+                # 1. Проверяем, зарегистрирован ли пользователь
+                user = User.objects.filter(email=email).first() or User.objects.filter(username=email).first()
 
-                # 2. Создаем пользователя
-                user = User.objects.create_user(
-                    username=email,
-                    email=email,
-                    password=generated_password
-                )
-
-                # 3. Определяем даты подписки
                 now = timezone.now()
                 one_year_later = now + timedelta(days=365)
                 expire_date_formatted = one_year_later.strftime("%d.%m.%Y")
 
-                # 4. Создаем подписку
+                # Текст ссылки в зависимости от типа подписки
+                if sub_type == 'type_04':
+                    link_text = "Марафон по ссылке: https://simonasoloduha.ru/video/timetable_marathon/"
+                elif sub_type == 'type_05':
+                    link_text = "Программа по ссылке и на вкладках: ПРОГРАММЫ и ДЛЯ НАЧИНАЮЩИХ: https://simonasoloduha.ru/video/timetable/"
+                else:
+                    link_text = "Программа по ссылке и на вкладке ПРОГРАММЫ: https://simonasoloduha.ru/video/timetable/"
+
+                if user:
+                    # ПОЛЬЗОВАТЕЛЬ УЖЕ ЗАРЕГИСТРИРОВАН
+                    # Отправляем письмо БЕЗ пароля и ссылки на логин
+                    send_welcome_email_task.delay(
+                        email=email,
+                        password=None,
+                        sub_type=sub_type,
+                        expire_date_str=expire_date_formatted,
+                        is_registered=True
+                    )
+
+                    copy_text = (
+                        f"Ваша подписка на сайте SIMONA SOLODUHA успешно оформлена!\n\n\n"
+                        f"{link_text}\n\n"
+                        f"Доступ до {expire_date_formatted}\n\n"
+                        f"Хороших тренировок и результатов 😘\n\n"
+                        f"Если будут вопросы — пишите 🌸"
+                    )
+
+                    status_msg = f"Пользователь <b>{email}</b> уже зарегистрирован в системе. Подписка (<b>{sub_type}</b>) выдана до <b>{expire_date_formatted}</b>."
+
+                else:
+                    # НОВЫЙ ПОЛЬЗОВАТЕЛЬ
+                    generated_password = form.generate_random_password()
+
+                    user = User.objects.create_user(
+                        username=email,
+                        email=email,
+                        password=generated_password
+                    )
+
+                    # Отправляем письмо С паролем и ссылкой на логин
+                    send_welcome_email_task.delay(
+                        email=email,
+                        password=generated_password,
+                        sub_type=sub_type,
+                        expire_date_str=expire_date_formatted,
+                        is_registered=False
+                    )
+
+                    copy_text = (
+                        f"Ваши данные для входа на сайт SIMONA SOLODUHA\n\n\n"
+                        f"почта: {email}\n"
+                        f"пароль: {generated_password}\n\n\n"
+                        f"Страница входа: https://simonasoloduha.ru/auth/login_fitness\n\n"
+                        f"{link_text}\n\n"
+                        f"Доступ до {expire_date_formatted}\n\n"
+                        f"Хороших тренировок и результатов 😘\n\n"
+                        f"Если будут вопросы — пишите 🌸"
+                    )
+
+                    status_msg = f"Новый пользователь <b>{email}</b> успешно зарегистрирован! Подписка (<b>{sub_type}</b>) активна до <b>{expire_date_formatted}</b>."
+
+                # 2. Создаем запись подписки
                 SubscriptionFitnessVideo.objects.create(
                     user=user,
                     data_start=now,
@@ -196,45 +249,15 @@ def register_user_with_subscription(request):
                     sub_type=sub_type
                 )
 
-                # 5. Запускаем Celery таск
-                send_welcome_email_task.delay(
-                    email=email,
-                    password=generated_password,
-                    sub_type=sub_type,
-                    expire_date_str=expire_date_formatted
-                )
-
-                # Текст ссылки для экрана админа
-                if sub_type == 'type_04':
-                    link_text = "Марафон по ссылке: https://simonasoloduha.ru/video/timetable_marathon/"
-                elif sub_type == 'type_05':
-                    link_text = "Программа по ссылке и на вкладках: ПРОГРАММЫ и ДЛЯ НАЧИНАЮЩИХ: https://simonasoloduha.ru/video/timetable/"
-                else:
-                    link_text = "Программа по ссылке и на вкладке ПРОГРАММЫ: https://simonasoloduha.ru/video/timetable/"
-
-                # Собираем точную копию текста сообщения
-                copy_text = (
-                    f"Ваши данные для входа на сайт SIMONA SOLODUHA\n\n\n"
-                    f"почта: {email}\n"
-                    f"пароль: {generated_password}\n\n\n"
-                    f"Страница входа: https://simonasoloduha.ru/auth/login_fitness\n\n"
-                    f"{link_text}\n\n"
-                    f"Доступ до {expire_date_formatted}\n\n"
-                    f"Хороших тренировок и результатов 😘\n\n"
-                    f"Если будут вопросы — пишите 🌸"
-                )
-
-                # Формируем HTML-уведомление для страницы
+                # 3. Формируем HTML-уведомление для страницы
                 success_html = mark_safe(
-                    f"Пользователь <b>{email}</b> успешно зарегистрирован! "
-                    f"Подписка (<b>{sub_type}</b>) активна до <b>{expire_date_formatted}</b>.<br>"
+                    f"{status_msg}<br>"
                     f"Письмо отправлено на почту.<br><br>"
                     f"<b>Текст письма для копирования:</b>"
                     f"<pre style='background: #f4f4f6; padding: 12px; border-radius: 6px; border: 1px solid #ccc; font-family: monospace; font-size: 13px; margin-top: 8px; user-select: all; white-space: pre-wrap;'>{copy_text}</pre>"
                 )
 
                 messages.success(request, success_html)
-
                 return redirect('register_with_subscription')
 
             except Exception as e:
