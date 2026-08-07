@@ -12,7 +12,7 @@ from django.contrib.auth import authenticate, login
 from authentication.forms import RegisterForm
 from subscription.forms import SubscriptionFitnessVideoForm, AdminRegisterWithSubscriptionForm
 from subscription.models import Subscription, SubscriptionFitnessVideo, PromoCodeFitnessVideo, PaymentSubscription
-from subscription.tasks import send_hello_to_email, send_welcome_email_task
+from subscription.tasks import send_welcome_email_task
 
 User = get_user_model()
 
@@ -27,13 +27,9 @@ def subscription(request):
             else:
                 subscription.active = True
                 subscription.save()
-                send_hello_to_email(email)
-                message = _('Ваша подписка оформлена')
         except Subscription.DoesNotExist:
             new = Subscription(email=email)
             new.save()
-            send_hello_to_email(email)
-            message = _('Ваша подписка оформлена')
         return JsonResponse({'message': message})
     return JsonResponse({'message': 'Invalid request method'}, status=400)
 
