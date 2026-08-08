@@ -12,7 +12,7 @@ from django.contrib.auth import authenticate, login
 from authentication.forms import RegisterForm
 from subscription.forms import SubscriptionFitnessVideoForm, AdminRegisterWithSubscriptionForm
 from subscription.models import Subscription, SubscriptionFitnessVideo, PromoCodeFitnessVideo, PaymentSubscription
-from subscription.tasks import send_welcome_email_task
+from subscription.tasks import send_welcome_email_task, get_welcome_email_content
 
 User = get_user_model()
 
@@ -102,66 +102,6 @@ class PaymentSubscriptionDetailView(DetailView):
     context_object_name = 'payment_subscription'
     template_name = "subscription/payment_marathon.html"
 
-#
-# def register_user_with_subscription(request):
-#     """Представление для ручной регистрации пользователя, выдачи подписки и отправки email"""
-#     if request.method == "POST":
-#         form = AdminRegisterWithSubscriptionForm(request.POST)
-#         if form.is_valid():
-#             try:
-#                 email = form.cleaned_data['email']
-#                 sub_type = form.cleaned_data['sub_type']
-#
-#                 # 1. Генерируем случайный пароль
-#                 generated_password = form.generate_random_password()
-#
-#                 # 2. Создаем пользователя
-#                 user = User.objects.create_user(
-#                     username=email,
-#                     email=email,
-#                     password=generated_password
-#                 )
-#
-#                 # 3. Определяем даты подписки
-#                 now = timezone.now()
-#                 one_year_later = now + timedelta(days=365)
-#
-#                 # Форматируем дату финиша для письма (например, "03.08.2027")
-#                 expire_date_formatted = one_year_later.strftime("%d.%m.%Y")
-#
-#                 # 4. Создаем подписку
-#                 SubscriptionFitnessVideo.objects.create(
-#                     user=user,
-#                     data_start=now,
-#                     data_finish=one_year_later,
-#                     active=True,
-#                     sub_type=sub_type
-#                 )
-#
-#                 # 5. Запускаем Celery таск на отправку письма в фоне
-#                 send_welcome_email_task.delay(
-#                     email=email,
-#                     password=generated_password,
-#                     sub_type=sub_type,
-#                     expire_date_str=expire_date_formatted
-#                 )
-#
-#                 messages.success(
-#                     request,
-#                     f'Пользователь {email} успешно зарегистрирован! '
-#                     f'Подписка ({sub_type}) активна до {expire_date_formatted}. '
-#                     f'Письмо с паролем отправлено на почту.'
-#                 )
-#
-#                 return redirect('register_with_subscription')
-#
-#             except Exception as e:
-#                 messages.error(request, f"Произошла ошибка: {str(e)}")
-#     else:
-#         form = AdminRegisterWithSubscriptionForm()
-#
-#     return render(request, 'authentication/register_with_sub.html', {'form': form})
-
 
 def register_user_with_subscription(request):
     """Представление для ручной регистрации пользователя, выдачи подписки и отправки email"""
@@ -172,75 +112,27 @@ def register_user_with_subscription(request):
                 email = form.cleaned_data['email']
                 sub_type = form.cleaned_data['sub_type']
 
-                # 1. Проверяем, зарегистрирован ли пользователь
+                # 1. Ищем пользователя
                 user = User.objects.filter(email=email).first() or User.objects.filter(username=email).first()
 
                 now = timezone.now()
                 one_year_later = now + timedelta(days=365)
                 expire_date_formatted = one_year_later.strftime("%d.%m.%Y")
 
-                # Текст ссылки в зависимости от типа подписки
-                if sub_type == 'type_04':
-                    link_text = "Марафон по ссылке: https://simonasoloduha.ru/video/timetable_marathon/"
-                elif sub_type == 'type_05':
-                    link_text = "Программа по ссылке и на вкладках: ПРОГРАММЫ и ДЛЯ НАЧИНАЮЩИХ: https://simonasoloduha.ru/video/timetable/"
-                else:
-                    link_text = "Программа по ссылке и на вкладке ПРОГРАММЫ: https://simonasoloduha.ru/video/timetable/"
+                generated_password = None
 
                 if user:
-                    # ПОЛЬЗОВАТЕЛЬ УЖЕ ЗАРЕГИСТРИРОВАН
-                    # Отправляем письмо БЕЗ пароля и ссылки на логин
-                    send_welcome_email_task.delay(
-                        email=email,
-                        password=None,
-                        sub_type=sub_type,
-                        expire_date_str=expire_date_formatted,
-                        is_registered=True
-                    )
-
-                    copy_text = (
-                        f"Ваша подписка на сайте SIMONA SOLODUHA успешно оформлена!\n\n\n"
-                        f"{link_text}\n\n"
-                        f"Доступ до {expire_date_formatted}\n\n"
-                        f"Хороших тренировок и результатов 😘\n\n"
-                        f"Если будут вопросы — пишите 🌸"
-                    )
-
                     status_msg = f"Пользователь <b>{email}</b> уже зарегистрирован в системе. Подписка (<b>{sub_type}</b>) выдана до <b>{expire_date_formatted}</b>."
-
                 else:
-                    # НОВЫЙ ПОЛЬЗОВАТЕЛЬ
                     generated_password = form.generate_random_password()
-
                     user = User.objects.create_user(
                         username=email,
                         email=email,
                         password=generated_password
                     )
-
-                    # Отправляем письмо С паролем и ссылкой на логин
-                    send_welcome_email_task.delay(
-                        email=email,
-                        password=generated_password,
-                        sub_type=sub_type,
-                        expire_date_str=expire_date_formatted,
-                        is_registered=False
-                    )
-
-                    copy_text = (
-                        f"Ваши данные для входа на сайт SIMONA SOLODUHA\n\n\n"
-                        f"почта: {email}\n"
-                        f"пароль: {generated_password}\n\n\n"
-                        f"Страница входа: https://simonasoloduha.ru/auth/login_fitness\n\n"
-                        f"{link_text}\n\n"
-                        f"Доступ до {expire_date_formatted}\n\n"
-                        f"Хороших тренировок и результатов 😘\n\n"
-                        f"Если будут вопросы — пишите 🌸"
-                    )
-
                     status_msg = f"Новый пользователь <b>{email}</b> успешно зарегистрирован! Подписка (<b>{sub_type}</b>) активна до <b>{expire_date_formatted}</b>."
 
-                # 2. Создаем запись подписки
+                # 2. Создаем подписку
                 SubscriptionFitnessVideo.objects.create(
                     user=user,
                     data_start=now,
@@ -249,7 +141,17 @@ def register_user_with_subscription(request):
                     sub_type=sub_type
                 )
 
-                # 3. Формируем HTML-уведомление для страницы
+                # 3. Запускаем фоновую отправку
+                send_welcome_email_task.delay(
+                    email=email,
+                    password=generated_password,
+                    sub_type=sub_type,
+                    expire_date_str=expire_date_formatted
+                )
+
+                # 4. Получаем текст для блока копирования
+                _, copy_text = get_welcome_email_content(email, generated_password, sub_type, expire_date_formatted)
+
                 success_html = mark_safe(
                     f"{status_msg}<br>"
                     f"Письмо отправлено на почту.<br><br>"
