@@ -52,7 +52,7 @@ def get_welcome_email_content(email, password=None, sub_type=None, expire_date_s
     return subject, message
 
 
-@app.task
+@app.task(time_limit=30, soft_time_limit=20)
 def send_welcome_email_task(email, password=None, sub_type=None, expire_date_str=""):
     """Таск Celery отправки письма о подписке"""
     try:
