@@ -335,3 +335,62 @@ function copyHeaderPaymentLink(btnElement) {
         prompt("Скопируйте ссылку:", linkToCopy);
     });
 }
+
+jQuery(document).ready(function($) {
+
+    // 1. При клике на верхнюю кнопку "ВЫБРАТЬ" передаем ссылку в модальное окно
+    $('.btn-open-pay-modal').on('click', function() {
+        var payUrl = $(this).data('pay-url');
+        $('#modalProceedBtn').attr('href', payUrl);
+    });
+
+    // 2. Логика копирования ссылки из модального окна
+    $('#modalCopyBtn').on('click', function() {
+        var linkToCopy = $('#modalProceedBtn').attr('href');
+        var $btn = $(this);
+        var originalText = $btn.text();
+
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(linkToCopy).then(function() {
+                $btn.text('✅ Ссылка скопирована!');
+                setTimeout(function() {
+                    $btn.text(originalText);
+                }, 3000);
+            }).catch(function() {
+                prompt("Скопируйте ссылку:", linkToCopy);
+            });
+        } else {
+            prompt("Скопируйте ссылку:", linkToCopy);
+        }
+    });
+
+});
+
+// Проверка: показывали ли уже плашку сегодня?
+var today = new Date().toISOString().slice(0, 10); // Формат: "2026-08-15"
+var lastShownDate = localStorage.getItem('yandexBannerLastShown');
+
+if (lastShownDate !== today) {
+    // Если сегодня еще НЕ показывали — запускаем анимацию через 1 секунду
+    setTimeout(function() {
+        var $banner = $('#top-yandex-banner');
+
+        // 1. Показываем плашку
+        $banner.removeClass('top-banner-hidden').addClass('top-banner-visible');
+
+        // 2. Сохраняем сегодняшнюю дату в память браузера
+        localStorage.setItem('yandexBannerLastShown', today);
+
+        // 3. Автоматически скрываем плашку через 7 секунд
+        var autoHideTimer = setTimeout(function() {
+            $banner.removeClass('top-banner-visible').addClass('top-banner-hidden');
+        }, 7000);
+
+        // 4. Закрытие по крестику
+        $('#closeBannerBtn').on('click', function() {
+            clearTimeout(autoHideTimer);
+            $banner.removeClass('top-banner-visible').addClass('top-banner-hidden');
+        });
+
+    }, 1000);
+}

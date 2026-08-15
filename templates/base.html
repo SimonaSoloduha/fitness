@@ -131,17 +131,32 @@
             </div>
         </div>
 
-        <div class="header-browser-warning">
-            <div class="warning-container">
-                <div class="warning-text">
-                    <span class="warning-badge">⚠️ ВАЖНО</span>
-                    <strong>Не открывается оплата?</strong> Откройте сайт в <b>Яндекс.Браузере</b> — он поддерживает сертификаты безопасности Минцифры.
+<!--        <div class="header-browser-warning">-->
+<!--            <div class="warning-container">-->
+<!--                <div class="warning-text">-->
+<!--                    <span class="warning-badge">⚠️ ВАЖНО</span>-->
+<!--                    <strong>Не открывается оплата?</strong> Откройте сайт в <b>Яндекс.Браузере</b> — он поддерживает сертификаты безопасности Минцифры.-->
+<!--                </div>-->
+<!--                <button class="header-copy-btn" type="button" onclick="copyHeaderPaymentLink(this)">-->
+<!--                    <span class="btn-text">Скопировать ссылку</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--        </div>-->
+        <!-- Плавающая верхняя плашка -->
+            <div id="top-yandex-banner" class="top-banner-hidden" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; background-color: #ffc107; color: #000; transition: transform 0.5s ease-in-out; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+                <div class="container py-2 d-flex align-items-center justify-content-between flex-wrap gap-2">
+                    <div class="d-flex align-items-center gap-2" style="font-size: 0.85rem; font-weight: 500;">
+                        <span class="badge bg-dark text-white px-2 py-1 text-uppercase" style="font-size: 0.7rem;">⚠️ ВАЖНО</span>
+                        <span>Не открывается оплата? Откройте сайт в <strong>Яндекс.Браузере</strong> — он поддерживает сертификаты Минцифры.</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <button type="button" onclick="copyHeaderPaymentLink(this)" class="btn btn-dark btn-sm font-weight-bold" style="border-radius: 50px; font-size: 0.75rem; padding: 6px 16px;">
+                            <span class="btn-text">Скопировать ссылку</span>
+                        </button>
+                        <button type="button" id="closeBannerBtn" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; line-height: 1; padding: 0 5px;">&times;</button>
+                    </div>
                 </div>
-                <button class="header-copy-btn" type="button" onclick="copyHeaderPaymentLink(this)">
-                    <span class="btn-text">Скопировать ссылку</span>
-                </button>
             </div>
-        </div>
         {% endblock nav-bar %}
     </header>
 

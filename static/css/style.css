@@ -1097,6 +1097,16 @@ body {
     text-decoration: underline !important;
 }
 
+/* Скрытие плашки за пределами экрана вверх */
+.top-banner-hidden {
+    transform: translateY(-100%);
+}
+
+/* Плавный выезд плашки вниз */
+.top-banner-visible {
+    transform: translateY(0);
+}
+
 /* Ссылка на статью РБК */
 .header-browser-warning .cert-link {
     color: #444444 !important;
