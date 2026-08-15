@@ -317,54 +317,47 @@ jQuery(document).ready(function($) {
 
 });
 
-function copyHeaderPaymentLink(btnElement) {
-    const linkToCopy = "https://simonasoloduha.ru/video/timetable_beginner/";
-
-    navigator.clipboard.writeText(linkToCopy).then(function() {
-        const btnText = btnElement.querySelector('.btn-text');
-        const originalText = btnText.innerText;
-
-        btnText.innerText = "✅ Ссылка скопирована!";
-        btnElement.classList.add('copied');
-
-        setTimeout(function() {
-            btnText.innerText = originalText;
-            btnElement.classList.remove('copied');
-        }, 3000);
-    }).catch(function(err) {
-        prompt("Скопируйте ссылку:", linkToCopy);
-    });
-}
-
 jQuery(document).ready(function($) {
 
-    // 1. При клике на верхнюю кнопку "ВЫБРАТЬ" передаем ссылку в модальное окно
+    // 1. При клике на "ВЫБРАТЬ" подставляем динамическую ссылку оплаты в кнопку модалки
     $('.btn-open-pay-modal').on('click', function() {
-        var payUrl = $(this).data('pay-url');
+        var payUrl = $(this).attr('data-pay-url') || $(this).data('pay-url');
         $('#modalProceedBtn').attr('href', payUrl);
     });
 
-    // 2. Логика копирования ссылки из модального окна
-    $('#modalCopyBtn').on('click', function() {
+    // 2. Копирование именно этой ссылки из href кнопки модального окна
+    $('#modalCopyBtn').on('click', function(e) {
+        e.preventDefault();
         var linkToCopy = $('#modalProceedBtn').attr('href');
+
+        if (!linkToCopy || linkToCopy === '#') {
+            alert('Ссылка не найдена!');
+            return;
+        }
+
         var $btn = $(this);
         var originalText = $btn.text();
 
-        if (navigator.clipboard) {
+        if (navigator.clipboard && window.isSecureContext) {
             navigator.clipboard.writeText(linkToCopy).then(function() {
                 $btn.text('✅ Ссылка скопирована!');
                 setTimeout(function() {
                     $btn.text(originalText);
                 }, 3000);
             }).catch(function() {
-                prompt("Скопируйте ссылку:", linkToCopy);
+                fallbackCopyText(linkToCopy, $btn, originalText);
             });
         } else {
-            prompt("Скопируйте ссылку:", linkToCopy);
+            fallbackCopyText(linkToCopy, $btn, originalText);
         }
     });
 
+    function fallbackCopyText(text, $btn, originalText) {
+        prompt("Скопируйте ссылку на оплату:", text);
+    }
+
 });
+
 
 // Проверка: показывали ли уже плашку сегодня?
 var today = new Date().toISOString().slice(0, 10); // Формат: "2026-08-15"

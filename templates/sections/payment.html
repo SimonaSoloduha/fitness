@@ -56,17 +56,17 @@
                         </div>
 
 
-                        <a href="{{ payment_subscription.url_pay_month }}" target="_blank" class="btn text-dark w-100 mb-4 py-2 text-decoration-none d-flex align-items-center justify-content-center" style="background-color: #f4f4f6; border-radius: 50px; font-size: 0.75rem; letter-spacing: 1.5px; font-weight: 600;">
-                                {% trans 'ВЫБРАТЬ' %}
-                        </a>
-<!--                        <button type="button"-->
-<!--                                class="btn text-dark w-100 mb-4 py-2 text-decoration-none d-flex align-items-center justify-content-center btn-open-pay-modal"-->
-<!--                                data-toggle="modal"-->
-<!--                                data-target="#yandexPayModal"-->
-<!--                                data-pay-url="{{ payment_subscription.url_pay_month }}"-->
-<!--                                style="background-color: #f4f4f6; border-radius: 50px; font-size: 0.75rem; letter-spacing: 1.5px; font-weight: 600;">-->
-<!--                            {% trans 'ВЫБРАТЬ' %}-->
-<!--                        </button>-->
+<!--                        <a href="{{ payment_subscription.url_pay_month }}" target="_blank" class="btn text-dark w-100 mb-4 py-2 text-decoration-none d-flex align-items-center justify-content-center" style="background-color: #f4f4f6; border-radius: 50px; font-size: 0.75rem; letter-spacing: 1.5px; font-weight: 600;">-->
+<!--                                {% trans 'ВЫБРАТЬ' %}-->
+<!--                        </a>-->
+                        <button type="button"
+                                class="btn text-dark w-100 mb-4 py-2 text-decoration-none d-flex align-items-center justify-content-center btn-open-pay-modal"
+                                data-toggle="modal"
+                                data-target="#yandexPayModal"
+                                data-pay-url="{{ payment_subscription.url_pay_month }}"
+                                style="background-color: #f4f4f6; border-radius: 50px; font-size: 0.75rem; letter-spacing: 1.5px; font-weight: 600;">
+                            {% trans 'ВЫБРАТЬ' %}
+                        </button>
 
                         <!-- Блок оплаты из других стран -->
                         <div class="border-top pt-3">
@@ -181,16 +181,18 @@
                     </p>
 
                     <div class="d-flex flex-column gap-2">
-                        <a href="#" id="modalProceedBtn" target="_blank"
-                           class="btn btn-dark w-100 mb-2 py-3 text-uppercase font-weight-bold"
-                           style="border-radius: 50px; font-size: 0.8rem; letter-spacing: 1px;">
-                            Перейти к оплате &rarr;
+                        <!-- Кнопка "ПЕРЕЙТИ К ОПЛАТЕ" -->
+                        <a id="modalProceedBtn" href="#" target="_blank"
+                           class="btn text-dark w-100 mb-3 py-3"
+                           style="background-color: #ffc107; border-radius: 50px; font-weight: 800; text-transform: uppercase;">
+                            {% trans 'ПЕРЕЙТИ К ОПЛАТЕ' %} &rarr;
                         </a>
 
+                        <!-- Кнопка "СКОПИРОВАТЬ ССЫЛКУ" -->
                         <button type="button" id="modalCopyBtn"
-                                class="btn btn-outline-dark w-100 py-2 text-uppercase font-weight-bold"
-                                style="border-radius: 50px; font-size: 0.75rem; letter-spacing: 1px;">
-                            Скопировать ссылку
+                                class="btn btn-outline-secondary w-100 py-2"
+                                style="border-radius: 50px; font-weight: 600;">
+                            {% trans 'СКОПИРОВАТЬ ССЫЛКУ' %}
                         </button>
                     </div>
                 </div>
