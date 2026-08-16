@@ -406,6 +406,96 @@ header,
   text-decoration: none;
 }
 
+
+/* ОПЛАТА В ЯНДЕКС (Центрирование по экрану) */
+
+/* 1. Всплывающее окно строго по центру экрана */
+.payment-hover-popover {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 90%;
+    max-width: 380px;
+    background: #000000;
+    color: #ffffff;
+    padding: 24px 20px;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease-in-out;
+    pointer-events: none;
+    text-align: center;
+}
+
+/* 2. Показ при наведении на карточку */
+.vogue-card:hover .payment-hover-popover:not(.is-closed) {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+}
+
+/* 3. Элементы внутри окна */
+.popover-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #ffcc00;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.popover-text {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #e0e0e0;
+    margin-bottom: 16px;
+}
+
+.btn-popover-copy {
+    width: 100%;
+    background: #ffcc00;
+    color: #000000;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-popover-copy:hover {
+    background: #e6b800;
+}
+
+.btn-popover-copy:active {
+    transform: scale(0.98);
+}
+
+.close-popover-btn {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.close-popover-btn:hover {
+    opacity: 1;
+}
+/* ОПЛАТА В ЯНДЕКС все */
+
 /* Стилизация вкладок расписания */
 .btn-day {
   color: #111111;
