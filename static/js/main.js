@@ -1,3 +1,39 @@
+// Глобальная вспомогательная функция копирования в буфер
+window.copyToClipboard = function(text, successCallback) {
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(successCallback).catch(function() {
+            prompt("Скопируйте ссылку:", text);
+        });
+    } else {
+        prompt("Скопируйте ссылку:", text);
+    }
+};
+
+// Функция специально для плашки в шапке (header-browser-warning)
+window.copyHeaderPaymentLink = function(btnElement) {
+    var $btn = jQuery(btnElement);
+    var $textSpan = $btn.find('.btn-text');
+    var originalText = $textSpan.length ? $textSpan.text() : $btn.text();
+
+    // Берем текущий URL страницы (или заданный атрибут data-url)
+    var urlToCopy = $btn.attr('data-url') || window.location.href;
+
+    window.copyToClipboard(urlToCopy, function() {
+        if ($textSpan.length) {
+            $textSpan.text('✅ Ссылка скопирована!');
+        } else {
+            $btn.text('✅ Ссылка скопирована!');
+        }
+        setTimeout(function() {
+            if ($textSpan.length) {
+                $textSpan.text(originalText);
+            } else {
+                $btn.text(originalText);
+            }
+        }, 3000);
+    });
+};
+
 AOS.init({
     duration: 800,
     easing: 'slide',
@@ -16,7 +52,6 @@ jQuery(document).ready(function($) {
             $this.clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-menu-body');
         });
 
-        // Создаем стрелочки для выпадающих списков
         $('.site-mobile-menu .has-children').each(function(index) {
             var $this = $(this);
             $this.prepend('<span class="arrow-collapse collapsed"></span>');
@@ -32,20 +67,17 @@ jQuery(document).ready(function($) {
             });
         });
 
-        // Переключение мобильного меню (единый обработчик)
         $('body').on('click', '.js-menu-toggle, .site-mobile-menu-close', function(e) {
             e.preventDefault();
             $('body').toggleClass('offcanvas-menu');
             $('.js-menu-toggle').toggleClass('active', $('body').hasClass('offcanvas-menu'));
         });
 
-        // Раскрытие подпунктов
         $('body').on('click', '.arrow-collapse', function(e) {
             e.preventDefault();
             $(this).toggleClass('active');
         });
 
-        // Сброс при изменении размера экрана
         $(window).resize(function() {
             if ($(this).width() > 768) {
                 if ($('body').hasClass('offcanvas-menu')) {
@@ -55,7 +87,6 @@ jQuery(document).ready(function($) {
             }
         });
 
-        // Клик вне меню для закрытия
         $(document).mouseup(function(e) {
             var container = $(".site-mobile-menu");
             if (!container.is(e.target) && container.has(e.target).length === 0) {
@@ -69,7 +100,7 @@ jQuery(document).ready(function($) {
     siteMenuClone();
 
     // -------------------------------------------------------------
-    // 2. Слайдеры и Плагины (с безопасной проверкой наличия)
+    // 2. Слайдеры и Плагины
     // -------------------------------------------------------------
     var siteCarousel = function() {
         if (!$.fn.owlCarousel) return;
@@ -213,7 +244,6 @@ jQuery(document).ready(function($) {
     };
     siteScroll();
 
-    // Анимация появления элементов
     $('.animated-item').each(function(index) {
         $(this).css('opacity', 0).delay(index * 200).animate({ opacity: 1 }, 500);
     });
@@ -238,39 +268,14 @@ jQuery(document).ready(function($) {
         var $btn = $(this);
         var originalText = $btn.text();
 
-        copyToClipboard(linkToCopy, function() {
+        window.copyToClipboard(linkToCopy, function() {
             $btn.text('✅ Ссылка скопирована!');
             setTimeout(function() { $btn.text(originalText); }, 3000);
         });
     });
 
     // -------------------------------------------------------------
-    // 5. Показ Баннера (раз в сутки)
-    // -------------------------------------------------------------
-    var today = new Date().toISOString().slice(0, 10);
-    var lastShownDate = localStorage.getItem('yandexBannerLastShown');
-
-    if (lastShownDate !== today) {
-        setTimeout(function() {
-            var $banner = $('#top-yandex-banner');
-            if ($banner.length) {
-                $banner.removeClass('top-banner-hidden').addClass('top-banner-visible');
-                localStorage.setItem('yandexBannerLastShown', today);
-
-                var autoHideTimer = setTimeout(function() {
-                    $banner.removeClass('top-banner-visible').addClass('top-banner-hidden');
-                }, 7000);
-
-                $('#closeBannerBtn').on('click', function() {
-                    clearTimeout(autoHideTimer);
-                    $banner.removeClass('top-banner-visible').addClass('top-banner-hidden');
-                });
-            }
-        }, 1000);
-    }
-
-    // -------------------------------------------------------------
-    // 6. Обработка Всплывающих Popover
+    // 5. Обработка Всплывающих Popover в карточках
     // -------------------------------------------------------------
     $('body').on('click', '.close-popover-btn', function(e) {
         e.preventDefault();
@@ -285,21 +290,10 @@ jQuery(document).ready(function($) {
         var originalText = $btn.text();
 
         if (payUrl) {
-            copyToClipboard(payUrl, function() {
-                $btn.text('СКИЛКА СКОПИРОВАНА! ✓');
+            window.copyToClipboard(payUrl, function() {
+                $btn.text('ССЫЛКА СКОПИРОВАНА! ✓');
                 setTimeout(function() { $btn.text(originalText); }, 2500);
             });
         }
     });
-
-    // Вспомогательная функция копирования
-    function copyToClipboard(text, successCallback) {
-        if (navigator.clipboard && window.isSecureContext) {
-            navigator.clipboard.writeText(text).then(successCallback).catch(function() {
-                prompt("Скопируйте ссылку на оплату:", text);
-            });
-        } else {
-            prompt("Скопируйте ссылку на оплату:", text);
-        }
-    }
 });
