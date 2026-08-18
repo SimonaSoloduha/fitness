@@ -92,78 +92,26 @@
             </div>
             {% endfor %}
         </div>
-<!--        <div class="row" data-aos="fade">-->
-<!--            {% for payment_subscription in payment_subscriptions %}-->
-<!--            <div class="col-md-6 col-lg-3 mb-4 d-flex align-items-stretch">-->
-<!--                <div class="vogue-card bg-white w-100 border d-flex flex-column justify-content-between p-3">-->
-
-<!--                    <div class="card-top-content">-->
-<!--                        <a href="{% url 'payment_subscription_fit_vid_detail' payment_subscription.pk %}" target="_blank" class="d-block mb-3 overflow-hidden">-->
-<!--                            <img src="/static/{{ payment_subscription.image }}" alt="Программа тренировок для похудения: {{ payment_subscription.name }}" class="img-fluid w-100 d-block" style="object-fit: cover; height: 260px; filter: grayscale(10%); transition: transform 0.4s ease;">-->
-<!--                        </a>-->
-
-<!--                        <div class="text-center px-1">-->
-<!--                            <h3 class="text-uppercase mb-3" style="font-size: 0.95rem; letter-spacing: 1.5px; font-weight: 600; min-height: 44px; line-height: 1.4;">-->
-<!--                                {{ payment_subscription.name }}-->
-<!--                            </h3>-->
-
-<!--                            <div class="text-start small text-muted border-top border-bottom py-2 mb-3" style="font-size: 0.8rem; line-height: 1.6;">-->
-<!--                                <div class="mb-1"><span class="text-dark font-weight-bold">График:</span> {{ payment_subscription.schedule }}</div>-->
-<!--                                <div><span class="text-dark font-weight-bold">Результат:</span> {{ payment_subscription.result }}</div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-
-
-<!--                    <div class="card-bottom-content text-center pt-2 mt-auto">-->
-<!--                        &lt;!&ndash; Основная оплата в РФ &ndash;&gt;-->
-<!--                        <div class="price-box mb-3">-->
-<!--                            <div class="h4 font-weight-bold mb-0 text-dark" style="letter-spacing: 0.5px;">-->
-<!--                                {{ payment_subscription.price_month_sale }} <span style="font-size: 0.85rem; font-weight: normal;">₽ / мес</span>-->
-<!--                            </div>-->
-<!--                            <div class="text-muted small" style="font-size: 0.75rem; text-decoration: line-through; opacity: 0.7;">-->
-<!--                                {{ payment_subscription.price_month }} ₽-->
-<!--                            </div>-->
-<!--                        </div>-->
-
-
-<!--                        <a href="{{ payment_subscription.url_pay_month }}" target="_blank" class="btn text-dark w-100 mb-4 py-2 text-decoration-none d-flex align-items-center justify-content-center" style="background-color: #f4f4f6; border-radius: 50px; font-size: 0.75rem; letter-spacing: 1.5px; font-weight: 600;">-->
-<!--                                {% trans 'ВЫБРАТЬ' %}-->
-<!--                        </a>-->
-
-<!--                        &lt;!&ndash; Блок оплаты из других стран &ndash;&gt;-->
-<!--                        <div class="border-top pt-3">-->
-<!--                            <div class="text-uppercase text-muted mb-2" style="font-size: 0.65rem; letter-spacing: 1.5px; font-weight: 600;">-->
-<!--                                {% trans 'Оплата из других стран' %}-->
-<!--                            </div>-->
-
-<!--                            <div class="d-flex align-items-center justify-content-center gap-2 mb-2" style="opacity: 0.85;">-->
-<!--                                <img src="{% static 'images/icons/visa.png' %}" alt="Visa" style="height: 12px; width: auto; object-fit: contain;">-->
-<!--                                <img src="{% static 'images/icons/master.png' %}" alt="Mastercard" style="height: 14px; width: auto; object-fit: contain;">-->
-<!--                                <img src="{% static 'images/icons/usdt.png' %}" alt="USDT" style="height: 14px; width: auto; object-fit: contain;">-->
-<!--                            </div>-->
-
-<!--                            <a href="{{ payment_subscription.url_pay_year }}" target="_blank" class="btn text-dark w-100 py-2 mb-2 text-decoration-none d-flex align-items-center justify-content-center" style="background-color: #f4f4f6; border-radius: 50px; font-size: 0.75rem; letter-spacing: 1.5px; font-weight: 600;">-->
-<!--                                {% trans 'ВЫБРАТЬ' %}-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-
-<!--                </div>-->
-<!--            </div>-->
-<!--            {% endfor %}-->
-<!--        </div>-->
 
         <!-- Post-payment Instructions -->
-        <div class="row justify-content-center text-center my-5 py-4 border-top border-bottom">
-            <div class="col-md-9">
-                <span class="text-uppercase text-muted d-block mb-2" style="letter-spacing: 2px; font-size: 0.7rem;">Активация доступа</span>
-                <p class="small text-secondary mb-1">
-                    После оплаты по QR-коду отправьте чек в
-                    <a href="https://t.me/Simona_Soloduha_Fitness" target="_blank" class="text-dark font-weight-bold text-underline">Telegram</a> или на
-                    <a href="mailto:simonasoloduha@gmail.com" class="text-dark font-weight-bold text-underline">Gmail</a> (simonasoloduha@gmail.com).
-                </p>
-                <p class="small text-muted mb-0">Менеджер откроет личный кабинет и предоставит материалы программы.</p>
+
+        <div class="row justify-content-center text-center mb-5 mt-3" data-aos="fade-up">
+            <div class="col-lg-10">
+                <h3 class="text-uppercase" style="font-family: 'Playfair Display', Georgia, serif; font-weight: 400; letter-spacing: 2px; font-size: 1.5rem;">
+                    {% trans 'КАК ОПЛАТИТЬ ПРОГРАММУ?' %}
+                </h3>
+                <div class="mx-auto bg-dark mb-4" style="width: 40px; height: 1px;"></div>
+                      <p class="mb-1"><strong>1. </strong>Для оплаты из РФ:
+                           Оплатите российской картой МИР по официальному QR-коду Альфа-Банка.
+                      </p>
+                      <p class="mb-1"><strong>1. </strong>Для оплаты из других стран:
+                          Оплатите картой VISA, MASTERCARD или USDT по ссылке Tribute.
+                      </p>
+                      <p class="mb-0"><strong>2.</strong> Менеджер моментально вышлет вам на почту доступ к материалам!</p>
+                      <p class="mb-1"><strong>3.</strong> Если возникнут проблемы с оплатой, напишите нам в
+                          <a href="https://t.me/Simona_Soloduha_Fitness" target="_blank" class="text-primary fw-medium">Telegram</a>
+                          или на <a href="https://mail.google.com/mail/?view=cm&fs=1&to=simonasoloduha@gmail.com" target="_blank" class="text-primary fw-medium">Gmail почту simonasoloduha@gmail.com</a>.
+                      </p>
             </div>
         </div>
 
