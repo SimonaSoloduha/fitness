@@ -284,8 +284,7 @@ jQuery(document).ready(function($) {
 
     var popoverCooldown = false;
 
-    // Селектор отслеживает наведение как на сетку подписок, так и на промо-баннеры марафона
-    $('.row[data-aos="fade"], .card.bg-dark.text-white.position-relative').on('mouseenter', function() {
+    function showPopover() {
         var lastShown = localStorage.getItem('yandex_popover_time');
         var now = Date.now();
 
@@ -298,23 +297,58 @@ jQuery(document).ready(function($) {
                 popoverCooldown = false;
             }, 40000);
         }
+    }
+
+    // 1. Для ПК: Наведение мыши (mouseenter)
+    $('.row[data-aos="fade"], .card.bg-dark.text-white.position-relative').on('mouseenter', function() {
+        showPopover();
     });
 
-    $('body').on('click', '.close-popover-btn', function(e) {
+    // 2. Для Мобильных: Клик / Тап по карточкам и кнопкам оплаты
+    $('.row[data-aos="fade"], .card.bg-dark.text-white.position-relative, a[href*="paysecurepayment.com"]').on('click touchstart', function() {
+        showPopover();
+    });
+
+    // 3. Для Мобильных: Автопоказ при скролле до целевых блоков (IntersectionObserver)
+    if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    showPopover();
+                }
+            });
+        }, { threshold: 0.3 }); // Срабатывает, когда 30% карточки появилось на экране
+
+        $('.card.bg-dark.text-white.position-relative').each(function() {
+            observer.observe(this);
+        });
+    }
+
+    // Закрытие попапа по крестику
+    $('body').on('click touchstart', '.close-popover-btn', function(e) {
         e.preventDefault();
         e.stopPropagation();
         $('.payment-hover-popover').removeClass('is-active').addClass('is-closed');
     });
 
-    $('body').on('click', '.btn-popover-copy', function(e) {
+    // Копирование ссылки
+    $('body').on('click touchstart', '.btn-popover-copy', function(e) {
         e.preventDefault();
-        var payUrl = window.location.href; // Всегда копирует адрес текущей страницы
+        var payUrl = window.location.href;
         var $btn = $(this);
         var originalText = $btn.text();
 
-        window.copyToClipboard(payUrl, function() {
-            $btn.text('ССЫЛКА СКОПИРОВАНА! ✓');
-            setTimeout(function() { $btn.text(originalText); }, 2500);
-        });
+        if (typeof window.copyToClipboard === 'function') {
+            window.copyToClipboard(payUrl, function() {
+                $btn.text('ССЫЛКА СКОПИРОВАНА! ✓');
+                setTimeout(function() { $btn.text(originalText); }, 2500);
+            });
+        } else {
+            // Резервный метод копирования для мобильных браузеров
+            navigator.clipboard.writeText(payUrl).then(function() {
+                $btn.text('ССЫЛКА СКОПИРОВАНА! ✓');
+                setTimeout(function() { $btn.text(originalText); }, 2500);
+            });
+        }
     });
 });

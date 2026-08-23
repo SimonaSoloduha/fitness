@@ -414,33 +414,55 @@ header,
     transform: none !important;
 }
 
-/* 1. Всплывающее окно строго по центру экрана */
+/* 1. Затемняющий фон под окно (чтобы контент сайта не отвлекал) */
+body.popover-open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 99999;
+}
+
+/* 2. Всплывающее окно строго по центру экрана */
 .payment-hover-popover {
     position: fixed !important;
     top: 50% !important;
     left: 50% !important;
-    transform: translate(-50%, -50%) scale(0.9) !important;
+    transform: translate(-50%, -45%) scale(0.95) !important;
     width: 90%;
     max-width: 380px;
     background: #000000;
     color: #ffffff;
     padding: 24px 20px;
     border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-    z-index: 100000 !important; /* Подняли уровень, чтобы перекрыть нижний баннер */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    z-index: 100000 !important;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out, visibility 0.25s;
     pointer-events: none;
     text-align: center;
+    box-sizing: border-box;
 }
 
-/* 2. Показ при наведении на карточку */
+/* 3. Показ модального окна */
 .payment-hover-popover.is-active:not(.is-closed) {
     opacity: 1 !important;
     visibility: visible !important;
     transform: translate(-50%, -50%) scale(1) !important;
     pointer-events: auto !important;
+}
+
+/* 4. Стилизация для мобильных устройств (фиксация при прокрутке) */
+@media (max-width: 576px) {
+    .payment-hover-popover {
+        width: 92%;
+        padding: 20px 16px;
+    }
 }
 
 /* 3. Элементы внутри окна (ОСТАВЛЯЕМ БЕЗ ИЗМЕНЕНИЙ) */
