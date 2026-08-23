@@ -26,18 +26,6 @@
             <div class="col-md-6 col-lg-3 mb-4 d-flex align-items-stretch">
                 <div class="vogue-card bg-white w-100 border d-flex flex-column justify-content-between p-3">
 
-                    <!-- Всплывающее окно ЯНДЕКС (выводится строго по центру экрана) -->
-                    <div class="payment-hover-popover">
-                        <button type="button" class="close-popover-btn" aria-label="Закрыть">&times;</button>
-                        <div class="popover-title">⚠️ ВАЖНОЕ ПРЕДУПРЕЖДЕНИЕ</div>
-                        <p class="popover-text">
-                            Оплата в РФ работает стабильно только в <b>Яндекс.Браузере</b> — он поддерживает сертификаты безопасности Минцифры. Скопируйте ссылку и откройте сайт в Яндексе.
-                        </p>
-                        <button type="button" class="btn-popover-copy" data-url="{{ payment_subscription.url_pay_month }}">
-                            СКОПИРОВАТЬ ССЫЛКУ
-                        </button>
-                    </div>
-
                     <div class="card-top-content">
                         <a href="{% url 'payment_subscription_fit_vid_detail' payment_subscription.pk %}" target="_blank" class="d-block mb-3 overflow-hidden">
                             <img src="/static/{{ payment_subscription.image }}" alt="Программа тренировок для похудения: {{ payment_subscription.name }}" class="img-fluid w-100 d-block" style="object-fit: cover; height: 260px; filter: grayscale(10%); transition: transform 0.4s ease;">
@@ -163,52 +151,18 @@
             </div>
         </div>
 
-    </div>
-
-    <!-- Всплывающее окно (Modal) -->
-    <div class="modal fade" id="yandexPayModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content border-0 shadow-lg" style="border-radius: 20px;">
-                <div class="modal-header border-0 pb-0">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body text-center px-4 pb-4 pt-0">
-                    <div class="mb-3">
-              <span class="badge badge-warning px-3 py-2 text-uppercase"
-                    style="font-size: 0.75rem; border-radius: 50px; background-color: #ffc107; color: #000;">
-                ⚠️ ВАЖНАЯ ИНФОРМАЦИЯ
-              </span>
-                    </div>
-
-                    <h5 class="font-weight-bold mb-3" style="font-family: 'Playfair Display', Georgia, serif;">
-                        Не открывается страница оплаты?
-                    </h5>
-
-                    <p class="small text-muted mb-4" style="line-height: 1.6;">
-                        Скопируйте ссылку и откройте ее в
-                        <strong>Яндекс.Браузере</strong> — он поддерживает сертификаты безопасности Минцифры.
-                    </p>
-
-                    <div class="d-flex flex-column gap-2">
-                        <!-- Кнопка "ПЕРЕЙТИ К ОПЛАТЕ" -->
-                        <a id="modalProceedBtn" href="#" target="_blank"
-                           class="btn text-dark w-100 mb-3 py-3"
-                           style="background-color: #ffc107; border-radius: 50px; font-weight: 800; text-transform: uppercase;">
-                            {% trans 'ПЕРЕЙТИ К ОПЛАТЕ' %} &rarr;
-                        </a>
-
-                        <!-- Кнопка "СКОПИРОВАТЬ ССЫЛКУ" -->
-                        <button type="button" id="modalCopyBtn"
-                                class="btn btn-outline-secondary w-100 py-2"
-                                style="border-radius: 50px; font-weight: 600;">
-                            {% trans 'СКОПИРОВАТЬ ССЫЛКУ' %}
-                        </button>
-                    </div>
-                </div>
-            </div>
+        <!-- Всплывающее окно ЯНДЕКС (выводится строго по центру экрана) -->
+        <div class="payment-hover-popover">
+            <button type="button" class="close-popover-btn" aria-label="Закрыть">&times;</button>
+            <div class="popover-title">⚠️ ВАЖНОЕ ПРЕДУПРЕЖДЕНИЕ</div>
+            <p class="popover-text">
+                Оплата в РФ работает стабильно только в <b>Яндекс.Браузере</b> — он поддерживает сертификаты безопасности Минцифры. Скопируйте ссылку и откройте сайт в Яндексе.
+            </p>
+            <button type="button" class="btn-popover-copy">
+                СКОПИРОВАТЬ ССЫЛКУ
+            </button>
         </div>
+
     </div>
 
 </section>

@@ -275,25 +275,46 @@ jQuery(document).ready(function($) {
     });
 
     // -------------------------------------------------------------
-    // 5. Обработка Всплывающих Popover в карточках
+    // 5. Обработка Всплывающих Popover (Перенос в body и показ)
     // -------------------------------------------------------------
+    var $popover = $('.payment-hover-popover').first();
+    if ($popover.length) {
+        $popover.appendTo('body');
+    }
+
+    var popoverCooldown = false;
+
+    // Селектор отслеживает наведение как на сетку подписок, так и на промо-баннеры марафона
+    $('.row[data-aos="fade"], .card.bg-dark.text-white.position-relative').on('mouseenter', function() {
+        var lastShown = localStorage.getItem('yandex_popover_time');
+        var now = Date.now();
+
+        if (!popoverCooldown && (!lastShown || (now - lastShown > 40000))) {
+            $('.payment-hover-popover').addClass('is-active').removeClass('is-closed');
+            localStorage.setItem('yandex_popover_time', now);
+            popoverCooldown = true;
+
+            setTimeout(function() {
+                popoverCooldown = false;
+            }, 40000);
+        }
+    });
+
     $('body').on('click', '.close-popover-btn', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        $(this).closest('.payment-hover-popover').addClass('is-closed');
+        $('.payment-hover-popover').removeClass('is-active').addClass('is-closed');
     });
 
     $('body').on('click', '.btn-popover-copy', function(e) {
         e.preventDefault();
-        var payUrl = $(this).attr('data-url');
+        var payUrl = window.location.href; // Всегда копирует адрес текущей страницы
         var $btn = $(this);
         var originalText = $btn.text();
 
-        if (payUrl) {
-            window.copyToClipboard(payUrl, function() {
-                $btn.text('ССЫЛКА СКОПИРОВАНА! ✓');
-                setTimeout(function() { $btn.text(originalText); }, 2500);
-            });
-        }
+        window.copyToClipboard(payUrl, function() {
+            $btn.text('ССЫЛКА СКОПИРОВАНА! ✓');
+            setTimeout(function() { $btn.text(originalText); }, 2500);
+        });
     });
 });
