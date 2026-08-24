@@ -38,6 +38,7 @@ def get_welcome_email_content(email, password=None, sub_type=None, expire_date_s
             f"Доступ до {expire_date_str}\n\n"
             f"Хороших тренировок и результатов 😘\n\n"
             f"Если будут вопросы — пишите 🌸"
+            f"Слоник на все ответит"
         )
     else:
         subject = "Ваша подписка на сайте SIMONA SOLODUHA активирована"
@@ -47,6 +48,7 @@ def get_welcome_email_content(email, password=None, sub_type=None, expire_date_s
             f"Доступ до {expire_date_str}\n\n"
             f"Хороших тренировок и результатов 😘\n\n"
             f"Если будут вопросы — пишите 🌸"
+            f"Слоник на все ответит"
         )
 
     return subject, message
@@ -55,16 +57,15 @@ def get_welcome_email_content(email, password=None, sub_type=None, expire_date_s
 @app.task(time_limit=30, soft_time_limit=20)
 def send_welcome_email_task(email, password=None, sub_type=None, expire_date_str=""):
     """Таск Celery отправки письма о подписке"""
-    try:
-        subject, message = get_welcome_email_content(email, password, sub_type, expire_date_str)
 
-        return send_mail(
-            subject=subject,
-            message=message,
-            from_email=EMAIL_HOST_USER,
-            recipient_list=[email],
-            fail_silently=False,
-        )
-    except Exception as e:
-        logger.error(f"Ошибка при отправке письма подписки: {e}", exc_info=True)
-        raise e
+    subject, message = get_welcome_email_content(email, password, sub_type, expire_date_str)
+
+    mail_sent = send_mail(
+        subject=subject,
+        message=message,
+        from_email=EMAIL_HOST_USER,
+        recipient_list=[email],
+        fail_silently=False,
+    )
+
+    return mail_sent
