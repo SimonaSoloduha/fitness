@@ -215,6 +215,10 @@ EMAIL_TIMEOUT = 10
 
 # Обязательные защиты от падения веб-сайта:
 CELERY_BROKER_CONNECTION_TIMEOUT = 3.0  # Ждать Redis не дольше 3 секунд
+# Перезапускать каждый рабочий процесс после обработки 100 задач (освобождает память)
+CELERY_WORKER_MAX_TASKS_PER_CHILD = 100
+# Перезапускать процесс, если он потребляет больше 300 МБ оперативной памяти
+CELERY_WORKER_MAX_MEMORY_PER_CHILD = 300000  # в килобайтах (300 MB)
 
 
 GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
