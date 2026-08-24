@@ -27,9 +27,6 @@ def get_welcome_email_content(email, password=None, sub_type=None, expire_date_s
     else:
         link_text = "Программа по ссылке и на вкладке ПРОГРАММЫ: https://simonasoloduha.ru/video/timetable/"
 
-    # Прямая ссылка на вашего слоника на сайте
-    elephant_link = "https://simonasoloduha.ru/static/images/SLON.png"
-
     if password:
         subject = "Ваши данные для входа на сайт SIMONA SOLODUHA"
         message = (
@@ -41,7 +38,6 @@ def get_welcome_email_content(email, password=None, sub_type=None, expire_date_s
             f"Доступ до {expire_date_str}\n\n"
             f"Хороших тренировок и результатов 😘\n\n"
             f"Если будут вопросы — пишите, Слоник на все ответит 🐘\n"
-            f"Наш Слоник: {elephant_link}\n\n\n"
             f"С уважением, Симона Солодуха и Слон."
         )
     else:
@@ -52,7 +48,6 @@ def get_welcome_email_content(email, password=None, sub_type=None, expire_date_s
             f"Доступ до {expire_date_str}\n\n"
             f"Хороших тренировок и результатов 😘\n\n"
             f"Если будут вопросы — пишите, Слоник на все ответит 🐘\n"
-            f"Наш Слоник: {elephant_link}\n\n\n"
             f"С уважением, Симона Солодуха и Слон."
         )
 
