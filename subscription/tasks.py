@@ -37,8 +37,8 @@ def get_welcome_email_content(email, password=None, sub_type=None, expire_date_s
             f"{link_text}\n\n"
             f"Доступ до {expire_date_str}\n\n"
             f"Хороших тренировок и результатов 😘\n\n"
-            f"Если будут вопросы — пишите 🌸"
-            f"Слоник на все ответит"
+            f"Если будут вопросы — пишите, Слоник на все ответит\n\n\n"
+            f"C уважением, Симона Солодуха и Слон."
         )
     else:
         subject = "Ваша подписка на сайте SIMONA SOLODUHA активирована"
@@ -48,7 +48,8 @@ def get_welcome_email_content(email, password=None, sub_type=None, expire_date_s
             f"Доступ до {expire_date_str}\n\n"
             f"Хороших тренировок и результатов 😘\n\n"
             f"Если будут вопросы — пишите 🌸"
-            f"Слоник на все ответит"
+            f"Если будут вопросы — пишите, Слоник на все ответит\n\n\n"
+            f"C уважением, Симона Солодуха и Слон."
         )
 
     return subject, message
