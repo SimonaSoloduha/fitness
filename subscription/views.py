@@ -149,8 +149,8 @@ def register_user_with_subscription(request):
                     expire_date_str=expire_date_formatted
                 )
 
-                # 4. Получаем текст для блока копирования
-                _, copy_text = get_welcome_email_content(email, generated_password, sub_type, expire_date_formatted)
+                # 4. Получаем текст для блока копирования (теперь передаем 3 переменные)
+                _, copy_text, _ = get_welcome_email_content(email, generated_password, sub_type, expire_date_formatted)
 
                 success_html = mark_safe(
                     f"{status_msg}<br>"
@@ -158,6 +158,24 @@ def register_user_with_subscription(request):
                     f"<b>Текст письма для копирования:</b>"
                     f"<pre style='background: #f4f4f6; padding: 12px; border-radius: 6px; border: 1px solid #ccc; font-family: monospace; font-size: 13px; margin-top: 8px; user-select: all; white-space: pre-wrap;'>{copy_text}</pre>"
                 )
+
+                # # 3. Запускаем фоновую отправку
+                # send_welcome_email_task.delay(
+                #     email=email,
+                #     password=generated_password,
+                #     sub_type=sub_type,
+                #     expire_date_str=expire_date_formatted
+                # )
+                #
+                # # 4. Получаем текст для блока копирования
+                # _, copy_text = get_welcome_email_content(email, generated_password, sub_type, expire_date_formatted)
+                #
+                # success_html = mark_safe(
+                #     f"{status_msg}<br>"
+                #     f"Письмо отправлено на почту.<br><br>"
+                #     f"<b>Текст письма для копирования:</b>"
+                #     f"<pre style='background: #f4f4f6; padding: 12px; border-radius: 6px; border: 1px solid #ccc; font-family: monospace; font-size: 13px; margin-top: 8px; user-select: all; white-space: pre-wrap;'>{copy_text}</pre>"
+                # )
 
                 messages.success(request, success_html)
                 return redirect('register_with_subscription')
