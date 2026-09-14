@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% trans 'Оплата программы' %}
+{% endblock title %}
+
+
+{% block header-video %}
+
+{% endblock header-video %}
+
+
+{% block content %}
+
+<div class="site-section bg-light contact-wrap">
+    <div class="container">
+
+        <!-- Заголовок -->
+        <div class="row justify-content-center text-center mb-5 mt-5">
+            <div class="col-md-8 section-heading">
+
+                <span class="subheading">
+                    {% trans 'ОПЛАТА ПРОГРАММЫ' %}
+                </span>
+
+                <h2 class="heading mb-3">
+                    {{ payment_subscription.name }}
+                </h2>
+
+            </div>
+        </div>
+
+
+        <!-- Информация об оплате -->
+        <div class="row justify-content-center text-center mb-5 mt-3" data-aos="fade-up">
+            <div class="col-lg-10">
+                <h3 class="text-uppercase" style="font-family: 'Playfair Display', Georgia, serif; font-weight: 400; letter-spacing: 2px; font-size: 1.5rem;">
+                    {% trans 'КАК ОПЛАТИТЬ ПРОГРАММУ?' %}
+                </h3>
+                <div class="mx-auto bg-dark mb-4" style="width: 40px; height: 1px;"></div>
+                      <p class="mb-1"><strong>1. </strong>Для оплаты из РФ:
+                           Оплатите российской картой МИР по официальному QR-коду Альфа-Банка или по
+                          <strong>
+                          <a href="{{ payment_subscription.url_pay_month }}" target="_blank" class="text-primary fw-medium">ссылке.</a>
+                          </strong>
+
+                      </p>
+
+
+                           <div class="mb-5">
+                                <div class="d-flex justify-content-center">
+                                    <img src="/static/{{ payment_subscription.qr_image }}" alt="QR-код для оплаты {{ payment_subscription.name }}" style="width: 280px; height: 280px; object-fit: contain;">
+                                </div>
+                           </div>
+
+
+                      <p class="mb-1"><strong>Для оплаты из других стран картой VISA/MASTERCARD:</strong>
+                               вертнитесь на предыдущую страницу и нажмите нижнюю кнопку оплаты.
+                      </p>
+                      <p class="mb-0"><strong>2.</strong> Менеджер моментально вышлет вам на почту доступ к материалам!</p>
+                      <p class="mb-1"><strong>3.</strong> Если возникнут проблемы с оплатой, напишите нам в
+                          <a href="https://t.me/Simona_Soloduha_Fitness" target="_blank" class="text-primary fw-medium">Telegram</a>
+                          или на <a href="https://mail.google.com/mail/?view=cm&fs=1&to=simonasoloduha@gmail.com" target="_blank" class="text-primary fw-medium">Gmail почту simonasoloduha@gmail.com</a>.
+                      </p>
+                      <p class="mb-0"><strong>4.</strong> Оплата по ссылкке работает только в Яндекс браузере.</p>
+            </div>
+        </div>
+
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-8 col-lg-6">
+                <div class="bg-white p-4 p-md-5 text-center">
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+{% endblock content %}

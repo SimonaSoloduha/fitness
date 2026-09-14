@@ -96,6 +96,7 @@ class PaymentSubscription(models.Model):
     description = models.TextField(blank=True, verbose_name=_('description'))
     image = models.ImageField(upload_to='payment_subscription_img', blank=True, null=True, height_field=None,
                               width_field=None, max_length=100)
+    qr_image = models.ImageField(upload_to='payment_subscription_qr', blank=True, null=True, verbose_name=_('QR code'))
     price_month = models.DecimalField(max_digits=6, decimal_places=0, verbose_name=_('price_month'))
     price_year = models.DecimalField(max_digits=6, decimal_places=0, verbose_name=_('price_year'))
     sale = models.DecimalField(max_digits=6, decimal_places=0, null=True, verbose_name=_('sale'))

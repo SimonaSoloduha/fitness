@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.views.generic import ListView
 
 from subscription.models import SubscriptionFitnessVideo, PaymentSubscription
@@ -119,3 +119,18 @@ class TimetablesBeginner(ListView):
         }
 
         return render(request, 'timetable/timetable_beginner.html', context)
+
+
+def payment_subscription_payment(request, pk):
+    payment_subscription = get_object_or_404(
+        PaymentSubscription,
+        pk=pk
+    )
+
+    return render(
+        request,
+        'timetable/payment_subscription_payment.html',
+        {
+            'payment_subscription': payment_subscription,
+        }
+    )
